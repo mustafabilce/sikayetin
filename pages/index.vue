@@ -305,9 +305,9 @@ section h1 {
 
       <div id="call_to_action">
         <h1>
-          <span style="font-weight: 300">Şikayet.in varsa</span>
+          <span style="font-weight: 400">Şikayet.in varsa</span>
           <br />
-          <span>Çözüm de var</span>
+          <span style="font-weight: 600">Çözüm de var</span>
         </h1>
 
         <div id="search">
