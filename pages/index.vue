@@ -2,6 +2,7 @@
 header {
   background: linear-gradient(#85dced, #4fc8e2);
   height: 80vh;
+  min-height: 500px;
   border-radius: 0 0 250px 250px;
 
   display: flex;
@@ -9,18 +10,43 @@ header {
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 1200px) {
+    border-radius: 0 0 150px 150px;
+  }
+
+  @media (max-width: 800px) {
+    border-radius: 0 0 50px 50px;
+  }
+
+  &,
+  a,
+  .btn {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
+
   nav {
-    width: 1400px;
-    padding: 30px 0;
+    width: 100%;
+    padding: 30px 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    a {
-      color: white;
+    @media (max-width: 500px) {
+      padding: 30px;
+      #logo {
+        width: 180px;
+      }
     }
 
     #primary_nav {
+      @media (max-width: 1400px) {
+        display: none;
+      }
+
       a {
         margin: 0 6px;
         padding: 12px;
@@ -31,7 +57,6 @@ header {
 
         &.btn {
           background: #ff5777;
-          color: white;
           border-radius: 100px;
           padding: 8px 24px;
           margin-left: 10px;
@@ -40,7 +65,10 @@ header {
     }
 
     #secondary_nav {
-      color: white;
+      @media (max-width: 900px) {
+        display: none;
+      }
+
       cursor: default;
 
       a {
@@ -52,12 +80,19 @@ header {
 
         &.btn {
           background: #00244c;
-          color: white;
           font-weight: bold;
           padding: 12px 36px;
           border-radius: 100px;
           margin-left: 40px;
         }
+      }
+    }
+
+    .fa-bars {
+      display: none;
+
+      @media (max-width: 1400px) {
+        display: unset;
       }
     }
   }
@@ -68,7 +103,7 @@ header {
   <header>
     <nav>
       <a href="#">
-        <img src="../static/logo-white-1.png" />
+        <img src="../static/logo-white-1.png" id="logo" />
       </a>
 
       <div id="primary_nav">
@@ -84,6 +119,8 @@ header {
         <a href="#">Üye Ol</a>
         <a href="#" class="btn">Şikayet Yaz</a>
       </div>
+
+      <i class="fas fa-bars" style="font-size: 2em" />
     </nav>
   </header>
 </template>
