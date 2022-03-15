@@ -1,21 +1,20 @@
 <style lang="scss">
 header {
   background: linear-gradient(#85dced, #4fc8e2);
-  height: 80vh;
-  min-height: 500px;
-  border-radius: 0 0 250px 250px;
+  border-radius: 0 0 220px 220px;
+  padding: 30px 150px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 1200px) {
-    border-radius: 0 0 150px 150px;
+  @media (max-width: 1500px) {
+    padding-inline: 120px;
   }
-
+  @media (max-width: 1200px) {
+    border-radius: 0 0 140px 140px;
+  }
   @media (max-width: 800px) {
     border-radius: 0 0 50px 50px;
+  }
+  @media (max-width: 500px) {
+    padding: 30px;
   }
 
   &,
@@ -30,13 +29,11 @@ header {
 
   nav {
     width: 100%;
-    padding: 30px 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     @media (max-width: 500px) {
-      padding: 30px;
       #logo {
         width: 180px;
       }
@@ -96,6 +93,58 @@ header {
       }
     }
   }
+
+  #call_to_action {
+    margin: 100px 0;
+
+    h1 {
+      font-size: 4em;
+    }
+
+    input {
+      margin: 50px 0;
+      width: 450px;
+      border-radius: 100px;
+      padding: 20px 30px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.2);
+
+      &:hover {
+        box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.4);
+      }
+
+      &:focus {
+        box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.8);
+      }
+    }
+
+    #banner {
+      position: absolute;
+      top: 150px;
+      right: 100px;
+      border-radius: 100%;
+      box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.1);
+      width: 600px;
+      height: 600px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (max-width: 1400px) {
+        width: 500px;
+        height: 500px;
+        top: 200px;
+        right: 60px;
+      }
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+  }
 }
 </style>
 
@@ -122,6 +171,20 @@ header {
 
       <i class="fas fa-bars" style="font-size: 2em" />
     </nav>
+
+    <div id="call_to_action">
+      <h1>
+        <span style="font-weight: 300">Şikayet.in varsa</span>
+        <br />
+        <span>Çözümde var</span>
+      </h1>
+
+      <input type="text" placeholder="Marka, model, ürün ara" />
+
+      <div id="banner">
+        <img src="../static/banner1.png" />
+      </div>
+    </div>
   </header>
 </template>
 

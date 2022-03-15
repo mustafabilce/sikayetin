@@ -5,10 +5,11 @@
 	font-family: "Inter", sans-serif;
 }
 
-a {
+a,
+input {
 	transition: 0.3s ease;
+}
 
-	&:hover {
-		text-decoration: none;
-	}
+a:hover {
+	text-decoration: none;
 }
