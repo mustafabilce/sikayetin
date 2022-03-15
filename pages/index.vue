@@ -45,8 +45,10 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 500px) {
-      #logo {
+    #logo {
+      width: 220px;
+
+      @media (max-width: 500px) {
         width: 180px;
       }
     }
@@ -305,7 +307,7 @@ section h1 {
         <h1>
           <span style="font-weight: 300">Şikayet.in varsa</span>
           <br />
-          <span>Çözümde var</span>
+          <span>Çözüm de var</span>
         </h1>
 
         <div id="search">
