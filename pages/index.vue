@@ -1,21 +1,4 @@
 <style lang="scss">
-:root {
-  --section-padding-inline: 150px;
-
-  @media (max-width: 1500px) {
-    --section-padding-inline: 120px;
-  }
-  @media (max-width: 800px) {
-    --section-padding-inline: 80px;
-  }
-  @media (max-width: 650px) {
-    --section-padding-inline: 50px;
-  }
-  @media (max-width: 500px) {
-    --section-padding-inline: 30px;
-  }
-}
-
 header,
 section {
   padding-inline: var(--section-padding-inline);
@@ -297,7 +280,7 @@ header {
     box-sizing: border-box;
     overflow-x: scroll;
     margin: 20px 0;
-    margin-left: calc(var(--section-padding-inline) * -1);
+    margin-left: var(--section-padding-inline-negative);
 
     &::-webkit-scrollbar {
       display: none;
@@ -373,7 +356,7 @@ header {
     text-align: center;
     padding: 100px 300px 150px 100px;
     min-width: 60vw;
-    margin-right: calc(var(--section-padding-inline) * -1);
+    margin-right: var(--section-padding-inline-negative);
 
     p {
       max-width: 700px;
