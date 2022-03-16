@@ -21,6 +21,36 @@ section {
   padding-inline: var(--section-padding-inline);
 }
 
+section {
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @media (max-width: 1200px) {
+    margin-top: 150px;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 100px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 70px;
+  }
+
+  h1 {
+    font-size: 3em;
+
+    @media (max-width: 900px) {
+      font-size: 2em;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.5em;
+      text-align: center;
+    }
+  }
+}
+
 header {
   background: linear-gradient(#85dced, #4fc8e2);
   border-radius: 0 0 220px 220px;
@@ -253,35 +283,8 @@ header {
   }
 }
 
-section h1 {
-  font-size: 3em;
-
-  @media (max-width: 900px) {
-    font-size: 2em;
-  }
-
-  @media (max-width: 600px) {
-    font-size: 1.5em;
-    text-align: center;
-  }
-}
-
 #trending {
   margin-top: 300px;
-  max-width: 100%;
-  overflow: hidden;
-
-  @media (max-width: 1200px) {
-    margin-top: 150px;
-  }
-
-  @media (max-width: 900px) {
-    margin-top: 100px;
-  }
-
-  @media (max-width: 600px) {
-    margin-top: 70px;
-  }
 
   .inner {
     display: flex;
@@ -312,7 +315,7 @@ section h1 {
     .trending-row {
       display: flex;
       gap: 20px;
-      align-items: end;
+      align-items: flex-end;
 
       div {
         background-color: white;
@@ -353,6 +356,90 @@ section h1 {
 
       @media (max-width: 900px) {
         padding-left: 0;
+      }
+    }
+  }
+}
+
+#compare {
+  margin-bottom: 300px;
+
+  .inner {
+    background-color: #5379ff;
+    color: white;
+    float: right;
+    margin-top: 100px;
+    border-radius: 500px 0 0 500px;
+    text-align: center;
+    padding: 100px 300px 150px 100px;
+    min-width: 60vw;
+    margin-right: calc(var(--section-padding-inline) * -1);
+
+    p {
+      max-width: 700px;
+      text-align: center;
+      font-size: 1.4em;
+      display: inline-block;
+    }
+
+    #inputs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      margin: 50px 0;
+    }
+
+    #inputs select {
+      padding: 10px 30px;
+      width: 250px;
+      border-radius: 100px;
+      border: none;
+      box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.1);
+    }
+
+    #inputs button {
+      padding: 12px 30px;
+      border-radius: 100px;
+      background-color: #ff5777;
+      color: white;
+      border: none;
+    }
+
+    @media (max-width: 1400px) {
+      width: 100vw;
+      min-width: unset;
+      padding: 50px 0;
+      border-radius: 0;
+
+      > * {
+        margin: 0 20px;
+      }
+
+      h1 {
+        margin-bottom: 50px;
+      }
+
+      p {
+        margin-top: 50px;
+      }
+
+      #inputs {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+
+      #inputs {
+        flex-direction: column;
       }
     }
   }
@@ -559,6 +646,28 @@ section h1 {
               bibendum risus, sit ac velit purus lectu
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="compare">
+      <div class="inner">
+        <h1>Marka Karşılaştırması</h1>
+
+        <p class="mt-3 mb-4" style="font-weight: 300">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+          tenetur, nisi voluptate debitis dignissimos molestias repellat,
+          reprehenderit saepe libero qui expedita deleniti.
+        </p>
+
+        <div id="inputs">
+          <select>
+            <option value="">1.Marka</option>
+          </select>
+          <button>Karşılaştır</button>
+          <select>
+            <option value="">2.Marka</option>
+          </select>
         </div>
       </div>
     </section>
