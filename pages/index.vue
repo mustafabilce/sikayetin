@@ -1,20 +1,24 @@
 <style lang="scss">
-header,
-section {
-  padding-inline: 150px;
+:root {
+  --section-padding-inline: 150px;
 
   @media (max-width: 1500px) {
-    padding-inline: 120px;
+    --section-padding-inline: 120px;
   }
   @media (max-width: 800px) {
-    padding-inline: 80px;
+    --section-padding-inline: 80px;
   }
   @media (max-width: 650px) {
-    padding-inline: 50px;
+    --section-padding-inline: 50px;
   }
   @media (max-width: 500px) {
-    padding-inline: 30px;
+    --section-padding-inline: 30px;
   }
+}
+
+header,
+section {
+  padding-inline: var(--section-padding-inline);
 }
 
 header {
@@ -258,11 +262,14 @@ section h1 {
 
   @media (max-width: 600px) {
     font-size: 1.5em;
+    text-align: center;
   }
 }
 
 #trending {
   margin-top: 300px;
+  max-width: 100%;
+  overflow: hidden;
 
   @media (max-width: 1200px) {
     margin-top: 150px;
@@ -274,6 +281,80 @@ section h1 {
 
   @media (max-width: 600px) {
     margin-top: 70px;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+
+    max-width: 100vw;
+    width: 100vw !important;
+    box-sizing: border-box;
+    overflow-x: scroll;
+    margin: 20px 0;
+    margin-left: calc(var(--section-padding-inline) * -1);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      h5 {
+        font-size: 1.1em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+    }
+
+    .trending-row {
+      display: flex;
+      gap: 20px;
+      align-items: end;
+
+      div {
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .row-1 div:nth-child(odd),
+    .row-2 div:nth-child(even) {
+      min-width: 300px;
+
+      @media (max-width: 900px) {
+        min-width: 250px;
+      }
+    }
+    .row-1 div:nth-child(even),
+    .row-2 div:nth-child(odd) {
+      min-width: 230px;
+
+      @media (max-width: 900px) {
+        min-width: 250px;
+      }
+    }
+
+    .row-2 {
+      padding-left: 200px;
+
+      @media (max-width: 900px) {
+        padding-left: 0;
+      }
+    }
   }
 }
 </style>
@@ -332,7 +413,154 @@ section h1 {
     <section id="trending">
       <h1>Gündemdeki Şikayetler</h1>
 
-      ...
+      <div class="inner">
+        <div class="trending-row row-1">
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+        </div>
+        <div class="trending-row row-2">
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+          <div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
+              bibendum risus, sit ac velit purus lectu
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
