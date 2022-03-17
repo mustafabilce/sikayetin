@@ -9,21 +9,21 @@ html body {
 	--section-padding-inline: 150px;
 	--section-padding-inline-negative: -150px;
 
-	@media (max-width: 1500px) {
-		--section-padding-inline: 120px;
-		--section-padding-inline-negative: -120px;
+	@media (max-width: 1600px) {
+		--section-padding-inline: 100px;
+		--section-padding-inline-negative: -100px;
 	}
-	@media (max-width: 800px) {
-		--section-padding-inline: 80px;
-		--section-padding-inline-negative: -80px;
+	@media (max-width: 1300px) {
+		--section-padding-inline: 60px;
+		--section-padding-inline-negative: -60px;
 	}
 	@media (max-width: 650px) {
-		--section-padding-inline: 50px;
-		--section-padding-inline-negative: -50px;
+		--section-padding-inline: 40px;
+		--section-padding-inline-negative: -40px;
 	}
 	@media (max-width: 500px) {
-		--section-padding-inline: 30px;
-		--section-padding-inline-negative: -30px;
+		--section-padding-inline: 25px;
+		--section-padding-inline-negative: -25px;
 	}
 }
 

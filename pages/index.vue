@@ -8,7 +8,7 @@ section {
   max-width: 100%;
   overflow-x: hidden;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1150px) {
     margin-top: 150px;
   }
 
@@ -36,14 +36,14 @@ section {
 
 header {
   background: linear-gradient(#85dced, #4fc8e2);
-  border-radius: 0 0 220px 220px;
+  border-radius: 0 0 180px 180px;
   padding-block: 30px;
 
-  @media (max-width: 1200px) {
-    border-radius: 0 0 140px 140px;
+  @media (max-width: 1150px) {
+    border-radius: 0 0 120px 120px;
   }
   @media (max-width: 800px) {
-    border-radius: 0 0 50px 50px;
+    border-radius: 0 0 40px 40px;
   }
 
   &,
@@ -65,19 +65,28 @@ header {
     #logo {
       width: 220px;
 
-      @media (max-width: 500px) {
+      @media (max-width: 1400px) {
         width: 180px;
+      }
+
+      @media (max-width: 500px) {
+        width: 150px;
       }
     }
 
     #primary_nav {
-      @media (max-width: 1400px) {
+      @media (max-width: 1150px) {
         display: none;
       }
 
       a {
-        margin: 0 6px;
-        padding: 12px;
+        margin: 0 3px;
+        padding: 9px;
+
+        @media (max-width: 1400px) {
+          margin: 0 2px;
+          padding: 6px;
+        }
 
         &:not(.btn):hover {
           color: #ff5777;
@@ -88,16 +97,21 @@ header {
           border-radius: 100px;
           padding: 8px 24px;
           margin-left: 10px;
+
+          @media (max-width: 1400px) {
+            padding: 6px 16px;
+            margin-left: 5px;
+          }
         }
       }
     }
 
     #secondary_nav {
-      @media (max-width: 1000px) {
+      cursor: default;
+
+      @media (max-width: 850px) {
         display: none;
       }
-
-      cursor: default;
 
       a {
         padding: 4px;
@@ -111,7 +125,12 @@ header {
           font-weight: bold;
           padding: 12px 36px;
           border-radius: 100px;
-          margin-left: 40px;
+          margin-left: 20px;
+
+          @media (max-width: 1400px) {
+            padding: 10px 22px;
+            margin-left: 10px;
+          }
         }
       }
     }
@@ -119,7 +138,7 @@ header {
     .fa-bars {
       display: none;
 
-      @media (max-width: 1400px) {
+      @media (max-width: 1150px) {
         display: unset;
       }
     }
@@ -136,6 +155,7 @@ header {
 
     h1 {
       font-size: 4em;
+      z-index: 1;
 
       @media (max-width: 1000px) {
         text-align: center;
@@ -150,6 +170,7 @@ header {
       margin: 60px 0 30px;
       width: 450px;
       max-width: 100%;
+      z-index: 1;
 
       input {
         width: 100%;
@@ -190,19 +211,29 @@ header {
       @media (max-width: 1400px) {
         width: 500px;
         height: 500px;
-        top: 200px;
+        top: 140px;
         right: 60px;
       }
 
-      @media (max-width: 1200px) {
+      @media (max-width: 1150px) {
         display: none;
       }
+
+      /*
+      @media (max-width: 1000px) {
+        display: unset;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.3;
+      }
+      */
     }
 
     #star_of_week {
       position: absolute;
-      top: 600px;
-      right: 500px;
+      top: 520px;
+      right: 520px;
       background: white;
       border-radius: 30px;
       padding: 20px;
@@ -212,18 +243,22 @@ header {
       color: black;
 
       @media (max-width: 1400px) {
-        top: 560px;
+        top: 450px;
         right: 350px;
       }
 
-      @media (max-width: 1200px) {
+      @media (max-width: 1150px) {
         top: 240px;
         right: 110px;
         transform: scale(1.3);
       }
 
       @media (max-width: 1000px) {
-        display: none;
+        top: 50px;
+        left: unset;
+        right: unset;
+        transform: unset;
+        position: relative;
       }
 
       img {
@@ -267,7 +302,15 @@ header {
 }
 
 #trending {
-  margin-top: 300px;
+  margin-top: 200px;
+
+  @media (max-width: 1150px) {
+    margin-top: 100px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 50px;
+  }
 
   .inner {
     display: flex;
@@ -345,7 +388,11 @@ header {
 }
 
 #compare {
-  margin-bottom: 300px;
+  margin-bottom: 250px;
+
+  @media (max-width: 1150px) {
+    margin-top: 0;
+  }
 
   .inner {
     background-color: #5379ff;
@@ -363,6 +410,12 @@ header {
       text-align: center;
       font-size: 1.4em;
       display: inline-block;
+      padding: 0 30px;
+
+      @media (max-width: 500px) {
+        text-align: justify;
+        text-align-last: center;
+      }
     }
 
     #inputs {
@@ -451,7 +504,10 @@ header {
           <a href="#" class="btn">Şikayet Yaz</a>
         </div>
 
-        <i class="fas fa-bars" style="font-size: 2em" />
+        <fa
+          :icon="['fas', 'bars']"
+          style="font-size: 2em; cursor: pointer"
+        ></fa>
       </nav>
 
       <div id="call_to_action">
