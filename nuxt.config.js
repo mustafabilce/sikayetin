@@ -16,7 +16,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css' },
+      { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css' },
     ],
+    script: [
+      { src: '//code.jquery.com/jquery-3.6.0.min.js' },
+      { src: '//code.jquery.com/jquery-migrate-1.2.1.min.js' },
+      { src: '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js' },
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

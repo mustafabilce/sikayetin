@@ -8,18 +8,6 @@ section {
   max-width: 100%;
   overflow-x: hidden;
 
-  @media (max-width: 1150px) {
-    margin-top: 150px;
-  }
-
-  @media (max-width: 900px) {
-    margin-top: 100px;
-  }
-
-  @media (max-width: 600px) {
-    margin-top: 70px;
-  }
-
   h1 {
     font-size: 3em;
 
@@ -388,21 +376,15 @@ header {
 }
 
 #compare {
-  margin-bottom: 250px;
-
-  @media (max-width: 1150px) {
-    margin-top: 0;
-  }
-
   .inner {
     background-color: #5379ff;
     color: white;
     float: right;
-    margin-top: 100px;
     border-radius: 500px 0 0 500px;
     text-align: center;
     padding: 100px 300px 150px 100px;
     min-width: 60vw;
+    margin-top: 100px;
     margin-right: var(--section-padding-inline-negative);
 
     p {
@@ -477,6 +459,29 @@ header {
       #inputs {
         flex-direction: column;
       }
+    }
+  }
+}
+
+#most_talked_about {
+  margin-top: 150px;
+
+  @media (max-width: 1400px) {
+    margin-top: 100px;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 70px;
+  }
+
+  .inner {
+    margin: 50px 0;
+
+    .card {
+      height: 400px;
+      box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.1);
+      background: white;
+      transform: scale(0.9);
     }
   }
 }
@@ -710,11 +715,53 @@ header {
         </div>
       </div>
     </section>
+
+    <section id="most_talked_about">
+      <h1>Çok Konuşulanlar</h1>
+
+      <div class="inner">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
+  mounted() {
+    console.log($('#most_talked_about .inner').slick)
+    $('#most_talked_about .inner').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 1100,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    })
+  },
 }
 </script>
