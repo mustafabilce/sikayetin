@@ -713,7 +713,7 @@ header {
         <h1>
           <span style="font-weight: 400">Şikayet.in varsa</span>
           <br />
-          <span style="font-weight: 600">Çözüm de var</span>
+          <span style="font-weight: 600">Çözüm de var!</span>
         </h1>
 
         <div id="search">
