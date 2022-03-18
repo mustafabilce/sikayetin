@@ -27,6 +27,10 @@ html body {
 	}
 }
 
+body {
+	background: #f5fdff;
+}
+
 a,
 input {
 	transition: 0.3s ease;
@@ -34,8 +38,4 @@ input {
 
 a:hover {
 	text-decoration: none;
-}
-
-body {
-	background: #f5fdff;
 }
