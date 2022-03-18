@@ -686,7 +686,7 @@ header {
     <header>
       <nav>
         <a href="#">
-          <img src="../static/logo-white-1.png" id="logo" />
+          <img src="../static/logo-blue.png" id="logo" />
         </a>
 
         <div id="primary_nav">
