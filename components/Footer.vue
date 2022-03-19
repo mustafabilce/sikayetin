@@ -54,6 +54,7 @@ footer {
 
       .social {
         margin-top: 50px;
+        cursor: default;
 
         @media (max-width: 800px) {
           text-align: center;
@@ -62,6 +63,14 @@ footer {
         img {
           height: 34px;
           margin-right: 10px;
+        }
+
+        a {
+          opacity: 0.7;
+
+          &:hover {
+            opacity: 1;
+          }
         }
       }
     }

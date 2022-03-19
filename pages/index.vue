@@ -8,6 +8,7 @@ section {
   h1 {
     font-size: 3em;
     font-weight: 700;
+    max-height: 1em;
 
     @media (max-width: 900px) {
       font-size: 2em;

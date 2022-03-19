@@ -59,10 +59,10 @@ header {
         }
 
         &#live_feed_button {
-          outline: 3px solid rgba(255, 255, 255, 0.3);
+          border: 3px solid rgba($color: white, $alpha: 0.7);
 
           &:hover {
-            outline-width: 9px;
+            letter-spacing: 0.1em;
           }
         }
 
@@ -301,7 +301,7 @@ header {
 
       <div id="primary_nav">
         <a href="#">Şikayetler</a>
-        <a href="#">Marka Rengi</a>
+        <a href="#">Marka Ringi</a>
         <a href="#">Popüler 20</a>
         <a href="#" class="btn" id="live_feed_button">Canlı Akış</a>
       </div>

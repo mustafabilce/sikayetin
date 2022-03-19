@@ -13,7 +13,6 @@
   .inner {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     padding: 25px;
 
     max-width: 100vw;
@@ -38,11 +37,10 @@
 
     .trending-row {
       display: flex;
-      gap: 20px;
       align-items: flex-end;
 
-      --wide-card-width: 30vw;
-      --small-card-width: 22vw;
+      --wide-card-width: 28vw;
+      --small-card-width: 24vw;
       --heading-font-size: 1.5em;
       --text-font-size: 1.2em;
 
@@ -83,6 +81,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: 10px;
 
         h5 {
           font-weight: 700;
@@ -110,21 +109,36 @@
           max-width: 300px;
           margin: 20px auto 0 auto;
 
-          @media (max-width: 900px) {
+          @media (max-width: 1200px) {
             display: inline-flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: center;
+
+            & > * {
+              width: 150px;
+            }
+          }
+
+          & > * {
+            margin: 10px;
+          }
+
+          & > * > img {
+            margin-right: 10px;
           }
 
           .customer,
           .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
 
             b {
               font-size: 0.9em;
+            }
+
+            span {
+              font-size: 0.9em;
+              opacity: 0.7;
             }
 
             img {
@@ -136,6 +150,11 @@
               }
             }
           }
+
+          .brand .star {
+            margin-right: 3px;
+            width: 12px;
+          }
         }
       }
     }
@@ -145,7 +164,7 @@
 
 <template>
   <section id="trending">
-    <h1>Gündemdeki Şikayetler</h1>
+    <h1>Hangi Şikayetler İlgi Çekti?</h1>
 
     <div class="inner">
       <div class="trending-row row-1">
@@ -161,13 +180,24 @@
               <div>
                 <b>Samet</b>
                 <br />
-                <span>12.123 <i class="fas fa-eye"></i></span>
+                <span style="white-space: nowrap">
+                  12.123&nbsp;
+                  <fa :icon="['fas', 'eye']" style="display: inline" />
+                </span>
               </div>
             </div>
             <div class="brand">
               <img src="../../static/trendyol.png" />
               <div>
                 <b>Trendyol</b>
+                <span style="white-space: nowrap">
+                  <img
+                    src="../../static/star.png"
+                    class="star"
+                    v-for="i in 5"
+                    :key="i"
+                  />
+                </span>
               </div>
             </div>
           </div>

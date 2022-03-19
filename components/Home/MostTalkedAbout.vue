@@ -50,8 +50,12 @@
         @media (max-width: 400px) {
           display: inline-flex;
           flex-direction: column;
-          align-items: flex-start;
+          align-items: center;
           gap: 10px;
+
+          * {
+            width: 150px;
+          }
         }
 
         .customer,
@@ -117,7 +121,7 @@
 
 <template>
   <section id="most_talked_about">
-    <h1>Çok Konuşulanlar</h1>
+    <h1>En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
 
     <div class="inner">
       <div class="card" v-for="i in 10" :key="i">

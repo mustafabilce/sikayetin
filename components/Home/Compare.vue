@@ -38,7 +38,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 40px;
       margin: 50px 0;
 
       input {
@@ -50,6 +49,7 @@
 
       button {
         padding: 12px 30px;
+        margin: 0 20px;
         border-radius: 100px;
         background-color: #ff5777;
         color: white;
@@ -143,14 +143,14 @@
       <h1>Marka Karşılaştırması</h1>
 
       <p class="mt-3 mb-4" style="font-weight: 300">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-        tenetur, nisi voluptate debitis dignissimos molestias repellat,
-        reprehenderit saepe libero qui expedita deleniti.
+        Bir ürün yada hizmet satın alacağınız zaman markalar arasında seçim
+        yapmakta zorlanıyor musunuz? Simdi iki marka seçin ve yarışsınlar.
+        Bakalım rakamlar ne gosterecek, hep birlikte görelim.
       </p>
 
       <div id="inputs">
         <input type="text" placeholder="1. Marka" />
-        <button>Karşılaştır</button>
+        <button>Yarıştır</button>
         <input type="text" placeholder="2. Marka" />
       </div>
     </div>
