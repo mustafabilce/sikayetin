@@ -238,16 +238,6 @@ header {
       @media (max-width: 1150px) {
         display: none;
       }
-
-      /*
-      @media (max-width: 1000px) {
-        display: unset;
-        top: 100px;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0.3;
-      }
-      */
     }
 
     #star_of_week {
@@ -967,6 +957,7 @@ header {
 export default {
   name: 'IndexPage',
   data: () => ({
+    hoveringTrendingCard: false,
     initializedCounters: false,
     counters: [
       {
@@ -1045,6 +1036,31 @@ export default {
         }, 100);
       }
     },
+    InitializeTrendingSection() {
+      const trendingSection = document.querySelector('#trending .inner');
+      const end = trendingSection.scrollWidth - trendingSection.clientWidth;
+      let scrollDirection = 2.0;
+      const pageScroll = () => {
+        const speed = this.hoveringTrendingCard ? 0.5 : 1;
+        trendingSection.scrollBy(scrollDirection * speed, 0);
+        setTimeout(() => pageScroll(), 10);
+
+        if (trendingSection.scrollLeft <= 1) {
+          scrollDirection = 1;
+        } else if (end <= trendingSection.scrollLeft) {
+          scrollDirection = -1;
+        }
+      };
+      pageScroll();
+
+      const holder = document.querySelector('#trending .inner');
+      holder.addEventListener('mouseenter', () => {
+        this.hoveringTrendingCard = true;
+      });
+      holder.addEventListener('mouseleave', () => {
+        this.hoveringTrendingCard = false;
+      });
+    },
     IsVisible(elementSelector) {
       const el = document.querySelector(elementSelector);
       let rect = el.getBoundingClientRect();
@@ -1064,7 +1080,9 @@ export default {
   },
   async mounted() {
     this.InitializeSlick();
+    this.InitializeTrendingSection();
 
+    // Counters
     window.onscroll = () => {
       const visible = this.IsVisible('#counters');
       if (visible && !this.initializedCounters) {
