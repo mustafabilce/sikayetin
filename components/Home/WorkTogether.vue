@@ -4,11 +4,20 @@
   color: white;
   text-align: center;
   border-radius: 180px 180px 0 0;
-  padding: 100px;
+  padding: var(--section-padding-inline);
+
+  @media (max-width: 700px) {
+    border-radius: 50px 50px 0 0;
+    padding-block: 50px;
+  }
 
   .heading {
     font-weight: 700;
     font-size: 2.5em;
+
+    @media (max-width: 900px) {
+      font-size: 1.5em;
+    }
   }
 
   p {
@@ -16,6 +25,11 @@
     font-size: 1.4em;
     margin: 40px auto;
     line-height: 1.6em;
+
+    @media (max-width: 900px) {
+      font-size: 1.2em;
+      text-align: justify;
+    }
   }
 
   button {

@@ -29,6 +29,7 @@ section {
     <MostTalkedAbout />
     <Counter />
     <WorkTogether />
+    <Footer />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import MostTalkedAbout from '../components/Home/MostTalkedAbout.vue';
 import Compare from '../components/Home/Compare.vue';
 import Header from '../components/Home/Header.vue';
 import WorkTogether from '../components/Home/WorkTogether.vue';
+import Footer from '../components/Footer.vue';
 
 export default {
   name: 'IndexPage',
@@ -49,6 +51,7 @@ export default {
     Compare,
     Header,
     WorkTogether,
+    Footer,
   },
 };
 </script>
