@@ -1,13 +1,14 @@
 <style lang="scss" scoped>
 #counters {
-  margin-block: 150px;
+  margin-block: 200px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 50px;
 
   @media (max-width: 1200px) {
     flex-direction: column;
+    margin-block: 100px;
   }
 
   .left {
@@ -157,7 +158,6 @@ export default {
     },
   },
   mounted() {
-    // Counters
     window.addEventListener('scroll', this.ScrollEvent);
   },
 };
