@@ -8,22 +8,27 @@ html body {
 :root {
 	--section-padding-inline: 150px;
 	--section-padding-inline-negative: -150px;
+	--header-padding-inline: 220px;
 
 	@media (max-width: 1600px) {
 		--section-padding-inline: 100px;
 		--section-padding-inline-negative: -100px;
+		--header-padding-inline: 100px;
 	}
 	@media (max-width: 1300px) {
 		--section-padding-inline: 60px;
 		--section-padding-inline-negative: -60px;
+		--header-padding-inline: 60px;
 	}
 	@media (max-width: 650px) {
 		--section-padding-inline: 40px;
 		--section-padding-inline-negative: -40px;
+		--header-padding-inline: 40px;
 	}
 	@media (max-width: 500px) {
 		--section-padding-inline: 25px;
 		--section-padding-inline-negative: -25px;
+		--header-padding-inline: 25px;
 	}
 }
 
@@ -31,9 +36,19 @@ body {
 	background: #f5fdff;
 }
 
+input,
+select,
+button,
+.btn {
+	border: none;
+	outline: none;
+}
+
 a,
-input {
-	transition: 0.3s ease;
+input,
+button,
+.btn {
+	transition: 0.3s;
 }
 
 a:hover {

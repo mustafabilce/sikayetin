@@ -1,12 +1,8 @@
 <style lang="scss">
-header,
-section {
-  padding-inline: var(--section-padding-inline);
-}
-
 section {
   max-width: 100%;
   overflow-x: hidden;
+  padding-inline: var(--section-padding-inline);
 
   h1 {
     font-size: 3em;
@@ -26,6 +22,7 @@ header {
   background: linear-gradient(#85dced, #4fc8e2);
   border-radius: 0 0 180px 180px;
   padding-block: 30px;
+  padding-inline: var(--header-padding-inline);
 
   @media (max-width: 1150px) {
     border-radius: 0 0 120px 120px;
@@ -69,22 +66,30 @@ header {
 
       a {
         margin: 0 3px;
-        padding: 9px;
+        padding: 6px;
 
         @media (max-width: 1400px) {
           margin: 0 2px;
-          padding: 6px;
+          padding: 4px;
         }
 
         &:not(.btn):hover {
-          color: #ff5777;
+          color: #00244c;
+        }
+
+        &#live_feed_button {
+          outline: 3px solid rgba(255, 255, 255, 0.3);
+
+          &:hover {
+            outline-width: 9px;
+          }
         }
 
         &.btn {
           background: #ff5777;
           border-radius: 100px;
-          padding: 8px 24px;
-          margin-left: 10px;
+          padding: 6px 20px;
+          margin-left: 8px;
 
           @media (max-width: 1400px) {
             padding: 6px 16px;
@@ -134,6 +139,7 @@ header {
 
   #call_to_action {
     margin: 100px 0;
+    cursor: default;
 
     @media (max-width: 1000px) {
       display: flex;
@@ -159,13 +165,12 @@ header {
       width: 450px;
       max-width: 100%;
       z-index: 1;
+      position: relative;
 
       input {
         width: 100%;
         border-radius: 100px;
         padding: 20px 30px;
-        border: none;
-        outline: none;
         box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.2);
 
         @media (max-width: 600px) {
@@ -180,12 +185,38 @@ header {
           box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.8);
         }
       }
+
+      button {
+        background: rgb(255, 87, 119);
+        background: linear-gradient(
+          0,
+          rgba(255, 87, 119, 1) 0%,
+          rgba(255, 194, 71, 1) 100%
+        );
+        border-radius: 100%;
+        position: absolute;
+        top: -1px;
+        right: 0;
+        width: 65px;
+        height: 65px;
+
+        &:hover {
+          font-size: 1.3em;
+          transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+          padding: 10px 15px;
+          width: unset;
+          height: unset;
+        }
+      }
     }
 
     #banner {
       position: absolute;
       top: 150px;
-      right: 100px;
+      right: var(--header-padding-inline);
       border-radius: 100%;
       box-shadow: 20px 25px 60px rgba($color: #000000, $alpha: 0.2);
       width: 600px;
@@ -331,6 +362,39 @@ header {
       gap: 20px;
       align-items: flex-end;
 
+      --wide-card-width: 30vw;
+      --small-card-width: 22vw;
+      --heading-font-size: 1.5em;
+      --text-font-size: 1.2em;
+
+      @media (max-width: 1300px) {
+        --wide-card-width: 40vw;
+        --small-card-width: 30vw;
+        --heading-font-size: 1.2em;
+        --text-font-size: 1.1em;
+      }
+
+      @media (max-width: 900px) {
+        --wide-card-width: 280px;
+        --small-card-width: 280px;
+        --heading-font-size: 1.1em;
+        --text-font-size: 1em;
+      }
+
+      &.row-1 .card:nth-child(odd),
+      &.row-2 .card:nth-child(even) {
+        min-width: var(--wide-card-width);
+      }
+      &.row-1 .card:nth-child(even),
+      &.row-2 .card:nth-child(odd) {
+        min-width: var(--small-card-width);
+      }
+
+      &.row-2 {
+        padding-left: 80px;
+        align-items: flex-start;
+      }
+
       .card {
         background-color: white;
         padding: 30px;
@@ -344,20 +408,16 @@ header {
         h5 {
           font-weight: 700;
           text-align: center;
-          font-size: 1.4em;
-
-          @media (max-width: 1200px) {
-            font-size: 1.1em;
-          }
+          padding: 0 10px;
+          font-size: var(--heading-font-size);
         }
 
         p {
           margin: 0 auto;
-          font-size: 1.2em;
           padding: 20px 20px 0 20px;
+          font-size: var(--text-font-size);
 
           @media (max-width: 1200px) {
-            font-size: 1em;
             text-align: center;
             padding: 5px 5px 0 5px;
           }
@@ -398,40 +458,6 @@ header {
             }
           }
         }
-      }
-    }
-
-    .row-1 .card:nth-child(odd),
-    .row-2 .card:nth-child(even) {
-      min-width: 33vw;
-
-      @media (max-width: 1200px) {
-        min-width: 500px;
-      }
-
-      @media (max-width: 900px) {
-        min-width: 280px;
-      }
-    }
-    .row-1 .card:nth-child(even),
-    .row-2 .card:nth-child(odd) {
-      min-width: 25vw;
-
-      @media (max-width: 1200px) {
-        min-width: 350px;
-      }
-
-      @media (max-width: 900px) {
-        min-width: 280px;
-      }
-    }
-
-    .row-2 {
-      padding-left: 80px;
-      align-items: flex-start;
-
-      @media (max-width: 900px) {
-        padding-left: 0;
       }
     }
   }
@@ -483,7 +509,6 @@ header {
         padding: 12px 30px;
         width: 250px;
         border-radius: 100px;
-        border: none;
         box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.1);
       }
 
@@ -492,7 +517,6 @@ header {
         border-radius: 100px;
         background-color: #ff5777;
         color: white;
-        border: none;
       }
     }
 
@@ -540,17 +564,26 @@ header {
     top: 0;
     bottom: 0;
     background: #6690fd;
-    border: 60px solid #5f86fe;
+    border: 0 solid #5f86fe;
     border-radius: 100%;
   }
 
   .circle-big {
     right: -300px;
     width: 650px;
+    border-width: 60px;
 
     @media (max-width: 1400px) {
       width: 540px;
       right: -280px;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 50px;
+      opacity: 0.1;
     }
   }
 
@@ -559,6 +592,7 @@ header {
     right: 400px;
     transform: scale(0.75);
     opacity: 0.8;
+    border-width: 90px;
 
     @media (max-width: 1400px) {
       width: 540px;
@@ -596,8 +630,9 @@ header {
 
       p {
         font-size: 1.2em;
-        padding: 25px 50px;
-        margin-top: 25px;
+        padding: 30px 10px;
+        max-width: 300px;
+        margin: 0 auto;
 
         @media (max-width: 500px) {
           padding: 25px 0;
@@ -646,16 +681,16 @@ header {
   .abstract-circle,
   .abstract-left {
     position: absolute;
-    top: 100px;
-    bottom: 0;
+    top: 80px;
+    bottom: 20px;
     z-index: -1;
   }
 
   .abstract-left {
     left: 0;
-    width: 50vw;
+    width: min(50vw, 800px);
     background: #ef476f;
-    border-radius: 0 100% 100% 0;
+    border-radius: 0 500px 500px 0;
   }
 
   .abstract-circle {
@@ -693,7 +728,7 @@ header {
           <a href="#">Şikayetler</a>
           <a href="#">Marka Rengi</a>
           <a href="#">Popüler 20</a>
-          <a href="#" class="btn">Canlı Akış</a>
+          <a href="#" class="btn" id="live_feed_button">Canlı Akış</a>
         </div>
 
         <div id="secondary_nav">
@@ -703,10 +738,7 @@ header {
           <a href="#" class="btn">Şikayet Yaz</a>
         </div>
 
-        <fa
-          :icon="['fas', 'bars']"
-          style="font-size: 2em; cursor: pointer"
-        ></fa>
+        <fa :icon="['fas', 'bars']" style="font-size: 2em; cursor: pointer" />
       </nav>
 
       <div id="call_to_action">
@@ -718,6 +750,9 @@ header {
 
         <div id="search">
           <input type="text" placeholder="Marka, model, ürün ara" />
+          <button class="btn">
+            <fa :icon="['fas', 'magnifying-glass']" />
+          </button>
         </div>
 
         <div id="banner">
@@ -741,7 +776,9 @@ header {
       <div class="inner">
         <div class="trending-row row-1">
           <div v-for="i in 10" :key="i" class="card">
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            <h5>
+              Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.
+            </h5>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
               bibendum risus, sit ac velit purus lectu
@@ -809,7 +846,9 @@ header {
         </div>
       </div>
 
-      <div class="circle-big"></div>
+      <div class="circle-big">
+        <img src="../static/abstract-1.png" />
+      </div>
       <div class="circle-small"></div>
     </section>
 
@@ -855,13 +894,14 @@ export default {
   name: 'IndexPage',
   data: () => ({}),
   mounted() {
-    console.log($('#most_talked_about .inner').slick)
     $('#most_talked_about .inner').slick({
-      dots: true,
-      infinite: false,
+      dots: false,
+      infinite: true,
       speed: 300,
       slidesToShow: 3,
       slidesToScroll: 3,
+      autoplay: true,
+      autoplaySpeed: 3000,
       responsive: [
         {
           breakpoint: 1100,
