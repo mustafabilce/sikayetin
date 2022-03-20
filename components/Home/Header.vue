@@ -121,6 +121,9 @@ header {
   #call_to_action {
     margin: 100px 0;
     cursor: default;
+    margin-left: calc(
+      var(--call-to-action-padding-inline) - var(--header-padding-inline)
+    );
 
     @media (max-width: 1000px) {
       display: flex;
@@ -197,7 +200,7 @@ header {
     #banner {
       position: absolute;
       top: 150px;
-      right: var(--header-padding-inline);
+      right: var(--call-to-action-padding-inline);
       border-radius: 100%;
       box-shadow: 20px 25px 60px rgba($color: #000000, $alpha: 0.2);
       width: 600px;
@@ -331,7 +334,9 @@ header {
       </div>
 
       <div id="banner">
-        <img src="../../static/banner1.png" />
+        <img src="../../static/banner1.png" v-if="bannerIndex == 0" />
+        <img src="../../static/banner2.png" v-else-if="bannerIndex == 1" />
+        <img src="../../static/banner3.png" v-else-if="bannerIndex == 2" />
       </div>
 
       <div id="star_of_week">
@@ -345,3 +350,15 @@ header {
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    bannerIndex: 0,
+    bannerCount: 3,
+  }),
+  created() {
+    this.bannerIndex = parseInt(Math.random() * this.bannerCount);
+  },
+};
+</script>

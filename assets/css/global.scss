@@ -9,16 +9,19 @@ html body {
 	--section-padding-inline: 150px;
 	--section-padding-inline-negative: -150px;
 	--header-padding-inline: 220px;
+	--call-to-action-padding-inline: 12vw;
 
 	@media (max-width: 1600px) {
 		--section-padding-inline: 100px;
 		--section-padding-inline-negative: -100px;
 		--header-padding-inline: 100px;
+		--call-to-action-padding-inline: 100px;
 	}
 	@media (max-width: 1300px) {
 		--section-padding-inline: 60px;
 		--section-padding-inline-negative: -60px;
 		--header-padding-inline: 60px;
+		--call-to-action-padding-inline: 0;
 	}
 	@media (max-width: 650px) {
 		--section-padding-inline: 40px;
@@ -53,4 +56,13 @@ button,
 
 a:hover {
 	text-decoration: none;
+}
+
+@keyframes pulse {
+	from {
+		transform: scale(0.9);
+	}
+	to {
+		transform: scale(1.1);
+	}
 }
