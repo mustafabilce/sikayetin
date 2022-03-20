@@ -108,13 +108,14 @@
     .abstract-left {
       width: 60vw;
     }
-    .abstract-circle {
-      display: none;
-    }
   }
   @media (max-width: 900px) {
     .abstract-left {
       width: 90vw;
+    }
+
+    .abstract-circle {
+      display: none;
     }
   }
 }
