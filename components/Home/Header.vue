@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 header {
-  background: linear-gradient(#85dced, #4fc8e2);
+  background: linear-gradient(var(--gradient-1), var(--gradient-2));
   border-radius: 0 0 180px 180px;
   padding-block: 30px;
   padding-inline: var(--header-padding-inline);
@@ -58,12 +58,8 @@ header {
           color: #00244c;
         }
 
-        &#live_feed_button {
-          border: 3px solid rgba($color: white, $alpha: 0.7);
-
-          &:hover {
-            letter-spacing: 0.1em;
-          }
+        &#live_feed_button:hover {
+          letter-spacing: 0.1em;
         }
 
         &.btn {
@@ -249,7 +245,7 @@ header {
       position: absolute;
       top: 520px;
       right: 520px;
-      background: white;
+      background: url(../../static/star-of-week-background.png);
       border-radius: 30px;
       padding: 20px;
       padding-top: 50px;
@@ -284,7 +280,6 @@ header {
         transform: translateX(-50%);
         width: 80px;
         position: absolute;
-        border: 6px solid #50c8e2;
       }
 
       small {
@@ -321,7 +316,7 @@ header {
   <header>
     <nav>
       <a href="#">
-        <img src="../../static/logo-blue.png" id="logo" />
+        <img src="../../static/logo-white.png" id="logo" />
       </a>
 
       <div id="primary_nav">
@@ -359,17 +354,17 @@ header {
         <img
           class="banner-img"
           src="../../static/banner1.png"
-          v-if="bannerIndex == 0"
+          v-show="bannerIndex == 0"
         />
         <img
           class="banner-img"
           src="../../static/banner2.png"
-          v-else-if="bannerIndex == 1"
+          v-show="bannerIndex == 1"
         />
         <img
           class="banner-img"
           src="../../static/banner3.png"
-          v-else-if="bannerIndex == 2"
+          v-show="bannerIndex == 2"
         />
 
         <img src="../../static/smiley.png" id="smiley" />
@@ -392,9 +387,23 @@ export default {
   data: () => ({
     bannerIndex: 0,
     bannerCount: 3,
+    bannerColors: [
+      ['#85dced', '#4ec6e0'],
+      ['#cdbfd9', '#9682a7'],
+      ['#f8bf3e', '#e19302'],
+    ],
   }),
   created() {
-    this.bannerIndex = Math.round(Math.random() * this.bannerCount);
+    this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));
+  },
+  mounted() {
+    const [gradient1, gradient2] = this.bannerColors[this.bannerIndex];
+    console.log(gradient1, gradient2);
+
+    const header = document.querySelector('header');
+    header.style.setProperty('--gradient-1', gradient1);
+    header.style.setProperty('--gradient-2', gradient2);
+    console.log(header);
   },
 };
 </script>
