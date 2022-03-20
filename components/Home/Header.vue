@@ -246,6 +246,9 @@ header {
       top: 520px;
       right: 520px;
       background: url(../../static/star-of-week-background.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       border-radius: 30px;
       padding: 20px;
       padding-top: 50px;
