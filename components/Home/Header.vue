@@ -128,12 +128,17 @@ header {
     @media (max-width: 1000px) {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 700px) {
       align-items: center;
     }
 
     h1 {
       font-size: 4em;
       z-index: 1;
+      position: relative;
 
       @media (max-width: 1000px) {
         text-align: center;
@@ -193,6 +198,7 @@ header {
           padding: 10px 15px;
           width: unset;
           height: unset;
+          top: 0;
         }
       }
     }
@@ -219,7 +225,16 @@ header {
       }
 
       @media (max-width: 1150px) {
-        display: none;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.3;
+      }
+
+      @media (max-width: 1000px) and (min-width: 600px) {
+        right: 60px;
+        left: unset;
+        transform: unset;
+        top: 250px;
       }
     }
 
