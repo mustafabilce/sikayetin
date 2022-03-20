@@ -39,8 +39,8 @@
       display: flex;
       align-items: flex-end;
 
-      --wide-card-width: 28vw;
-      --small-card-width: 24vw;
+      --wide-card-width: 35vw;
+      --small-card-width: 26vw;
       --heading-font-size: 1.5em;
       --text-font-size: 1.2em;
 
@@ -75,13 +75,18 @@
       .card {
         background-color: white;
         padding: 30px;
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 10px;
+        margin: 25px;
+        border: none;
+
+        @media (max-width: 1300px) {
+          margin: 10px;
+        }
 
         h5 {
           font-weight: 700;

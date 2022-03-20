@@ -5,6 +5,14 @@ html body {
 	font-family: "Poppins", sans-serif !important;
 }
 
+body,
+section,
+header,
+footer {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
 :root {
 	--section-padding-inline: 150px;
 	--section-padding-inline-negative: -150px;

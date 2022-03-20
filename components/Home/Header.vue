@@ -188,9 +188,10 @@ header {
         right: 0;
         width: 65px;
         height: 65px;
+        font-size: 1.2em;
 
         &:hover {
-          font-size: 1.3em;
+          font-size: 1.4em;
           transform: scale(1.1);
         }
 
@@ -212,9 +213,15 @@ header {
       width: 600px;
       height: 600px;
 
-      img {
+      img.banner-img {
         width: 100%;
         height: 100%;
+      }
+
+      #smiley {
+        position: absolute;
+        right: -50px;
+        top: 50%;
       }
 
       @media (max-width: 1400px) {
@@ -349,9 +356,23 @@ header {
       </div>
 
       <div id="banner">
-        <img src="../../static/banner1.png" v-if="bannerIndex == 0" />
-        <img src="../../static/banner2.png" v-else-if="bannerIndex == 1" />
-        <img src="../../static/banner3.png" v-else-if="bannerIndex == 2" />
+        <img
+          class="banner-img"
+          src="../../static/banner1.png"
+          v-if="bannerIndex == 0"
+        />
+        <img
+          class="banner-img"
+          src="../../static/banner2.png"
+          v-else-if="bannerIndex == 1"
+        />
+        <img
+          class="banner-img"
+          src="../../static/banner3.png"
+          v-else-if="bannerIndex == 2"
+        />
+
+        <img src="../../static/smiley.png" id="smiley" />
       </div>
 
       <div id="star_of_week">
