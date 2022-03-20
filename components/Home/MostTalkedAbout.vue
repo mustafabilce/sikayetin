@@ -16,7 +16,8 @@
     margin: 50px 0;
 
     .card {
-      box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.15);
+      box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
+
       background: white;
       transform: scale(0.9);
       padding: 50px 30px;

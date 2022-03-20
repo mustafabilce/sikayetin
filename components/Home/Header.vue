@@ -394,7 +394,7 @@ export default {
     bannerCount: 3,
   }),
   created() {
-    this.bannerIndex = parseInt(Math.random() * this.bannerCount);
+    this.bannerIndex = Math.round(Math.random() * this.bannerCount);
   },
 };
 </script>

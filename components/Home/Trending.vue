@@ -82,7 +82,6 @@
         align-items: center;
         justify-content: center;
         margin: 25px;
-        border: none;
 
         @media (max-width: 1300px) {
           margin: 10px;
@@ -244,12 +243,13 @@ export default {
   }),
   mounted() {
     const trendingSection = document.querySelector('#trending .inner');
-    const end = trendingSection.scrollWidth - trendingSection.clientWidth;
+    const end = trendingSection.scrollWidth - trendingSection.clientWidth - 10;
     let scrollDirection = 4;
     const pageScroll = () => {
       const speed = this.hoveringTrendingCard ? 0.25 : 1;
       trendingSection.scrollBy(scrollDirection * speed, 0);
       setTimeout(() => pageScroll(), 18);
+
       if (trendingSection.scrollLeft <= 1) {
         scrollDirection = 1;
       } else if (end <= trendingSection.scrollLeft) {
