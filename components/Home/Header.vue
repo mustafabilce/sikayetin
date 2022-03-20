@@ -185,6 +185,7 @@ header {
         width: 65px;
         height: 65px;
         font-size: 1.2em;
+        transform: scale(1.01);
 
         &:hover {
           font-size: 1.4em;
@@ -195,7 +196,6 @@ header {
           padding: 10px 15px;
           width: unset;
           height: unset;
-          top: 0;
         }
       }
     }
