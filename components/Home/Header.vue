@@ -214,10 +214,25 @@ header {
         height: 100%;
       }
 
-      #smiley {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(90deg, transparent, white);
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+        border-radius: 100%;
+        opacity: 0.5;
+      }
+
+      .abstract {
         position: absolute;
         right: -50px;
-        top: 50%;
+        bottom: -110px;
+        width: 320px;
       }
 
       @media (max-width: 1400px) {
@@ -278,9 +293,9 @@ header {
       img {
         border-radius: 100%;
         display: block;
-        top: -40px;
+        top: -6px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         width: 80px;
         position: absolute;
       }
@@ -370,7 +385,7 @@ header {
           v-show="bannerIndex == 2"
         />
 
-        <img src="../../static/smiley.png" id="smiley" />
+        <img src="../../static/header-abstract.png" class="abstract" />
       </div>
 
       <div id="star_of_week">
