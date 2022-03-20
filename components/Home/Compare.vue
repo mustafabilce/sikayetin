@@ -56,7 +56,7 @@
       }
     }
 
-    @media (max-width: 1400px) {
+    @media (max-width: 1100px) {
       width: 100vw;
       min-width: unset;
       padding: 50px 0;
