@@ -4,6 +4,7 @@ header {
   border-radius: 0 0 180px 180px;
   padding-block: 30px;
   padding-inline: var(--header-padding-inline);
+  position: relative;
 
   @media (max-width: 1150px) {
     border-radius: 0 0 120px 120px;
@@ -127,10 +128,6 @@ header {
       align-items: flex-start;
     }
 
-    @media (max-width: 700px) {
-      align-items: center;
-    }
-
     h1 {
       font-size: 4em;
       z-index: 1;
@@ -245,7 +242,10 @@ header {
       @media (max-width: 1150px) {
         left: 50%;
         transform: translateX(-50%);
-        opacity: 0.3;
+
+        .banner-img {
+          opacity: 0.6;
+        }
       }
 
       @media (max-width: 1000px) and (min-width: 600px) {
@@ -327,6 +327,53 @@ header {
       }
     }
   }
+
+  #abstract {
+    position: absolute;
+    bottom: -130px;
+    left: -50px;
+    overflow: visible;
+    display: flex;
+    gap: 30px;
+    z-index: -1;
+    width: 100vw;
+
+    --width: 521px;
+    --height: 86px;
+
+    @media (max-width: 1000px) {
+      bottom: -100px;
+      --width: 400px;
+      --height: 50px;
+    }
+
+    .abstract-1,
+    .abstract-2 {
+      height: var(--height);
+    }
+
+    .abstract-1 {
+      background: #ef476f;
+      width: var(--width);
+      border-radius: 200px;
+    }
+
+    .abstract-2 {
+      background: #ffd166;
+      width: var(--height);
+      border-radius: 100%;
+    }
+
+    .abstract-3 {
+      background: #00abd3;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      left: 191px;
+      bottom: 10px;
+      position: relative;
+    }
+  }
 }
 </style>
 
@@ -396,6 +443,12 @@ header {
         <p><b>1200</b> <span>Çözülmüş Şikayet</span></p>
         <a class="btn" href="#">İncele</a>
       </div>
+    </div>
+
+    <div id="abstract">
+      <div class="abstract-1"></div>
+      <div class="abstract-2"></div>
+      <div class="abstract-3"></div>
     </div>
   </header>
 </template>
