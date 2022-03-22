@@ -30,14 +30,34 @@
 
       p {
         font-size: 1.2em;
-        padding: 30px 10px;
+        padding: 30px 10px 10px 10px;
         max-width: 300px;
         margin: 0 auto;
+        position: relative;
+
+        &::before {
+          content: '';
+          width: 17px;
+          height: 14px;
+          background: url(../../static/quotes.png);
+          background-position: center;
+          background-size: cover;
+          display: block;
+          position: absolute;
+          left: -25px;
+        }
 
         @media (max-width: 500px) {
           padding: 25px 0;
           text-align: justify;
         }
+      }
+
+      a.comment {
+        color: #0d2547;
+        text-align: center;
+        display: block;
+        margin: 8px 0;
       }
 
       .footer {
@@ -46,7 +66,7 @@
         justify-content: space-between;
         width: 100%;
         max-width: 300px;
-        margin: 20px auto 0 auto;
+        margin: 30px auto 0 auto;
 
         @media (max-width: 400px) {
           display: inline-flex;
@@ -134,16 +154,19 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
           bibendum risus, sit ac velit purus lectus lobortis
         </p>
+        <a href="#" class="comment">
+          <fa :icon="['fas', 'comment']" />&nbsp; 12 Yorum
+        </a>
         <div class="footer">
           <div class="customer">
-            <img src="/_nuxt/static/customer.png" />
+            <img src="../../static/customer.png" />
             <div>
               <b>Samet</b> <br />
               <span>12.123 <i class="fas fa-eye"></i></span>
             </div>
           </div>
           <div class="brand">
-            <img src="/_nuxt/static/trendyol.png" />
+            <img src="../../static/trendyol.png" />
             <div><b>Trendyol</b></div>
           </div>
         </div>

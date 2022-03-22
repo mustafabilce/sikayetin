@@ -19,6 +19,8 @@
     }
 
     @media (max-width: 900px) {
+      flex-direction: row;
+
       h5 {
         font-size: 1.1em;
       }
@@ -62,6 +64,10 @@
       &.row-2 {
         padding-left: 80px;
         align-items: flex-start;
+
+        @media (max-width: 900px) {
+          padding-left: 0;
+        }
       }
 
       .card {
@@ -74,6 +80,7 @@
         align-items: center;
         justify-content: center;
         margin: 25px;
+        position: relative;
 
         @media (max-width: 1300px) {
           margin: 10px;
@@ -88,12 +95,24 @@
 
         p {
           margin: 0 auto;
-          padding: 20px 20px 0 20px;
+          padding: 20px 25px 0 25px;
           font-size: var(--text-font-size);
+
+          &::before {
+            content: '';
+            width: 17px;
+            height: 14px;
+            background: url(../../static/quotes.png);
+            background-position: center;
+            background-size: cover;
+            display: block;
+            position: absolute;
+            left: 20px;
+          }
 
           @media (max-width: 1200px) {
             text-align: center;
-            padding: 5px 5px 0 5px;
+            padding: 10px 10px 0 10px;
           }
         }
 
@@ -127,6 +146,20 @@
           .brand {
             display: flex;
             align-items: center;
+            position: relative;
+
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 2px;
+              left: 34px;
+              width: 13px;
+              height: 13px;
+              background-image: url(../../static/verified.png);
+              outline: 2px solid white;
+              border-radius: 100%;
+            }
 
             b {
               font-size: 0.9em;

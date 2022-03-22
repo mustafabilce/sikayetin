@@ -35,10 +35,6 @@ header {
       @media (max-width: 1400px) {
         width: 180px;
       }
-
-      @media (max-width: 500px) {
-        width: 150px;
-      }
     }
 
     #primary_nav {
@@ -230,6 +226,12 @@ header {
         right: -50px;
         bottom: -110px;
         width: 320px;
+
+        @media (max-width: 600px) {
+          width: 280px;
+          bottom: -140px;
+          right: 10px;
+        }
       }
 
       @media (max-width: 1400px) {
@@ -258,8 +260,8 @@ header {
 
     #star_of_week {
       position: absolute;
-      top: 520px;
-      right: 520px;
+      top: 480px;
+      right: 600px;
       background: url(../../static/star-of-week-background.png);
       background-position: center;
       background-size: cover;
@@ -272,8 +274,8 @@ header {
       color: black;
 
       @media (max-width: 1400px) {
-        top: 450px;
-        right: 350px;
+        top: 420px;
+        right: 400px;
       }
 
       @media (max-width: 1150px) {
@@ -288,6 +290,11 @@ header {
         right: unset;
         transform: unset;
         position: relative;
+      }
+
+      @media (max-width: 600px) {
+        transform: scale(0.9);
+        top: 10px;
       }
 
       img {
@@ -361,6 +368,7 @@ header {
     .abstract-2 {
       background: #ffd166;
       width: var(--height);
+      min-width: var(--height);
       border-radius: 100%;
     }
 
@@ -392,9 +400,9 @@ header {
       </div>
 
       <div id="secondary_nav">
-        <a href="#">Giriş Yap</a>
+        <a href="#"><b>Giriş Yap</b></a>
         <span>|</span>
-        <a href="#">Üye Ol</a>
+        <a href="#"><b>Üye Ol</b></a>
         <a href="#" class="btn">Şikayet Yaz</a>
       </div>
 

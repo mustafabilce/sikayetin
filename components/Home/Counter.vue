@@ -79,33 +79,38 @@
 </template>
 
 <script>
+const icon1 = require('../../static/counter-icons/1.png');
+const icon2 = require('../../static/counter-icons/2.png');
+const icon3 = require('../../static/counter-icons/3.png');
+const icon4 = require('../../static/counter-icons/4.png');
+
 export default {
   data: () => ({
     counters: [
       {
         id: 1,
-        icon: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Microsoft_To-Do_icon.png',
+        icon: icon1,
         number: 10000,
         text: 'Massa enim mauris nunc.',
         append: '+',
       },
       {
         id: 2,
-        icon: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Microsoft_To-Do_icon.png',
+        icon: icon2,
         number: 2,
         text: 'Mi vel proin a et.',
         append: ' Million',
       },
       {
         id: 3,
-        icon: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Microsoft_To-Do_icon.png',
+        icon: icon3,
         number: 500,
         text: 'Phasellus magna feugiat.',
         append: '+',
       },
       {
         id: 4,
-        icon: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Microsoft_To-Do_icon.png',
+        icon: icon4,
         number: 140,
         text: 'Mattis libero tortor arcu.',
         append: '',
