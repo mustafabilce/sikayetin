@@ -195,9 +195,9 @@
 <template>
   <section id="compare">
     <div class="inner">
-      <h1>Marka Karşılaştırması</h1>
+      <h1 class="reveal-on-visible">Marka Karşılaştırması</h1>
 
-      <p class="mt-3 mb-4" style="font-weight: 300">
+      <p class="mt-3 mb-4 reveal-on-visible delay-1" style="font-weight: 300">
         Bir ürün yada hizmet satın alacağınız zaman markalar arasında seçim
         yapmakta zorlanıyor musunuz? Simdi iki marka seçin ve yarışsınlar.
         Bakalım rakamlar ne gosterecek, hep birlikte görelim.

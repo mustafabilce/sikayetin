@@ -61,8 +61,10 @@
 <template>
   <section id="counters">
     <div class="left">
-      <h2 class="heading">Sayılarla <a href="/">sikayet.in</a></h2>
-      <p class="text">
+      <h2 class="heading reveal-on-visible">
+        Sayılarla <a href="/">sikayet.in</a>
+      </h2>
+      <p class="text reveal-on-visible delay-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
       </p>
     </div>
@@ -135,8 +137,6 @@ export default {
       return true;
     },
     ScrollEvent() {
-      console.log('scroll');
-
       const visible = this.IsVisible('#counters');
       if (visible) {
         window.removeEventListener('scroll', this.ScrollEvent);

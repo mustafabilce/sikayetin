@@ -143,7 +143,7 @@
 
 <template>
   <section id="most_talked_about">
-    <h1>En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
+    <h1 class="reveal-on-visible">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
 
     <div class="inner">
       <div class="card" v-for="i in 10" :key="i">

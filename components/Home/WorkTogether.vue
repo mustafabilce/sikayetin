@@ -44,14 +44,14 @@
 
 <template>
   <section id="work_together">
-    <h2 class="heading">Lorem ipsum dolor sit amet</h2>
+    <h2 class="heading reveal-on-visible">Lorem ipsum dolor sit amet</h2>
 
-    <p>
+    <p class="reveal-on-visible delay-3">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Senectus id et
       volutpat malesuada viverra viverra sagittis, dolor vel. Vel proin ac massa
       duis.
     </p>
 
-    <button class="btn">Birlikte Çalışalım</button>
+    <button class="btn reveal-on-visible delay-4">Birlikte Çalışalım</button>
   </section>
 </template>

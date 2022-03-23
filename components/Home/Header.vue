@@ -482,7 +482,6 @@ export default {
     const header = document.querySelector('header');
     header.style.setProperty('--gradient-1', gradient1);
     header.style.setProperty('--gradient-2', gradient2);
-    console.log(header);
   },
 };
 </script>

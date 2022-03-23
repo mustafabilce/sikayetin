@@ -1,5 +1,5 @@
 * {
-	font-family: Poppins,sans-serif;
+	font-family: Poppins, sans-serif;
 }
 
 body,
@@ -72,5 +72,28 @@ a:hover {
 	}
 	to {
 		transform: scale(1.1);
+	}
+}
+
+.reveal-on-visible {
+	opacity: 0;
+	transition: 1s ease;
+	transition-delay: 0.1s;
+
+	&.delay-1 {
+		transition-delay: 0.4s;
+	}
+	&.delay-2 {
+		transition-delay: 0.6s;
+	}
+	&.delay-3 {
+		transition-delay: 0.8s;
+	}
+	&.delay-4 {
+		transition-delay: 1s;
+	}
+
+	&.revealed {
+		opacity: 1;
 	}
 }
