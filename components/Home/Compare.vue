@@ -17,7 +17,7 @@
     h1,
     p,
     #inputs {
-      z-index: 1 !important;
+      z-index: 2 !important;
       position: relative;
     }
 
@@ -53,6 +53,59 @@
         border-radius: 100px;
         background-color: #ff5777;
         color: white;
+      }
+    }
+
+    .abstract {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      img {
+        position: absolute;
+        z-index: 1;
+
+        @media (max-width: 800px) {
+          opacity: 0.5;
+        }
+
+        &.square {
+          left: 100px;
+          top: 200px;
+
+          @media (max-width: 800px) {
+            top: 120px;
+          }
+        }
+        &.triangle {
+          right: 300px;
+          top: 90px;
+
+          @media (max-width: 800px) {
+            top: 120px;
+            right: 50px;
+          }
+        }
+        &.ellipse {
+          right: 500px;
+          top: 120px;
+
+          @media (max-width: 800px) {
+            top: 240px;
+            right: 200px;
+          }
+        }
+        &.rectangle {
+          right: 400px;
+          top: 200px;
+
+          @media (max-width: 800px) {
+            top: 340px;
+            right: 100px;
+          }
+        }
       }
     }
 
@@ -153,10 +206,17 @@
         <button>Yarıştır</button>
         <input type="text" placeholder="2. Marka" />
       </div>
+
+      <div class="abstract">
+        <img class="square" src="../../static/abstract/square.png" />
+        <img class="triangle" src="../../static/abstract/triangle.png" />
+        <img class="ellipse" src="../../static/abstract/yellow-ellipse.png" />
+        <img class="rectangle" src="../../static/abstract/rectangle-plus.png" />
+      </div>
     </div>
 
     <div class="circle-big">
-      <img src="../../static/abstract-1.png" />
+      <img src="../../static/abstract/1.png" />
     </div>
     <div class="circle-small"></div>
   </section>

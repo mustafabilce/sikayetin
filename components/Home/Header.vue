@@ -440,7 +440,7 @@ header {
           v-show="bannerIndex == 2"
         />
 
-        <img src="../../static/header-abstract.png" class="abstract" />
+        <img src="../../static/abstract/header-abstract.png" class="abstract" />
       </div>
 
       <div id="star_of_week">

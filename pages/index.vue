@@ -34,7 +34,7 @@ section {
   pointer-events: none;
 
   img {
-    width: 256px;
+    width: 128px;
     max-width: 80vw;
     animation: pulse 1.5s infinite;
     animation-direction: alternate;
@@ -44,7 +44,7 @@ section {
 
 <template>
   <div>
-    <div id="loader"><img src="../static/logo-white.png" /></div>
+    <div id="loader"><img src="../static/loader.gif" /></div>
     <Header />
     <Trending />
     <Compare />
