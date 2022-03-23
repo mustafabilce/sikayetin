@@ -9,7 +9,7 @@
     float: right;
     border-radius: 500px 0 0 500px;
     text-align: center;
-    padding: 100px 300px 150px 100px;
+    padding: 250px 350px 120px 150px;
     min-width: 60vw;
     margin-right: var(--section-padding-inline-negative);
     position: relative;
@@ -158,13 +158,13 @@
   }
 
   .circle-big {
-    right: -300px;
-    width: 650px;
+    right: -450px;
+    width: 800px;
     border-width: 60px;
 
-    @media (max-width: 1400px) {
-      width: 540px;
-      right: -280px;
+    @media (max-width: 1100px) {
+      width: 550px;
+      right: -200px;
     }
 
     img {
@@ -178,6 +178,7 @@
 
   .circle-small {
     width: 650px;
+    height: 650px;
     right: 400px;
     transform: scale(0.75);
     opacity: 0.8;
@@ -185,6 +186,7 @@
 
     @media (max-width: 1400px) {
       width: 540px;
+      height: 540px;
     }
   }
 }
