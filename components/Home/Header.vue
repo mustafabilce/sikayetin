@@ -277,6 +277,7 @@ header {
     }
 
     #star_of_week {
+      max-width: 184px;
       position: absolute;
       top: 480px;
       right: 600px;
