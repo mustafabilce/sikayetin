@@ -158,6 +158,10 @@ header {
         max-width: min(375px, 100%);
       }
 
+      @media (max-width: 500px) {
+        max-width: min(260px, 100%);
+      }
+
       input {
         width: 100%;
         border-radius: 100px;
@@ -247,8 +251,10 @@ header {
         }
 
         @media (max-width: 500px) {
-          width: 280px;
-          right: 30px;
+          width: 260px;
+          right: 40px;
+          top: 180px;
+          bottom: unset;
         }
       }
 
@@ -317,8 +323,10 @@ header {
       }
 
       @media (max-width: 500px) {
-        transform: scale(0.75);
-        top: 10px;
+        transform: scale(0.6);
+        top: -30px;
+        left: -30px;
+        right: unset;
       }
 
       img {
