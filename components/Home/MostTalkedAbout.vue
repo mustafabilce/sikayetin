@@ -84,19 +84,60 @@
         .brand {
           display: flex;
           align-items: center;
-          gap: 10px;
+          position: relative;
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 2px;
+            left: 34px;
+            width: 13px;
+            height: 13px;
+            background-image: url(../../static/verified.png);
+            outline: 2px solid white;
+            border-radius: 100%;
+          }
 
           b {
             font-size: 0.9em;
           }
 
+          span {
+            font-size: 0.9em;
+            opacity: 0.7;
+          }
+
           img {
             width: 42px;
             border-radius: 100%;
+            margin-right: 10px;
+          }
+        }
 
-            @media (max-width: 900px) {
-              width: 36px;
+        .brand {
+          & > div {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .star {
+            margin-right: 3px;
+            width: 12px;
+
+            @media (max-width: 1200px) {
+              margin-right: 2px;
+              width: 9px;
             }
+          }
+        }
+
+        .arrow {
+          width: 36px;
+          margin: 0 10px;
+
+          @media (max-width: 1000px) {
+            width: 24px;
           }
         }
       }
@@ -162,13 +203,30 @@
           <div class="customer">
             <img src="../../static/customer.png" />
             <div>
-              <b>Samet</b> <br />
-              <span>12.123 <i class="fas fa-eye"></i></span>
+              <b>Samet</b>
+              <br />
+              <span style="white-space: nowrap">
+                12.123&nbsp;
+                <fa :icon="['fas', 'eye']" style="display: inline" />
+              </span>
             </div>
           </div>
+
+          <img src="../../static/arrow.svg" class="arrow" />
+
           <div class="brand">
             <img src="../../static/trendyol.png" />
-            <div><b>Trendyol</b></div>
+            <div>
+              <b>Trendyol</b>
+              <span style="white-space: nowrap; display: flex">
+                <img
+                  src="../../static/star.png"
+                  class="star"
+                  v-for="i in 5"
+                  :key="i"
+                />
+              </span>
+            </div>
           </div>
         </div>
       </div>
