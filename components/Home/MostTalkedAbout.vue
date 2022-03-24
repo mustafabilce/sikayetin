@@ -80,17 +80,6 @@
         max-width: 300px;
         margin: 30px auto 0 auto;
 
-        @media (max-width: 400px) {
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-
-          * {
-            width: 150px;
-          }
-        }
-
         .customer,
         .brand {
           display: flex;
