@@ -19,8 +19,6 @@
     }
 
     @media (max-width: 900px) {
-      flex-direction: row;
-
       h5 {
         font-size: 1.1em;
       }
@@ -38,9 +36,9 @@
       --heading-font-size: 1.5em;
       --text-font-size: 1.2em;
 
-      @media (max-width: 1300px) {
-        --wide-card-width: 40vw;
-        --small-card-width: 30vw;
+      @media (max-width: 1400px) {
+        --wide-card-width: 42vw;
+        --small-card-width: 34vw;
         --heading-font-size: 1.2em;
         --text-font-size: 1.1em;
       }
@@ -64,10 +62,6 @@
       &.row-2 {
         padding-left: 80px;
         align-items: flex-start;
-
-        @media (max-width: 900px) {
-          padding-left: 0;
-        }
       }
 
       .card {
@@ -121,22 +115,8 @@
           align-items: center;
           justify-content: space-between;
           width: 100%;
-          max-width: 300px;
+          max-width: 290px;
           margin: 20px auto 0 auto;
-
-          @media (max-width: 1200px) {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-
-            & > * {
-              width: 150px;
-            }
-          }
-
-          & > * {
-            margin: 10px;
-          }
 
           & > * > img {
             margin-right: 10px;
@@ -147,6 +127,14 @@
             display: flex;
             align-items: center;
             position: relative;
+
+            @media (max-width: 1200px) {
+              font-size: 0.85rem;
+            }
+
+            @media (max-width: 900px) {
+              transform: scale(0.9);
+            }
 
             &::after {
               content: '';
@@ -159,6 +147,10 @@
               background-image: url(../../static/verified.png);
               outline: 2px solid white;
               border-radius: 100%;
+
+              @media (max-width: 900px) {
+                left: 22px;
+              }
             }
 
             b {
@@ -175,14 +167,35 @@
               border-radius: 100%;
 
               @media (max-width: 900px) {
-                width: 36px;
+                width: 30px;
               }
             }
           }
 
-          .brand .star {
-            margin-right: 3px;
-            width: 12px;
+          .brand {
+            & > div {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .star {
+              margin-right: 3px;
+              width: 12px;
+
+              @media (max-width: 1200px) {
+                margin-right: 2px;
+                width: 9px;
+              }
+            }
+          }
+
+          .arrow {
+            width: 36px;
+            margin: 0 10px;
+
+            @media (max-width: 1000px) {
+              width: 24px;
+            }
           }
         }
       }
@@ -215,6 +228,9 @@
                 </span>
               </div>
             </div>
+
+            <img src="../../static/arrow.svg" class="arrow" />
+
             <div class="brand">
               <img src="../../static/trendyol.png" />
               <div>
@@ -234,7 +250,7 @@
       </div>
       <div class="trending-row row-2">
         <div v-for="i in 10" :key="i" class="card">
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+          <h5>Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
             bibendum risus, sit ac velit purus lectu
@@ -245,13 +261,27 @@
               <div>
                 <b>Samet</b>
                 <br />
-                <span>12.123 <i class="fas fa-eye"></i></span>
+                <span style="white-space: nowrap">
+                  12.123&nbsp;
+                  <fa :icon="['fas', 'eye']" style="display: inline" />
+                </span>
               </div>
             </div>
+
+            <img src="../../static/arrow.svg" class="arrow" />
+
             <div class="brand">
               <img src="../../static/trendyol.png" />
               <div>
                 <b>Trendyol</b>
+                <span style="white-space: nowrap">
+                  <img
+                    src="../../static/star.png"
+                    class="star"
+                    v-for="i in 5"
+                    :key="i"
+                  />
+                </span>
               </div>
             </div>
           </div>

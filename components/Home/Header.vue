@@ -56,7 +56,16 @@ header {
         }
 
         &#live_feed_button:hover {
-          letter-spacing: 0.1em;
+          animation: pulse_color 0.5s alternate infinite;
+        }
+
+        @keyframes pulse_color {
+          0% {
+            background: #ff5777;
+          }
+          100% {
+            background: #c2344e;
+          }
         }
 
         &.btn {
@@ -145,6 +154,10 @@ header {
       z-index: 1;
       position: relative;
 
+      @media (max-width: 700px) {
+        max-width: min(375px, 100%);
+      }
+
       input {
         width: 100%;
         border-radius: 100px;
@@ -229,8 +242,13 @@ header {
 
         @media (max-width: 600px) {
           width: 280px;
+          right: 0;
           bottom: -140px;
-          right: 10px;
+        }
+
+        @media (max-width: 500px) {
+          width: 280px;
+          right: 30px;
         }
       }
 
@@ -294,6 +312,11 @@ header {
 
       @media (max-width: 600px) {
         transform: scale(0.9);
+        top: 20px;
+      }
+
+      @media (max-width: 500px) {
+        transform: scale(0.75);
         top: 10px;
       }
 

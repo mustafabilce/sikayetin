@@ -54,10 +54,22 @@
       }
 
       a.comment {
-        color: #0d2547;
-        text-align: center;
-        display: block;
+        color: #3fc2e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 8px 0;
+        opacity: 0.8;
+        transition: 0.2s;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        img {
+          width: 20px;
+          display: inline-block;
+        }
       }
 
       .footer {
@@ -155,7 +167,7 @@
           bibendum risus, sit ac velit purus lectus lobortis
         </p>
         <a href="#" class="comment">
-          <fa :icon="['fas', 'comment']" />&nbsp; 12 Yorum
+          <img src="../../static/yorum.png" /> &nbsp; 12 Yorum
         </a>
         <div class="footer">
           <div class="customer">
