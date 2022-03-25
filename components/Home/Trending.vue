@@ -7,16 +7,11 @@
     flex-direction: column;
     padding: 25px;
 
-    max-width: 100vw;
-    width: 100vw !important;
+    width: 100vw;
     box-sizing: border-box;
-    overflow-x: scroll;
+    overflow-x: hidden;
     margin: 20px 0;
     margin-left: var(--section-padding-inline-negative);
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     @media (max-width: 900px) {
       h5 {
@@ -30,6 +25,13 @@
     .trending-row {
       display: flex;
       align-items: flex-end;
+      max-width: 100vw;
+      width: 100vw !important;
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       --wide-card-width: 35vw;
       --small-card-width: 26vw;
@@ -60,7 +62,6 @@
       }
 
       &.row-2 {
-        padding-left: 80px;
         align-items: flex-start;
       }
 
@@ -293,32 +294,33 @@
 
 <script>
 export default {
-  data: () => ({
-    hoveringTrendingCard: false,
-  }),
-  mounted() {
-    const trendingSection = document.querySelector('#trending .inner');
-    const end = trendingSection.scrollWidth - trendingSection.clientWidth - 10;
-    let scrollDirection = 4;
-    const pageScroll = () => {
-      const speed = this.hoveringTrendingCard ? 0.25 : 1;
-      trendingSection.scrollBy(scrollDirection * speed, 0);
-      setTimeout(() => pageScroll(), 18);
+  data: () => ({}),
+  methods: {
+    Scroll(element, reverse, speed = 0.5) {
+      const end = element.scrollWidth - element.clientWidth - 10;
 
-      if (trendingSection.scrollLeft <= 1) {
-        scrollDirection = 1;
-      } else if (end <= trendingSection.scrollLeft) {
-        scrollDirection = -1;
+      if (reverse) {
+        $(element).scrollLeft(end - 20);
       }
-    };
-    pageScroll();
-    const holder = document.querySelector('#trending .inner');
-    holder.addEventListener('mouseenter', () => {
-      this.hoveringTrendingCard = true;
-    });
-    holder.addEventListener('mouseleave', () => {
-      this.hoveringTrendingCard = false;
-    });
+
+      let scrollDirection = 4;
+      let velocity = speed;
+      const pageScroll = () => {
+        element.scrollBy(scrollDirection * velocity, 0);
+        setTimeout(() => pageScroll(), 18);
+
+        if (element.scrollLeft <= 1) {
+          velocity = speed;
+        } else if (end <= element.scrollLeft) {
+          velocity = speed * -1;
+        }
+      };
+      pageScroll();
+    },
+  },
+  mounted() {
+    this.Scroll(document.querySelector('#trending .inner .row-1'), false);
+    this.Scroll(document.querySelector('#trending .inner .row-2'), true);
   },
 };
 </script>
