@@ -189,17 +189,17 @@
 
     <div class="inner">
       <div class="card" v-for="i in 10" :key="i">
-        <h4 class="heading">
+        <h4 class="heading reveal-on-visible">
           Şikayet Başlığı dolor sit amet, consectetur adipiscing elit. Duis dui.
         </h4>
-        <p>
+        <p class="reveal-on-visible delay-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
           bibendum risus, sit ac velit purus lectus lobortis
         </p>
-        <a href="#" class="comment">
+        <a href="#" class="comment reveal-on-visible delay-3">
           <img src="../../static/yorum.png" /> &nbsp; 12 Yorum
         </a>
-        <div class="footer">
+        <div class="footer reveal-on-visible delay-4">
           <div class="customer">
             <img src="../../static/customer.png" />
             <div>

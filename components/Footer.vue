@@ -64,14 +64,6 @@ footer {
           height: 34px;
           margin-right: 10px;
         }
-
-        a {
-          opacity: 0.7;
-
-          &:hover {
-            opacity: 1;
-          }
-        }
       }
     }
 
@@ -90,12 +82,11 @@ footer {
       }
 
       a {
-        color: white;
-        opacity: 0.5;
+        color: #a8adb7;
         padding: 12px 0;
 
         &:hover {
-          opacity: 0.8;
+          color: white;
         }
       }
     }
@@ -105,12 +96,12 @@ footer {
 
 <template>
   <footer>
-    <div class="logo">
+    <div class="logo reveal-on-visible">
       <img src="../static/logo-white.png" />
     </div>
 
     <div class="sections">
-      <div class="about">
+      <div class="about reveal-on-visible">
         <p>
           "Senin sikayet.in burada yayınlanır. Markan çözüme ulaştırır.
           Üyeleriyle markaları buluşturan sikayet.in platformu her zaman adil ve
@@ -119,38 +110,48 @@ footer {
         </p>
 
         <div class="social">
-          <a href="#"><img src="../static/social/twitter.png" /></a>
-          <a href="#"><img src="../static/social/facebook.png" /></a>
-          <a href="#"><img src="../static/social/instagram.png" /></a>
-          <a href="#"><img src="../static/social/linkedin.png" /></a>
-          <a href="#"><img src="../static/social/youtube.png" /></a>
+          <a class="reveal-on-visible delay-1" href="#"
+            ><img src="../static/social/twitter.png"
+          /></a>
+          <a class="reveal-on-visible delay-2" href="#"
+            ><img src="../static/social/facebook.png"
+          /></a>
+          <a class="reveal-on-visible delay-3" href="#"
+            ><img src="../static/social/instagram.png"
+          /></a>
+          <a class="reveal-on-visible delay-4" href="#"
+            ><img src="../static/social/linkedin.png"
+          /></a>
+          <a class="reveal-on-visible delay-5" href="#"
+            ><img src="../static/social/youtube.png"
+          /></a>
         </div>
       </div>
 
       <div class="category">
-        <h3>Sayfalar</h3>
-        <a href="#">Hakkımızda</a>
-        <a href="#">Blog</a>
-        <a href="#">Sıkça Sorulanlar</a>
-        <a href="#">İletişim</a>
+        <h3 class="reveal-on-visible">Sayfalar</h3>
+        <a class="reveal-on-visible delay-1" href="#">Hakkımızda</a>
+        <a class="reveal-on-visible delay-2" href="#">Blog</a>
+        <a class="reveal-on-visible delay-3" href="#">Sıkça Sorulanlar</a>
+        <a class="reveal-on-visible delay-4" href="#">İletişim</a>
       </div>
 
       <div class="category">
-        <h3>Son 5 Şikayet</h3>
-        <a href="#">Şikayet Başlığı</a>
-        <a href="#">Şikayet Başlığı</a>
-        <a href="#">Şikayet Başlığı</a>
-        <a href="#">Şikayet Başlığı</a>
-        <a href="#">Şikayet Başlığı</a>
+        <h3 class="reveal-on-visible">Son 5 Şikayet</h3>
+        <a class="reveal-on-visible delay-1" href="#">Şikayet Başlığı</a>
+        <a class="reveal-on-visible delay-2" href="#">Şikayet Başlığı</a>
+        <a class="reveal-on-visible delay-3" href="#">Şikayet Başlığı</a>
+        <a class="reveal-on-visible delay-4" href="#">Şikayet Başlığı</a>
+        <a class="reveal-on-visible delay-5" href="#">Şikayet Başlığı</a>
       </div>
 
       <div class="category">
-        <h3>Çok Konuşulanlar</h3>
-        <a href="#">Marka Adı</a>
-        <a href="#">Marka Adı</a>
-        <a href="#">Marka Adı</a>
-        <a href="#">Marka Adı</a>
-        <a href="#">Marka Adı</a>
+        <h3 class="reveal-on-visible">Çok Konuşulanlar</h3>
+        <a class="reveal-on-visible delay-1" href="#">Marka Adı</a>
+        <a class="reveal-on-visible delay-2" href="#">Marka Adı</a>
+        <a class="reveal-on-visible delay-3" href="#">Marka Adı</a>
+        <a class="reveal-on-visible delay-4" href="#">Marka Adı</a>
+        <a class="reveal-on-visible delay-5" href="#">Marka Adı</a>
       </div>
     </div>
   </footer>

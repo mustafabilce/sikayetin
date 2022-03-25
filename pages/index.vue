@@ -96,6 +96,10 @@ export default {
     $('#loader').animate({ opacity: 0 }, 500);
 
     for (const element of $('.reveal-on-visible')) {
+      if (this.IsVisible(element)) {
+        $(element).addClass('revealed');
+      }
+
       window.addEventListener('scroll', () => {
         if (this.IsVisible(element)) {
           $(element).addClass('revealed');

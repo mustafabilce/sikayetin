@@ -212,12 +212,14 @@
     <div class="inner">
       <div class="trending-row row-1">
         <div v-for="i in 10" :key="i" class="card">
-          <h5>Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
-          <p>
+          <h5 class="reveal-on-visible">
+            Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.
+          </h5>
+          <p class="reveal-on-visible delay-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
             bibendum risus, sit ac velit purus lectu
           </p>
-          <div class="footer">
+          <div class="footer reveal-on-visible delay-3">
             <div class="customer">
               <img src="../../static/customer.png" />
               <div>
@@ -251,12 +253,14 @@
       </div>
       <div class="trending-row row-2">
         <div v-for="i in 10" :key="i" class="card">
-          <h5>Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
-          <p>
+          <h5 class="reveal-on-visible">
+            Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.
+          </h5>
+          <p class="reveal-on-visible delay-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
             bibendum risus, sit ac velit purus lectu
           </p>
-          <div class="footer">
+          <div class="footer reveal-on-visible delay-3">
             <div class="customer">
               <img src="../../static/customer.png" />
               <div>
