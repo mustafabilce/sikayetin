@@ -438,7 +438,7 @@ header {
         <a href="#" class="btn">Şikayet Yaz</a>
       </div>
 
-      <fa :icon="['fas', 'bars']" style="font-size: 2em; cursor: pointer" />
+      <BurgerIcon />
     </nav>
 
     <div id="call_to_action">
@@ -494,6 +494,7 @@ header {
 </template>
 
 <script>
+import BurgerIcon from '../Pieces/BurgerIcon.vue';
 export default {
   data: () => ({
     bannerIndex: 0,
@@ -504,13 +505,13 @@ export default {
       ['#f8bf3e', '#e19302'],
     ],
   }),
+  components: { BurgerIcon },
   created() {
     this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));
   },
   mounted() {
     const [gradient1, gradient2] = this.bannerColors[this.bannerIndex];
     console.log(gradient1, gradient2);
-
     const header = document.querySelector('header');
     header.style.setProperty('--gradient-1', gradient1);
     header.style.setProperty('--gradient-2', gradient2);
