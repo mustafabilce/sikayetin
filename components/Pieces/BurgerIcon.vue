@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-#holder {
+#burger_menu_holder {
   @media (max-width: 500px) {
     margin-right: 15px !important;
   }
@@ -107,6 +107,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  max-width: 100vw;
+  overflow-x: hidden;
 
   &.hide {
     pointer-events: none;
@@ -180,7 +182,7 @@
 </style>
 
 <template>
-  <div id="holder">
+  <div id="burger_menu_holder">
     <div class="burger-icon">
       <input class="checkbox" type="checkbox" v-model="expanded" />
       <div class="hamburger-lines">
