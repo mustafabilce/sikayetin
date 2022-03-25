@@ -3,10 +3,11 @@
 }
 
 body,
+header,
 section,
 footer {
-	max-width: 100vw;
-	overflow-x: hidden;
+	max-width: 100vw !important;
+	overflow-x: hidden !important;
 }
 
 .card {

@@ -5,6 +5,7 @@ header {
   padding-block: 30px;
   padding-inline: var(--header-padding-inline);
   position: relative;
+  overflow-y: visible !important;
 
   @media (max-width: 1150px) {
     border-radius: 0 0 120px 120px;
