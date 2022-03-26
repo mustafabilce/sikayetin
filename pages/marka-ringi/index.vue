@@ -78,7 +78,7 @@
 }
 
 #popular_comparisons {
-  overflow: visible;
+  overflow: visible !important;
 
   .heading {
     font-weight: 700;
@@ -101,6 +101,39 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+
+        .brand {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          &::after {
+            left: 50px;
+          }
+
+          .brand-name {
+            margin-top: 12px;
+          }
+
+          img {
+            border-radius: 100%;
+
+            @media (max-width: 900px) {
+              width: 42px;
+            }
+          }
+
+          .stars {
+            display: flex;
+            flex-direction: row !important;
+            align-items: center;
+
+            img {
+              margin-right: 2px;
+              width: 9px;
+            }
+          }
+        }
       }
 
       .compare-button {
@@ -146,7 +179,7 @@
               <img src="../../static/trendyol.png" />
               <b class="brand-name">Trendyol</b>
               <div class="stars">
-                <img src="../../static/star.png" v-for="i in 5" :key="i" />
+                <img src="../../static/star.svg" v-for="i in 5" :key="i" />
                 <span class="d-inline-block pl-2">4.2</span>
               </div>
             </div>
@@ -157,7 +190,7 @@
               <img src="../../static/trendyol.png" />
               <b class="brand-name">Trendyol</b>
               <div class="stars">
-                <img src="../../static/star.png" v-for="i in 5" :key="i" />
+                <img src="../../static/star.svg" v-for="i in 5" :key="i" />
                 <span class="d-inline-block pl-2">4.2</span>
               </div>
             </div>
