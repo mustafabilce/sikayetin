@@ -206,9 +206,9 @@
       </header>
 
       <main>
-        <a href="#">Şikayetler</a>
-        <a href="#">Marka Ringi</a>
-        <a href="#">Popüler 20</a>
+        <NuxtLink to="/sikayetler">Şikayetler</NuxtLink>
+        <NuxtLink to="/marka-ringi">Marka Ringi</NuxtLink>
+        <NuxtLink to="/populer">Popüler 20</NuxtLink>
         <a href="#" class="button">Canlı Akış</a>
       </main>
 

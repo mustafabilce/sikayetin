@@ -1,17 +1,38 @@
 <style lang="scss" scoped>
 header {
+  --gradient-1: #85dced;
+  --gradient-2: #4ec6e0;
+  --border-radius: 180px;
+
   background: linear-gradient(var(--gradient-1), var(--gradient-2));
-  border-radius: 0 0 180px 180px;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   padding-block: 30px;
   padding-inline: var(--header-padding-inline);
   position: relative;
-  overflow-y: visible !important;
+
+  &:not(.full) {
+    --border-radius: 90px;
+    padding-block: 12px;
+  }
+
+  &,
+  * {
+    overflow: visible !important;
+  }
 
   @media (max-width: 1150px) {
-    border-radius: 0 0 120px 120px;
+    --border-radius: 120px;
+    &:not(.full) {
+      --border-radius: 60px;
+      padding-block: 8px;
+    }
   }
   @media (max-width: 800px) {
-    border-radius: 0 0 40px 40px;
+    --border-radius: 40px;
+    &:not(.full) {
+      --border-radius: 20px;
+      padding-block: 2px;
+    }
   }
 
   &,
@@ -52,7 +73,7 @@ header {
           padding: 4px;
         }
 
-        &:not(.btn):hover {
+        &:not(.btn):not(.active):hover {
           color: #00244c;
         }
 
@@ -93,7 +114,7 @@ header {
       a {
         padding: 4px;
 
-        &:not(.btn):hover {
+        &:not(.btn):not(.active):hover {
           color: #00244c;
         }
 
@@ -109,6 +130,23 @@ header {
             margin-left: 10px;
           }
         }
+      }
+    }
+
+    a.active {
+      font-weight: bold;
+      cursor: default;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: rgba($color: #fff, $alpha: 0.7);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 
@@ -415,20 +453,30 @@ header {
       position: relative;
     }
   }
+
+  &:not(.full) {
+    margin-bottom: 70px;
+
+    #logo {
+      max-width: 160px;
+    }
+  }
 }
 </style>
 
 <template>
-  <header>
+  <header :class="{ full }">
     <nav>
-      <a href="#">
+      <NuxtLink to="/">
         <img src="../../static/logo-white.png" id="logo" />
-      </a>
+      </NuxtLink>
 
       <div id="primary_nav">
-        <a href="#">Şikayetler</a>
-        <a href="#">Marka Ringi</a>
-        <a href="#">Popüler 20</a>
+        <NuxtLink to="/sikayetler" :class="{ active: active == 'sikayetler' }">
+          Şikayetler
+        </NuxtLink>
+        <NuxtLink to="/marka-ringi">Marka Ringi</NuxtLink>
+        <NuxtLink to="/populer">Popüler 20</NuxtLink>
         <a href="#" class="btn" id="live_feed_button">Canlı Akış</a>
       </div>
 
@@ -442,7 +490,7 @@ header {
       <BurgerIcon />
     </nav>
 
-    <div id="call_to_action">
+    <div id="call_to_action" v-if="full">
       <h1>
         <span style="font-weight: 400">Şikayet.in varsa</span>
         <br />
@@ -486,7 +534,7 @@ header {
       </div>
     </div>
 
-    <div id="abstract">
+    <div id="abstract" v-if="full">
       <div class="abstract-1"></div>
       <div class="abstract-2"></div>
       <div class="abstract-3"></div>
@@ -497,6 +545,10 @@ header {
 <script>
 import BurgerIcon from '../Pieces/BurgerIcon.vue';
 export default {
+  props: {
+    full: { type: Boolean, default: false },
+    active: { type: String, default: '' },
+  },
   data: () => ({
     bannerIndex: 0,
     bannerCount: 3,
@@ -511,11 +563,12 @@ export default {
     this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));
   },
   mounted() {
-    const [gradient1, gradient2] = this.bannerColors[this.bannerIndex];
-    console.log(gradient1, gradient2);
-    const header = document.querySelector('header');
-    header.style.setProperty('--gradient-1', gradient1);
-    header.style.setProperty('--gradient-2', gradient2);
+    if (this.full) {
+      const [gradient1, gradient2] = this.bannerColors[this.bannerIndex];
+      const header = document.querySelector('header');
+      header.style.setProperty('--gradient-1', gradient1);
+      header.style.setProperty('--gradient-2', gradient2);
+    }
   },
 };
 </script>
