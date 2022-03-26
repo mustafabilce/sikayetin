@@ -18,6 +18,10 @@ function MakeVisibleElementsRevealed() {
 	for (const element of $('.reveal-on-visible')) {
 		if (IsVisible(element)) {
 			$(element).addClass('revealed');
+
+			setTimeout(() => {
+				$(element).addClass('reveal-finished');
+			}, 1200);
 		}
 	}
 }

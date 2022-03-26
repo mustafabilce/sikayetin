@@ -154,7 +154,7 @@
     <section id="trending">
       <div class="background"></div>
 
-      <h1>Gündemdeki Şikayetler</h1>
+      <h1 class="reveal-on-visible">Gündemdeki Şikayetler</h1>
 
       <div class="inner">
         <button class="slick-button prev-button">
@@ -163,9 +163,9 @@
 
         <div class="slides">
           <div class="slide" v-for="i in 10" :key="i">
-            <h3 class="heading reveal-on-visible">
+            <h4 class="heading reveal-on-visible delay-1">
               Şikayet Başlığı dolor sit amet, consectetur
-            </h3>
+            </h4>
             <div class="footer reveal-on-visible delay-2">
               <div class="customer">
                 <img src="../../static/customer.png" />

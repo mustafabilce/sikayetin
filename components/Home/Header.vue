@@ -472,17 +472,34 @@ header {
       </NuxtLink>
 
       <div id="primary_nav">
-        <NuxtLink to="/sikayetler" :class="{ active: active == 'sikayetler' }">Şikayetler</NuxtLink>
-        <NuxtLink to="/marka-ringi" :class="{ active: active == 'marka-ringi' }">Marka Ringi</NuxtLink>
-        <NuxtLink to="/populer" :class="{ active: active == 'populer' }">Popüler 20</NuxtLink>
-        <a href="#" class="btn" id="live_feed_button">Canlı Akış</a>
+        <NuxtLink
+          class="reveal-on-visible"
+          to="/sikayetler"
+          :class="{ active: active == 'sikayetler' }"
+          >Şikayetler</NuxtLink
+        >
+        <NuxtLink
+          class="reveal-on-visible delay-1"
+          to="/marka-ringi"
+          :class="{ active: active == 'marka-ringi' }"
+          >Marka Ringi</NuxtLink
+        >
+        <NuxtLink
+          class="reveal-on-visible delay-2"
+          to="/populer"
+          :class="{ active: active == 'populer' }"
+          >Popüler 20</NuxtLink
+        >
+        <a href="#" class="reveal-on-visible delay-3 btn" id="live_feed_button"
+          >Canlı Akış</a
+        >
       </div>
 
       <div id="secondary_nav">
-        <a href="#"><b>Giriş Yap</b></a>
+        <a class="reveal-on-visible" href="#"><b>Giriş Yap</b></a>
         <span>|</span>
-        <a href="#"><b>Üye Ol</b></a>
-        <a href="#" class="btn">Şikayet Yaz</a>
+        <a class="reveal-on-visible delay-1" href="#"><b>Üye Ol</b></a>
+        <a class="reveal-on-visible delay-2 btn" href="#">Şikayet Yaz</a>
       </div>
 
       <BurgerIcon />
@@ -490,19 +507,27 @@ header {
 
     <div id="call_to_action" v-if="full">
       <h1>
-        <span style="font-weight: 400">Şikayet.in varsa</span>
+        <span class="reveal-on-visible" style="font-weight: 400">
+          Şikayet.in varsa
+        </span>
         <br />
-        <span style="font-weight: 600">Çözüm de var!</span>
+        <span class="reveal-on-visible delay-1" style="font-weight: 600">
+          Çözüm de var!
+        </span>
       </h1>
 
       <div id="search">
-        <input type="text" placeholder="Marka, model, ürün ara" />
-        <button class="btn">
+        <input
+          class="reveal-on-visible delay-2"
+          type="text"
+          placeholder="Marka, model, ürün ara"
+        />
+        <button class="btn reveal-on-visible delay-3">
           <fa :icon="['fas', 'magnifying-glass']" />
         </button>
       </div>
 
-      <div id="banner">
+      <div id="banner" class="reveal-on-visible delay-1">
         <img
           class="banner-img"
           src="../../static/banner1.png"

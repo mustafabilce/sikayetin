@@ -207,7 +207,7 @@
 
 <template>
   <section id="trending">
-    <h1>Hangi Şikayetler İlgi Çekti?</h1>
+    <h1 class="reveal-on-visible delay-4">Hangi Şikayetler İlgi Çekti?</h1>
 
     <div class="inner">
       <div class="trending-row row-1">
