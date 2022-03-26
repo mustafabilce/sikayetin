@@ -1,10 +1,15 @@
 <style lang="scss" scoped>
+section > h2 {
+  font-weight: bold;
+  font-size: 2.3em;
+}
+
 #trending {
   position: relative;
 
   .inner {
     padding: 50px 0;
-    margin-top: 40px;
+    margin-top: 20px;
     position: relative;
 
     .slides {
@@ -105,7 +110,7 @@
     position: absolute;
     left: 0;
     right: 20px;
-    top: 100px;
+    top: 75px;
     bottom: 0;
     background: #5379ff;
     border-radius: 0 1000px 1000px 0;
@@ -145,6 +150,18 @@
     }
   }
 }
+
+#all {
+  @media (max-width: 1400px) {
+    .heading {
+      justify-content: flex-end !important;
+
+      .left {
+        width: 100%;
+      }
+    }
+  }
+}
 </style>
 
 <template>
@@ -154,7 +171,7 @@
     <section id="trending">
       <div class="background"></div>
 
-      <h1 class="reveal-on-visible">Gündemdeki Şikayetler</h1>
+      <h2 class="reveal-on-visible">Gündemdeki Şikayetler</h2>
 
       <div class="inner">
         <button class="slick-button prev-button">
@@ -163,9 +180,7 @@
 
         <div class="slides">
           <div class="slide" v-for="i in 10" :key="i">
-            <h4 class="heading reveal-on-visible delay-1">
-              Şikayet Başlığı dolor sit amet, consectetur
-            </h4>
+            <h4 class="heading reveal-on-visible delay-1">Şikayet Başlığı dolor sit amet, consectetur</h4>
             <div class="footer reveal-on-visible delay-2">
               <div class="customer">
                 <img src="../../static/customer.png" />
@@ -184,12 +199,7 @@
                 <div>
                   <b>Trendyol</b>
                   <span style="white-space: nowrap; display: flex">
-                    <img
-                      src="../../static/star.png"
-                      class="star"
-                      v-for="i in 5"
-                      :key="i"
-                    />
+                    <img src="../../static/star.png" class="star" v-for="i in 5" :key="i" />
                   </span>
                 </div>
               </div>
@@ -200,6 +210,47 @@
         <button class="slick-button next-button">
           <fa :icon="['fas', 'angle-right']" />
         </button>
+      </div>
+    </section>
+
+    <section id="all" style="margin-top: 150px">
+      <div
+        class="heading d-flex align-items-center flex-wrap align-items-center justify-content-between"
+        style="gap: 20px"
+      >
+        <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
+          <h2 class="reveal-on-visible">Tüm Şikayetler</h2>
+          <span style="opacity: 0.5">12.850 şikayet</span>
+        </div>
+
+        <div class="d-flex align-items-center flex-wrap align-items-center justify-content-between" style="gap: 10px">
+          <div class="input-group" style="width: 300px">
+            <input type="text" class="form-control" placeholder="Şikayet içinde ara" />
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <img src="../../static/search.svg" />
+              </span>
+            </div>
+          </div>
+
+          <div class="input-group" style="width: 220px">
+            <input type="text" class="form-control" placeholder="Filtrele" />
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <img src="../../static/filter.svg" />
+              </span>
+            </div>
+          </div>
+
+          <div class="input-group" style="width: 180px">
+            <input type="text" class="form-control" placeholder="Sırala" />
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <img src="../../static/order.svg" />
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

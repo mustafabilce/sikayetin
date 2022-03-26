@@ -148,3 +148,37 @@ a:hover {
 		animation-direction: alternate;
 	}
 }
+
+.input-group {
+	border: 1px solid #eaeef4 !important;
+	border-radius: 8px;
+	overflow: hidden;
+	outline: none !important;
+
+	input {
+		background: #f6fafd !important;
+		box-shadow: none !important;
+		border: none;
+		padding: 10px;
+
+		&::placeholder {
+			color: #00244b80;
+			font-size: 0.8em;
+		}
+	}
+
+	.input-group-append {
+		background: #f6fafd;
+
+		.input-group-text {
+			background: #f6fafd;
+			border: none;
+
+			img {
+				width: 20px;
+				height: 20px;
+				object-fit: contain;
+			}
+		}
+	}
+}
