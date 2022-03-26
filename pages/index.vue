@@ -31,7 +31,7 @@ section {
     <MostTalkedAbout />
     <Counter />
     <WorkTogether />
-    <Footer />
+    <Footer :marginTop="0" />
   </div>
 </template>
 
@@ -55,37 +55,8 @@ export default {
     WorkTogether,
     Footer,
   },
-  methods: {
-    IsVisible(el) {
-      let rect = el.getBoundingClientRect();
-      const top = rect.top;
-      const height = rect.height;
-      let parent = el.parentNode;
-      if (rect.bottom < 0) return false;
-      if (top > document.documentElement.clientHeight) return false;
-      do {
-        rect = parent.getBoundingClientRect();
-        if (top <= rect.bottom === false) return false;
-        if (top + height <= rect.top) return false;
-        parent = parent.parentNode;
-      } while (parent != document.body);
-      return true;
-    },
-  },
   mounted() {
     $('#loader').animate({ opacity: 0 }, 500);
-
-    for (const element of $('.reveal-on-visible')) {
-      if (this.IsVisible(element)) {
-        $(element).addClass('revealed');
-      }
-
-      window.addEventListener('scroll', () => {
-        if (this.IsVisible(element)) {
-          $(element).addClass('revealed');
-        }
-      });
-    }
   },
 };
 </script>

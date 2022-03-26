@@ -95,7 +95,7 @@ footer {
 </style>
 
 <template>
-  <footer>
+  <footer :style="'margin-top:' + marginTop + 'px'">
     <div class="logo reveal-on-visible">
       <img src="../static/logo-white.png" />
     </div>
@@ -156,3 +156,9 @@ footer {
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  props: { marginTop: { default: 100, type: Number } },
+};
+</script>
