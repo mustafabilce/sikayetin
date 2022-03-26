@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="scss" scoped>
 section {
   max-width: 100%;
   overflow-x: hidden;
@@ -56,6 +56,7 @@ export default {
     Footer,
   },
   mounted() {
+    console.log('mounted');
     $('#loader').animate({ opacity: 0 }, 500);
   },
 };

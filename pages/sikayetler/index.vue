@@ -163,8 +163,10 @@
 
         <div class="slides">
           <div class="slide" v-for="i in 10" :key="i">
-            <h3 class="heading">Şikayet Başlığı dolor sit amet, consectetur</h3>
-            <div class="footer">
+            <h3 class="heading reveal-on-visible">
+              Şikayet Başlığı dolor sit amet, consectetur
+            </h3>
+            <div class="footer reveal-on-visible delay-2">
               <div class="customer">
                 <img src="../../static/customer.png" />
                 <div>
