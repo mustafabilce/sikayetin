@@ -150,13 +150,26 @@ a:hover {
 }
 
 .input-group {
+	--background: #f6fafd;
 	border: 1px solid #eaeef4 !important;
 	border-radius: 8px;
 	overflow: hidden;
 	outline: none !important;
+	background: var(--background) !important;
+	cursor: pointer;
+
+	&,
+	* {
+		transition: 0.3s ease;
+	}
+
+	&.rounded {
+		border-radius: 30px !important;
+		padding: 8px 12px;
+	}
 
 	input {
-		background: #f6fafd !important;
+		background: var(--background) !important;
 		box-shadow: none !important;
 		border: none;
 		padding: 10px;
@@ -167,11 +180,20 @@ a:hover {
 		}
 	}
 
+	button {
+		background: var(--background) !important;
+		position: relative;
+		flex: 1 1 auto;
+		width: 1%;
+		min-width: 0;
+		margin-bottom: 0;
+	}
+
 	.input-group-append {
-		background: #f6fafd;
+		background: var(--background);
 
 		.input-group-text {
-			background: #f6fafd;
+			background: var(--background);
 			border: none;
 
 			img {
@@ -179,6 +201,66 @@ a:hover {
 				height: 20px;
 				object-fit: contain;
 			}
+		}
+	}
+}
+
+.customer,
+.brand {
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: 2px;
+		left: 32px;
+		width: 12px;
+		height: 12px;
+		background-image: url(../static/verified.png);
+		outline: 1px solid white;
+		border-radius: 100%;
+
+		@media (max-width: 900px) {
+			left: 22px;
+		}
+	}
+
+	b {
+		font-size: 0.9em;
+	}
+
+	span {
+		font-size: 0.9em;
+		opacity: 0.7;
+	}
+
+	img {
+		width: 42px;
+		border-radius: 100%;
+		margin-right: 8px;
+
+		@media (max-width: 900px) {
+			width: 30px;
+		}
+	}
+}
+
+.brand {
+	& > div {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.star {
+		margin-right: 3px;
+		width: 12px;
+
+		@media (max-width: 1200px) {
+			margin-right: 2px;
+			width: 9px;
 		}
 	}
 }

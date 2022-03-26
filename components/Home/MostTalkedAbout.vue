@@ -80,58 +80,6 @@
         max-width: 300px;
         margin: 30px auto 0 auto;
 
-        .customer,
-        .brand {
-          display: flex;
-          align-items: center;
-          position: relative;
-
-          &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            bottom: 2px;
-            left: 34px;
-            width: 13px;
-            height: 13px;
-            background-image: url(../../static/verified.png);
-            outline: 2px solid white;
-            border-radius: 100%;
-          }
-
-          b {
-            font-size: 0.9em;
-          }
-
-          span {
-            font-size: 0.9em;
-            opacity: 0.7;
-          }
-
-          img {
-            width: 42px;
-            border-radius: 100%;
-            margin-right: 10px;
-          }
-        }
-
-        .brand {
-          & > div {
-            display: flex;
-            flex-direction: column;
-          }
-
-          .star {
-            margin-right: 3px;
-            width: 12px;
-
-            @media (max-width: 1200px) {
-              margin-right: 2px;
-              width: 9px;
-            }
-          }
-        }
-
         .arrow {
           width: 36px;
           margin: 0 10px;
@@ -193,12 +141,10 @@
           Şikayet Başlığı dolor sit amet, consectetur adipiscing elit. Duis dui.
         </h4>
         <p class="reveal-on-visible delay-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
-          bibendum risus, sit ac velit purus lectus lobortis
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectus
+          lobortis
         </p>
-        <a href="#" class="comment reveal-on-visible delay-3">
-          <img src="../../static/yorum.png" /> &nbsp; 12 Yorum
-        </a>
+        <a href="#" class="comment reveal-on-visible delay-3"> <img src="../../static/yorum.png" /> &nbsp; 12 Yorum </a>
         <div class="footer reveal-on-visible delay-4">
           <div class="customer">
             <img src="../../static/customer.png" />
@@ -219,12 +165,7 @@
             <div>
               <b>Trendyol</b>
               <span style="white-space: nowrap; display: flex">
-                <img
-                  src="../../static/star.png"
-                  class="star"
-                  v-for="i in 5"
-                  :key="i"
-                />
+                <img src="../../static/star.png" class="star" v-for="i in 5" :key="i" />
               </span>
             </div>
           </div>

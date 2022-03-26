@@ -29,6 +29,17 @@
       width: 100vw !important;
       overflow-x: scroll;
 
+      .customer,
+      .brand {
+        @media (max-width: 1200px) {
+          font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+          transform: scale(0.9);
+        }
+      }
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -123,73 +134,6 @@
             margin-right: 10px;
           }
 
-          .customer,
-          .brand {
-            display: flex;
-            align-items: center;
-            position: relative;
-
-            @media (max-width: 1200px) {
-              font-size: 0.85rem;
-            }
-
-            @media (max-width: 900px) {
-              transform: scale(0.9);
-            }
-
-            &::after {
-              content: '';
-              display: block;
-              position: absolute;
-              bottom: 2px;
-              left: 34px;
-              width: 13px;
-              height: 13px;
-              background-image: url(../../static/verified.png);
-              outline: 2px solid white;
-              border-radius: 100%;
-
-              @media (max-width: 900px) {
-                left: 22px;
-              }
-            }
-
-            b {
-              font-size: 0.9em;
-            }
-
-            span {
-              font-size: 0.9em;
-              opacity: 0.7;
-            }
-
-            img {
-              width: 42px;
-              border-radius: 100%;
-
-              @media (max-width: 900px) {
-                width: 30px;
-              }
-            }
-          }
-
-          .brand {
-            & > div {
-              display: flex;
-              flex-direction: column;
-            }
-
-            .star {
-              margin-right: 3px;
-              width: 12px;
-
-              @media (max-width: 1200px) {
-                margin-right: 2px;
-                width: 9px;
-              }
-            }
-          }
-
           .arrow {
             width: 36px;
             margin: 0 10px;
@@ -212,12 +156,9 @@
     <div class="inner">
       <div class="trending-row row-1">
         <div v-for="i in 10" :key="i" class="card">
-          <h5 class="reveal-on-visible">
-            Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.
-          </h5>
+          <h5 class="reveal-on-visible">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
           <p class="reveal-on-visible delay-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
-            bibendum risus, sit ac velit purus lectu
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
           </p>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
@@ -239,12 +180,7 @@
               <div>
                 <b>Trendyol</b>
                 <span style="white-space: nowrap">
-                  <img
-                    src="../../static/star.png"
-                    class="star"
-                    v-for="i in 5"
-                    :key="i"
-                  />
+                  <img src="../../static/star.png" class="star" v-for="i in 5" :key="i" />
                 </span>
               </div>
             </div>
@@ -253,12 +189,9 @@
       </div>
       <div class="trending-row row-2">
         <div v-for="i in 10" :key="i" class="card">
-          <h5 class="reveal-on-visible">
-            Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.
-          </h5>
+          <h5 class="reveal-on-visible">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
           <p class="reveal-on-visible delay-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
-            bibendum risus, sit ac velit purus lectu
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
           </p>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
@@ -280,12 +213,7 @@
               <div>
                 <b>Trendyol</b>
                 <span style="white-space: nowrap">
-                  <img
-                    src="../../static/star.png"
-                    class="star"
-                    v-for="i in 5"
-                    :key="i"
-                  />
+                  <img src="../../static/star.png" class="star" v-for="i in 5" :key="i" />
                 </span>
               </div>
             </div>

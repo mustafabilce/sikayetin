@@ -101,30 +101,6 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-
-        .brand {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          .brand-name {
-            margin-top: 12px;
-          }
-
-          img {
-            border-radius: 100%;
-          }
-
-          .stars {
-            display: flex;
-            align-items: center;
-
-            img {
-              width: 11px;
-              margin-right: 2px;
-            }
-          }
-        }
       }
 
       .compare-button {
@@ -161,9 +137,7 @@
     </section>
 
     <section id="popular_comparisons" class="mt-5">
-      <h4 class="heading reveal-on-visible delay-2">
-        Popüler Karşılaştırmalar
-      </h4>
+      <h4 class="heading reveal-on-visible delay-2">Popüler Karşılaştırmalar</h4>
 
       <div class="inner">
         <div class="comparison reveal-on-visible" v-for="i in 9" :key="i">
