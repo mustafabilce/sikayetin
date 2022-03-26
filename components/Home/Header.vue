@@ -472,11 +472,9 @@ header {
       </NuxtLink>
 
       <div id="primary_nav">
-        <NuxtLink to="/sikayetler" :class="{ active: active == 'sikayetler' }">
-          Şikayetler
-        </NuxtLink>
-        <NuxtLink to="/marka-ringi">Marka Ringi</NuxtLink>
-        <NuxtLink to="/populer">Popüler 20</NuxtLink>
+        <NuxtLink to="/sikayetler" :class="{ active: active == 'sikayetler' }">Şikayetler</NuxtLink>
+        <NuxtLink to="/marka-ringi" :class="{ active: active == 'marka-ringi' }">Marka Ringi</NuxtLink>
+        <NuxtLink to="/populer" :class="{ active: active == 'populer' }">Popüler 20</NuxtLink>
         <a href="#" class="btn" id="live_feed_button">Canlı Akış</a>
       </div>
 
