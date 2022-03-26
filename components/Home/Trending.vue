@@ -180,7 +180,7 @@
               <div>
                 <b>Trendyol</b>
                 <span style="white-space: nowrap">
-                  <img src="../../static/star.png" class="star" v-for="i in 5" :key="i" />
+                  <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </span>
               </div>
             </div>
@@ -213,7 +213,7 @@
               <div>
                 <b>Trendyol</b>
                 <span style="white-space: nowrap">
-                  <img src="../../static/star.png" class="star" v-for="i in 5" :key="i" />
+                  <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </span>
               </div>
             </div>
