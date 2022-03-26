@@ -25,7 +25,7 @@ section {
 <template>
   <div>
     <div id="loader"><img src="../static/loader.gif" /></div>
-    <Header full="true" />
+    <Header :full="true" />
     <Trending />
     <Compare />
     <MostTalkedAbout />
