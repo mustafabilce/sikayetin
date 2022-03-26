@@ -1,3 +1,5 @@
+import extend from '../utils/extend-vue-app';
+
 function IsVisible(el) {
 	let rect = el.getBoundingClientRect();
 	const top = rect.top;
@@ -31,7 +33,15 @@ export default ({ app }) => {
 		setTimeout(MakeVisibleElementsRevealed, 100);
 		window.removeEventListener('load', MakeVisibleElementsRevealed);
 		window.addEventListener('load', MakeVisibleElementsRevealed);
+		window.removeEventListener('resize', MakeVisibleElementsRevealed);
+		window.addEventListener('resize', MakeVisibleElementsRevealed);
 		window.removeEventListener('scroll', MakeVisibleElementsRevealed);
 		window.addEventListener('scroll', MakeVisibleElementsRevealed);
+	})
+
+	extend(app, {
+		mounted() {
+			MakeVisibleElementsRevealed();
+		},
 	})
 }
