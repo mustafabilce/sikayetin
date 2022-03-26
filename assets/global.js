@@ -29,6 +29,17 @@ function MakeVisibleElementsRevealed() {
 }
 
 export default ({ app }) => {
+	app.router.beforeEach(async (to, from, next) => {
+		$(".revealed").each((i, x) => {
+			x.style.transition = "300ms ease";
+			x.style.transitionDelay = 0;
+			x.classList.remove('revealed');
+			x.classList.remove('reveal-finished');
+		});
+		await new Promise(res => setTimeout(res, 300));
+		next();
+	})
+
 	app.router.afterEach((to, from) => {
 		setTimeout(MakeVisibleElementsRevealed, 100);
 		window.removeEventListener('load', MakeVisibleElementsRevealed);
