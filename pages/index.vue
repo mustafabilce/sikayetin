@@ -2,23 +2,7 @@
 section {
   max-width: 100%;
   overflow-x: hidden;
-  padding-inline: var(--section-padding-inline);
   cursor: default;
-
-  h1 {
-    font-size: 3em;
-    font-weight: 700;
-    max-height: 1em;
-
-    @media (max-width: 900px) {
-      font-size: 2em;
-    }
-
-    @media (max-width: 600px) {
-      font-size: 1.5em;
-      text-align: center;
-    }
-  }
 }
 </style>
 
