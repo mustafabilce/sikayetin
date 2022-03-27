@@ -103,28 +103,17 @@ footer {
     <div class="sections">
       <div class="about reveal-on-visible">
         <p>
-          "Senin sikayet.in burada yayınlanır. Markan çözüme ulaştırır.
-          Üyeleriyle markaları buluşturan sikayet.in platformu her zaman adil ve
-          çözüm odaklıdır. Derdini söylemeyen derman bulamaz. Senin için sonsuza
-          kadar buradayız.
+          "Senin sikayet.in burada yayınlanır. Markan çözüme ulaştırır. Üyeleriyle markaları buluşturan sikayet.in
+          platformu her zaman adil ve çözüm odaklıdır. Derdini söylemeyen derman bulamaz. Senin için sonsuza kadar
+          buradayız.
         </p>
 
         <div class="social">
-          <a class="reveal-on-visible delay-1" href="#"
-            ><img src="../static/social/twitter.png"
-          /></a>
-          <a class="reveal-on-visible delay-2" href="#"
-            ><img src="../static/social/facebook.png"
-          /></a>
-          <a class="reveal-on-visible delay-3" href="#"
-            ><img src="../static/social/instagram.png"
-          /></a>
-          <a class="reveal-on-visible delay-4" href="#"
-            ><img src="../static/social/linkedin.png"
-          /></a>
-          <a class="reveal-on-visible delay-5" href="#"
-            ><img src="../static/social/youtube.png"
-          /></a>
+          <a class="reveal-on-visible delay-1" href="#"><img src="../static/social/twitter.png" /></a>
+          <a class="reveal-on-visible delay-2" href="#"><img src="../static/social/facebook.png" /></a>
+          <a class="reveal-on-visible delay-3" href="#"><img src="../static/social/instagram.png" /></a>
+          <a class="reveal-on-visible delay-4" href="#"><img src="../static/social/linkedin.png" /></a>
+          <a class="reveal-on-visible delay-5" href="#"><img src="../static/social/youtube.png" /></a>
         </div>
       </div>
 
@@ -132,7 +121,7 @@ footer {
         <h3 class="reveal-on-visible">Sayfalar</h3>
         <a class="reveal-on-visible delay-1" href="#">Hakkımızda</a>
         <a class="reveal-on-visible delay-2" href="#">Blog</a>
-        <a class="reveal-on-visible delay-3" href="#">Sıkça Sorulanlar</a>
+        <NuxtLink class="reveal-on-visible delay-3" to="help">Sıkça Sorulanlar</NuxtLink>
         <a class="reveal-on-visible delay-4" href="#">İletişim</a>
       </div>
 
