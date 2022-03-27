@@ -61,12 +61,8 @@
 <template>
   <section id="counters">
     <div class="left">
-      <h2 class="heading reveal-on-visible">
-        Sayılarla <a href="/">sikayet.in</a>
-      </h2>
-      <p class="text reveal-on-visible delay-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-      </p>
+      <h2 class="heading reveal-on-visible">Sayılarla <a href="/">sikayet.in</a></h2>
+      <p class="text reveal-on-visible delay-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas</p>
     </div>
     <div class="counts">
       <div class="count" v-for="counter in counters" :key="counter.id">
@@ -122,19 +118,8 @@ export default {
   methods: {
     IsVisible(elementSelector) {
       const el = document.querySelector(elementSelector);
-      let rect = el.getBoundingClientRect();
-      const top = rect.top;
-      const height = rect.height;
-      let parent = el.parentNode;
-      if (rect.bottom < 0) return false;
-      if (top > document.documentElement.clientHeight) return false;
-      do {
-        rect = parent.getBoundingClientRect();
-        if (top <= rect.bottom === false) return false;
-        if (top + height <= rect.top) return false;
-        parent = parent.parentNode;
-      } while (parent != document.body);
-      return true;
+      let { top, bottom } = el.getBoundingClientRect();
+      return bottom >= 0 && top <= document.documentElement.clientHeight;
     },
     ScrollEvent() {
       const visible = this.IsVisible('#counters');
@@ -150,9 +135,7 @@ export default {
 
           setTimeout(async () => {
             for (let i = 0; i < intervalCount; i++) {
-              counter.number = parseFloat(
-                (interval * i).toString().slice(0, 5)
-              );
+              counter.number = parseFloat((interval * i).toString().slice(0, 5));
               await new Promise((x) => setTimeout(() => x(), intervalDelay));
             }
 
