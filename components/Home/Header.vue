@@ -10,6 +10,7 @@ header {
   padding-inline: var(--header-padding-inline);
   position: relative;
   transition: 0.3s;
+  z-index: 9;
 
   &:not(.full) {
     --border-radius: 60px;
@@ -18,7 +19,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
 
     &.isScrolled {
       --border-radius: 0;
@@ -148,20 +148,24 @@ header {
       }
     }
 
-    a.active {
-      font-weight: bold;
-      cursor: default;
-      position: relative;
+    a {
+      color: rgba($color: #fff, $alpha: 0.7);
 
-      &::after {
-        content: '';
-        display: block;
-        width: 50px;
-        height: 2px;
-        background: rgba($color: #fff, $alpha: 0.7);
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+      &.active {
+        cursor: default;
+        position: relative;
+        color: #fff;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 50px;
+          height: 2px;
+          background: rgba($color: #fff, $alpha: 0.7);
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
 
@@ -465,16 +469,12 @@ header {
 
   &:not(.full) {
     margin-bottom: 70px;
-
-    #logo {
-      max-width: 160px;
-    }
   }
 }
 </style>
 
 <template>
-  <header :class="{ full, isScrolled }">
+  <header :class="{ full: showFull, isScrolled }">
     <nav>
       <NuxtLink to="/">
         <img src="../../static/logo-white.png" id="logo" />
@@ -503,7 +503,7 @@ header {
       <BurgerIcon />
     </nav>
 
-    <div id="call_to_action" v-if="full">
+    <div id="call_to_action" v-if="showFull">
       <h1>
         <span class="reveal-on-visible" style="font-weight: 400"> Şikayet.in varsa </span>
         <br />
@@ -535,7 +535,7 @@ header {
       </div>
     </div>
 
-    <div id="abstract" v-if="full">
+    <div id="abstract" v-if="showFull">
       <div class="abstract-1"></div>
       <div class="abstract-2"></div>
       <div class="abstract-3"></div>
@@ -563,11 +563,24 @@ export default {
   components: { BurgerIcon },
   methods: {
     OnScroll() {
-      if (window.scrollY < 100) {
+      let headerHeight = 0;
+
+      if (this.full) {
+        headerHeight = this.isScrolled ? 50 : 600;
+      } else {
+        headerHeight = this.isScrolled ? 50 : 110;
+      }
+
+      if (window.scrollY < headerHeight) {
         this.isScrolled = false;
-      } else if (window.scrollY > 150) {
+      } else if (window.scrollY > headerHeight) {
         this.isScrolled = true;
       }
+    },
+  },
+  computed: {
+    showFull() {
+      return this.full && !this.isScrolled;
     },
   },
   created() {
