@@ -2,6 +2,10 @@
 section {
   display: flex;
   align-items: center;
+
+  @media (max-width: 992px) {
+    margin: 0;
+  }
 }
 
 .left {
@@ -9,6 +13,10 @@ section {
     font-weight: 600;
     font-size: 4em;
     color: #111827;
+
+    @media (max-width: 525px) {
+      font-size: 12vw;
+    }
   }
 
   & > p {
