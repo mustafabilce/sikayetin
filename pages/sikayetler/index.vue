@@ -70,6 +70,10 @@ section > h2 {
       right: 10px;
       border-radius: 0 100px 100px 0;
     }
+
+    @media (max-width: 525px) {
+      top: 110px;
+    }
   }
 
   .slick-button {
