@@ -9,10 +9,21 @@ header {
   padding-block: 30px;
   padding-inline: var(--header-padding-inline);
   position: relative;
+  transition: 0.3s;
 
   &:not(.full) {
-    --border-radius: 90px;
-    padding-block: 12px;
+    --border-radius: 60px;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    &.isScrolled {
+      --border-radius: 0;
+      padding-block: 12px;
+    }
   }
 
   &,
@@ -162,9 +173,7 @@ header {
   #call_to_action {
     margin: 100px 0;
     cursor: default;
-    margin-left: calc(
-      var(--call-to-action-padding-inline) - var(--header-padding-inline)
-    );
+    margin-left: calc(var(--call-to-action-padding-inline) - var(--header-padding-inline));
 
     @media (max-width: 1000px) {
       display: flex;
@@ -222,11 +231,7 @@ header {
 
       button {
         background: rgb(255, 87, 119);
-        background: linear-gradient(
-          0,
-          rgba(255, 87, 119, 1) 0%,
-          rgba(255, 194, 71, 1) 100%
-        );
+        background: linear-gradient(0, rgba(255, 87, 119, 1) 0%, rgba(255, 194, 71, 1) 100%);
         border-radius: 100%;
         position: absolute;
         top: -1px;
@@ -465,34 +470,23 @@ header {
 </style>
 
 <template>
-  <header :class="{ full }">
+  <header :class="{ full, isScrolled }">
     <nav>
       <NuxtLink to="/">
         <img src="../../static/logo-white.png" id="logo" />
       </NuxtLink>
 
       <div id="primary_nav">
-        <NuxtLink
-          class="reveal-on-visible"
-          to="/sikayetler"
-          :class="{ active: active == 'sikayetler' }"
+        <NuxtLink class="reveal-on-visible" to="/sikayetler" :class="{ active: active == 'sikayetler' }"
           >Şikayetler</NuxtLink
         >
-        <NuxtLink
-          class="reveal-on-visible delay-1"
-          to="/marka-ringi"
-          :class="{ active: active == 'marka-ringi' }"
+        <NuxtLink class="reveal-on-visible delay-1" to="/marka-ringi" :class="{ active: active == 'marka-ringi' }"
           >Marka Ringi</NuxtLink
         >
-        <NuxtLink
-          class="reveal-on-visible delay-2"
-          to="/populer"
-          :class="{ active: active == 'populer' }"
+        <NuxtLink class="reveal-on-visible delay-2" to="/populer" :class="{ active: active == 'populer' }"
           >Popüler 20</NuxtLink
         >
-        <a href="#" class="reveal-on-visible delay-3 btn" id="live_feed_button"
-          >Canlı Akış</a
-        >
+        <a href="#" class="reveal-on-visible delay-3 btn" id="live_feed_button">Canlı Akış</a>
       </div>
 
       <div id="secondary_nav">
@@ -507,42 +501,22 @@ header {
 
     <div id="call_to_action" v-if="full">
       <h1>
-        <span class="reveal-on-visible" style="font-weight: 400">
-          Şikayet.in varsa
-        </span>
+        <span class="reveal-on-visible" style="font-weight: 400"> Şikayet.in varsa </span>
         <br />
-        <span class="reveal-on-visible delay-1" style="font-weight: 600">
-          Çözüm de var!
-        </span>
+        <span class="reveal-on-visible delay-1" style="font-weight: 600"> Çözüm de var! </span>
       </h1>
 
       <div id="search">
-        <input
-          class="reveal-on-visible delay-2"
-          type="text"
-          placeholder="Marka, model, ürün ara"
-        />
+        <input class="reveal-on-visible delay-2" type="text" placeholder="Marka, model, ürün ara" />
         <button class="btn reveal-on-visible delay-3">
           <fa :icon="['fas', 'magnifying-glass']" />
         </button>
       </div>
 
       <div id="banner" class="reveal-on-visible delay-1">
-        <img
-          class="banner-img"
-          src="../../static/banner1.png"
-          v-show="bannerIndex == 0"
-        />
-        <img
-          class="banner-img"
-          src="../../static/banner2.png"
-          v-show="bannerIndex == 1"
-        />
-        <img
-          class="banner-img"
-          src="../../static/banner3.png"
-          v-show="bannerIndex == 2"
-        />
+        <img class="banner-img" src="../../static/banner1.png" v-show="bannerIndex == 0" />
+        <img class="banner-img" src="../../static/banner2.png" v-show="bannerIndex == 1" />
+        <img class="banner-img" src="../../static/banner3.png" v-show="bannerIndex == 2" />
 
         <img src="../../static/abstract/header-abstract.png" class="abstract" />
       </div>
@@ -580,8 +554,18 @@ export default {
       ['#cdbfd9', '#9682a7'],
       ['#f8bf3e', '#e19302'],
     ],
+    isScrolled: false,
   }),
   components: { BurgerIcon },
+  methods: {
+    OnScroll() {
+      if (window.scrollY < 100) {
+        this.isScrolled = false;
+      } else if (window.scrollY > 150) {
+        this.isScrolled = true;
+      }
+    },
+  },
   created() {
     this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));
   },
@@ -592,6 +576,11 @@ export default {
       header.style.setProperty('--gradient-1', gradient1);
       header.style.setProperty('--gradient-2', gradient2);
     }
+
+    setTimeout(() => {
+      window.removeEventListener('scroll', () => this.OnScroll());
+      window.addEventListener('scroll', () => this.OnScroll());
+    }, 100);
   },
 };
 </script>
