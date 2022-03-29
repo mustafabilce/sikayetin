@@ -5,7 +5,7 @@
   .inner {
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 25px 0;
 
     width: 100vw;
     box-sizing: border-box;
