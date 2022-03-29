@@ -559,10 +559,11 @@ export default {
       ['#f8bf3e', '#e19302'],
     ],
     isScrolled: false,
+    scrollEndTimeout: null,
   }),
   components: { BurgerIcon },
   methods: {
-    OnScroll() {
+    OnScroll(checkForScrollEnd = true) {
       let headerHeight = 0;
 
       if (this.full) {
@@ -575,6 +576,14 @@ export default {
         this.isScrolled = false;
       } else if (window.scrollY > headerHeight) {
         this.isScrolled = true;
+      }
+
+      $('.reveal-on-visible').addClass('revealed reveal-finished');
+
+      if (checkForScrollEnd) {
+        this.scrollEndTimeout = setTimeout(() => {
+          this.OnScroll(false);
+        }, 100);
       }
     },
   },
@@ -596,7 +605,11 @@ export default {
 
     setTimeout(() => {
       window.removeEventListener('scroll', () => this.OnScroll());
+      window.removeEventListener('touchend', () => this.OnScroll());
+      window.removeEventListener('mouseup', () => this.OnScroll());
       window.addEventListener('scroll', () => this.OnScroll());
+      window.addEventListener('touchend', () => this.OnScroll());
+      window.addEventListener('mouseup', () => this.OnScroll());
     }, 100);
   },
 };
