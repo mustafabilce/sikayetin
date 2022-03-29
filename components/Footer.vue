@@ -121,7 +121,7 @@ footer {
         <h3 class="reveal-on-visible">Sayfalar</h3>
         <a class="reveal-on-visible delay-1" href="#">Hakkımızda</a>
         <a class="reveal-on-visible delay-2" href="#">Blog</a>
-        <NuxtLink class="reveal-on-visible delay-3" to="sss">Sıkça Sorulanlar</NuxtLink>
+        <NuxtLink class="reveal-on-visible delay-3" to="yardim">Sıkça Sorulanlar</NuxtLink>
         <NuxtLink class="reveal-on-visible delay-4" to="iletisim">İletişim</NuxtLink>
       </div>
 

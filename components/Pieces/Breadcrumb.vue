@@ -2,6 +2,8 @@
 #breadcrumb {
   padding-inline: var(--section-padding-inline);
   margin-bottom: 50px;
+  position: relative;
+  z-index: 9;
 
   a {
     font-weight: 600;
@@ -20,7 +22,14 @@
 
 <template>
   <div id="breadcrumb">
-    <NuxtLink href="#" v-for="(link, i) in links" :key="i" :to="link.to">
+    <NuxtLink
+      href="#"
+      v-for="(link, i) in links"
+      :key="i"
+      :to="link.to"
+      class="reveal-on-visible"
+      :class="'delay-' + i"
+    >
       {{ link.text }}
     </NuxtLink>
   </div>
