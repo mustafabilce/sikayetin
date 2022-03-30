@@ -168,11 +168,23 @@ section.content {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
+
+  .close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
 
   a {
     font-size: 1.5em;
-    font-weight: 700;
+    font-weight: 500;
+    color: #ddd;
+
+    &.active {
+      font-weight: 700;
+      color: #56c9e2;
+    }
   }
 }
 </style>
@@ -227,6 +239,8 @@ section.content {
     </section>
 
     <div id="mobile_menu" @click="ShowMobileMenu(false)">
+      <div class="close">x</div>
+
       <a
         v-for="category in categories"
         @click.stop="
@@ -253,7 +267,7 @@ export default {
   data: () => ({
     shownQuestion: null,
     shownCategory: 'Üyelik',
-    categories: ['Üyelik', 'Çözüm Aşaması'],
+    categories: ['Üyelik', 'Çözüm Aşaması', 'Markalar'],
     questions: [
       {
         id: 1,
@@ -314,6 +328,12 @@ export default {
         title: 'Telefon bilgim neden isteniyor?',
         text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
         category: 'Çözüm Aşaması',
+      },
+      {
+        id: 11,
+        title: 'Lorem ipsum dolor sit amet',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Markalar',
       },
     ],
   }),
