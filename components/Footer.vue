@@ -123,9 +123,8 @@ footer {
     <div class="sections">
       <div class="about reveal-on-visible">
         <p>
-          "Senin sikayet.in burada yayınlanır. Markan çözüme ulaştırır. Üyeleriyle markaları buluşturan sikayet.in
-          platformu her zaman adil ve çözüm odaklıdır. Derdini söylemeyen derman bulamaz. Senin için sonsuza kadar
-          buradayız.
+          Şikayet.in bir ürün ya da hizmet için problem ile karşılaşan tüketicilerin, şikayetlerini dile
+          getirebilmelerini ve şikayet.in marka tarafından çözülmesini sağlayan bir platformdur.
         </p>
 
         <div class="social">
