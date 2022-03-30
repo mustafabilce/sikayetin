@@ -52,6 +52,22 @@ section.content {
   gap: 50px;
   $sidebar-breakpoint: 900px;
 
+  @media (max-width: $sidebar-breakpoint) {
+    flex-direction: column;
+  }
+
+  .sidebar.mobile {
+    display: none;
+    text-align: center;
+    color: #50c7e1;
+    font-weight: 700;
+    font-size: 1.5em;
+
+    @media (max-width: $sidebar-breakpoint) {
+      display: block;
+    }
+  }
+
   .sidebar.desktop {
     min-width: 160px;
     display: flex;
@@ -138,6 +154,27 @@ section.content {
     }
   }
 }
+
+#mobile_menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  background: white;
+  z-index: 99;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+  a {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+}
 </style>
 
 <template>
@@ -170,6 +207,11 @@ section.content {
         </a>
       </div>
 
+      <div class="sidebar mobile" @click="ShowMobileMenu">
+        {{ shownCategory }} &nbsp;
+        <fa :icon="['fas', 'caret-down']" />
+      </div>
+
       <div class="questions">
         <div
           class="question reveal-on-visible"
@@ -183,6 +225,20 @@ section.content {
         </div>
       </div>
     </section>
+
+    <div id="mobile_menu" @click="ShowMobileMenu(false)">
+      <a
+        v-for="category in categories"
+        @click.stop="
+          shownCategory = category;
+          ShowMobileMenu(false);
+        "
+        :class="{ active: category == shownCategory }"
+        :key="category"
+      >
+        {{ category }}
+      </a>
+    </div>
 
     <Footer />
   </div>
@@ -261,8 +317,18 @@ export default {
       },
     ],
   }),
+  methods: {
+    ShowMobileMenu(show = true) {
+      if (show) {
+        $('#mobile_menu').show();
+      } else {
+        $('#mobile_menu').hide();
+      }
+    },
+  },
   mounted() {
     document.body.style.background = 'white';
+    $('#mobile_menu').hide();
   },
 };
 </script>
