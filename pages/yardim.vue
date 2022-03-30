@@ -238,7 +238,7 @@ section.content {
       </div>
     </section>
 
-    <div id="mobile_menu" @click="ShowMobileMenu(false)">
+    <div id="mobile_menu" @click="ShowMobileMenu(false)" style="display: none">
       <div class="close">x</div>
 
       <a
