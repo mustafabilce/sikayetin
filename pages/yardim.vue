@@ -3,7 +3,7 @@ body {
   background: red !important;
 }
 
-section.main {
+section.head {
   overflow: visible !important;
   position: absolute;
   left: 0;
@@ -46,6 +46,98 @@ section.main {
     }
   }
 }
+
+section.content {
+  display: flex;
+  gap: 50px;
+  $sidebar-breakpoint: 900px;
+
+  .sidebar.desktop {
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (max-width: $sidebar-breakpoint) {
+      display: none;
+    }
+
+    a {
+      color: #11182780;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: #000;
+      }
+
+      &.active {
+        color: #000;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -20px;
+          width: 8px;
+          height: 8px;
+          transform: translateY(-50%);
+          background: #4ac5e1;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+
+  .questions {
+    max-width: 100%;
+
+    .question {
+      margin-bottom: 50px;
+      padding: 40px;
+      border-radius: 15px;
+      transition: 0.3s ease;
+
+      p {
+        margin: 0;
+        transition: 0.3s ease;
+      }
+
+      .heading {
+        font-weight: 500;
+        font-size: 1.5em;
+      }
+
+      .text {
+        margin-top: 30px;
+        font-size: 1.1em;
+        padding-right: 100px;
+
+        @media (max-width: 1200px) {
+          padding-right: 0;
+          text-align: justify;
+        }
+      }
+
+      &:not(.shown) {
+        background: #ecfafe;
+        cursor: pointer;
+
+        .heading {
+          font-size: 1.1em;
+        }
+
+        .text {
+          opacity: 0;
+          max-height: 0;
+          overflow: hidden;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
 </style>
 
 <template>
@@ -59,12 +151,38 @@ section.main {
       style="z-index: 1"
     />
 
-    <section class="text-center main">
+    <section class="head text-center">
       <h1 class="reveal-on-visible">Size Nasıl Yardımcı Olabiliriz ?</h1>
 
       <input type="text" id="search" placeholder="Yardım almak istediğiniz konuyu yazın" />
     </section>
-    <section class="placeholder" style="height: 400px"></section>
+    <div class="head-placeholder" style="height: 320px"></div>
+
+    <section class="content">
+      <div class="sidebar desktop">
+        <a
+          v-for="category in categories"
+          @click="shownCategory = category"
+          :class="{ active: category == shownCategory }"
+          :key="category"
+        >
+          {{ category }}
+        </a>
+      </div>
+
+      <div class="questions">
+        <div
+          class="question reveal-on-visible"
+          :class="{ shown: shownQuestion == question.id }"
+          v-for="question in questions.filter((x) => x.category == shownCategory)"
+          :key="question.id"
+          @click="shownQuestion = question.id"
+        >
+          <p class="heading">{{ question.title }}</p>
+          <p class="text">{{ question.text }}</p>
+        </div>
+      </div>
+    </section>
 
     <Footer />
   </div>
@@ -76,6 +194,73 @@ import Footer from '~/components/Footer.vue';
 import Breadcrumb from '../components/Pieces/Breadcrumb.vue';
 export default {
   components: { Header, Footer, Breadcrumb },
+  data: () => ({
+    shownQuestion: null,
+    shownCategory: 'Üyelik',
+    categories: ['Üyelik', 'Çözüm Aşaması'],
+    questions: [
+      {
+        id: 1,
+        title: 'Üye olmadan şikayet yazabilir miyim?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 2,
+        title: 'Neden üye olmam gerekiyor?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 3,
+        title: 'Üyelik ücretli midir?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 4,
+        title: 'Nasıl üye olurum?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 5,
+        title: 'Üye olmadan şikayet yazabilir miyim?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 6,
+        title: 'Neden üye olmam gerekiyor?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 7,
+        title: 'Üyelik ücretli midir?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 8,
+        title: 'Nasıl üye olurum?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Üyelik',
+      },
+      {
+        id: 9,
+        title: 'Üye olurken neden ad soyadı bilgisi isteniyor?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Çözüm Aşaması',
+      },
+      {
+        id: 10,
+        title: 'Telefon bilgim neden isteniyor?',
+        text: 'Sitemizde şikayet yazabilmek için üye olmanız gerekmektedir. Üye olmadan ve GSM doğrulaması yapılmadan şikayet yazılamamaktadır. Üyelik esnasında vereceğiniz iletişim bilgilerinin doğruluğunun şikayetlerinizin çözülmesi aşamasında çok önemli olduğunu lütfen unutmayınız!',
+        category: 'Çözüm Aşaması',
+      },
+    ],
+  }),
   mounted() {
     document.body.style.background = 'white';
   },
