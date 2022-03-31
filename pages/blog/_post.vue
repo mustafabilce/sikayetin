@@ -2,10 +2,31 @@
 .head {
   color: #00244c;
 
+  @media (max-width: 600px) {
+    flex-direction: row-reverse;
+  }
+
+  svg.placeholder {
+    opacity: 0;
+    pointer-events: none;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+
   svg {
     color: #00244c;
     font-size: 2.4em;
     text-shadow: 0px 4px 4px 0px #00244c1a;
+
+    @media (max-width: 900px) {
+      font-size: 2em;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.5em;
+    }
   }
 }
 </style>
@@ -27,7 +48,7 @@
       <h1>
         {{ $route.params.post }}
       </h1>
-      <fa :icon="['fas', 'arrow-left']" style="opacity: 0; pointer-events: none" />
+      <fa :icon="['fas', 'arrow-left']" class="placeholder" />
     </section>
 
     <Footer />
