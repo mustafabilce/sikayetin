@@ -72,6 +72,7 @@ section.content {
       font-weight: 700;
       position: relative;
       text-align: center;
+      cursor: pointer;
 
       &.active {
         color: #ff5777;
@@ -138,10 +139,10 @@ section.content {
 
   main {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'a b'
       'a c';
-    height: 400px;
     gap: 20px;
 
     @media (max-width: 900px) {
@@ -150,13 +151,23 @@ section.content {
       height: unset;
     }
 
+    * {
+      transition: 0.3s ease;
+    }
+
     .article {
       width: 100%;
       height: 100%;
+      gap: 20px;
+      flex-direction: row;
 
       @media (max-width: 900px) {
         grid-area: unset !important;
         height: 200px;
+      }
+
+      .author {
+        margin: 0;
       }
 
       &:nth-child(1) {
@@ -271,23 +282,11 @@ section.content {
         </span>
       </nav>
 
-      <main>
-        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible"></NuxtLink>
-        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible"></NuxtLink>
-        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible"></NuxtLink>
-      </main>
-
-      <div class="article-group featured" v-for="_ in 3" :key="_">
-        <div class="head">
-          <h4 class="heading">Featured Article</h4>
-
-          <a href="#">See All Articles &nbsp; <fa :icon="['fas', 'angle-right']" /></a>
-        </div>
-
-        <NuxtLink to="/blog/Makale%20Başlığı" class="articles">
-          <div class="article reveal-on-visible" v-for="_ in 4" :key="_">
-            <img src="../../static/blog-placeholder.png" />
-            <b>Lorem Ipsum</b>
+      <main v-if="!activeCategory">
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible" style="flex-direction: column">
+          <img src="../../static/blog-placeholder.png" />
+          <div class="d-flex flex-column justify-content-center" style="gap: 10px">
+            <b style="font-size: 1.1em">Lorem Ipsum</b>
             <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
             <div class="author">
               <img src="../../static/customer-2.png" width="52" />
@@ -298,6 +297,76 @@ section.content {
             </div>
           </div>
         </NuxtLink>
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible">
+          <img src="../../static/blog-placeholder.png" />
+          <div class="d-flex flex-column justify-content-center" style="gap: 10px">
+            <b style="font-size: 1.1em">Lorem Ipsum</b>
+            <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
+            <div class="author">
+              <img src="../../static/customer-2.png" width="52" />
+              <div class="d-flex flex-column">
+                <b>Dasteen</b>
+                <small>Jan 10, 2022</small>
+              </div>
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible">
+          <img src="../../static/blog-placeholder.png" />
+          <div class="d-flex flex-column justify-content-center" style="gap: 10px">
+            <b style="font-size: 1.1em">Lorem Ipsum</b>
+            <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
+            <div class="author">
+              <img src="../../static/customer-2.png" width="52" />
+              <div class="d-flex flex-column">
+                <b>Dasteen</b>
+                <small>Jan 10, 2022</small>
+              </div>
+            </div>
+          </div>
+        </NuxtLink>
+      </main>
+
+      <div class="article-groups" v-if="!activeCategory">
+        <div class="article-group" v-for="_ in 3" :key="_">
+          <div class="head">
+            <h4 class="heading">Featured Article</h4>
+
+            <a href="#">See All Articles &nbsp; <fa :icon="['fas', 'angle-right']" /></a>
+          </div>
+
+          <div class="articles">
+            <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible" v-for="_ in 4" :key="_">
+              <img src="../../static/blog-placeholder.png" />
+              <b>Lorem Ipsum</b>
+              <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
+              <div class="author">
+                <img src="../../static/customer-2.png" width="52" />
+                <div class="d-flex flex-column">
+                  <b>Dasteen</b>
+                  <small>Jan 10, 2022</small>
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-group" v-else>
+        <div class="articles">
+          <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible" v-for="_ in 4" :key="_">
+            <img src="../../static/blog-placeholder.png" />
+            <b>Lorem Ipsum {{ _ }}</b>
+            <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
+            <div class="author">
+              <img src="../../static/customer-2.png" width="52" />
+              <div class="d-flex flex-column">
+                <b>Dasteen</b>
+                <small>Jan 10, 2022</small>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
       </div>
     </section>
 
