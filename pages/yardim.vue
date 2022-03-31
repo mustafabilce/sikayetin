@@ -4,7 +4,6 @@ body {
 }
 
 section.head {
-  overflow: visible !important;
   position: absolute;
   left: 0;
   right: 0;

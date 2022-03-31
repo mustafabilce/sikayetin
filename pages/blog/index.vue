@@ -1,7 +1,6 @@
 <style lang="scss" scoped>
 section.top {
   position: relative;
-  overflow: visible !important;
 
   @media (min-width: 1600px) {
     --section-padding-inline: 16vw;

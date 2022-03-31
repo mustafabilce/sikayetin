@@ -2,6 +2,7 @@
 #compare {
   position: relative;
   margin-top: 100px;
+  overflow: hidden !important;
 
   .inner {
     background-color: #5379ff;
@@ -198,9 +199,8 @@
       <h1 class="reveal-on-visible">Marka Karşılaştırması</h1>
 
       <p class="mt-3 mb-4 reveal-on-visible delay-1" style="font-weight: 300">
-        Bir ürün yada hizmet satın alacağınız zaman markalar arasında seçim
-        yapmakta zorlanıyor musunuz? Simdi iki marka seçin ve yarışsınlar.
-        Bakalım rakamlar ne gosterecek, hep birlikte görelim.
+        Bir ürün yada hizmet satın alacağınız zaman markalar arasında seçim yapmakta zorlanıyor musunuz? Simdi iki marka
+        seçin ve yarışsınlar. Bakalım rakamlar ne gosterecek, hep birlikte görelim.
       </p>
 
       <div id="inputs">
