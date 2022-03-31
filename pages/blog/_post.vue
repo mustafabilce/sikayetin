@@ -51,6 +51,10 @@
       <fa :icon="['fas', 'arrow-left']" class="placeholder" />
     </section>
 
+    <section>
+      <Author />
+    </section>
+
     <Footer />
   </div>
 </template>
@@ -59,8 +63,9 @@
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import Author from '~/components/Author.vue';
 export default {
-  components: { Header, Footer, Breadcrumb },
+  components: { Header, Footer, Breadcrumb, Author },
   data: () => ({
     activeCategory: '',
     categories: ['UI Design', 'UX Design', 'Product Design', 'Articles', 'Tutorials', 'News'],
