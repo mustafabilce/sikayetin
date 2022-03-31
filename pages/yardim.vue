@@ -34,15 +34,33 @@ section.head {
   }
 
   #search {
-    padding: 28px 32px;
-    box-shadow: 0px 4px 10px 0px #dcf7ff;
     width: 800px;
     max-width: 100%;
-    border-radius: 40px;
     margin-top: 45px;
+    position: relative;
 
-    &::placeholder {
-      color: #6c6e98;
+    img {
+      position: absolute;
+      left: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    input {
+      padding: 28px 32px;
+      padding-left: 60px !important;
+      box-shadow: 0px 4px 10px 0px #dcf7ff;
+      border-radius: 40px;
+      width: 100%;
+
+      &::placeholder {
+        color: #6c6e98;
+      }
+
+      @media (max-width: 500px) {
+        padding: 15px 30px;
+        font-size: 0.9em;
+      }
     }
   }
 }
@@ -203,7 +221,10 @@ section.content {
     <section class="head text-center">
       <h1 class="reveal-on-visible">Size Nasıl Yardımcı Olabiliriz ?</h1>
 
-      <input type="text" id="search" placeholder="Yardım almak istediğiniz konuyu yazın" />
+      <div id="search">
+        <img src="../static/search.svg" />
+        <input type="text" placeholder="Yardım almak istediğiniz konuyu yazın" />
+      </div>
     </section>
     <div class="head-placeholder" style="height: 320px"></div>
 
