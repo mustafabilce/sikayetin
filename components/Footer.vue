@@ -2,6 +2,8 @@
 footer {
   background-color: #2e3952;
   padding: var(--section-padding-inline);
+  $mobile-breakpoint: 1200px;
+  $mobile-breakpoint-2: 960px;
 
   .logo {
     display: block;
@@ -11,26 +13,24 @@ footer {
       max-width: 100%;
     }
 
-    @media (max-width: 1360px) {
+    @media (max-width: $mobile-breakpoint) {
       text-align: center;
     }
   }
 
   .sections {
     display: grid;
-    grid-template-columns: 4fr 2fr 2fr 2fr 2fr;
-    gap: 50px;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
     color: white;
     margin: 80px 0;
 
-    @media (max-width: 1360px) {
+    @media (max-width: $mobile-breakpoint) {
       grid-template-columns: 1fr;
     }
 
     .about {
-      margin-right: 50px;
-
-      @media (max-width: 1360px) {
+      @media (max-width: $mobile-breakpoint) {
         margin-right: 0;
       }
 
@@ -39,7 +39,7 @@ footer {
         font-weight: 300;
         font-size: 1.1em;
 
-        @media (max-width: 1360px) {
+        @media (max-width: $mobile-breakpoint) {
           text-align: center;
         }
       }
@@ -48,7 +48,7 @@ footer {
         margin-top: 50px;
         cursor: default;
 
-        @media (max-width: 1360px) {
+        @media (max-width: $mobile-breakpoint) {
           text-align: center;
         }
 
@@ -59,44 +59,59 @@ footer {
       }
     }
 
-    .category {
+    .categories {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
 
-      @media (max-width: 1360px) {
-        align-items: center;
+      @media (max-width: $mobile-breakpoint-2) {
+        flex-direction: column;
+        gap: 60px;
       }
 
-      .heading {
-        font-size: 1.2em;
-        margin-bottom: 20px;
-        white-space: nowrap;
-      }
+      .category {
+        display: flex;
+        flex-direction: column;
 
-      a {
-        color: #a8adb7;
-        padding: 12px 0;
+        @media (max-width: $mobile-breakpoint) {
+          align-items: center;
+        }
 
-        &:hover {
-          color: white;
+        .heading {
+          font-size: 1.1em;
+          margin-bottom: 20px;
+          white-space: nowrap;
+        }
+
+        a {
+          color: #a8adb7;
+          padding: 10px 0;
+
+          &:hover {
+            color: white;
+          }
         }
       }
     }
   }
 
   .bottom {
-    @media (max-width: 1360px) {
+    margin-top: 50px;
+
+    @media (max-width: $mobile-breakpoint) {
       flex-direction: column;
       gap: 50px;
+    }
+
+    @media (max-width: $mobile-breakpoint-2) {
+      margin-top: 0;
     }
 
     .links {
       display: flex;
       gap: 20px;
 
-      @media (max-width: 1100px) {
+      @media (max-width: $mobile-breakpoint-2) {
         flex-direction: column;
-        gap: 10px;
         text-align: center;
       }
 
@@ -136,52 +151,54 @@ footer {
         </div>
       </div>
 
-      <div class="category">
-        <h4 class="heading reveal-on-visible">Popüler Kategoriler</h4>
-        <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
-        <NuxtLink class="reveal-on-visible delay-3" to="yardim">Lorem ipsum</NuxtLink>
-        <NuxtLink class="reveal-on-visible delay-4" to="iletisim">Lorem ipsum</NuxtLink>
-      </div>
+      <div class="categories">
+        <div class="category">
+          <h4 class="heading reveal-on-visible">Popüler Kategoriler</h4>
+          <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
+          <NuxtLink class="reveal-on-visible delay-3" to="yardim">Lorem ipsum</NuxtLink>
+          <NuxtLink class="reveal-on-visible delay-4" to="iletisim">Lorem ipsum</NuxtLink>
+        </div>
 
-      <div class="category">
-        <h4 class="heading reveal-on-visible">Popüler Yorumlar</h4>
-        <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-4" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-5" href="#">Lorem ipsum</a>
-      </div>
+        <div class="category">
+          <h4 class="heading reveal-on-visible">Popüler Yorumlar</h4>
+          <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-4" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-5" href="#">Lorem ipsum</a>
+        </div>
 
-      <div class="category">
-        <h4 class="heading reveal-on-visible">Popüler Şikayetler</h4>
-        <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-4" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-5" href="#">Lorem ipsum</a>
-      </div>
+        <div class="category">
+          <h4 class="heading reveal-on-visible">Popüler Şikayetler</h4>
+          <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-4" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-5" href="#">Lorem ipsum</a>
+        </div>
 
-      <div class="category">
-        <h4 class="heading reveal-on-visible">Popüler Markalar</h4>
-        <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-4" href="#">Lorem ipsum</a>
-        <a class="reveal-on-visible delay-5" href="#">Lorem ipsum</a>
+        <div class="category">
+          <h4 class="heading reveal-on-visible">Popüler Markalar</h4>
+          <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-4" href="#">Lorem ipsum</a>
+          <a class="reveal-on-visible delay-5" href="#">Lorem ipsum</a>
+        </div>
       </div>
     </div>
 
-    <div class="bottom mt-5 d-flex align-items-center justify-content-between">
+    <div class="bottom d-flex align-items-center justify-content-between">
       <div class="links">
-        <a href="#">Şikayetler</a>
-        <a href="#">Kategoriler</a>
-        <a href="#">Markalar</a>
-        <a href="#">Bloglar</a>
-        <a href="#">Sık Sorulanlar</a>
-        <a href="#">Kullanım Şartları</a>
-        <a href="#">KVKK</a>
-        <a href="#">İletişim</a>
+        <NuxtLink to="/sikayetler">Şikayetler</NuxtLink>
+        <NuxtLink to="/kategoriler">Kategoriler</NuxtLink>
+        <NuxtLink to="/markalar">Markalar</NuxtLink>
+        <NuxtLink to="/blog">Bloglar</NuxtLink>
+        <NuxtLink to="/yardim">Yardım</NuxtLink>
+        <NuxtLink to="/kullanim-sartlari">Kullanım Şartları</NuxtLink>
+        <NuxtLink to="/kvkk">KVKK</NuxtLink>
+        <NuxtLink to="/iletisim">İletişim</NuxtLink>
       </div>
 
       <small class="copyright"> 2022 © Tüm Hakları saklıdır. </small>

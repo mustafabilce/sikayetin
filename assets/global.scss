@@ -12,6 +12,7 @@ footer {
 
 section {
 	padding-inline: var(--section-padding-inline);
+	overflow: visible !important;
 
 	h1 {
 		font-size: 3em;
