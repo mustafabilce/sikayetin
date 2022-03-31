@@ -105,6 +105,50 @@ section.content {
     }
   }
 
+  .article {
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #2b2c34;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    &,
+    & > img {
+      border-radius: 12px;
+    }
+
+    & > img {
+      max-width: 100%;
+    }
+
+    & > b {
+      font-size: 1.3em;
+      margin-top: 20px;
+    }
+
+    & > p {
+      margin-top: 8px;
+      font-size: 0.85em;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+
+      img {
+        width: 52px;
+        height: 52px;
+      }
+    }
+  }
+
   main {
     display: grid;
     grid-template-areas:
@@ -138,12 +182,6 @@ section.content {
         grid-area: c;
       }
     }
-  }
-
-  .article {
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
   }
 
   .article-group {
@@ -228,14 +266,14 @@ section.content {
       </p>
 
       <div class="author">
-        <img src="../static/customer-2.png" width="64" />
+        <img src="../../static/customer-2.png" width="64" />
         <div class="d-flex flex-column align-items-end mt-2" style="gap: 6px">
           <b>Dasteen Camber</b>
           <small>Jan 10, 2022</small>
         </div>
       </div>
 
-      <img src="../static/blog-abstract.svg" class="abstract" />
+      <img src="../../static/blog-abstract.svg" class="abstract" />
     </section>
 
     <section class="content">
@@ -253,9 +291,9 @@ section.content {
       </nav>
 
       <main>
-        <div class="article"></div>
-        <div class="article"></div>
-        <div class="article"></div>
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible"></NuxtLink>
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible"></NuxtLink>
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible"></NuxtLink>
       </main>
 
       <div class="article-group featured" v-for="_ in 3" :key="_">
@@ -265,9 +303,20 @@ section.content {
           <a href="#">See All Articles &nbsp; <fa :icon="['fas', 'angle-right']" /></a>
         </div>
 
-        <div class="articles">
-          <div class="article" style="height: 300px" v-for="_ in 4" :key="_"></div>
-        </div>
+        <NuxtLink to="/blog/Makale%20Başlığı" class="articles">
+          <div class="article reveal-on-visible" v-for="_ in 4" :key="_">
+            <img src="../../static/blog-placeholder.png" />
+            <b>Lorem Ipsum</b>
+            <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
+            <div class="author">
+              <img src="../../static/customer-2.png" width="52" />
+              <div class="d-flex flex-column">
+                <b>Dasteen</b>
+                <small>Jan 10, 2022</small>
+              </div>
+            </div>
+          </div>
+        </NuxtLink>
       </div>
     </section>
 
@@ -278,7 +327,7 @@ section.content {
 <script>
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
-import Breadcrumb from '~/components/Pieces/Breadcrumb.vue';
+import Breadcrumb from '~/components/Breadcrumb.vue';
 export default {
   components: { Header, Footer, Breadcrumb },
   data: () => ({
