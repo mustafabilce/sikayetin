@@ -544,7 +544,7 @@ header {
 </template>
 
 <script>
-import BurgerIcon from '../Pieces/BurgerIcon.vue';
+import BurgerIcon from '../BurgerIcon.vue';
 export default {
   props: {
     full: { type: Boolean, default: false },

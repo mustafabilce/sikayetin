@@ -195,7 +195,7 @@
     <div class="menu" :class="expanded ? '' : 'hide'">
       <header>
         <a href="#">
-          <img src="../../static/logo-blue.png" id="logo" />
+          <img src="../static/logo-blue.png" id="logo" />
         </a>
 
         <div class="hamburger-lines" @click="expanded = false">

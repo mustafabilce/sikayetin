@@ -282,7 +282,7 @@ section.content {
 <script>
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
-import Breadcrumb from '../components/Pieces/Breadcrumb.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
 export default {
   components: { Header, Footer, Breadcrumb },
   data: () => ({
