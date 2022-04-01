@@ -158,34 +158,66 @@ section > h2 {
       flex-wrap: wrap;
 
       @media (max-width: 1100px) {
-        display: grid;
-        grid-template-columns: 104px 1fr 104px;
-        grid-template-rows: auto;
-        grid-template-areas:
-          'customer . brand'
-          'actions actions actions';
-        gap: 40px;
+        flex-direction: column;
+        gap: 30px;
       }
 
-      .customer {
-        grid-area: customer;
+      .customer-and-brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 300px;
+
+        .arrow {
+          width: 36px;
+          margin: 0 10px;
+
+          @media (max-width: 1000px) {
+            width: 24px;
+          }
+        }
       }
-      .brand {
-        grid-area: brand;
-      }
+
       .actions {
         display: flex;
         gap: 15px;
-        grid-area: actions;
         justify-content: center;
+
+        @media (max-width: 800px) {
+          gap: 6px;
+        }
+
+        .input-group {
+          width: unset;
+          padding: 12px 18px;
+
+          @media (max-width: 768px) {
+            padding: 6px 10px;
+            font-size: 0.8em;
+
+            .input-group-append img {
+              width: 16px;
+            }
+          }
+
+          button {
+            display: inline-block;
+            width: unset;
+            padding: 0;
+            margin-left: 10px;
+          }
+
+          .input-group-text {
+            padding: 0;
+          }
+
+          @media (max-width: 800px) {
+          }
+        }
 
         .like-button.active {
           --background: #b9e1ff;
-        }
-
-        @media (max-width: 700px) {
-          flex-direction: column;
-          align-items: center;
         }
       }
     }
@@ -290,15 +322,29 @@ section > h2 {
         <p class="text">{{ complaint.text }}</p>
 
         <div class="footer">
-          <div class="customer">
-            <img src="../static/customer.png" />
-            <div>
-              <b>Samet</b>
-              <br />
-              <span style="white-space: nowrap">
-                12.123&nbsp;
-                <fa :icon="['fas', 'eye']" style="display: inline" />
-              </span>
+          <div class="customer-and-brand">
+            <div class="customer">
+              <img src="../static/customer.png" />
+              <div>
+                <b>Samet</b>
+                <br />
+                <span style="white-space: nowrap">
+                  12.123&nbsp;
+                  <fa :icon="['fas', 'eye']" style="display: inline" />
+                </span>
+              </div>
+            </div>
+
+            <img src="../static/arrow.svg" class="arrow" />
+
+            <div class="brand">
+              <img src="../static/trendyol.png" />
+              <div>
+                <b>Trendyol</b>
+                <span style="white-space: nowrap; display: flex">
+                  <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
+                </span>
+              </div>
             </div>
           </div>
 
@@ -306,43 +352,32 @@ section > h2 {
             <div
               class="input-group rounded like-button"
               :class="{ active: complaint.liked }"
-              style="width: 160px"
               @click="complaint.liked = !complaint.liked"
             >
-              <button>Beğen</button>
               <div class="input-group-append">
                 <span class="input-group-text">
                   <img src="../static/like.svg" />
                 </span>
               </div>
+              <button>Beğen (328)</button>
             </div>
 
-            <div class="input-group rounded" style="width: 200px">
-              <button>Yorum Yap</button>
+            <div class="input-group rounded">
               <div class="input-group-append">
                 <span class="input-group-text">
                   <img src="../static/comment.svg" />
                 </span>
               </div>
+              <button>Yorum (28)</button>
             </div>
 
-            <div class="input-group rounded" style="width: 160px">
-              <button>Takip Et</button>
+            <div class="input-group rounded">
               <div class="input-group-append">
                 <span class="input-group-text">
                   <img src="../static/follow.svg" />
                 </span>
               </div>
-            </div>
-          </div>
-
-          <div class="brand">
-            <img src="../static/trendyol.png" />
-            <div>
-              <b>Trendyol</b>
-              <span style="white-space: nowrap; display: flex">
-                <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
-              </span>
+              <button>Takip (143)</button>
             </div>
           </div>
         </div>
