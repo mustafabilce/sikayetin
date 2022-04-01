@@ -3,6 +3,18 @@
   margin-top: 150px;
   position: relative;
 
+  h1 {
+    @media (max-width: 1400px) and (min-width: 630px) {
+      font-size: 2.5em;
+    }
+    @media (max-width: 1000px) and (min-width: 630px) {
+      font-size: 2em;
+    }
+    @media (max-width: 730px) and (min-width: 630px) {
+      font-size: 1.5em;
+    }
+  }
+
   @media (max-width: 1400px) {
     margin-top: 100px;
   }
@@ -95,9 +107,13 @@
   .abstract-circle,
   .abstract-left {
     position: absolute;
-    top: 80px;
-    bottom: 20px;
+    height: 480px;
+    bottom: -10px;
     z-index: -1;
+
+    @media (max-width: 800px) {
+      height: 450px;
+    }
   }
 
   .abstract-left {

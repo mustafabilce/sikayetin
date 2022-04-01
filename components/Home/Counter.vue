@@ -62,7 +62,7 @@
   <section id="counters">
     <div class="left">
       <h2 class="heading reveal-on-visible">Sayılarla <a href="/">sikayet.in</a></h2>
-      <p class="text reveal-on-visible delay-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas</p>
+      <p class="text reveal-on-visible delay-4">Platformda neler oluyor? Sayılar bize neler söylüyor?</p>
     </div>
     <div class="counts">
       <div class="count" v-for="counter in counters" :key="counter.id">
@@ -88,30 +88,30 @@ export default {
       {
         id: 1,
         icon: icon1,
-        number: 10000,
-        text: 'Massa enim mauris nunc.',
-        append: '+',
+        number: 1.2,
+        text: 'Toplam Şikayet Sayısı',
+        append: ' B',
       },
       {
         id: 2,
         icon: icon2,
-        number: 2,
-        text: 'Mi vel proin a et.',
-        append: ' Million',
+        number: 2.4,
+        text: 'Kayıtlır Marka Sayısı',
+        append: ' B',
       },
       {
         id: 3,
         icon: icon3,
-        number: 500,
-        text: 'Phasellus magna feugiat.',
+        number: 345,
+        text: 'Toplam Çözüm Sayısı',
         append: '+',
       },
       {
         id: 4,
         icon: icon4,
-        number: 140,
-        text: 'Mattis libero tortor arcu.',
-        append: '',
+        number: 5.2,
+        text: 'Kayıtlı Üye Sayısı',
+        append: ' B',
       },
     ],
   }),
@@ -128,8 +128,8 @@ export default {
 
         for (const counter of this.counters) {
           const count = counter.number;
-          const intervalCount = 100;
-          const intervalDelay = 30;
+          const intervalCount = 40;
+          const intervalDelay = 32;
           const interval = counter.number / intervalCount;
           counter.number = 0;
 
@@ -139,7 +139,7 @@ export default {
               await new Promise((x) => setTimeout(() => x(), intervalDelay));
             }
 
-            counter.number = parseInt(count);
+            counter.number = parseFloat(count);
           }, 100);
         }
       }

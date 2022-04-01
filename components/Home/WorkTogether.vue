@@ -44,12 +44,11 @@
 
 <template>
   <section id="work_together">
-    <h2 class="heading reveal-on-visible">Lorem ipsum dolor sit amet</h2>
+    <h2 class="heading reveal-on-visible">Şikayetlere Cevap Verin, Markanızı Güçlendirin</h2>
 
     <p class="reveal-on-visible delay-3">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Senectus id et
-      volutpat malesuada viverra viverra sagittis, dolor vel. Vel proin ac massa
-      duis.
+      Kurumsal üyelik ile müşterilerinizden geri dönüşler alın. Şikayetleri anlık takip edip, çözümler üretin. Markanızı
+      bir adım daha ileriye taşıyın.
     </p>
 
     <button class="btn reveal-on-visible delay-4">Birlikte Çalışalım</button>
