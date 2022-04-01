@@ -161,7 +161,7 @@ footer {
         </div>
 
         <div class="category">
-          <h4 class="heading reveal-on-visible">Popüler Yorumlar</h4>
+          <h4 class="heading reveal-on-visible">Popüler Markalar</h4>
           <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
           <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
           <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
@@ -179,7 +179,7 @@ footer {
         </div>
 
         <div class="category">
-          <h4 class="heading reveal-on-visible">Popüler Markalar</h4>
+          <h4 class="heading reveal-on-visible">Popüler Yorumlar</h4>
           <a class="reveal-on-visible delay-1" href="#">Lorem ipsum</a>
           <a class="reveal-on-visible delay-2" href="#">Lorem ipsum</a>
           <a class="reveal-on-visible delay-3" href="#">Lorem ipsum</a>
