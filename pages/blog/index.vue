@@ -292,7 +292,7 @@ section.content {
               <img src="../../static/customer-2.png" width="52" />
               <div class="d-flex flex-column">
                 <b>Dasteen</b>
-                <small>Jan 10, 2022</small>
+                <small>10 Ocak 2022</small>
               </div>
             </div>
           </div>
@@ -306,7 +306,7 @@ section.content {
               <img src="../../static/customer-2.png" width="52" />
               <div class="d-flex flex-column">
                 <b>Dasteen</b>
-                <small>Jan 10, 2022</small>
+                <small>10 Ocak 2022</small>
               </div>
             </div>
           </div>
@@ -320,7 +320,7 @@ section.content {
               <img src="../../static/customer-2.png" width="52" />
               <div class="d-flex flex-column">
                 <b>Dasteen</b>
-                <small>Jan 10, 2022</small>
+                <small>10 Ocak 2022</small>
               </div>
             </div>
           </div>
@@ -344,7 +344,7 @@ section.content {
                 <img src="../../static/customer-2.png" width="52" />
                 <div class="d-flex flex-column">
                   <b>Dasteen</b>
-                  <small>Jan 10, 2022</small>
+                  <small>10 Ocak 2022</small>
                 </div>
               </div>
             </NuxtLink>
@@ -362,7 +362,7 @@ section.content {
               <img src="../../static/customer-2.png" width="52" />
               <div class="d-flex flex-column">
                 <b>Dasteen</b>
-                <small>Jan 10, 2022</small>
+                <small>10 Ocak 2022</small>
               </div>
             </div>
           </NuxtLink>
