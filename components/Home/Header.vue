@@ -1,54 +1,11 @@
 <style lang="scss" scoped>
+#landing,
 header {
   --gradient-1: #85dced;
   --gradient-2: #4ec6e0;
-  --border-radius: 180px;
-
   background: linear-gradient(var(--gradient-1), var(--gradient-2));
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  padding-block: 30px;
   padding-inline: var(--header-padding-inline);
-  position: relative;
-  transition: 0.3s;
-  z-index: 9;
-
-  &:not(.full) {
-    --border-radius: 60px;
-
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    &.isScrolled {
-      --border-radius: 0;
-      padding-block: 12px;
-
-      @media (max-width: 800px) {
-        padding-block: 0;
-      }
-    }
-  }
-
-  &,
-  * {
-    overflow: visible !important;
-  }
-
-  @media (max-width: 1150px) {
-    --border-radius: 120px;
-    &:not(.full) {
-      --border-radius: 60px;
-      padding-block: 8px;
-    }
-  }
-  @media (max-width: 800px) {
-    --border-radius: 40px;
-    &:not(.full) {
-      --border-radius: 20px;
-      padding-block: 2px;
-    }
-  }
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 
   &,
   a,
@@ -58,6 +15,41 @@ header {
     &:hover {
       color: white;
     }
+  }
+}
+
+header {
+  --border-radius: 60px;
+
+  padding-block: 30px;
+  transition: 0.3s;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &.isScrolled {
+    --border-radius: 0;
+    padding-block: 12px;
+
+    @media (max-width: 800px) {
+      padding-block: 0;
+    }
+  }
+
+  &.full:not(.isScrolled) {
+    background: none !important;
+    position: absolute;
+  }
+
+  @media (max-width: 1150px) {
+    --border-radius: 60px;
+    padding-block: 8px;
+  }
+  @media (max-width: 800px) {
+    --border-radius: 20px;
+    padding-block: 2px;
   }
 
   nav {
@@ -177,6 +169,14 @@ header {
       }
     }
   }
+}
+
+#landing {
+  margin-top: -50px;
+  padding-top: 120px;
+  height: 620px;
+  position: relative;
+  --border-radius: 120px;
 
   #call_to_action {
     margin: 100px 0;
@@ -264,7 +264,7 @@ header {
 
     #banner {
       position: absolute;
-      top: 150px;
+      top: 200px;
       right: var(--call-to-action-padding-inline);
       border-radius: 100%;
       box-shadow: 20px 25px 60px rgba($color: #000000, $alpha: 0.2);
@@ -337,7 +337,7 @@ header {
     #star_of_week {
       max-width: 184px;
       position: absolute;
-      top: 480px;
+      top: 520px;
       right: 600px;
       background: url(../../static/star-of-week-background.png);
       background-position: center;
@@ -466,85 +466,87 @@ header {
       position: relative;
     }
   }
-
-  &:not(.full) {
-    margin-bottom: 70px;
-  }
 }
 </style>
 
 <template>
-  <header :class="{ full: showFull, isScrolled }">
-    <nav>
-      <NuxtLink to="/">
-        <img src="../../static/logo-white.png" id="logo" />
-      </NuxtLink>
+  <div>
+    <div style="height: 150px" v-if="!full"></div>
 
-      <div id="primary_nav">
-        <NuxtLink class="reveal-on-visible" to="/sikayetler" :class="{ active: active == 'sikayetler' }"
-          >Şikayetler</NuxtLink
-        >
-        <NuxtLink class="reveal-on-visible delay-1" to="/marka-ringi" :class="{ active: active == 'marka-ringi' }"
-          >Marka Ringi</NuxtLink
-        >
-        <NuxtLink class="reveal-on-visible delay-2" to="/populer" :class="{ active: active == 'populer' }"
-          >Popüler 20</NuxtLink
-        >
-        <a href="#" class="reveal-on-visible delay-3 btn" id="live_feed_button">Canlı Akış</a>
+    <header :class="{ full, isScrolled }">
+      <nav>
+        <NuxtLink to="/">
+          <img src="../../static/logo-white.png" id="logo" />
+        </NuxtLink>
+
+        <div id="primary_nav">
+          <NuxtLink class="reveal-on-visible" to="/sikayetler" :class="{ active: active == 'sikayetler' }"
+            >Şikayetler</NuxtLink
+          >
+          <NuxtLink class="reveal-on-visible delay-1" to="/marka-ringi" :class="{ active: active == 'marka-ringi' }"
+            >Marka Ringi</NuxtLink
+          >
+          <NuxtLink class="reveal-on-visible delay-2" to="/populer" :class="{ active: active == 'populer' }"
+            >Popüler 20</NuxtLink
+          >
+          <a href="#" class="reveal-on-visible delay-3 btn" id="live_feed_button">Canlı Akış</a>
+        </div>
+
+        <div id="secondary_nav">
+          <a class="reveal-on-visible" href="#"><b>Giriş Yap</b></a>
+          <span>|</span>
+          <a class="reveal-on-visible delay-1" href="#"><b>Üye Ol</b></a>
+          <a class="reveal-on-visible delay-2 btn" href="#">Şikayet Yaz</a>
+        </div>
+
+        <BurgerMenu />
+      </nav>
+    </header>
+
+    <div v-if="full" id="landing">
+      <div id="call_to_action">
+        <h1>
+          <span class="reveal-on-visible" style="font-weight: 400"> Şikayet.in varsa </span>
+          <br />
+          <span class="reveal-on-visible delay-1" style="font-weight: 600"> Çözüm de var! </span>
+        </h1>
+
+        <div id="search">
+          <input class="reveal-on-visible delay-2" type="text" placeholder="Marka, model, ürün ara" />
+          <button class="btn reveal-on-visible delay-3">
+            <fa :icon="['fas', 'magnifying-glass']" />
+          </button>
+        </div>
+
+        <div id="banner" class="reveal-on-visible delay-1">
+          <img class="banner-img" src="../../static/banner1.png" v-show="bannerIndex == 0" />
+          <img class="banner-img" src="../../static/banner2.png" v-show="bannerIndex == 1" />
+          <img class="banner-img" src="../../static/banner3.png" v-show="bannerIndex == 2" />
+
+          <img src="../../static/abstract/header-abstract.png" class="abstract" />
+        </div>
+
+        <div id="star_of_week">
+          <img src="../../static/trendyol.png" />
+
+          <small>Haftanın Yıldızı</small>
+          <h4>TRENDYOL</h4>
+          <p><b>1200</b> <span>Çözülmüş Şikayet</span></p>
+          <a class="btn" href="#">İncele</a>
+        </div>
       </div>
 
-      <div id="secondary_nav">
-        <a class="reveal-on-visible" href="#"><b>Giriş Yap</b></a>
-        <span>|</span>
-        <a class="reveal-on-visible delay-1" href="#"><b>Üye Ol</b></a>
-        <a class="reveal-on-visible delay-2 btn" href="#">Şikayet Yaz</a>
-      </div>
-
-      <BurgerIcon />
-    </nav>
-
-    <div id="call_to_action" v-if="showFull">
-      <h1>
-        <span class="reveal-on-visible" style="font-weight: 400"> Şikayet.in varsa </span>
-        <br />
-        <span class="reveal-on-visible delay-1" style="font-weight: 600"> Çözüm de var! </span>
-      </h1>
-
-      <div id="search">
-        <input class="reveal-on-visible delay-2" type="text" placeholder="Marka, model, ürün ara" />
-        <button class="btn reveal-on-visible delay-3">
-          <fa :icon="['fas', 'magnifying-glass']" />
-        </button>
-      </div>
-
-      <div id="banner" class="reveal-on-visible delay-1">
-        <img class="banner-img" src="../../static/banner1.png" v-show="bannerIndex == 0" />
-        <img class="banner-img" src="../../static/banner2.png" v-show="bannerIndex == 1" />
-        <img class="banner-img" src="../../static/banner3.png" v-show="bannerIndex == 2" />
-
-        <img src="../../static/abstract/header-abstract.png" class="abstract" />
-      </div>
-
-      <div id="star_of_week">
-        <img src="../../static/trendyol.png" />
-
-        <small>Haftanın Yıldızı</small>
-        <h4>TRENDYOL</h4>
-        <p><b>1200</b> <span>Çözülmüş Şikayet</span></p>
-        <a class="btn" href="#">İncele</a>
+      <div id="abstract">
+        <div class="abstract-1"></div>
+        <div class="abstract-2"></div>
+        <div class="abstract-3"></div>
       </div>
     </div>
-
-    <div id="abstract" v-if="showFull">
-      <div class="abstract-1"></div>
-      <div class="abstract-2"></div>
-      <div class="abstract-3"></div>
-    </div>
-  </header>
+  </div>
 </template>
 
 <script>
-import BurgerIcon from '../BurgerIcon.vue';
+import BurgerMenu from '../BurgerMenu.vue';
 export default {
   props: {
     full: { type: Boolean, default: false },
@@ -561,20 +563,14 @@ export default {
     isScrolled: false,
     scrollEndTimeout: null,
   }),
-  components: { BurgerIcon },
+  components: { BurgerMenu },
   methods: {
     OnScroll(checkForScrollEnd = true) {
-      let headerHeight = 0;
+      const breakpoint = this.full ? 600 : 100;
 
-      if (this.full) {
-        headerHeight = this.isScrolled ? 50 : 600;
-      } else {
-        headerHeight = this.isScrolled ? 50 : 110;
-      }
-
-      if (window.scrollY < headerHeight) {
+      if (window.scrollY <= breakpoint) {
         this.isScrolled = false;
-      } else if (window.scrollY > headerHeight) {
+      } else {
         this.isScrolled = true;
       }
 
@@ -587,11 +583,6 @@ export default {
       }
     },
   },
-  computed: {
-    showFull() {
-      return this.full && !this.isScrolled;
-    },
-  },
   created() {
     this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));
   },
@@ -599,8 +590,11 @@ export default {
     if (this.full) {
       const [gradient1, gradient2] = this.bannerColors[this.bannerIndex];
       const header = document.querySelector('header');
+      const landing = document.querySelector('#landing');
       header.style.setProperty('--gradient-1', gradient1);
       header.style.setProperty('--gradient-2', gradient2);
+      landing.style.setProperty('--gradient-1', gradient1);
+      landing.style.setProperty('--gradient-2', gradient2);
     }
 
     setTimeout(() => {
