@@ -2,6 +2,7 @@
 footer {
   background-color: #2e3952;
   padding: var(--section-padding-inline);
+  $mobile-breakpoint-xl: 1400px;
   $mobile-breakpoint: 1200px;
   $mobile-breakpoint-2: 960px;
 
@@ -20,10 +21,15 @@ footer {
 
   .sections {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 400px 1fr;
     gap: 60px;
     color: white;
     margin: 80px 0;
+
+    @media (max-width: $mobile-breakpoint-xl) {
+      grid-template-columns: 320px 1fr;
+      gap: 40px
+    }
 
     @media (max-width: $mobile-breakpoint) {
       grid-template-columns: 1fr;
@@ -62,6 +68,7 @@ footer {
     .categories {
       display: flex;
       justify-content: space-between;
+      gap: 10px;
 
       @media (max-width: $mobile-breakpoint-2) {
         flex-direction: column;
