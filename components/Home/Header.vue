@@ -30,12 +30,12 @@ header {
   right: 0;
 
   &.isScrolled {
-    --border-radius: 0;
-    padding-block: 20px;
+    // --border-radius: 0;
+    // padding-block: 20px;
 
-    @media (max-width: 800px) {
-      padding-block: 10px;
-    }
+    // @media (max-width: 800px) {
+    //   padding-block: 10px;
+    // }
   }
 
   &.full:not(.isScrolled) {
@@ -436,6 +436,8 @@ header {
     gap: 30px;
     z-index: -1;
     width: 100vw;
+    max-width: 100vw !important;
+    overflow-x: hidden;
 
     --width: 521px;
     --height: 86px;
