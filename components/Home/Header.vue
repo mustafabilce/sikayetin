@@ -29,14 +29,16 @@ header {
   left: 0;
   right: 0;
 
+  /*
   &.isScrolled {
-    // --border-radius: 0;
-    // padding-block: 20px;
+    --border-radius: 0;
+    padding-block: 20px;
 
-    // @media (max-width: 800px) {
-    //   padding-block: 10px;
-    // }
+    @media (max-width: 800px) {
+      padding-block: 10px;
+    }
   }
+  */
 
   &.full:not(.isScrolled) {
     background: none !important;
@@ -49,7 +51,8 @@ header {
   }
   @media (max-width: 800px) {
     --border-radius: 20px;
-    padding-block: 2px;
+    padding-top: 8px;
+    padding-bottom: 2px;
   }
 
   nav {
