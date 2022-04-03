@@ -140,6 +140,20 @@ section.content {
       .heading {
         font-weight: 500;
         font-size: 1.5em;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .arrow {
+          transition: .2s ease;
+          opacity: .5;
+        }
+      }
+
+      &.shown .heading .arrow {
+        transform: rotateZ(180deg);
+          opacity: 1;
       }
 
       .text {
@@ -252,7 +266,11 @@ section.content {
           :key="question.id"
           @click="shownQuestion = question.id"
         >
-          <p class="heading">{{ question.title }}</p>
+          <p class="heading">
+            {{ question.title }}
+
+            <fa :icon="['fas', 'angle-up']" class="arrow" />
+          </p>
           <p class="text">{{ question.text }}</p>
         </div>
       </div>

@@ -17,7 +17,7 @@
     <img src="../static/customer-2.png" width="64" />
     <div class="d-flex flex-column align-items-end mt-2" style="gap: 6px">
       <b>Dasteen Camber</b>
-      <small>Jan 10, 2022</small>
+      <small>En Çok Okunan</small>
     </div>
   </div>
 </template>

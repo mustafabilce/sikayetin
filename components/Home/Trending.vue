@@ -135,11 +135,10 @@
           }
 
           .arrow {
-            width: 36px;
-            margin: 0 10px;
-
             @media (max-width: 1000px) {
-              width: 24px;
+              margin: 0;
+              margin-right: 5px;
+              width: 20px;
             }
           }
         }
@@ -179,9 +178,9 @@
               <img src="../../static/trendyol.png" />
               <div>
                 <b>Trendyol</b>
-                <span style="white-space: nowrap">
+                <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -212,9 +211,9 @@
               <img src="../../static/trendyol.png" />
               <div>
                 <b>Trendyol</b>
-                <span style="white-space: nowrap">
+                <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -233,17 +232,19 @@ export default {
 
       if (reverse) {
         $(element).scrollLeft(end - 20);
+      } else {
+        $(element).scrollLeft(0);
       }
 
-      let scrollDirection = 4;
+      let scrollDirection = 2;
       let velocity = speed;
       const pageScroll = () => {
         element.scrollBy(scrollDirection * velocity, 0);
-        setTimeout(() => pageScroll(), 18);
+        setTimeout(() => pageScroll(), 20);
 
-        if (element.scrollLeft <= 1) {
+        if (element.scrollLeft <= 10) {
           velocity = speed;
-        } else if (end <= element.scrollLeft) {
+        } else if (element.scrollLeft >= end - 10) {
           velocity = speed * -1;
         }
       };

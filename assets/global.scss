@@ -211,25 +211,27 @@ a:hover {
 	align-items: center;
 	position: relative;
 
-	&::after {
-		content: "";
-		display: block;
-		position: absolute;
-		top: 30px;
-		left: 32px;
-		width: 12px;
-		height: 12px;
-		background-image: url(../static/verified.png);
-		outline: 1px solid white;
-		border-radius: 100%;
-
-		@media (max-width: 900px) {
-			left: 22px;
-		}
-	}
-
 	b {
 		font-size: 0.9em;
+		line-height: 1.1em;
+		white-space: nowrap;
+
+		&::after {
+			content: "";
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			margin-left: 3px;
+			background-image: url(../static/verified.svg);
+			background-position: center;
+			background-size: contain;
+			border-radius: 100%;
+
+			@media (max-width: 900px) {
+				left: 22px;
+				margin-left: 3px;
+			}
+		}
 	}
 
 	span {
@@ -254,13 +256,25 @@ a:hover {
 		flex-direction: column;
 	}
 
-	.star {
-		margin-right: 2px;
-		width: 9px;
+	.stars {
+		display: flex;
+		flex-direction: row !important;
+		align-items: center;
 
-		@media (max-width: 1200px) {
+		.star {
 			margin-right: 2px;
-			width: 9px;
+			margin-top: 6px;
+			width: 12px;
+
+			@media (max-width: 1200px) {
+				margin-right: 2px;
+				width: 11px;
+			}
 		}
 	}
+}
+
+.footer .arrow {
+	width: 36px;
+	margin: 0 10px;
 }

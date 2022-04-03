@@ -31,10 +31,10 @@ header {
 
   &.isScrolled {
     --border-radius: 0;
-    padding-block: 12px;
+    padding-block: 20px;
 
     @media (max-width: 800px) {
-      padding-block: 0;
+      padding-block: 10px;
     }
   }
 

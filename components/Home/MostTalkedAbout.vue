@@ -1,19 +1,6 @@
 <style lang="scss" scoped>
-#most_talked_about {
+section.heading {
   margin-top: 150px;
-  position: relative;
-
-  h1 {
-    @media (max-width: 1400px) and (min-width: 630px) {
-      font-size: 2.5em;
-    }
-    @media (max-width: 1000px) and (min-width: 630px) {
-      font-size: 2em;
-    }
-    @media (max-width: 730px) and (min-width: 630px) {
-      font-size: 1.5em;
-    }
-  }
 
   @media (max-width: 1400px) {
     margin-top: 100px;
@@ -23,6 +10,10 @@
     margin-top: 70px;
     padding: 0 10px;
   }
+}
+
+#most_talked_about {
+  position: relative;
 
   .inner {
     margin: 50px 0;
@@ -38,6 +29,13 @@
       .heading {
         font-weight: 700;
         text-align: center;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 50px;
       }
 
       p {
@@ -84,36 +82,16 @@
         }
       }
 
-      .footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 300px;
-        margin: 30px auto 0 auto;
-
-        .arrow {
-          width: 36px;
-          margin: 0 10px;
-
-          @media (max-width: 1000px) {
-            width: 24px;
-          }
-        }
-      }
+      
     }
   }
 
   .abstract-circle,
   .abstract-left {
     position: absolute;
-    height: 480px;
-    bottom: -10px;
+    top: 0px;
+    bottom: 0;
     z-index: -1;
-
-    @media (max-width: 800px) {
-      height: 450px;
-    }
   }
 
   .abstract-left {
@@ -148,50 +126,53 @@
 </style>
 
 <template>
-  <section id="most_talked_about">
-    <h1 class="reveal-on-visible">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
-
-    <div class="inner">
-      <div class="card" v-for="i in 10" :key="i">
-        <h4 class="heading reveal-on-visible">
-          Şikayet Başlığı dolor sit amet, consectetur adipiscing elit. Duis dui.
-        </h4>
-        <p class="reveal-on-visible delay-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectus
-          lobortis
-        </p>
-        <a href="#" class="comment reveal-on-visible delay-3"> <img src="../../static/yorum.png" /> &nbsp; 12 Yorum </a>
-        <div class="footer reveal-on-visible delay-4">
-          <div class="customer">
-            <img src="../../static/customer.png" />
-            <div>
-              <b>Samet</b>
-              <br />
-              <span style="white-space: nowrap">
-                12.123&nbsp;
-                <fa :icon="['fas', 'eye']" style="display: inline" />
-              </span>
+  <div>
+    <section class="heading">
+        <h1 class="reveal-on-visible">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
+    </section>
+    <section id="most_talked_about">
+      <div class="inner">
+        <div class="card" v-for="i in 10" :key="i">
+          <h4 class="heading reveal-on-visible">
+            Şikayet Başlığı dolor sit amet, consectetur adipiscing elit. Duis dui.
+          </h4>
+          <p class="reveal-on-visible delay-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectus
+            lobortis
+          </p>
+          <a href="#" class="comment reveal-on-visible delay-3"> <img src="../../static/yorum.png" /> &nbsp; 12 Yorum </a>
+          <div class="footer reveal-on-visible delay-4">
+            <div class="customer">
+              <img src="../../static/customer.png" />
+              <div>
+                <b>Samet</b>
+                <br />
+                <span style="white-space: nowrap">
+                  12.123&nbsp;
+                  <fa :icon="['fas', 'eye']" style="display: inline" />
+                </span>
+              </div>
             </div>
-          </div>
 
-          <img src="../../static/arrow.svg" class="arrow" />
+            <img src="../../static/arrow.svg" class="arrow" />
 
-          <div class="brand">
-            <img src="../../static/trendyol.png" />
-            <div>
-              <b>Trendyol</b>
-              <span style="white-space: nowrap; display: flex">
-                <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-              </span>
+            <div class="brand">
+              <img src="../../static/trendyol.png" />
+              <div>
+                <b>Trendyol</b>
+                <div class="stars">
+                  <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="abstract-left"></div>
-    <div class="abstract-circle"></div>
-  </section>
+      <div class="abstract-left"></div>
+      <div class="abstract-circle"></div>
+    </section>
+  </div>
 </template>
 
 <script>

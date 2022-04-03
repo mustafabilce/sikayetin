@@ -41,15 +41,6 @@ section > h2 {
           width: 100%;
           max-width: 300px;
           margin: 30px auto 0 auto;
-
-          .arrow {
-            width: 36px;
-            margin: 0 10px;
-
-            @media (max-width: 1000px) {
-              width: 24px;
-            }
-          }
         }
       }
     }
@@ -168,15 +159,6 @@ section > h2 {
         justify-content: space-between;
         width: 100%;
         max-width: 300px;
-
-        .arrow {
-          width: 36px;
-          margin: 0 10px;
-
-          @media (max-width: 1000px) {
-            width: 24px;
-          }
-        }
       }
 
       .actions {
@@ -232,7 +214,7 @@ section > h2 {
     <section id="trending">
       <div class="background"></div>
 
-      <h2 class="reveal-on-visible">Gündemdeki Şikayetler</h2>
+      <h2 class="reveal-on-visible">Şikayetler</h2>
 
       <div class="inner">
         <button class="slick-button prev-button">
@@ -259,9 +241,9 @@ section > h2 {
                 <img src="../static/trendyol.png" />
                 <div>
                   <b>Trendyol</b>
-                  <span style="white-space: nowrap; display: flex">
+                  <div class="stars">
                     <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -341,9 +323,9 @@ section > h2 {
               <img src="../static/trendyol.png" />
               <div>
                 <b>Trendyol</b>
-                <span style="white-space: nowrap; display: flex">
+                <div class="stars">
                   <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </span>
+                </div>
               </div>
             </div>
           </div>
