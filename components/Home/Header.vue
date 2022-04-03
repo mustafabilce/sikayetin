@@ -84,16 +84,24 @@ header {
           color: #00244c;
         }
 
-        &#live_feed_button:hover {
-          animation: pulse_color 0.5s alternate infinite;
+        --pulse-from:#ff5777;
+        --pulse-to:#d13d58;
+
+        &#live_feed_button {
+          animation: pulse_color 1.6s alternate infinite;
+
+          &:hover {
+            --pulse-to: #be2340;
+            animation-duration: 0.8s;
+          }
         }
 
         @keyframes pulse_color {
           0% {
-            background: #ff5777;
+            background: var(--pulse-from);
           }
           100% {
-            background: #c2344e;
+            background: var(--pulse-to);
           }
         }
 
