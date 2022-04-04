@@ -87,8 +87,8 @@ header {
           color: #00244c;
         }
 
-        --pulse-from:#ff5777;
-        --pulse-to:#d13d58;
+        --pulse-from: #ff5777;
+        --pulse-to: #d13d58;
 
         &#live_feed_button {
           animation: pulse_color 1.6s alternate infinite;
@@ -274,17 +274,42 @@ header {
     }
 
     #banner {
+      $size: 600px;
+
       position: absolute;
       top: 200px;
       right: var(--call-to-action-padding-inline);
       border-radius: 100%;
       box-shadow: 20px 25px 60px rgba($color: #000000, $alpha: 0.2);
-      width: 600px;
-      height: 600px;
 
+      &,
       img.banner-img {
-        width: 100%;
-        height: 100%;
+        width: $size;
+        height: $size;
+        max-width: 100vw;
+        max-height: 100vw !important;
+      }
+
+      @media (max-width: 1400px) {
+        $size: 500px;
+        top: 140px;
+        right: 60px;
+      }
+
+      @media (max-width: 1150px) {
+        left: 50%;
+        transform: translateX(-50%);
+
+        .banner-img {
+          opacity: 0.6;
+        }
+      }
+
+      @media (max-width: 1000px) and (min-width: 600px) {
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
+        top: 150px;
       }
 
       &::after {
@@ -315,33 +340,9 @@ header {
 
         @media (max-width: 500px) {
           width: 260px;
-          right: 40px;
           top: 180px;
           bottom: unset;
         }
-      }
-
-      @media (max-width: 1400px) {
-        width: 500px;
-        height: 500px;
-        top: 140px;
-        right: 60px;
-      }
-
-      @media (max-width: 1150px) {
-        left: 50%;
-        transform: translateX(-50%);
-
-        .banner-img {
-          opacity: 0.6;
-        }
-      }
-
-      @media (max-width: 1000px) and (min-width: 600px) {
-        right: 60px;
-        left: unset;
-        transform: unset;
-        top: 250px;
       }
     }
 

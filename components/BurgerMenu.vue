@@ -94,90 +94,121 @@
   }
 }
 
-.menu {
+.menu,
+.darken-background {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  min-height: 100vh;
-  background: white;
-  z-index: 9;
   transition: 0.3s;
-
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  max-width: 100vw;
-  overflow-x: hidden;
 
   &.hide {
     pointer-events: none;
     opacity: 0;
   }
+}
 
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 50px 0;
+.menu {
+  background: white;
+  z-index: 9;
+  max-width: 100vw;
+  overflow-x: hidden;
+  border-radius: 0 0 80px 80px;
+  --button-padding-x: 72px;
+  $breakpoint: 400px;
 
-    #logo {
-      width: 156px;
+  @media (max-width: $breakpoint) {
+    --button-padding-x: 48px;
+  }
+
+  .top {
+    background: #ecf1f8;
+    padding: 32px;
+    border-radius: 0 0 80px 80px;
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        width: 200px;
+
+        @media (max-width: $breakpoint) {
+          width: 156px;
+        }
+      }
+
+      .times {
+        width: 26px;
+
+        @media (max-width: $breakpoint) {
+          width: 22px;
+        }
+      }
     }
 
-    .hamburger-lines {
-      cursor: pointer;
+    .top-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 42px;
 
-      .line {
-        background: black;
+      .button {
+        background: #00244c;
+        padding: 12px var(--button-padding-x);
+        color: white;
+        font-weight: 700;
+        border-radius: 100px;
+        font-size: 1.2rem;
       }
-      .line1 {
-        transform: rotate(45deg);
-      }
-      .line2 {
-        transform: scaleY(0);
-      }
-      .line3 {
-        transform: rotate(-45deg);
+
+      p {
+        margin: 16px 0 0 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1em;
+
+        span,
+        a {
+          color: #00244c;
+        }
       }
     }
   }
 
-  main,
-  footer {
+  .bottom-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 0;
+    justify-content: center;
+    margin-block: 40px;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
 
     a {
-      padding: 12px 24px;
-      margin: 8px 0;
-      font-size: 1.5em;
-      color: #0c2e4f;
-      width: min(220px, 80vw);
-
-      &.button {
-        color: white;
-        border-radius: 15px;
-      }
-    }
-  }
-
-  main a.button {
-    background-color: #ff5777;
-  }
-
-  footer {
-    display: none;
-    a.button {
-      background-color: #0c2e4f;
+      color: #00244c;
     }
 
-    @media (max-width: 850px) {
-      display: flex;
+    .button {
+      background-color: #ff5777;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      padding: 12px var(--button-padding-x);
+      border-radius: 12px;
+      margin-top: 10px;
     }
   }
+}
+
+.darken-background {
+  bottom: 0;
+  background: black;
+  opacity: 0.7;
+  backdrop-filter: blur(10px);
 }
 </style>
 
@@ -193,31 +224,34 @@
     </div>
 
     <div class="menu" :class="expanded ? '' : 'hide'">
-      <header>
-        <a href="#">
-          <img src="../static/logo-blue.png" id="logo" />
-        </a>
+      <div class="top">
+        <div class="header">
+          <a href="#">
+            <img src="../static/logo-blue.png" class="logo" />
+          </a>
 
-        <div class="hamburger-lines" @click="expanded = false">
-          <span class="line line1"></span>
-          <span class="line line2"></span>
-          <span class="line line3"></span>
+          <img src="../static/times.svg" @click="expanded = false" class="times" />
         </div>
-      </header>
 
-      <main>
+        <div class="top-menu">
+          <a href="#" class="button">Şikayet Yaz</a>
+          <p>
+            <a href="#">Giriş Yap</a>
+            <span>|</span>
+            <a href="#">Üye Ol</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="bottom-menu">
         <NuxtLink to="/sikayetler">Şikayetler</NuxtLink>
         <NuxtLink to="/marka-ringi">Marka Ringi</NuxtLink>
         <NuxtLink to="/populer">Popüler 20</NuxtLink>
         <a href="#" class="button">Canlı Akış</a>
-      </main>
-
-      <footer>
-        <a href="#">Giriş Yap</a>
-        <a href="#">Üye Ol</a>
-        <a href="#" class="button">Şikayet Yaz</a>
-      </footer>
+      </div>
     </div>
+
+    <div class="darken-background" :class="expanded ? '' : 'hide'" @click="expanded = false"></div>
   </div>
 </template>
 
