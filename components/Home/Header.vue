@@ -87,8 +87,8 @@ header {
           color: #00244c;
         }
 
-        --pulse-from:#ff5777;
-        --pulse-to:#d13d58;
+        --pulse-from: #ff5777;
+        --pulse-to: #d13d58;
 
         &#live_feed_button {
           animation: pulse_color 1.6s alternate infinite;
