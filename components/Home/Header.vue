@@ -279,37 +279,14 @@ header {
       position: absolute;
       top: 200px;
       right: var(--call-to-action-padding-inline);
-      border-radius: 100%;
-      box-shadow: 20px 25px 60px rgba($color: #000000, $alpha: 0.2);
+      width: $size;
+      height: $size;
 
-      &,
       img.banner-img {
         width: $size;
         height: $size;
-        max-width: 100vw;
-        max-height: 100vw !important;
-      }
-
-      @media (max-width: 1400px) {
-        $size: 500px;
-        top: 140px;
-        right: 60px;
-      }
-
-      @media (max-width: 1150px) {
-        left: 50%;
-        transform: translateX(-50%);
-
-        .banner-img {
-          opacity: 0.6;
-        }
-      }
-
-      @media (max-width: 1000px) and (min-width: 600px) {
-        left: 50%;
-        right: unset;
-        transform: translateX(-50%);
-        top: 150px;
+        box-shadow: 20px 25px 60px rgba($color: #000000, $alpha: 0.2);
+        border-radius: 100%;
       }
 
       &::after {
@@ -335,14 +312,37 @@ header {
         @media (max-width: 600px) {
           width: 280px;
           right: 0;
-          bottom: -140px;
+          bottom: -80px;
         }
 
         @media (max-width: 500px) {
           width: 260px;
-          top: 180px;
+          right: 80px;
+          top: 200px;
           bottom: unset;
         }
+      }
+
+      @media (max-width: 1400px) {
+        $size: 500px;
+        top: 140px;
+        right: 60px;
+      }
+
+      @media (max-width: 1150px) {
+        left: 50%;
+        transform: translateX(-50%);
+
+        .banner-img {
+          opacity: 0.6;
+        }
+      }
+
+      @media (max-width: 1000px) and (min-width: 800px) {
+        right: 60px;
+        left: unset;
+        transform: unset;
+        top: 160px;
       }
     }
 
@@ -374,7 +374,7 @@ header {
       }
 
       @media (max-width: 1000px) {
-        top: 50px;
+        top: 20px;
         left: unset;
         right: unset;
         transform: unset;
@@ -450,6 +450,9 @@ header {
       bottom: -100px;
       --width: 400px;
       --height: 50px;
+    }
+    @media (max-width: 500px) {
+      z-index: 1;
     }
 
     .abstract-1,

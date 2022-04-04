@@ -4,10 +4,15 @@ section {
   overflow-x: hidden;
   cursor: default;
 }
+
+#holder {
+  max-width: 100vw;
+  overflow: hidden;
+}
 </style>
 
 <template>
-  <div>
+  <div id="holder">
     <div id="loader"><img src="../static/loader.gif" /></div>
     <Header :full="true" />
     <Trending />
