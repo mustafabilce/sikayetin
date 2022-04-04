@@ -121,9 +121,17 @@
     --button-padding-x: 48px;
   }
 
+  .button {
+    padding: 12px var(--button-padding-x);
+    color: white;
+    font-weight: 700;
+    border-radius: 100px;
+    font-size: 1.2rem;
+  }
+
   .top {
     background: #ecf1f8;
-    padding: 32px;
+    padding: 26px var(--header-padding-inline);
     border-radius: 0 0 80px 80px;
 
     .header {
@@ -132,10 +140,10 @@
       justify-content: space-between;
 
       .logo {
-        width: 200px;
+        width: 256px;
 
-        @media (max-width: $breakpoint) {
-          width: 156px;
+        @media (max-width: 1400px) {
+          width: 192px;
         }
       }
 
@@ -156,11 +164,6 @@
 
       .button {
         background: #00244c;
-        padding: 12px var(--button-padding-x);
-        color: white;
-        font-weight: 700;
-        border-radius: 100px;
-        font-size: 1.2rem;
       }
 
       p {
@@ -188,18 +191,19 @@
     font-size: 1.5rem;
     font-weight: 500;
 
-    a {
+    a:not(.button) {
       color: #00244c;
     }
 
     .button {
       background-color: #ff5777;
-      font-size: 1rem;
-      font-weight: 700;
-      color: white;
-      padding: 12px var(--button-padding-x);
-      border-radius: 12px;
       margin-top: 10px;
+      animation: live_button_pulse 1.6s alternate infinite;
+
+      &:hover {
+        $live-button-pulse-to: #be2340;
+        animation-duration: 0.8s;
+      }
     }
   }
 }
@@ -226,9 +230,9 @@
     <div class="menu" :class="expanded ? '' : 'hide'">
       <div class="top">
         <div class="header">
-          <a href="#">
+          <NuxtLink to="/">
             <img src="../static/logo-blue.png" class="logo" />
-          </a>
+          </NuxtLink>
 
           <img src="../static/times.svg" @click="expanded = false" class="times" />
         </div>

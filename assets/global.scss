@@ -279,3 +279,15 @@ a:hover {
 	width: 36px;
 	margin: 0 10px;
 }
+
+$live-button-pulse-from: #ff5777;
+$live-button-pulse-to: #d13d58;
+
+@keyframes live_button_pulse {
+	0% {
+		background: $live-button-pulse-from;
+	}
+	100% {
+		background: $live-button-pulse-to;
+	}
+}

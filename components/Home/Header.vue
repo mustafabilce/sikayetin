@@ -47,12 +47,11 @@ header {
 
   @media (max-width: 1150px) {
     --border-radius: 60px;
-    padding-block: 8px;
+    padding-top: 16px;
+    padding-bottom: 8px;
   }
   @media (max-width: 800px) {
     --border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 2px;
   }
 
   nav {
@@ -62,10 +61,10 @@ header {
     justify-content: space-between;
 
     #logo {
-      width: 220px;
+      width: 256px;
 
       @media (max-width: 1400px) {
-        width: 180px;
+        width: 192px;
       }
     }
 
@@ -87,24 +86,12 @@ header {
           color: #00244c;
         }
 
-        --pulse-from: #ff5777;
-        --pulse-to: #d13d58;
-
         &#live_feed_button {
-          animation: pulse_color 1.6s alternate infinite;
+          animation: live_button_pulse 1.6s alternate infinite;
 
           &:hover {
-            --pulse-to: #be2340;
+            $live-button-pulse-to: #be2340;
             animation-duration: 0.8s;
-          }
-        }
-
-        @keyframes pulse_color {
-          0% {
-            background: var(--pulse-from);
-          }
-          100% {
-            background: var(--pulse-to);
           }
         }
 
