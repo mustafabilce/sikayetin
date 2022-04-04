@@ -44,6 +44,12 @@ section.heading {
         max-width: 300px;
         margin: 0 auto;
         position: relative;
+        text-indent: 20px;
+
+        @media (max-width: 800px) {
+          padding: 25px 0;
+          text-align: center;
+        }
 
         &::before {
           content: '';
@@ -54,12 +60,7 @@ section.heading {
           background-size: cover;
           display: block;
           position: absolute;
-          left: -25px;
-        }
-
-        @media (max-width: 500px) {
-          padding: 25px 0;
-          text-align: justify;
+          left: 0;
         }
       }
 

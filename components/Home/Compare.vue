@@ -28,11 +28,6 @@
       font-size: 1.4em;
       display: inline-block;
       padding: 0 30px;
-
-      @media (max-width: 500px) {
-        text-align: justify;
-        text-align-last: center;
-      }
     }
 
     #inputs {

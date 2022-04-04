@@ -28,7 +28,6 @@
 
     @media (max-width: 900px) {
       font-size: 1.2em;
-      text-align: justify;
     }
   }
 
