@@ -47,8 +47,7 @@ header {
 
   @media (max-width: 1150px) {
     --border-radius: 60px;
-    padding-top: 16px;
-    padding-bottom: 8px;
+    padding-block: 15px;
   }
   @media (max-width: 800px) {
     --border-radius: 20px;
