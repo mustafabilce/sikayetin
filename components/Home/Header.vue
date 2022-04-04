@@ -591,8 +591,6 @@ export default {
         this.isScrolled = true;
       }
 
-      $('.reveal-on-visible').addClass('revealed reveal-finished');
-
       if (checkForScrollEnd) {
         this.scrollEndTimeout = setTimeout(() => {
           this.OnScroll(false);
