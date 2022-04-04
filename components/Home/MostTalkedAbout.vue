@@ -20,7 +20,7 @@ section.heading {
 
     .card {
       box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
-
+      overflow-x: hidden;
       background: white;
       transform: scale(0.9);
       padding: 50px 30px;
@@ -82,8 +82,6 @@ section.heading {
           display: inline-block;
         }
       }
-
-      
     }
   }
 
@@ -129,7 +127,7 @@ section.heading {
 <template>
   <div>
     <section class="heading">
-        <h1 class="reveal-on-visible">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
+      <h1 class="reveal-on-visible">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
     </section>
     <section id="most_talked_about">
       <div class="inner">
@@ -141,7 +139,9 @@ section.heading {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectus
             lobortis
           </p>
-          <a href="#" class="comment reveal-on-visible delay-3"> <img src="../../static/yorum.png" /> &nbsp; 12 Yorum </a>
+          <a href="#" class="comment reveal-on-visible delay-3">
+            <img src="../../static/yorum.png" /> &nbsp; 12 Yorum
+          </a>
           <div class="footer reveal-on-visible delay-4">
             <div class="customer">
               <img src="../../static/customer.png" />
