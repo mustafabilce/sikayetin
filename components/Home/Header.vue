@@ -60,7 +60,7 @@ header {
     justify-content: space-between;
 
     #logo {
-      width: 256px;
+      max-width: 180px;
 
       @media (max-width: 1400px) {
         width: 192px;
@@ -75,6 +75,7 @@ header {
       a {
         margin: 0 3px;
         padding: 6px;
+        font-size: 13px;
 
         @media (max-width: 1400px) {
           margin: 0 2px;
@@ -116,6 +117,7 @@ header {
       }
 
       a {
+        font-size: 13px;
         padding: 4px;
 
         &:not(.btn):not(.active):hover {
@@ -124,13 +126,13 @@ header {
 
         &.btn {
           background: #00244c;
-          font-weight: bold;
-          padding: 12px 36px;
+          font-weight: 600;
+          padding: 8px 30px;
           border-radius: 100px;
           margin-left: 20px;
 
           @media (max-width: 1400px) {
-            padding: 10px 22px;
+            padding: 8px 20px;
             margin-left: 10px;
           }
         }
