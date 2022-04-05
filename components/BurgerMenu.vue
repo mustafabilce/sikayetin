@@ -260,6 +260,7 @@
 </template>
 
 <script>
+
 export default {
   data: () => ({
     expanded: false,

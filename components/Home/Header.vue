@@ -496,13 +496,15 @@ header {
         </div>
 
         <div id="secondary_nav">
-          <a class="reveal-on-visible" href="#"><b>Giriş Yap</b></a>
+          <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
           <span>|</span>
-          <a class="reveal-on-visible delay-1" href="#"><b>Üye Ol</b></a>
+          <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           <a class="reveal-on-visible delay-2 btn" href="#">Şikayet Yaz</a>
         </div>
 
         <BurgerMenu />
+            <Login />
+            <Register />
       </nav>
     </header>
 
@@ -550,6 +552,8 @@ header {
 
 <script>
 import BurgerMenu from '../BurgerMenu.vue';
+import Login from '~/components/modals/Login.vue';
+import Register from '~/components/modals/Register.vue';
 export default {
   props: {
     full: { type: Boolean, default: false },
@@ -566,7 +570,7 @@ export default {
     isScrolled: false,
     scrollEndTimeout: null,
   }),
-  components: { BurgerMenu },
+  components: { BurgerMenu, Login, Register },
   methods: {
     OnScroll(checkForScrollEnd = true) {
       const breakpoint = this.full ? 600 : 100;
