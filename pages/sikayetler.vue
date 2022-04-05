@@ -134,11 +134,13 @@ section > h2 {
 
     .title {
       font-weight: 700;
+      font-size: 18px;
     }
 
     .text {
       font-weight: 400;
-      margin: 50px 0;
+      font-size: 14px;
+      margin: 30px 0;
     }
 
     .footer {
@@ -168,6 +170,10 @@ section > h2 {
 
         @media (max-width: 800px) {
           gap: 6px;
+        }
+
+        .btn-sm {
+          font-size: 12px;
         }
 
         .input-group {
@@ -204,6 +210,19 @@ section > h2 {
       }
     }
   }
+}
+.sort-by {
+  input {
+    cursor: pointer;
+  }
+}
+.dropdown-item {
+  font-size: 12px;
+  text-align: left;
+  padding: 0.25rem 0rem;
+    .form-check-input {
+      margin-top: 0.2rem;
+    }
 }
 </style>
 
@@ -279,23 +298,59 @@ section > h2 {
             </div>
           </div>
 
-          <div class="input-group" style="width: 220px">
-            <input type="text" class="form-control" placeholder="Filtrele" />
-            <div class="input-group-append">
-              <span class="input-group-text">
-                <img src="../static/filter.svg" />
-              </span>
-            </div>
-          </div>
+          <b-dropdown class="sort-by" size="sm" variant="link" toggle-class="text-decoration-none" no-caret left>
+            <template #button-content>
+              <div class="input-group" style="width: 220px">
+                <input type="text" class="form-control" placeholder="Filtrele" />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <img src="../static/filter.svg" />
+                  </span>
+                </div>
+              </div>
+            </template>
+            <b-dropdown-item href="#" class="dropdown-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-1" />
+                <label class="form-check-label" for="test-checkbox-1"> Lorem ipsum </label>
+              </div>
+            </b-dropdown-item>
+            <b-dropdown-item href="#" class="dropdown-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-2" />
+                <label class="form-check-label" for="test-checkbox-2"> Lorem ipsum </label>
+              </div>
+            </b-dropdown-item>
+            <b-dropdown-item href="#" class="dropdown-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-3" />
+                <label class="form-check-label" for="test-checkbox-3"> Lorem ipsum </label>
+              </div>
+            </b-dropdown-item>
+            <b-dropdown-item href="#" class="dropdown-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-4" />
+                <label class="form-check-label" for="test-checkbox-4"> Lorem ipsum </label>
+              </div>
+            </b-dropdown-item>
+          </b-dropdown>
 
-          <div class="input-group" style="width: 180px">
-            <input type="text" class="form-control" placeholder="Sırala" />
-            <div class="input-group-append">
-              <span class="input-group-text">
-                <img src="../static/order.svg" />
-              </span>
-            </div>
-          </div>
+          <b-dropdown class="sort-by" size="sm" variant="link" toggle-class="text-decoration-none" no-caret left>
+            <template #button-content>
+              <div class="input-group" style="width: 180px; cursor: pointer">
+                <input type="text" class="form-control" placeholder="Sırala" />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <img src="../static/order.svg" />
+                  </span>
+                </div>
+              </div>
+            </template>
+            <b-dropdown-item href="#" class="dropdown-item">En Çok Yorum Alan</b-dropdown-item>
+            <b-dropdown-item href="#" class="dropdown-item">En Az Yorum Alan</b-dropdown-item>
+            <b-dropdown-item href="#" class="dropdown-item">En Çok Yorum Alan</b-dropdown-item>
+            <b-dropdown-item href="#" class="dropdown-item">En Az Yorum Alan</b-dropdown-item>
+          </b-dropdown>
         </div>
       </div>
 
@@ -341,7 +396,7 @@ section > h2 {
                   <img src="../static/like.svg" />
                 </span>
               </div>
-              <button>Beğen (328)</button>
+              <button class="btn-sm">Beğen (328)</button>
             </div>
 
             <div class="input-group rounded">
@@ -350,7 +405,7 @@ section > h2 {
                   <img src="../static/comment.svg" />
                 </span>
               </div>
-              <button>Yorum (28)</button>
+              <button class="btn-sm">Yorum (28)</button>
             </div>
 
             <div class="input-group rounded">
@@ -359,7 +414,7 @@ section > h2 {
                   <img src="../static/follow.svg" />
                 </span>
               </div>
-              <button>Takip (143)</button>
+              <button class="btn-sm">Takip (143)</button>
             </div>
           </div>
         </div>
