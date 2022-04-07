@@ -16,6 +16,8 @@
       max-width: 40px;
       max-height: 40px;
       position: absolute;
+      right: 0;
+      bottom: 0;
     }
     h4.title {
       font-size: 20px;
@@ -75,8 +77,10 @@
       <div class="row">
         <div class="col-12">
           <div class="firm-box">
-            <img class="logo" src="../static/apple.png" />
-            <img class="verified" src="../static/verified.svg" />
+            <div style="max-width: 150px; position: relative;">
+              <img class="img-fluid" src="../static/apple.png" />
+              <img class="verified" src="../static/verified.svg" />
+            </div>
             <h4 class="title">Apple</h4>
             <div class="stars">
               <fa :icon="['fas', 'star']" class="star-icon" />
@@ -89,7 +93,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-12" v-for="i in 4" :key="i">
           <div class="collapse-card mb-4">
             <div class="row align-items-center">

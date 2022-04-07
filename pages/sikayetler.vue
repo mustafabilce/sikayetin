@@ -230,7 +230,7 @@ section > h2 {
   <div>
     <Header active="sikayetler" />
 
-    <section id="trending">
+    <section id="trending" class="mt-0">
       <div class="background"></div>
 
       <h2 class="reveal-on-visible">Şikayetler</h2>
