@@ -497,19 +497,33 @@ header {
           <a href="#" class="reveal-on-visible delay-3 btn" id="live_feed_button">Canlı Akış</a>
         </div>
 
-        <div id="secondary_nav">
-          <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
-          <span>|</span>
-          <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
-          <span>|</span>
-          <a class="reveal-on-visible delay-1" href="#" v-b-modal.verification-modal><b>Kimlik Doğrulama</b></a>
+        <div id="secondary_nav" class="d-flex align-items-center">
+          <div v-if="isAuth">
+            <b-dropdown right size="sm" variant="light" toggle-class="test text-decoration-none text-dark rounded-pill d-flex align-items-center" no-caret>
+              <template #button-content>
+                <b-avatar style="max-height: 32px; max-width: 32px;" variant="info" src="https://placekitten.com/300/300"></b-avatar>
+                <span class="ml-2 mr-3 small">Mustafa</span>
+                <fa :icon="['fas', 'angle-down']" />
+              </template>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item class="dropdown-item small">Profilimi Düzenle </b-dropdown-item>
+              <b-dropdown-item class="dropdown-item small">Şikayetlerim</b-dropdown-item>
+              <b-dropdown-item class="dropdown-item small">Kaydedilenler</b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+            </b-dropdown>
+          </div>
+          <div v-else>
+            <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
+            <span>|</span>
+            <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
+          </div>
           <a class="reveal-on-visible delay-2 btn" href="#">Şikayet Yaz</a>
         </div>
 
         <BurgerMenu />
-            <Login />
-            <Register />
-            <Verification />
+        <Login />
+        <Register />
+        <Verification />
       </nav>
     </header>
 
@@ -566,11 +580,12 @@ export default {
     active: { type: String, default: '' },
   },
   data: () => ({
+    isAuth: false,
     bannerIndex: 0,
     bannerCount: 3,
     bannerColors: [
       ['#85dced', '#4ec6e0'],
-      ['#cdbfd9', '#9682a7'],
+      ['#F5AEB6', '#F5AEB6'],
       ['#f8bf3e', '#e19302'],
     ],
     isScrolled: false,

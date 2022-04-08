@@ -69,6 +69,12 @@
   <div>
     <Header active="populer" />
 
+    <div class="heading-circles">
+      <div class="circle circle-1 reveal-on-visible delay-1"></div>
+      <div class="circle circle-2 reveal-on-visible delay-3"></div>
+      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+    </div>
+
     <section class="heading">
       <h1 class="reveal-on-visible delay-1">Popüler 20</h1>
       <p class="reveal-on-visible delay-2 mt-4">

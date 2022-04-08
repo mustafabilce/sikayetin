@@ -231,6 +231,12 @@ section.content {
       style="z-index: 1"
     />
 
+    <div class="heading-circles">
+      <div class="circle circle-1 reveal-on-visible delay-1"></div>
+      <div class="circle circle-2 reveal-on-visible delay-3"></div>
+      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+    </div>
+
     <section class="head text-center">
       <h1 class="reveal-on-visible">Size Nasıl Yardımcı Olabiliriz ?</h1>
 

@@ -106,6 +106,12 @@ section {
       ]"
     />
 
+    <div class="heading-circles">
+      <div class="circle circle-1 reveal-on-visible delay-1"></div>
+      <div class="circle circle-2 reveal-on-visible delay-3"></div>
+      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+    </div>
+
     <section class="row">
       <div class="col-lg-6 left d-flex flex-column align-items-center align-items-lg-start">
         <h1 class="heading reveal-on-visible">Contact us</h1>
