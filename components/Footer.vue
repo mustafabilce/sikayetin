@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 footer {
   background-color: #2e3952;
-  padding: var(--section-padding-inline);
+  padding: 50px 100px 20px;
   $mobile-breakpoint-xl: 1400px;
   $mobile-breakpoint: 1200px;
   $mobile-breakpoint-2: 960px;
@@ -10,8 +10,7 @@ footer {
     display: block;
 
     img {
-      width: 256px;
-      max-width: 100%;
+      max-width: 200px;
     }
 
     @media (max-width: $mobile-breakpoint) {
@@ -24,7 +23,7 @@ footer {
     grid-template-columns: 400px 1fr;
     gap: 60px;
     color: white;
-    margin: 80px 0;
+    margin: 30px 0;
 
     @media (max-width: $mobile-breakpoint-xl) {
       grid-template-columns: 320px 1fr;
@@ -43,7 +42,7 @@ footer {
       p {
         opacity: 0.5;
         font-weight: 300;
-        font-size: 1.1em;
+        font-size: 15px;
 
         @media (max-width: $mobile-breakpoint) {
           text-align: center;
@@ -51,7 +50,7 @@ footer {
       }
 
       .social {
-        margin-top: 50px;
+        margin-top: 30px;
         cursor: default;
 
         @media (max-width: $mobile-breakpoint) {
@@ -59,7 +58,7 @@ footer {
         }
 
         img {
-          height: 34px;
+          height: 24px;
           margin-right: 10px;
         }
       }
@@ -84,14 +83,15 @@ footer {
         }
 
         .heading {
-          font-size: 1.1em;
+          font-size: 15px;
           margin-bottom: 20px;
           white-space: nowrap;
         }
 
         a {
           color: #a8adb7;
-          padding: 10px 0;
+          font-size: 13px;
+          padding: 5px 0;
 
           &:hover {
             color: white;
@@ -124,8 +124,8 @@ footer {
 
       a {
         color: white;
-        font-size: 1.1em;
-        font-weight: 700;
+        font-size: 13px;
+        font-weight: 400;
       }
     }
 

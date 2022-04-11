@@ -37,6 +37,10 @@ section {
 	--section-padding-inline: 150px;
 	--section-padding-inline-negative: -150px;
 	--header-padding-inline: 220px;
+	--footer-padding-top: 50px;
+	--footer-padding-left: 100px;
+	--footer-padding-right: 100px;
+	--footer-bottom-top: 30px;
 	--call-to-action-padding-inline: 12vw;
 
 	@media (max-width: 1600px) {
@@ -339,4 +343,12 @@ $live-button-pulse-to: #d13d58;
 		}
 	  }
 	}
-  }
+}
+.breadcrumb-style a {
+	font-weight: 400 !important;
+	font-size: 16px;
+}
+.big-title {
+	font-size: 2em;
+	font-weight: 600;
+}

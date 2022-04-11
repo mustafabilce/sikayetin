@@ -35,6 +35,7 @@
   <div>
     <Header />
     <Breadcrumb
+    class="breadcrumb-style"
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/blog', text: 'Blog' },

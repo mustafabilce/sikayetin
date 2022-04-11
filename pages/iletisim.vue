@@ -100,6 +100,7 @@ section {
   <div>
     <Header />
     <Breadcrumb
+    class="breadcrumb-style"
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/iletisim', text: 'İletişim' },
@@ -114,7 +115,7 @@ section {
 
     <section class="row">
       <div class="col-lg-6 left d-flex flex-column align-items-center align-items-lg-start">
-        <h1 class="heading reveal-on-visible">Contact us</h1>
+        <h1 class="reveal-on-visible big-title">Contact us</h1>
 
         <p class="reveal-on-visible delay-1 text-justify text-lg-left">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus

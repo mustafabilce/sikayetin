@@ -13,7 +13,7 @@
 
   .heading {
     font-weight: 700;
-    font-size: 2.5em;
+    font-size: 2em;
 
     @media (max-width: 900px) {
       font-size: 1.5em;
@@ -22,9 +22,9 @@
 
   p {
     max-width: 800px;
-    font-size: 1.4em;
+    font-size: 1em;
     margin: 40px auto;
-    line-height: 1.6em;
+    line-height: 1.3em;
 
     @media (max-width: 900px) {
       font-size: 1.2em;
@@ -32,11 +32,12 @@
   }
 
   button {
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 1em;
     color: #00244b;
     background: white;
     border-radius: 50px;
-    padding: 20px 40px;
+    padding: 15px 30px;
   }
 }
 </style>

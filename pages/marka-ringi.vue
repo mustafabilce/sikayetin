@@ -103,6 +103,14 @@
 <template>
   <div>
     <Header active="marka-ringi" />
+    <Breadcrumb
+    class="breadcrumb-style"
+      :links="[
+        { to: '/', text: 'Anasayfa' },
+        { to: '/marka-ringi', text: 'Marka Ringi' },
+      ]"
+      style="z-index: 1"
+    />
 
     <div class="heading-circles">
       <div class="circle circle-1 reveal-on-visible delay-1"></div>
@@ -111,7 +119,7 @@
     </div>
 
     <section id="compare">
-      <h1 class="text-center reveal-on-visible delay-1">Marka Karşılaştırma</h1>
+      <h1 class="reveal-on-visible delay-1 big-title">Marka Karşılaştırma</h1>
 
       <div class="inputs reveal-on-visible delay-2">
         <input type="text" placeholder="1. Marka" />

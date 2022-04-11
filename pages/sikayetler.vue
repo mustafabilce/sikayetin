@@ -1,8 +1,4 @@
 <style lang="scss" scoped>
-section > h2 {
-  font-weight: bold;
-  font-size: 2.3em;
-}
 
 #trending {
   position: relative;
@@ -229,6 +225,14 @@ section > h2 {
 <template>
   <div>
     <Header active="sikayetler" />
+    <Breadcrumb
+    class="breadcrumb-style"
+      :links="[
+        { to: '/', text: 'Anasayfa' },
+        { to: '/sikayetler', text: 'Şikayetler' },
+      ]"
+      style="z-index: 1"
+    />
 
     <div class="heading-circles">
       <div class="circle circle-1 reveal-on-visible delay-1"></div>
@@ -239,7 +243,7 @@ section > h2 {
     <section id="trending" class="mt-0">
       <div class="background"></div>
 
-      <h2 class="reveal-on-visible">Şikayetler</h2>
+      <h2 class="reveal-on-visible big-title">Şikayetler</h2>
 
       <div class="inner">
         <button class="slick-button prev-button">

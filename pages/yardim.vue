@@ -224,6 +224,7 @@ section.content {
   <div>
     <Header />
     <Breadcrumb
+    class="breadcrumb-style"
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/yardim', text: 'Yardım' },
@@ -237,8 +238,8 @@ section.content {
       <div class="circle circle-3 reveal-on-visible delay-5"></div>
     </div>
 
-    <section class="head text-center">
-      <h1 class="reveal-on-visible">Size Nasıl Yardımcı Olabiliriz ?</h1>
+    <section class="head">
+      <h1 class="reveal-on-visible big-title text-left">Size Nasıl Yardımcı Olabiliriz ?</h1>
 
       <div id="search">
         <img src="../static/search.svg" />

@@ -68,6 +68,14 @@
 <template>
   <div>
     <Header active="populer" />
+    <Breadcrumb
+    class="breadcrumb-style"
+      :links="[
+        { to: '/', text: 'Anasayfa' },
+        { to: '/populer', text: 'Popüler' },
+      ]"
+      style="z-index: 1"
+    />
 
     <div class="heading-circles">
       <div class="circle circle-1 reveal-on-visible delay-1"></div>
@@ -76,7 +84,7 @@
     </div>
 
     <section class="heading">
-      <h1 class="reveal-on-visible delay-1">Popüler 20</h1>
+      <h1 class="reveal-on-visible delay-1 big-title">Popüler 20</h1>
       <p class="reveal-on-visible delay-2 mt-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non.
       </p>

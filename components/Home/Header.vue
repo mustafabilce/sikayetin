@@ -1,8 +1,8 @@
 <style lang="scss" scoped>
 #landing,
 header {
-  --gradient-1: #85dced;
-  --gradient-2: #4ec6e0;
+  --gradient-1: #2e3952;
+  --gradient-2: #2e3952;
   background: linear-gradient(var(--gradient-1), var(--gradient-2));
   padding-inline: var(--header-padding-inline);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -125,7 +125,8 @@ header {
         }
 
         &.btn {
-          background: #00244c;
+          background: #fff;
+          color: #00244c;
           font-weight: 600;
           padding: 8px 30px;
           border-radius: 100px;
@@ -517,7 +518,7 @@ header {
             <span>|</span>
             <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
-          <a class="reveal-on-visible delay-2 btn" href="#">Şikayet Yaz</a>
+          <NuxtLink class="reveal-on-visible delay-2 btn" to="/sikayet-yaz" :class="{ active: active == 'sikayet-yaz' }"><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink>
         </div>
 
         <BurgerMenu />
