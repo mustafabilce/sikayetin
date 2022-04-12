@@ -2,6 +2,10 @@
 	font-family: Poppins, sans-serif;
 }
 
+$blue-color: #85DCED;
+$dark-color: #00244C;
+$pink-color: #FF5777;
+
 body,
 header,
 section,
@@ -351,4 +355,11 @@ $live-button-pulse-to: #d13d58;
 .big-title {
 	font-size: 2em;
 	font-weight: 600;
+}
+.light-button {
+	border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 14px;
+    color: #2e3952;
+    padding: 7px 40px;
 }

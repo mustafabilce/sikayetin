@@ -199,8 +199,8 @@ footer {
     <div class="bottom d-flex align-items-center justify-content-between">
       <div class="links">
         <NuxtLink to="/sikayetler">Şikayetler</NuxtLink>
-        <NuxtLink to="/kategoriler">Kategoriler</NuxtLink>
-        <NuxtLink to="/markalar">Markalar</NuxtLink>
+        <NuxtLink to="/category">Kategoriler</NuxtLink>
+        <NuxtLink to="/brands">Markalar</NuxtLink>
         <NuxtLink to="/blog">Bloglar</NuxtLink>
         <NuxtLink to="/yardim">Yardım</NuxtLink>
         <NuxtLink to="/kullanim-sartlari">Kullanım Şartları</NuxtLink>

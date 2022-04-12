@@ -1,0 +1,67 @@
+<template>
+  <div>
+    <Header />
+    <Breadcrumb
+      class="breadcrumb-style"
+      :links="[
+        { to: '/', text: 'Anasayfa' },
+        { to: '/kategoriler', text: 'Kategoriler' },
+      ]"
+    />
+
+    <div class="heading-circles">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+    </div>
+
+    <section class="heading">
+      <h1 class="big-title">Tüm Kategoriler</h1>
+      <p class="mt-4">
+        Bir kategori arayın veya aşağıdaki popüler kategorilerden birini seçin.
+      </p>
+      <div class="categories mt-5">
+          <div class="row justify-content-center">
+              <div class="col-4 text-center" v-for="category of categories" :key="category.id">
+                  <NuxtLink to="/category/1">
+                    <p class="text-dark border rounded p-3 mb-4">{{ category.email }}</p>
+                  </NuxtLink>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+import Header from '~/components/Home/Header.vue';
+import Breadcrumb from '~/components/Breadcrumb.vue';
+import Footer from '~/components/Footer.vue';
+export default {
+  created() {
+    this.getCategories();
+  },
+  data() {
+    return {
+      categories: [],
+      errors: [],
+    };
+  },
+  methods: {
+    getCategories() {
+      axios
+        .get('https://jsonplaceholder.typicode.com/comments?_start=0&_limit=51')
+        .then((response) => (this.categories = response.data))
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+  },
+  components: { Header, Footer, Breadcrumb },
+};
+</script>
+
+<style lang="scss" scoped></style>
