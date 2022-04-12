@@ -35,7 +35,7 @@
                   <fa :icon="['fas', 'star']" class="star-icon" />
                   <fa :icon="['fas', 'star']" class="star-icon" />
                   <fa :icon="['fas', 'star']" class="star-icon" />
-                  <span class="rate">1.5</span>
+                  <span class="rate">1.5 </span>
                   <p class="text-muted small my-2">
                     <b-button
                       class="p-0"
