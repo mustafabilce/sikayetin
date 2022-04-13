@@ -515,13 +515,13 @@ header {
           </div>
           <div v-else>
             <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
-            <span>|</span>
+            <fa :icon="['fas', 'user']" />
             <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
           <NuxtLink class="reveal-on-visible delay-2 btn" to="/sikayet-yaz" :class="{ active: active == 'sikayet-yaz' }"><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink>
         </div>
 
-        <BurgerMenu />
+        <BurgerMenu style="display: none;" />
         <Login />
         <Register />
         <Verification />

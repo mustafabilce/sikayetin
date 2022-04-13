@@ -424,7 +424,7 @@
                       <img src="../static/like.svg" />
                     </span>
                   </div>
-                  <button class="btn-sm">Beğen (328)</button>
+                  <button class="btn-sm">Beğen</button>
                 </div>
 
                 <div class="input-group rounded like-button">
@@ -433,7 +433,7 @@
                       <img src="../static/comment.svg" />
                     </span>
                   </div>
-                  <button class="btn-sm">Yorum (28)</button>
+                  <button class="btn-sm">Yorum</button>
                 </div>
 
                 <div class="input-group rounded like-button">
@@ -442,7 +442,7 @@
                       <img src="../static/follow.svg" />
                     </span>
                   </div>
-                  <button class="btn-sm">Takip (143)</button>
+                  <button class="btn-sm">Takip</button>
                 </div>
               </div>
             </div>
