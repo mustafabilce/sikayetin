@@ -1,5 +1,4 @@
 <style lang="scss" scoped>
-
 #trending {
   position: relative;
 
@@ -136,7 +135,20 @@
     .text {
       font-weight: 400;
       font-size: 14px;
-      margin: 30px 0;
+      margin: 20px 0;
+    }
+
+    .customer-and-brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .arrow {
+      width: 36px;
+      margin: 0 10px;
     }
 
     .footer {
@@ -174,7 +186,7 @@
 
         .input-group {
           width: unset;
-          padding: 12px 18px;
+          padding: 8px 14px;
 
           @media (max-width: 768px) {
             padding: 6px 10px;
@@ -200,6 +212,10 @@
           }
         }
 
+        .like-button {
+          border-radius: .25rem !important;
+        }
+
         .like-button.active {
           --background: #b9e1ff;
         }
@@ -216,9 +232,9 @@
   font-size: 12px;
   text-align: left;
   padding: 0.25rem 0rem;
-    .form-check-input {
-      margin-top: 0.2rem;
-    }
+  .form-check-input {
+    margin-top: 0.2rem;
+  }
 }
 </style>
 
@@ -226,7 +242,7 @@
   <div>
     <Header active="sikayetler" />
     <Breadcrumb
-    class="breadcrumb-style"
+      class="breadcrumb-style"
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/sikayetler', text: 'Şikayetler' },
@@ -286,16 +302,18 @@
     </section>
 
     <section id="all" style="margin-top: 150px">
-      <div
-        class="heading d-flex align-items-center flex-wrap align-items-center justify-content-between"
-        style="gap: 20px"
-      >
-        <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
-          <h2 class="reveal-on-visible">Tüm Şikayetler</h2>
-          <span style="opacity: 0.5">12.850 şikayet</span>
-        </div>
+      <div class="row">
+        <div class="col-8">
+          <div
+            class="heading d-flex align-items-center flex-wrap align-items-center justify-content-between"
+            style="gap: 20px"
+          >
+            <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
+              <h2 class="reveal-on-visible">Tüm Şikayetler</h2>
+              <span style="opacity: 0.5">12.850 şikayet</span>
+            </div>
 
-        <div
+            <!-- <div
           class="right d-flex align-items-center flex-wrap align-items-center justify-content-between"
           style="gap: 10px"
         >
@@ -361,72 +379,78 @@
             <b-dropdown-item href="#" class="dropdown-item">En Çok Yorum Alan</b-dropdown-item>
             <b-dropdown-item href="#" class="dropdown-item">En Az Yorum Alan</b-dropdown-item>
           </b-dropdown>
-        </div>
-      </div>
+        </div> -->
+          </div>
 
-      <div class="complaint reveal-on-visible" v-for="complaint in complaints" :key="complaint.id">
-        <h4 class="title">{{ complaint.title }}</h4>
-        <p class="text">{{ complaint.text }}</p>
+          <div class="complaint reveal-on-visible" v-for="complaint in complaints" :key="complaint.id">
+            <div class="customer-and-brand mb-4">
+              <div class="customer">
+                <img src="../static/customer.png" />
+                <div>
+                  <b>Samet</b>
+                  <br />
+                  <span style="white-space: nowrap">
+                    12.123&nbsp;
+                    <fa :icon="['fas', 'eye']" style="display: inline" />
+                  </span>
+                </div>
+              </div>
 
-        <div class="footer">
-          <div class="customer-and-brand">
-            <div class="customer">
-              <img src="../static/customer.png" />
-              <div>
-                <b>Samet</b>
-                <br />
-                <span style="white-space: nowrap">
-                  12.123&nbsp;
-                  <fa :icon="['fas', 'eye']" style="display: inline" />
-                </span>
+              <img src="../static/arrow.svg" class="arrow" />
+
+              <div class="brand">
+                <img src="../static/trendyol.png" />
+                <div>
+                  <b>Trendyol</b>
+                  <div class="stars">
+                    <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
+                  </div>
+                </div>
               </div>
             </div>
+            <h4 class="title">{{ complaint.title }}</h4>
+            <p class="text">{{ complaint.text }}</p>
 
-            <img src="../static/arrow.svg" class="arrow" />
+            <div class="footer">
 
-            <div class="brand">
-              <img src="../static/trendyol.png" />
-              <div>
-                <b>Trendyol</b>
-                <div class="stars">
-                  <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
+              <div class="actions">
+                <div
+                  class="input-group rounded like-button"
+                  :class="{ active: complaint.liked }"
+                  @click="complaint.liked = !complaint.liked"
+                >
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <img src="../static/like.svg" />
+                    </span>
+                  </div>
+                  <button class="btn-sm">Beğen (328)</button>
+                </div>
+
+                <div class="input-group rounded like-button">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <img src="../static/comment.svg" />
+                    </span>
+                  </div>
+                  <button class="btn-sm">Yorum (28)</button>
+                </div>
+
+                <div class="input-group rounded like-button">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <img src="../static/follow.svg" />
+                    </span>
+                  </div>
+                  <button class="btn-sm">Takip (143)</button>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="actions">
-            <div
-              class="input-group rounded like-button"
-              :class="{ active: complaint.liked }"
-              @click="complaint.liked = !complaint.liked"
-            >
-              <div class="input-group-append">
-                <span class="input-group-text">
-                  <img src="../static/like.svg" />
-                </span>
-              </div>
-              <button class="btn-sm">Beğen (328)</button>
-            </div>
-
-            <div class="input-group rounded">
-              <div class="input-group-append">
-                <span class="input-group-text">
-                  <img src="../static/comment.svg" />
-                </span>
-              </div>
-              <button class="btn-sm">Yorum (28)</button>
-            </div>
-
-            <div class="input-group rounded">
-              <div class="input-group-append">
-                <span class="input-group-text">
-                  <img src="../static/follow.svg" />
-                </span>
-              </div>
-              <button class="btn-sm">Takip (143)</button>
-            </div>
-          </div>
+        </div>
+        <div class="col-4">
+          <FilterBox />
+          <AdsDemo />
         </div>
       </div>
     </section>
@@ -438,9 +462,11 @@
 <script>
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
+import FilterBox from '~/components/FilterBox.vue';
+import AdsDemo from '~/components/AdsDemo.vue';
 
 export default {
-  components: { Header, Footer },
+  components: { Header, Footer, FilterBox, AdsDemo },
   data: () => ({
     complaints: [],
   }),
