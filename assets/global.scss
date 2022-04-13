@@ -362,4 +362,7 @@ $live-button-pulse-to: #d13d58;
     font-size: 14px;
     color: #2e3952;
     padding: 7px 40px;
+	&:hover {
+		background-color: #f6fafd;
+	}
 }

@@ -75,7 +75,7 @@ header {
       a {
         margin: 0 3px;
         padding: 6px;
-        font-size: 13px;
+        font-size: 15px;
 
         @media (max-width: 1400px) {
           margin: 0 2px;
@@ -83,7 +83,7 @@ header {
         }
 
         &:not(.btn):not(.active):hover {
-          color: #00244c;
+          color: #fff;
         }
 
         &#live_feed_button {
@@ -117,11 +117,11 @@ header {
       }
 
       a {
-        font-size: 13px;
+        font-size: 15px;
         padding: 4px;
 
         &:not(.btn):not(.active):hover {
-          color: #00244c;
+          color: #fff;
         }
 
         &.btn {

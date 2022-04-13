@@ -12,17 +12,11 @@
     />
 
     <section class="heading">
-      <!-- <h1 class="big-title">Kripto Para Borsaları</h1>
-      <p class="mt-4">
-        Başlıca Kripto Para Borsaları markaları hakkındaki kullanıcı yorumları ve şikayetlerine göz atın, kullanıcı
-        deneyimlerinden yararlanın.
-      </p> -->
       <div class="row mt-5">
         <div class="col-12">
           <div class="card">
             <div
               class="card-body brand-card border rounded d-flex align-items-center"
-              style="background-color: #f4f5f9"
             >
               <div class="p-4 rounded" style="background-color: #fff">
                 <img class="logo" src="../../static/apple.png" alt="" />
@@ -68,6 +62,36 @@
             </div>
           </div>
         </div>
+        <div class="col-8 mt-5">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body border rounded">
+                  <div>
+                    <button class="complaint-button border rounded">
+                    <div>
+                      <b-avatar class="avatar"></b-avatar>
+                    <p class="text-muted">Apple ile ilgili bir şikayetin mi var?</p>
+                    </div>
+                    <span class="text rounded small">Şikayet Yaz</span>
+                  </button>
+                  </div>
+                  <div class="mt-4">
+                    <h5 class="text-muted border-bottom pb-3" style="font-weight: 400;">Şikayet Sayısı 36.166</h5>
+                  </div>
+                  <div>
+                    <ComplaintCard v-for="i in 10" :key="i" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 mt-5">
+          <FilterBox />
+          <CompareBox />
+          <BrandProfileBox />
+        </div>
       </div>
     </section>
 
@@ -78,9 +102,13 @@
 <script>
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
+import FilterBox from '~/components/FilterBox.vue';
+import CompareBox from '~/components/CompareBox.vue';
+import BrandProfileBox from '~/components/BrandProfileBox.vue';
+import ComplaintCard from '~/components/ComplaintCard.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 export default {
-  components: { Header, Footer, Breadcrumb },
+  components: { Header, Footer, Breadcrumb, FilterBox, CompareBox, BrandProfileBox,  ComplaintCard },
   data: () => ({}),
 };
 </script>
@@ -127,6 +155,27 @@ export default {
         }
       }
     }
+  }
+}
+.complaint-button {
+  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent;
+  .avatar {
+    margin-right: 10px;
+  }
+  p {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  .text {
+    padding: 10px 16px;
+    background-color: #FF5777;
+    color: #fff;
   }
 }
 </style>
