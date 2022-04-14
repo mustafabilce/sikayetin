@@ -473,6 +473,41 @@ header {
     }
   }
 }
+.dropdown-profile {
+  display: flex;
+  align-items: center;
+  img {
+    max-width: 60px;
+    max-height: 60px;
+    margin-right: 7px;
+  }
+  .text {
+    p {
+      font-weight: 300;
+    }
+  }
+}
+.dropdown-item {
+  display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem !important;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+  &:hover {
+    svg, span {
+      background-color: transparent;
+      color: #00244C;
+    }
+  }
+  span, svg {
+    color: #7c7b85;
+  }
+}
 </style>
 
 <template>
@@ -500,17 +535,54 @@ header {
 
         <div id="secondary_nav" class="d-flex align-items-center">
           <div v-if="isAuth">
-            <b-dropdown right size="sm" variant="light" toggle-class="test text-decoration-none text-dark rounded-pill d-flex align-items-center" no-caret>
+            <b-dropdown right size="sm" variant="light" toggle-class="text-decoration-none text-dark rounded-pill d-flex align-items-center" no-caret>
               <template #button-content>
-                <b-avatar style="max-height: 32px; max-width: 32px;" variant="info" src="https://placekitten.com/300/300"></b-avatar>
+                <b-avatar class="bg-light" style="max-height: 32px; max-width: 32px;" variant="info" src="../../static/profile.png"></b-avatar>
                 <span class="ml-2 mr-3 small">Mustafa</span>
                 <fa :icon="['fas', 'angle-down']" />
               </template>
+              <div class="dropdown-item small">
+                <div class="dropdown-profile">
+                  <div>
+                    <img src="../../static/profile.png" alt="">
+                  </div>  
+                  <div class="text">
+                    <h6 class="mb-1">Mustafa Bilce</h6>
+                    <p class="mb-0 text-muted">mustafabilce12@gmail.com</p>
+                  </div>
+                </div>  
+              </div>
               <b-dropdown-divider></b-dropdown-divider>
-              <b-dropdown-item class="dropdown-item small">Profilimi Düzenle </b-dropdown-item>
-              <b-dropdown-item class="dropdown-item small">Şikayetlerim</b-dropdown-item>
-              <b-dropdown-item class="dropdown-item small">Kaydedilenler</b-dropdown-item>
+              <NuxtLink class="dropdown-item small" to="/profilim">
+                <div class="dropdown-item small">
+                  <fa class="mr-2" :icon="['fas', 'user']" /><span>Profilimi Düzenle</span>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="dropdown-item small" to="/profilim">
+                <div class="dropdown-item small">
+                  <fa class="mr-2" :icon="['fas', 'pen']" /><span>Şikayetlerim</span>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="dropdown-item small" to="/profilim">
+                <div class="dropdown-item small">
+                  <fa class="mr-2" :icon="['fas', 'bookmark']" /><span>Kaydedilenler</span>
+                </div>
+              </NuxtLink>
               <b-dropdown-divider></b-dropdown-divider>
+              <div class="dropdown-item small">
+                <div class="dropdown-item small">
+                  <div class="d-flex justify-content-between">
+                  <div>
+                    <fa class="mr-2" :icon="['fas', 'arrow-right-from-bracket']" />
+                     <span>Çıkış Yap</span>
+                  </div>
+                  <div>
+                    <fa class="mr-2" :icon="['fas', 'globe']" />
+                     <span>Yardım</span>
+                  </div>
+                </div>
+                </div>
+              </div>
             </b-dropdown>
           </div>
           <div v-else>
@@ -581,7 +653,7 @@ export default {
     active: { type: String, default: '' },
   },
   data: () => ({
-    isAuth: false,
+    isAuth: true,
     bannerIndex: 0,
     bannerCount: 3,
     bannerColors: [

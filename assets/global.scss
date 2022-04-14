@@ -11,7 +11,7 @@ header,
 section,
 footer {
 	max-width: 100vw !important;
-	overflow-x: hidden !important;
+	// overflow-x: hidden !important;
 }
 
 section {
@@ -365,4 +365,20 @@ $live-button-pulse-to: #d13d58;
 	&:hover {
 		background-color: #f6fafd;
 	}
+}
+.light-success-button {
+	border: 1px solid #3ad08f;
+    background-color: #fff;
+    font-size: 14px;
+    color: #3ad08f;
+    padding: 7px 40px;
+	&:hover {
+		background-color: #3ad08f;
+		border-color: #3ad08f;
+		color: #fff;
+	}
+}
+
+.gray-text {
+	color: #7c7b85;
 }
