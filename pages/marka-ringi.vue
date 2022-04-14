@@ -155,7 +155,9 @@
             </div>
           </div>
 
-          <button class="btn compare-button">Karşılaştır</button>
+          <NuxtLink to="/marka-karsilastirma">
+            <button class="btn compare-button">Karşılaştır</button>
+          </NuxtLink>
         </div>
       </div>
     </section>
