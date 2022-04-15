@@ -157,6 +157,22 @@ a:hover {
 	}
 }
 
+textarea {
+	background: var(--background) !important;
+	box-shadow: none !important;
+	border: none;
+	padding: 10px;
+
+	&::placeholder {
+		color: #00244b80;
+		font-size: 0.8em;
+	}
+	&:focus {
+		// background-color: #fff !important;
+		border-color: #3ad08f !important;
+	}
+}
+
 .input-group {
 	--background: #f6fafd;
 	border: 1px solid #eaeef4 !important;
@@ -185,6 +201,10 @@ a:hover {
 		&::placeholder {
 			color: #00244b80;
 			font-size: 0.8em;
+		}
+
+		&:focus {
+			background-color: #fff !important;
 		}
 	}
 
@@ -376,6 +396,28 @@ $live-button-pulse-to: #d13d58;
 		background-color: #3ad08f;
 		border-color: #3ad08f;
 		color: #fff;
+	}
+}
+.light-danger-button {
+	border: 1px solid #dc3545;
+    background-color: #fff;
+    font-size: 14px;
+    color: #dc3545;
+    padding: 7px 40px;
+	&:hover {
+		background-color: #dc3545;
+		border-color: #dc3545;
+		color: #fff;
+	}
+}
+.acc-button {
+	border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 14px;
+    color: #2e3952;
+	&:hover {
+		background-color: #f6fafd;
+		color: #2e3952;
 	}
 }
 

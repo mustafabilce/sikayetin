@@ -10,13 +10,13 @@
         <NuxtLink to="/" class="text-dark">
           <span><fa :icon="['fas', 'user']" /> Profilimi Düzenle</span>
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink to="/profilim/kisisel-bilgiler">
           <span>Kişisel Bilgiler</span>
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink to="/profilim/bildirim-tercihleri">
           <span>Bildirim Tercihleri</span>
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink to="/profilim/hesabimi-sil">
           <span>Hesabımı Sil</span>
         </NuxtLink>
       </div>
