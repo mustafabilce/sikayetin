@@ -537,7 +537,7 @@ header {
           <div v-if="isAuth">
             <b-dropdown right size="sm" variant="light" toggle-class="text-decoration-none text-dark rounded-pill d-flex align-items-center" no-caret>
               <template #button-content>
-                <b-avatar class="bg-light" style="max-height: 32px; max-width: 32px;" variant="info" src="../../static/profile.png"></b-avatar>
+                <b-avatar class="bg-light" style="max-height: 32px; max-width: 32px;" variant="info" src="https://placekitten.com/300/300"></b-avatar>
                 <span class="ml-2 mr-3 small">Mustafa</span>
                 <fa :icon="['fas', 'angle-down']" />
               </template>
