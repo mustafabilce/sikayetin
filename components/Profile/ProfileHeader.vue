@@ -81,7 +81,7 @@
                 class="bg-light"
                 style="max-height: 32px; max-width: 32px"
                 variant="info"
-                src="../../static/profile.png"
+                src="../../static/customer-2.png"
               ></b-avatar>
               <span class="ml-2 mr-3 small">Mustafa</span>
               <fa :icon="['fas', 'angle-down']" />
@@ -89,7 +89,7 @@
             <div class="dropdown-item small">
               <div class="dropdown-profile">
                 <div>
-                  <img src="../../static/profile.png" alt="" />
+                  <img src="../../static/customer-2.png" alt="" />
                 </div>
                 <div class="text">
                   <h6 class="mb-1">Mustafa Bilce</h6>

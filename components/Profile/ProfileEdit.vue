@@ -6,7 +6,7 @@
         <div class="profile-info">
           <div class="profile-brief">
             <div class="border rounded-circle p-3 mr-3" style="background-color: #fff">
-              <img src="../../static/profile.png" id="logo" />
+              <img src="../../static/customer-2.png" id="logo" />
             </div>
             <div>
               <h5>Mustafa Bilce</h5>

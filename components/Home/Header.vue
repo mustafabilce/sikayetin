@@ -544,7 +544,7 @@ header {
               <div class="dropdown-item small">
                 <div class="dropdown-profile">
                   <div>
-                    <img src="https://placekitten.com/300/300" alt="">
+                    <img src="../../static/customer-2.png" alt="">
                   </div>  
                   <div class="text">
                     <h6 class="mb-1">Mustafa Bilce</h6>
