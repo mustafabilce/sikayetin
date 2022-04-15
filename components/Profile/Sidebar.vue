@@ -2,12 +2,12 @@
   <div class="sidebar">
     <div class="logo">
       <NuxtLink to="/">
-          <img src="../../static/logo-blue.png" id="logo" />
+        <img src="../../static/logo-blue.png" id="logo" />
       </NuxtLink>
     </div>
     <div class="items">
       <div class="item">
-        <NuxtLink to="/" class="text-dark">
+        <NuxtLink to="/">
           <span><fa :icon="['fas', 'user']" /> Profilimi Düzenle</span>
         </NuxtLink>
         <NuxtLink to="/profilim/kisisel-bilgiler">
@@ -21,12 +21,12 @@
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/">
+        <NuxtLink to="/profilim/sikayetlerim">
           <span><fa :icon="['fas', 'pen']" /> Şikayetlerim</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/">
+        <NuxtLink to="/profilim/bildirimlerim">
           <span><fa :icon="['fas', 'bell']" /> Bildirimlerim</span>
         </NuxtLink>
       </div>
@@ -65,13 +65,17 @@ export default {};
   .items {
     .item {
       margin: 30px 0;
+      a.nuxt-link-exact-active {
+        color: #00244C !important;
+        font-weight: 400 !important;
+      }
       a {
         display: block;
         font-weight: 300;
         color: #7c7b85;
         margin-bottom: 15px;
         &:hover {
-            color: #000 !important;
+          color: #000 !important;
         }
         svg {
           margin-right: 5px;
@@ -93,7 +97,7 @@ export default {};
       color: #7c7b85;
     }
     button {
-        margin-top: 40px;
+      margin-top: 40px;
       display: block;
     }
   }
