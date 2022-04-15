@@ -10,7 +10,7 @@
             </div>
             <div>
               <h5>Mustafa Bilce</h5>
-              <button class="light-success-button rounded">Yeni Fotoğraf Yükle</button>
+              <button class="light-success-button rounded">Yeni Fotoğraf Yükle </button>
               <button class="light-button rounded">Kaldır</button>
             </div>
           </div>
