@@ -7,7 +7,7 @@
     </div>
     <div class="items">
       <div class="item">
-        <NuxtLink to="/">
+        <NuxtLink to="/profilim">
           <span><fa :icon="['fas', 'user']" /> Profilimi Düzenle</span>
         </NuxtLink>
         <NuxtLink to="/profilim/kisisel-bilgiler">
@@ -26,13 +26,13 @@
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/profilim/bildirimlerim">
-          <span><fa :icon="['fas', 'bell']" /> Bildirimlerim</span>
+        <NuxtLink to="/profilim/takip-ettiklerim">
+          <span><fa :icon="['fas', 'bookmark']" /> Takip Ettiklerim</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/">
-          <span><fa :icon="['fas', 'bookmark']" /> Kaydedilenler</span>
+        <NuxtLink to="/profilim/bildirimlerim">
+          <span><fa :icon="['fas', 'bell']" /> Bildirimlerim</span>
         </NuxtLink>
       </div>
     </div>
@@ -40,7 +40,7 @@
       <NuxtLink to="/">
         <span><fa :icon="['fas', 'arrow-right-from-bracket']" /> Çıkış Yap</span>
       </NuxtLink>
-      <button class="light-button"><fa class="mr-2" :icon="['fas', 'pen-to-square']" />Şikayet Yaz</button>
+      <NuxtLink to="/" class="light-button"><fa class="mr-2" :icon="['fas', 'pen-to-square']" />Şikayet Yaz</NuxtLink>
     </div>
   </div>
 </template>
