@@ -121,10 +121,8 @@
   }
 
   .complaint {
-    box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
     padding: 30px;
     background: white;
-    border-radius: 8px;
     margin-top: 50px;
 
     .title {
@@ -312,77 +310,9 @@
               <h2 class="reveal-on-visible">Tüm Şikayetler</h2>
               <span style="opacity: 0.5">12.850 şikayet</span>
             </div>
-
-            <!-- <div
-          class="right d-flex align-items-center flex-wrap align-items-center justify-content-between"
-          style="gap: 10px"
-        >
-          <div class="input-group" style="width: 300px">
-            <input type="text" class="form-control" placeholder="Şikayet içinde ara" />
-            <div class="input-group-append">
-              <span class="input-group-text">
-                <img src="../static/search.svg" />
-              </span>
-            </div>
           </div>
 
-          <b-dropdown class="sort-by" size="sm" variant="link" toggle-class="text-decoration-none" no-caret left>
-            <template #button-content>
-              <div class="input-group" style="width: 220px">
-                <input type="text" class="form-control" placeholder="Filtrele" />
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <img src="../static/filter.svg" />
-                  </span>
-                </div>
-              </div>
-            </template>
-            <b-dropdown-item href="#" class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-1" />
-                <label class="form-check-label" for="test-checkbox-1"> Lorem ipsum </label>
-              </div>
-            </b-dropdown-item>
-            <b-dropdown-item href="#" class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-2" />
-                <label class="form-check-label" for="test-checkbox-2"> Lorem ipsum </label>
-              </div>
-            </b-dropdown-item>
-            <b-dropdown-item href="#" class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-3" />
-                <label class="form-check-label" for="test-checkbox-3"> Lorem ipsum </label>
-              </div>
-            </b-dropdown-item>
-            <b-dropdown-item href="#" class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="test-checkbox-4" />
-                <label class="form-check-label" for="test-checkbox-4"> Lorem ipsum </label>
-              </div>
-            </b-dropdown-item>
-          </b-dropdown>
-
-          <b-dropdown class="sort-by" size="sm" variant="link" toggle-class="text-decoration-none" no-caret left>
-            <template #button-content>
-              <div class="input-group" style="width: 180px; cursor: pointer">
-                <input type="text" class="form-control" placeholder="Sırala" />
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <img src="../static/order.svg" />
-                  </span>
-                </div>
-              </div>
-            </template>
-            <b-dropdown-item href="#" class="dropdown-item">En Çok Yorum Alan</b-dropdown-item>
-            <b-dropdown-item href="#" class="dropdown-item">En Az Yorum Alan</b-dropdown-item>
-            <b-dropdown-item href="#" class="dropdown-item">En Çok Yorum Alan</b-dropdown-item>
-            <b-dropdown-item href="#" class="dropdown-item">En Az Yorum Alan</b-dropdown-item>
-          </b-dropdown>
-        </div> -->
-          </div>
-
-          <div class="complaint reveal-on-visible" v-for="complaint in complaints" :key="complaint.id">
+          <div class="complaint border rounded reveal-on-visible" v-for="complaint in complaints" :key="complaint.id">
             <div class="customer-and-brand mb-4">
               <div class="customer">
                 <img src="../static/customer.png" />

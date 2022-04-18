@@ -43,9 +43,7 @@
 
     .comparison {
       background: white;
-      box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
       padding: 35px;
-      border-radius: 30px;
       text-align: center;
 
       .brands {
@@ -132,7 +130,7 @@
       <h4 class="heading reveal-on-visible delay-2">Popüler Karşılaştırmalar</h4>
 
       <div class="inner">
-        <div class="comparison reveal-on-visible" v-for="i in 9" :key="i">
+        <div class="comparison border rounded reveal-on-visible" v-for="i in 9" :key="i">
           <div class="brands">
             <div class="brand">
               <img src="../static/trendyol.png" />
