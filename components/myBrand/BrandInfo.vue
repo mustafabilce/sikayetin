@@ -23,7 +23,7 @@
         </div>
         <div class="col-12 mt-4">
           <div class="row">
-            <div class="col-4">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
               <div class="card">
                 <div class="card-body border rounded">
                   <h6 class="border-bottom pb-2">Cevaplanan Şikayetler</h6>
@@ -33,7 +33,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
               <div class="card">
                 <div class="card-body border rounded">
                   <h6 class="border-bottom pb-2">Bekleyen Şikayetler</h6>
@@ -43,7 +43,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
               <div class="card">
                 <div class="card-body border rounded">
                   <h6 class="border-bottom pb-2">Bildirimler</h6>

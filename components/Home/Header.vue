@@ -97,7 +97,7 @@ header {
 
         &.btn {
           background: #ff5777;
-          border-radius: 100px;
+          border-radius: .25rem;
           padding: 6px 20px;
           margin-left: 8px;
 
@@ -127,9 +127,9 @@ header {
         &.btn {
           background: #fff;
           color: #00244c;
-          font-weight: 600;
+          font-weight: 400;
           padding: 8px 30px;
-          border-radius: 100px;
+          border-radius: .25rem;
           margin-left: 20px;
 
           @media (max-width: 1400px) {
@@ -535,7 +535,7 @@ header {
 
         <div id="secondary_nav" class="d-flex align-items-center">
           <div v-if="isAuth">
-            <b-dropdown right size="sm" variant="light" toggle-class="text-decoration-none text-dark rounded-pill d-flex align-items-center" no-caret>
+            <b-dropdown right size="sm" variant="light" toggle-class="border text-decoration-none text-dark d-flex align-items-center" no-caret>
               <template #button-content>
                 <b-avatar class="bg-light" style="max-height: 32px; max-width: 32px;" variant="info" src="https://placekitten.com/300/300"></b-avatar>
                 <span class="ml-2 mr-3 small">Mustafa</span>
@@ -590,7 +590,7 @@ header {
             <fa :icon="['fas', 'user']" />
             <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
-          <NuxtLink class="reveal-on-visible delay-2 btn" to="/sikayet-yaz" :class="{ active: active == 'sikayet-yaz' }"><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink>
+          <NuxtLink class="reveal-on-visible delay-2 btn border" to="/sikayet-yaz" :class="{ active: active == 'sikayet-yaz' }"><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink>
         </div>
 
         <BurgerMenu style="display: none;" />

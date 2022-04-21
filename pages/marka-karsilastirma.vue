@@ -18,19 +18,6 @@
     </div>
 
     <section class="marka-karsilastirma">
-      <!-- <div class="row">
-        <div class="col-12 text-center border-bottom pb-3">
-          <div class="brand-1">
-            <img src="../static/apple.png" alt="" />
-            <h4>Marka 1</h4>
-          </div>
-          <h4 class="mx-5">vs</h4>
-          <div class="brand-2">
-            <img src="../static/apple.png" alt="" />
-            <h4>Marka 1</h4>
-          </div>
-        </div>
-      </div> -->
       <div class="row mt-5">
         <div class="col-2">
           <h5>Markalar</h5>

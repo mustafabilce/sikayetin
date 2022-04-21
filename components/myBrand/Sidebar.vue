@@ -8,7 +8,7 @@
     <div class="items">
       <div class="item">
         <NuxtLink to="/markam">
-          <span><fa :icon="['fas', 'user']" /> Markam</span>
+          <span><fa :icon="['fas', 'copyright']" /> Markam</span>
         </NuxtLink>
         <NuxtLink to="/markam/bilgileri-guncelle">
           <span>Marka Profili Düzenle</span>
@@ -25,7 +25,7 @@
       </div>
       <div class="item">
         <NuxtLink to="/markam/sikayetler">
-          <span><fa :icon="['fas', 'user']" /> Şikayetler</span>
+          <span><fa :icon="['fas', 'list']" /> Şikayetler</span>
         </NuxtLink>
         <NuxtLink to="/markam/cevaplanan-sikayetler">
           <span>Cevaplanan Şikayetler</span>
@@ -36,32 +36,32 @@
       </div>
       <div class="item">
         <NuxtLink to="/markam/bildirimler">
-          <span><fa :icon="['fas', 'user']" /> Bildirimler</span>
+          <span><fa :icon="['fas', 'bell']" /> Bildirimler</span>
         </NuxtLink>
       </div>
       <div class="item">
         <NuxtLink to="/markam/premium">
-          <span><fa :icon="['fas', 'user']" /> Premium</span>
+          <span><fa :icon="['fas', 'arrow-up']" /> Premium</span>
         </NuxtLink>
       </div>
       <div class="item">
         <NuxtLink to="/markam/degerlendirmelerim">
-          <span><fa :icon="['fas', 'user']" /> Markam</span>
+          <span><fa :icon="['fas', 'elevator']" /> Markam</span>
         </NuxtLink>
       </div>
       <div class="item">
         <NuxtLink to="/markam/kategorim">
-          <span><fa :icon="['fas', 'user']" /> Kategorim</span>
+          <span><fa :icon="['fas', 'rectangle-list']" /> Kategorim</span>
         </NuxtLink>
       </div>
       <div class="item">
         <NuxtLink to="/markam/reklamlarim">
-          <span><fa :icon="['fas', 'user']" /> Reklamlarım</span>
+          <span><fa :icon="['fas', 'receipt']" /> Reklamlarım</span>
         </NuxtLink>
       </div>
       <div class="item">
         <NuxtLink to="/markam/destek-bileti">
-          <span><fa :icon="['fas', 'user']" /> Destek Bileti</span>
+          <span><fa :icon="['fas', 'ticket']" /> Destek Bileti</span>
         </NuxtLink>
       </div>
     </div>
@@ -96,12 +96,14 @@ export default {};
       a.nuxt-link-exact-active {
         color: #00244C !important;
         font-weight: 400 !important;
+        font-size: 15px !important;
       }
       a {
         display: block;
         font-weight: 300;
         color: #7c7b85;
         margin-bottom: 15px;
+        font-size: 13px;
         &:hover {
           color: #000 !important;
         }
@@ -110,7 +112,7 @@ export default {};
         }
         &:not(:first-child) {
           color: #7c7b85;
-          font-size: 90%;
+          font-size: 13px;
           font-weight: 300;
           margin: 10px 0 10px 30px;
         }

@@ -1,11 +1,11 @@
 <template>
   <div class="profile">
     <div class="row no-gutters">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <div class="col-3">
         <Sidebar />
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-12 col-12">
-          <BrandInfo />
+      <div class="col-9">
+          <BrandComplaints />
       </div>
     </div>
   </div>
@@ -13,10 +13,10 @@
 
 <script>
 import Sidebar from '~/components/myBrand/Sidebar.vue';
-import BrandInfo from '~/components/myBrand/BrandInfo.vue';
+import BrandComplaints from '~/components/myBrand/BrandComplaints.vue';
 
 export default {
-  components: { Sidebar, BrandInfo },
+  components: { Sidebar, BrandComplaints },
 };
 </script>
 

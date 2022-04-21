@@ -93,16 +93,16 @@
         }
 
         h5 {
-          font-weight: 700;
+          font-weight: 600;
           text-align: center;
           padding: 0 10px;
-          font-size: var(--heading-font-size);
+          font-size: 1.2rem;
         }
 
         p {
           margin: 0 auto;
           padding: 20px 25px 0 25px;
-          font-size: var(--text-font-size);
+          font-size: 1rem;
 
           &::before {
             content: '';

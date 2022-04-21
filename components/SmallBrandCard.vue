@@ -1,5 +1,5 @@
 <template>
-  <div class="comparison">
+  <div class="comparison border">
     <div class="brands">
       <div class="brand">
         <img src="../static/apple.png" />
@@ -24,9 +24,9 @@ export default {};
 <style lang="scss" scoped>
 .comparison {
   background: white;
-  box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
+  // box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
   padding: 50px 30px;
-  border-radius: 30px;
+  border-radius: .25rem;
   text-align: center;
   max-width: 175px;
 

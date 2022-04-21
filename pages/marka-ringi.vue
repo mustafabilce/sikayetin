@@ -89,9 +89,15 @@
         margin-top: 30px;
         color: #070853;
         border: 1px solid #000000;
-        border-radius: 100px;
         padding: 8px 23px;
-        font-weight: 600;
+        font-weight: 400;
+        display: block;
+        width: 100%;
+          &:hover {
+            background-color: #070853;
+            color: #fff;
+            border-color: #070853;
+          }
       }
     }
   }
@@ -111,15 +117,15 @@
     />
 
     <div class="heading-circles">
-      <div class="circle circle-1 reveal-on-visible delay-1"></div>
-      <div class="circle circle-2 reveal-on-visible delay-3"></div>
-      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+      <div class="circle circle-1 "></div>
+      <div class="circle circle-2 "></div>
+      <div class="circle circle-3 "></div>
     </div>
 
     <section id="compare">
-      <h1 class="reveal-on-visible delay-1 big-title">Marka Karşılaştırma</h1>
+      <h1 class=" big-title">Marka Karşılaştırma</h1>
 
-      <div class="inputs reveal-on-visible delay-2">
+      <div class="inputs ">
         <input type="text" placeholder="1. Marka" />
         <button>Karşılaştır</button>
         <input type="text" placeholder="2. Marka" />
@@ -127,7 +133,7 @@
     </section>
 
     <section id="popular_comparisons" class="mt-5">
-      <h4 class="heading reveal-on-visible delay-2">Popüler Karşılaştırmalar</h4>
+      <h4 class="heading ">Popüler Karşılaştırmalar</h4>
 
       <div class="inner">
         <div class="comparison border rounded reveal-on-visible" v-for="i in 9" :key="i">
@@ -154,7 +160,7 @@
           </div>
 
           <NuxtLink to="/marka-karsilastirma">
-            <button class="btn compare-button">Karşılaştır</button>
+            <button class="btn compare-button rounded">Karşılaştır</button>
           </NuxtLink>
         </div>
       </div>
