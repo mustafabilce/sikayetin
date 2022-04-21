@@ -386,8 +386,22 @@ $live-button-pulse-to: #d13d58;
 		background-color: #f6fafd;
 	}
 }
+.success-button {
+	border: 1px solid #3ad08f;
+	border-radius: .25rem;
+    background-color: #3ad08f;
+    font-size: 14px;
+    color: #fff;
+    padding: 7px 40px;
+	&:hover {
+		background-color: #3ad08f;
+		border-color: #3ad08f;
+		color: #fff;
+	}
+}
 .light-success-button {
 	border: 1px solid #3ad08f;
+	border-radius: .25rem;
     background-color: #fff;
     font-size: 14px;
     color: #3ad08f;

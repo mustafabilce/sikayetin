@@ -13,54 +13,54 @@
         <NuxtLink to="/markam/bilgileri-guncelle">
           <span>Marka Profili Düzenle</span>
         </NuxtLink>
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/marka-bilgileri">
           <span>Marka Bilgileri</span>
         </NuxtLink>
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/bildirim-tercihleri">
           <span>Bildirim Tercihleri</span>
         </NuxtLink>
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/hesabimi-sil">
           <span>Markayı Askıya Al</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/sikayetler">
           <span><fa :icon="['fas', 'user']" /> Şikayetler</span>
         </NuxtLink>
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/cevaplanan-sikayetler">
           <span>Cevaplanan Şikayetler</span>
         </NuxtLink>
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/bekleyen-sikayetler">
           <span>Bekleyen Şikayetler</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/bildirimler">
           <span><fa :icon="['fas', 'user']" /> Bildirimler</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/premium">
           <span><fa :icon="['fas', 'user']" /> Premium</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/degerlendirmelerim">
           <span><fa :icon="['fas', 'user']" /> Markam</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/kategorim">
           <span><fa :icon="['fas', 'user']" /> Kategorim</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/reklamlarim">
           <span><fa :icon="['fas', 'user']" /> Reklamlarım</span>
         </NuxtLink>
       </div>
       <div class="item">
-        <NuxtLink to="/markam/">
+        <NuxtLink to="/markam/destek-bileti">
           <span><fa :icon="['fas', 'user']" /> Destek Bileti</span>
         </NuxtLink>
       </div>
