@@ -14,7 +14,8 @@ section {
 <template>
   <div id="holder">
     <div id="loader"><img src="../static/loader.gif" /></div>
-    <Header :full="true" />
+    <Header v-if="isIndividual" :full="true" />
+    <KurumsalHeader v-else :full="true" />
     <Trending />
     <Compare />
     <MostTalkedAbout />
@@ -30,6 +31,7 @@ import Trending from '~/components/Home/Trending.vue';
 import MostTalkedAbout from '../components/Home/MostTalkedAbout.vue';
 import Compare from '../components/Home/Compare.vue';
 import Header from '../components/Home/Header.vue';
+import KurumsalHeader from '../components/Home/KurumsalHeader.vue';
 import WorkTogether from '../components/Home/WorkTogether.vue';
 import Footer from '../components/Footer.vue';
 
@@ -41,9 +43,13 @@ export default {
     MostTalkedAbout,
     Compare,
     Header,
+    KurumsalHeader,
     WorkTogether,
     Footer,
   },
+  data: () => ({
+    isIndividual: true,
+  }),
   mounted() {
     console.log('mounted');
     $('#loader').animate({ opacity: 0 }, 500);

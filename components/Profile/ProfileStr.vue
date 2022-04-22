@@ -79,14 +79,14 @@ export default {
     }
     .verifie {
       .item {
-          display: flex;
-          align-items: center;
-          margin: 14px 0;
+        display: flex;
+        align-items: center;
+        margin: 14px 0;
         a {
           color: #6d95f0;
           &.disabled {
-              color: #d1d2d7;
-              cursor: text;
+            color: #d1d2d7;
+            cursor: text;
           }
         }
         .icon-circle {
@@ -95,7 +95,7 @@ export default {
           padding: 3px;
           border-radius: 50%;
           display: inline-block;
-            margin-right: 5px;
+          margin-right: 5px;
           svg {
             max-width: 10px;
             max-height: 10px;

@@ -269,7 +269,7 @@
             <h4 class="heading reveal-on-visible delay-1">Şikayet Başlığı dolor sit amet, consectetur</h4>
             <div class="footer reveal-on-visible delay-2">
               <div class="customer">
-                <img src="../static/customer.png" />
+                <img src="../../static/customer.png" />
                 <div>
                   <b>Samet</b>
                   <br />
@@ -281,11 +281,11 @@
               </div>
 
               <div class="brand">
-                <img src="../static/trendyol.png" />
+                <img src="../../static/trendyol.png" />
                 <div>
                   <b>Trendyol</b>
                   <div class="stars">
-                    <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
+                    <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                   </div>
                 </div>
               </div>
@@ -315,7 +315,7 @@
           <div class="complaint border rounded reveal-on-visible" v-for="complaint in complaints" :key="complaint.id">
             <div class="customer-and-brand mb-4">
               <div class="customer">
-                <img src="../static/customer.png" />
+                <img src="../../static/customer.png" />
                 <div>
                   <b>Samet</b>
                   <br />
@@ -326,20 +326,20 @@
                 </div>
               </div>
 
-              <img src="../static/arrow.svg" class="arrow" />
+              <img src="../../static/arrow.svg" class="arrow" />
 
               <div class="brand">
-                <img src="../static/trendyol.png" />
+                <img src="../../static/trendyol.png" />
                 <div>
                   <b>Trendyol</b>
                   <div class="stars">
-                    <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
+                    <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                   </div>
                 </div>
               </div>
             </div>
             <h4 class="title">{{ complaint.title }}</h4>
-            <p class="text">{{ complaint.text }}</p>
+            <p class="text">{{ complaint.text }} <NuxtLink to="/sikayetler/samsung">Devamını Gör</NuxtLink> </p>
 
             <div class="footer">
 
@@ -351,7 +351,7 @@
                 >
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <img src="../static/like.svg" />
+                      <img src="../../static/like.svg" />
                     </span>
                   </div>
                   <button class="btn-sm">Beğen</button>
@@ -360,7 +360,7 @@
                 <div class="input-group rounded like-button">
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <img src="../static/comment.svg" />
+                      <img src="../../static/comment.svg" />
                     </span>
                   </div>
                   <button class="btn-sm">Yorum</button>
@@ -369,7 +369,7 @@
                 <div class="input-group rounded like-button">
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <img src="../static/follow.svg" />
+                      <img src="../../static/follow.svg" />
                     </span>
                   </div>
                   <button class="btn-sm">Takip</button>

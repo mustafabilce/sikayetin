@@ -27,8 +27,6 @@
       v-for="(link, i) in links"
       :key="i"
       :to="link.to"
-      class="reveal-on-visible"
-      :class="'delay-' + i"
     >
       {{ link.text }}
     </NuxtLink>
