@@ -72,7 +72,7 @@ section {
 }
 
 body {
-	background: #f5fdff;
+	background: #fafafa;
 }
 
 input,
@@ -453,4 +453,18 @@ $live-button-pulse-to: #d13d58;
 }
 .border-dark-blue {
 	border: 1px solid #00244c;
+}
+
+.live {
+	.active-tab {
+		font-weight: 500 !important;
+		color: #3ad08f !important;  
+	}
+	.my-nav-item {
+		a {
+			font-size: 16px;
+			color: #afb0b6;
+			padding: 10px 30px;
+		}
+	}
 }

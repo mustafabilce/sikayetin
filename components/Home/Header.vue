@@ -528,7 +528,7 @@ header {
           <NuxtLink to="/populer" :class="{ active: active == 'populer' }"
             >Popüler 20</NuxtLink
           >
-          <a href="#" class="btn rounded-pill" id="live_feed_button">Canlı Akış</a>
+          <NuxtLink to="/canli-akis" :class="{ active: active == 'canli-akis' }" class="btn rounded-pill" id="live_feed_button">Canlı Akış</NuxtLink>
         </div>
 
         <div id="secondary_nav" class="d-flex align-items-center">
