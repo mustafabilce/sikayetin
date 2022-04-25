@@ -52,7 +52,7 @@
     </p>
 
     <button class="btn reveal-on-visible delay-4">
-      <NuxtLink to="/marka-uyelik">Birlikte Çalışalım</NuxtLink>
+      <NuxtLink to="/marka-uyelik" class="text-dark">Birlikte Çalışalım</NuxtLink>
     </button>
   </section>
 </template>
