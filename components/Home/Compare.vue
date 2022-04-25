@@ -10,7 +10,7 @@
     float: right;
     border-radius: 500px 0 0 500px;
     text-align: center;
-    padding: 250px 350px 120px 150px;
+    padding: 80px 250px 80px 250px;
     min-width: 60vw;
     margin-right: var(--section-padding-inline-negative);
     position: relative;
@@ -34,7 +34,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 50px 0;
+      margin: 50px 0 0 0;
 
       input {
         padding: 12px 30px;
@@ -154,9 +154,11 @@
   }
 
   .circle-big {
-    right: -450px;
-    width: 800px;
-    border-width: 60px;
+    right: -270px;
+    width: 600px;
+    height: 600px;
+    top: -50px;
+    border-width: 40px;
 
     @media (max-width: 1100px) {
       width: 550px;
@@ -169,6 +171,7 @@
       transform: translateY(-50%);
       left: 50px;
       opacity: 0.1;
+      max-width: 200px;
     }
   }
 

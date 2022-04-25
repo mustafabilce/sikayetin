@@ -80,7 +80,7 @@
         background-color: white;
         padding: 30px;
         box-shadow: 0px 2px 4px -2px #1118270f, 0px 4px 8px -2px #1118271a;
-        border-radius: 10px;
+        border-radius: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -96,13 +96,13 @@
           font-weight: 600;
           text-align: center;
           padding: 0 10px;
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
 
         p {
           margin: 0 auto;
           padding: 20px 25px 0 25px;
-          font-size: 1rem;
+          font-size: .8rem;
 
           &::before {
             content: '';
@@ -162,7 +162,7 @@
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
               <img src="../../static/customer.png" />
-              <div>
+              <div class="small">
                 <b>Samet</b>
                 <br />
                 <span style="white-space: nowrap">
@@ -176,7 +176,7 @@
 
             <div class="brand">
               <img src="../../static/trendyol.png" />
-              <div>
+              <div class="small">
                 <b>Trendyol</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
@@ -195,7 +195,7 @@
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
               <img src="../../static/customer.png" />
-              <div>
+              <div class="small">
                 <b>Samet</b>
                 <br />
                 <span style="white-space: nowrap">
@@ -209,7 +209,7 @@
 
             <div class="brand">
               <img src="../../static/trendyol.png" />
-              <div>
+              <div class="small">
                 <b>Trendyol</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />

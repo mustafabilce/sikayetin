@@ -51,6 +51,8 @@
       bir adım daha ileriye taşıyın.
     </p>
 
-    <button class="btn reveal-on-visible delay-4">Birlikte Çalışalım</button>
+    <button class="btn reveal-on-visible delay-4">
+      <NuxtLink to="/marka-uyelik">Birlikte Çalışalım</NuxtLink>
+    </button>
   </section>
 </template>

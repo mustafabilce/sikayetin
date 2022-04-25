@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <KurumsalHeader />
     <Breadcrumb
     class="breadcrumb-style"
       :links="[
@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import Header from '~/components/Home/Header.vue';
+import KurumsalHeader from '~/components/Home/KurumsalHeader.vue';
 import Footer from '~/components/Footer.vue';
 import Breadcrumb from '../components/Breadcrumb.vue';
 export default {
-  components: { Header, Footer, Breadcrumb },
+  components: { KurumsalHeader, Footer, Breadcrumb },
 };
 </script>

@@ -468,3 +468,25 @@ $live-button-pulse-to: #d13d58;
 		}
 	}
 }
+
+.rounded-30 {
+	border-radius: 30px;
+}
+
+.notification-dd {
+	.dropdown-toggle::after {
+		color: #f8f9fa;
+	}
+}
+
+.btn {
+	:focus {
+		box-shadow: none !important;
+	}
+	:hover {
+		box-shadow: none !important;
+	}
+	:active {
+		box-shadow: none !important;
+	}
+}

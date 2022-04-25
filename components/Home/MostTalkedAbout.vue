@@ -23,11 +23,13 @@ section.heading {
       overflow-x: hidden;
       background: white;
       transform: scale(0.9);
-      padding: 50px 30px;
-      border-radius: 10px;
+      padding: 30px;
+      border-radius: 30px;
+      margin-top: 30px;
 
       .heading {
         font-weight: 700;
+        font-size: 1rem;
         text-align: center;
       }
 
@@ -39,7 +41,7 @@ section.heading {
       }
 
       p {
-        font-size: 1.2em;
+        font-size: .8em;
         padding: 30px 10px 10px 10px;
         max-width: 300px;
         margin: 0 auto;
@@ -72,13 +74,14 @@ section.heading {
         margin: 8px 0;
         opacity: 0.8;
         transition: 0.2s;
+        font-size: .8rem;
 
         &:hover {
           opacity: 1;
         }
 
         img {
-          width: 20px;
+          width: 16px;
           display: inline-block;
         }
       }
@@ -97,13 +100,16 @@ section.heading {
     left: 0;
     width: min(50vw, 800px);
     background: #ef476f;
+    width: 900px;
+    height: 400px;
     border-radius: 0 500px 500px 0;
   }
 
   .abstract-circle {
-    left: calc(50vw + 180px);
+    left: calc(55vw + 180px);
     border-radius: 100%;
-    width: 520px;
+    width: 400px;
+    height: 400px;
     background: #ffd166;
   }
 

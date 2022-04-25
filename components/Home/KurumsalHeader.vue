@@ -514,18 +514,17 @@ header {
 
     <header :class="{ full, isScrolled }">
       <nav>
-        <NuxtLink to="/">
+        <NuxtLink to="/marka-uyelik">
           <img src="../../static/logo-white.png" id="logo" />
         </NuxtLink>
 
         <div id="primary_nav">
           <NuxtLink class="reveal-on-visible" to="/kurumsal-uyelik" :class="{ active: active == 'kurumsal-uyelik' }"
-            >Kurumsal Üyelik</NuxtLink
+            >Marka Üyelik</NuxtLink
           >
-          <NuxtLink class="reveal-on-visible delay-1" to="/reklam" :class="{ active: active == 'reklam' }"
-            >Reklam</NuxtLink
+          <NuxtLink class="reveal-on-visible delay-1" to="/reklam-alanlari" :class="{ active: active == 'reklam-alanlari' }"
+            >Reklam Alanları</NuxtLink
           >
-          <a href="#" class="reveal-on-visible delay-3 btn rounded-pill" id="live_feed_button">Canlı Akış</a>
         </div>
 
         <div id="secondary_nav" class="d-flex align-items-center">
@@ -583,10 +582,8 @@ header {
           </div>
           <div v-else>
             <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
-            <fa :icon="['fas', 'user']" />
-            <a class="reveal-on-visible delay-1" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
-          <NuxtLink class="reveal-on-visible delay-2 btn rounded-pill" to="/" :class="{ active: active == 'sikayet-yaz' }"><fa class="mr-2" :icon="['fas', 'user-check']" /> Kurumsal Üye</NuxtLink>
+          <a href="#" v-b-modal.register-modal class="reveal-on-visible delay-2 btn rounded-pill"><fa class="mr-2" :icon="['fas', 'user-check']" /> Kurumsal Üye</a>
         </div>
 
         <BurgerMenu style="display: none;" />

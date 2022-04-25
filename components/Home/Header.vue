@@ -487,22 +487,24 @@ header {
 }
 .dropdown-item {
   display: block;
-    width: 100%;
-    padding: 0.25rem 1.5rem !important;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: inherit;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
+  width: 100%;
+  padding: 0.25rem 1.5rem !important;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
   &:hover {
-    svg, span {
+    svg,
+    span {
       background-color: transparent;
-      color: #00244C;
+      color: #00244c;
     }
   }
-  span, svg {
+  span,
+  svg {
     color: #7c7b85;
   }
 }
@@ -519,37 +521,97 @@ header {
         </NuxtLink>
 
         <div id="primary_nav">
-          <NuxtLink to="/sikayetler" :class="{ active: active == 'sikayetler' }"
-            >Şikayetler</NuxtLink
+          <NuxtLink to="/sikayetler" :class="{ active: active == 'sikayetler' }">Şikayetler</NuxtLink>
+          <NuxtLink to="/marka-ringi" :class="{ active: active == 'marka-ringi' }">Marka Ringi</NuxtLink>
+          <NuxtLink to="/populer" :class="{ active: active == 'populer' }">Popüler 20</NuxtLink>
+          <NuxtLink
+            to="/canli-akis"
+            :class="{ active: active == 'canli-akis' }"
+            class="btn rounded-pill"
+            id="live_feed_button"
+            >Canlı Akış</NuxtLink
           >
-          <NuxtLink to="/marka-ringi" :class="{ active: active == 'marka-ringi' }"
-            >Marka Ringi</NuxtLink
-          >
-          <NuxtLink to="/populer" :class="{ active: active == 'populer' }"
-            >Popüler 20</NuxtLink
-          >
-          <NuxtLink to="/canli-akis" :class="{ active: active == 'canli-akis' }" class="btn rounded-pill" id="live_feed_button">Canlı Akış</NuxtLink>
         </div>
 
         <div id="secondary_nav" class="d-flex align-items-center">
-          <div v-if="isAuth">
-            <b-dropdown right size="sm" variant="light" toggle-class="rounded-pill text-decoration-none text-dark d-flex align-items-center" no-caret>
+          <div v-if="isAuth" class="d-flex align-items-center">
+            <b-navbar-nav class="notification-dd">
+              <b-nav-item-dropdown text="Lang" right class="mx-3" menu-class="shadow border-0 rounded-30">
+              <template #button-content><fa class="text-light" :icon="['fas', 'bell']" /> </template>
+              <div class="dropdown-item small p-4">
+                <div class="dropdown-profile">
+                  <div>
+                    <img class="mr-3" src="../../static/google.png" alt="" />
+                  </div>
+                  <div class="text">
+                    <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
+                    <p class="mb-0 text-muted">
+                      Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
+                    </p>
+                    <span>17 Şubat 2020 15:23 </span>
+                  </div>
+                </div>
+              </div>
+              <b-dropdown-divider></b-dropdown-divider>
+              <div class="dropdown-item small p-4">
+                <div class="dropdown-profile">
+                  <div>
+                    <img class="mr-3" src="../../static/google.png" alt="" />
+                  </div>
+                  <div class="text">
+                    <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
+                    <p class="mb-0 text-muted">
+                      Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
+                    </p>
+                    <span>17 Şubat 2020 15:23 </span>
+                  </div>
+                </div>
+              </div>
+              <b-dropdown-divider></b-dropdown-divider>
+              <div class="dropdown-item small p-4">
+                <div class="dropdown-profile">
+                  <div>
+                    <img class="mr-3" src="../../static/google.png" alt="" />
+                  </div>
+                  <div class="text">
+                    <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
+                    <p class="mb-0 text-muted">
+                      Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
+                    </p>
+                    <span>17 Şubat 2020 15:23 </span>
+                  </div>
+                </div>
+              </div>
+            </b-nav-item-dropdown>
+            </b-navbar-nav>
+            <b-dropdown
+              right
+              variant="link"
+              toggle-class="text-decoration-none text-dark d-flex align-items-center"
+              menu-class="shadow border-0 rounded-30"
+              no-caret
+            >
               <template #button-content>
-                <b-avatar class="bg-light" style="max-height: 32px; max-width: 32px;" variant="info" src="https://placekitten.com/300/300"></b-avatar>
-                <span class="ml-2 mr-3 small">Mustafa</span>
-                <fa :icon="['fas', 'angle-down']" />
+                <b-avatar
+                  class="bg-light"
+                  style="max-height: 48px; max-width: 48px"
+                  variant="info"
+                  src="https://placekitten.com/300/300"
+                ></b-avatar>
+                <span class="ml-2 mr-2 font-weight-bolder text-light">Mustafa</span>
+                <fa class="text-light" :icon="['fas', 'angle-down']" />
               </template>
               <div class="dropdown-item small">
                 <div class="dropdown-profile">
                   <div>
-                    <img src="../../static/customer-2.png" alt="">
-                  </div>  
+                    <img src="../../static/customer-2.png" alt="" />
+                  </div>
                   <div class="text">
                     <h6 class="mb-1">Mustafa Bilce <img height="18" width="18" src="../../static/verified.svg" /></h6>
-                    
+
                     <p class="mb-0 text-muted">mustafabilce12@gmail.com</p>
                   </div>
-                </div>  
+                </div>
               </div>
               <b-dropdown-divider></b-dropdown-divider>
               <NuxtLink class="dropdown-item small" to="/profilim">
@@ -571,15 +633,15 @@ header {
               <div class="dropdown-item small">
                 <div class="dropdown-item small">
                   <div class="d-flex justify-content-between">
-                  <div>
-                    <fa class="mr-2" :icon="['fas', 'arrow-right-from-bracket']" />
-                     <span>Çıkış Yap</span>
+                    <div>
+                      <fa class="mr-2" :icon="['fas', 'arrow-right-from-bracket']" />
+                      <span>Çıkış Yap</span>
+                    </div>
+                    <div>
+                      <fa class="mr-2" :icon="['fas', 'globe']" />
+                      <span>Yardım</span>
+                    </div>
                   </div>
-                  <div>
-                    <fa class="mr-2" :icon="['fas', 'globe']" />
-                     <span>Yardım</span>
-                  </div>
-                </div>
                 </div>
               </div>
             </b-dropdown>
@@ -589,10 +651,12 @@ header {
             <fa :icon="['fas', 'user']" />
             <a class="" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
-          <NuxtLink class="btn rounded-pill" to="/sikayet-yaz" :class="{ active: active == 'sikayet-yaz' }"><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink>
+          <NuxtLink class="btn rounded-pill" to="/sikayet-yaz" :class="{ active: active == 'sikayet-yaz' }"
+            ><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink
+          >
         </div>
 
-        <BurgerMenu style="display: none;" />
+        <BurgerMenu style="display: none" />
         <Login />
         <Register />
         <Verification />
@@ -609,7 +673,7 @@ header {
 
         <div id="search">
           <input class="" type="text" placeholder="Marka, model, ürün ara" />
-          <button class="btn ">
+          <button class="btn">
             <fa :icon="['fas', 'magnifying-glass']" />
           </button>
         </div>
