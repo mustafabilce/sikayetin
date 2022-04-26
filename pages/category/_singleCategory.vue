@@ -5,14 +5,14 @@
       class="breadcrumb-style"
       :links="[
         { to: '/', text: 'Anasayfa' },
-        { to: '/category', text: 'Category' },
-        { to: '/category/' + $route.params.post, text: $route.params.post },
+        { to: '/category', text: 'Kategoriler' },
+        { to: `/category/${category.id}` , text: `${category.name}` },
       ]"
       style="z-index: 1"
     />
 
     <section class="heading">
-      <h1 class="big-title">Kripto Para Borsaları</h1>
+      <h1 class="big-title">{{category.name}}</h1>
       <p class="mt-4">
         Başlıca Kripto Para Borsaları markaları hakkındaki kullanıcı yorumları ve şikayetlerine göz atın, kullanıcı
         deneyimlerinden yararlanın.
@@ -32,7 +32,7 @@
             <div class="card-body border rounded d-flex align-items-center">
               <img src="../../static/apple.png" alt="" />
               <div class="ml-4">
-                <h6>Apple</h6>
+                <h6>{{category.name}}</h6>
                 <div class="icons">
                   <fa :icon="['fas', 'face-meh']" />
                   <span class="text-muted">|</span>
@@ -58,9 +58,28 @@
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import axios from 'axios';
+import config from '../../config'
 export default {
   components: { Header, Footer, Breadcrumb },
-  data: () => ({}),
+  data() {
+    return {
+      category: [],
+    };
+  },
+  created() {
+    this.getCategory();
+  },
+  methods: {
+    getCategory() {
+      axios
+        .get(`${config.apiURL}/brands/categories/${this.$route.params.singleCategory}/`)
+        .then((response) => (this.category = response.data))
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+  },
 };
 </script>
 

@@ -23,8 +23,8 @@
       <div class="categories mt-5">
           <div class="row justify-content-center">
               <div class="col-4 text-center" v-for="category of categories" :key="category.id">
-                  <NuxtLink to="/category/1">
-                    <p class="text-dark border rounded p-3 mb-4">{{ category.email }}</p>
+                  <NuxtLink :to="`/category/${category.id}`">
+                    <p class="text-dark border rounded p-3 mb-4">{{ category.name }}</p>
                   </NuxtLink>
               </div>
           </div>
@@ -37,6 +37,7 @@
 
 <script>
 import axios from 'axios';
+import config from '../../config'
 import Header from '~/components/Home/Header.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import Footer from '~/components/Footer.vue';
@@ -53,7 +54,7 @@ export default {
   methods: {
     getCategories() {
       axios
-        .get('https://jsonplaceholder.typicode.com/comments?_start=0&_limit=51')
+        .get(`${config.apiURL}/brands/categories/`)
         .then((response) => (this.categories = response.data))
         .catch((error) => {
           this.errors.push(error);
