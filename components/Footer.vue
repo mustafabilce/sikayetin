@@ -201,6 +201,7 @@ footer {
         <NuxtLink to="/sikayetler">Şikayetler</NuxtLink>
         <NuxtLink to="/category">Kategoriler</NuxtLink>
         <NuxtLink to="/brands">Markalar</NuxtLink>
+        <NuxtLink to="/all-brands">Tüm Markalar</NuxtLink>
         <NuxtLink to="/blog">Bloglar</NuxtLink>
         <NuxtLink to="/yardim">Yardım</NuxtLink>
         <NuxtLink to="/kullanim-sartlari">Kullanım Şartları</NuxtLink>

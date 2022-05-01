@@ -103,18 +103,7 @@
           margin: 0 auto;
           padding: 20px 25px 0 25px;
           font-size: .8rem;
-
-          &::before {
-            content: '';
-            width: 17px;
-            height: 14px;
-            background: url(../../static/quotes.png);
-            background-position: center;
-            background-size: cover;
-            display: block;
-            position: absolute;
-            left: 20px;
-          }
+          text-align: center;
 
           @media (max-width: 1200px) {
             text-align: center;
@@ -125,7 +114,7 @@
         .footer {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-end;
           width: 100%;
           max-width: 290px;
           margin: 20px auto 0 auto;
@@ -150,20 +139,21 @@
 
 <template>
   <section id="trending">
-    <h1 class="reveal-on-visible delay-4">Hangi Şikayetler İlgi Çekti?</h1>
+    <h1 class="reveal-on-visible delay-4 text-dark-blue">Hangi Şikayetler İlgi Çekti?</h1>
 
     <div class="inner">
       <div class="trending-row row-1">
         <div v-for="i in 10" :key="i" class="card">
-          <h5 class="reveal-on-visible">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
-          <p class="reveal-on-visible delay-2">
+          <h5 class="reveal-on-visible text-dark-blue">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
+          <p class="reveal-on-visible delay-2 position-relative text-gray-2">
+            <fa :icon="['fas', 'quote-left']" style="position: absolute; left: 10px; top: 20px; font-size: 16px; color: #85DCED;" />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
           </p>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
               <img src="../../static/customer.png" />
               <div class="small">
-                <b>Samet</b>
+                <b class="text-dark-blue">Samet</b>
                 <br />
                 <span style="white-space: nowrap">
                   12.123&nbsp;
@@ -177,7 +167,7 @@
             <div class="brand">
               <img src="../../static/trendyol.png" />
               <div class="small">
-                <b>Trendyol</b>
+                <b class="text-dark-blue">Trendyol</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </div>
@@ -188,15 +178,15 @@
       </div>
       <div class="trending-row row-2">
         <div v-for="i in 10" :key="i" class="card">
-          <h5 class="reveal-on-visible">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
-          <p class="reveal-on-visible delay-2">
+          <h5 class="reveal-on-visible text-dark-blue">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
+          <p class="reveal-on-visible delay-2 text-gray-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
           </p>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
               <img src="../../static/customer.png" />
               <div class="small">
-                <b>Samet</b>
+                <b class="text-dark-blue">Samet</b>
                 <br />
                 <span style="white-space: nowrap">
                   12.123&nbsp;
@@ -210,7 +200,7 @@
             <div class="brand">
               <img src="../../static/trendyol.png" />
               <div class="small">
-                <b>Trendyol</b>
+                <b class="text-dark-blue">Trendyol</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </div>

@@ -133,6 +133,7 @@
     </section>
 
     <section id="popular_comparisons" class="mt-5">
+      <div class="background"></div>
       <h4 class="heading ">Popüler Karşılaştırmalar</h4>
 
       <div class="inner">

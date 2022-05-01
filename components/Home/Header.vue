@@ -1,8 +1,8 @@
 <style lang="scss" scoped>
 #landing,
 header {
-  --gradient-1: #2e3952;
-  --gradient-2: #2e3952;
+  --gradient-1: #002446;
+  --gradient-2: #002446;
   background: linear-gradient(var(--gradient-1), var(--gradient-2));
   padding-inline: var(--header-padding-inline);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -19,7 +19,7 @@ header {
 }
 
 header {
-  --border-radius: 60px;
+  --border-radius: 0;
 
   padding-block: 30px;
   transition: 0.3s;
@@ -58,6 +58,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (min-width: 768px) {
+      #burger_menu_holder {
+      display: none;
+    }
+    }
 
     #logo {
       max-width: 180px;
@@ -110,6 +116,8 @@ header {
 
     #secondary_nav {
       cursor: default;
+      display: flex;
+      align-items: center;
 
       @media (max-width: 850px) {
         display: none;
@@ -139,23 +147,12 @@ header {
     }
 
     a {
-      color: rgba($color: #fff, $alpha: 0.7);
+      color: rgba($color: #fff, $alpha: 1);
 
       &.active {
         cursor: default;
         position: relative;
-        color: #fff;
-
-        &::after {
-          content: '';
-          display: block;
-          width: 50px;
-          height: 2px;
-          background: rgba($color: #fff, $alpha: 0.7);
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
+        color: #85DCED;
       }
     }
 
@@ -207,6 +204,10 @@ header {
       max-width: 100%;
       z-index: 1;
       position: relative;
+      
+      .dropdown {
+        width: 100%;
+      }
 
       @media (max-width: 700px) {
         max-width: min(375px, 100%);
@@ -221,9 +222,11 @@ header {
         border-radius: 100px;
         padding: 20px 30px;
         box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.2);
+        font-size: 15px;
 
         @media (max-width: 600px) {
           padding: 10px 15px;
+          font-size: 12px;
         }
 
         &:hover {
@@ -238,24 +241,21 @@ header {
       button {
         background: rgb(255, 87, 119);
         background: linear-gradient(0, rgba(255, 87, 119, 1) 0%, rgba(255, 194, 71, 1) 100%);
-        border-radius: 100%;
+        border-radius: 100px;
         position: absolute;
-        top: -1px;
-        right: 0;
-        width: 65px;
-        height: 65px;
-        font-size: 1.2em;
-        transform: scale(1.01);
-
-        &:hover {
-          font-size: 1.4em;
-          transform: scale(1.1);
-        }
+        top: 15px;
+        right: 24px;
+        width: 125px;
+        height: 48px;
+        font-size: 1em;
 
         @media (max-width: 600px) {
           padding: 10px 15px;
           width: unset;
           height: unset;
+          font-size: 12px;
+          top: 8px;
+          right: 16px;
         }
       }
     }
@@ -533,56 +533,56 @@ header {
           >
         </div>
 
-        <div id="secondary_nav" class="d-flex align-items-center">
-          <div v-if="isAuth" class="d-flex align-items-center">
+        <div id="secondary_nav">
+          <div v-if="this.$store.state.isAuthenticated" class="d-flex align-items-center">
             <b-navbar-nav class="notification-dd">
               <b-nav-item-dropdown text="Lang" right class="mx-3" menu-class="shadow border-0 rounded-30">
-              <template #button-content><fa class="text-light" :icon="['fas', 'bell']" /> </template>
-              <div class="dropdown-item small p-4">
-                <div class="dropdown-profile">
-                  <div>
-                    <img class="mr-3" src="../../static/google.png" alt="" />
-                  </div>
-                  <div class="text">
-                    <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
-                    <p class="mb-0 text-muted">
-                      Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
-                    </p>
-                    <span>17 Şubat 2020 15:23 </span>
-                  </div>
-                </div>
-              </div>
-              <b-dropdown-divider></b-dropdown-divider>
-              <div class="dropdown-item small p-4">
-                <div class="dropdown-profile">
-                  <div>
-                    <img class="mr-3" src="../../static/google.png" alt="" />
-                  </div>
-                  <div class="text">
-                    <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
-                    <p class="mb-0 text-muted">
-                      Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
-                    </p>
-                    <span>17 Şubat 2020 15:23 </span>
+                <template #button-content><fa class="text-light" :icon="['fas', 'bell']" /> </template>
+                <div class="dropdown-item small p-4">
+                  <div class="dropdown-profile">
+                    <div>
+                      <img class="mr-3" src="../../static/google.png" alt="" />
+                    </div>
+                    <div class="text">
+                      <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
+                      <p class="mb-0 text-muted">
+                        Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
+                      </p>
+                      <span>17 Şubat 2020 15:23 </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <b-dropdown-divider></b-dropdown-divider>
-              <div class="dropdown-item small p-4">
-                <div class="dropdown-profile">
-                  <div>
-                    <img class="mr-3" src="../../static/google.png" alt="" />
-                  </div>
-                  <div class="text">
-                    <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
-                    <p class="mb-0 text-muted">
-                      Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
-                    </p>
-                    <span>17 Şubat 2020 15:23 </span>
+                <b-dropdown-divider></b-dropdown-divider>
+                <div class="dropdown-item small p-4">
+                  <div class="dropdown-profile">
+                    <div>
+                      <img class="mr-3" src="../../static/google.png" alt="" />
+                    </div>
+                    <div class="text">
+                      <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
+                      <p class="mb-0 text-muted">
+                        Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
+                      </p>
+                      <span>17 Şubat 2020 15:23 </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </b-nav-item-dropdown>
+                <b-dropdown-divider></b-dropdown-divider>
+                <div class="dropdown-item small p-4">
+                  <div class="dropdown-profile">
+                    <div>
+                      <img class="mr-3" src="../../static/google.png" alt="" />
+                    </div>
+                    <div class="text">
+                      <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
+                      <p class="mb-0 text-muted">
+                        Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
+                      </p>
+                      <span>17 Şubat 2020 15:23 </span>
+                    </div>
+                  </div>
+                </div>
+              </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-dropdown
               right
@@ -647,7 +647,8 @@ header {
             </b-dropdown>
           </div>
           <div v-else>
-            <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
+            <fa :icon="['fas', 'arrow-right-to-bracket']" />
+            <a  href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
             <fa :icon="['fas', 'user']" />
             <a class="" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
@@ -656,7 +657,7 @@ header {
           >
         </div>
 
-        <BurgerMenu style="display: none" />
+        <BurgerMenu />
         <Login />
         <Register />
         <Verification />
@@ -666,16 +667,24 @@ header {
     <div v-if="full" id="landing">
       <div id="call_to_action">
         <h1>
-          <span class="reveal-on-visible" style="font-weight: 400"> Şikayet.in varsa </span>
+          <span  style="font-weight: 400"> Şikayet.in varsa </span>
           <br />
           <span class="" style="font-weight: 600"> Çözüm de var! </span>
         </h1>
 
         <div id="search">
-          <input class="" type="text" placeholder="Marka, model, ürün ara" />
-          <button class="btn">
-            <fa :icon="['fas', 'magnifying-glass']" />
-          </button>
+          <b-dropdown size="lg" variant="link" toggle-class="text-decoration-none" no-caret menu-class="w-100 p-2 search-dropdown">
+            <template #button-content>
+              <input class="" type="text" placeholder="Marka, model, ürün ara"  />
+              <button class="btn">
+                Ara
+              </button>
+            </template>
+            <b-dropdown-item class="small py-1" href="#" v-for="brand in this.$store.state.brands" :key="brand.id">
+              <b-avatar size="2rem" rounded class="p-1 mr-2 border" variant="link" :src="brand.logo"></b-avatar>
+              {{brand.name}}
+            </b-dropdown-item>
+          </b-dropdown>
         </div>
 
         <div id="banner" class="">
@@ -706,6 +715,8 @@ header {
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../../config';
 import BurgerMenu from '../BurgerMenu.vue';
 import Login from '~/components/modals/Login.vue';
 import Register from '~/components/modals/Register.vue';
@@ -716,7 +727,7 @@ export default {
     active: { type: String, default: '' },
   },
   data: () => ({
-    isAuth: true,
+    searchQuery: null,
     bannerIndex: 0,
     bannerCount: 3,
     bannerColors: [
@@ -729,6 +740,13 @@ export default {
   }),
   components: { BurgerMenu, Login, Register, Verification },
   methods: {
+    async getUserInfo() {
+      await axios
+        .get(`${config.apiURL}/users/users/${this.$store.state.userID}`)
+        .then((response) => {
+          console.log(response)
+        });
+    },
     OnScroll(checkForScrollEnd = true) {
       const breakpoint = this.full ? 600 : 100;
 
@@ -744,6 +762,17 @@ export default {
         }, 100);
       }
     },
+  },
+  computed: {
+        resultQuery(){
+      if(this.searchQuery){
+      return this.$store.state.brands.filter((item)=>{
+        return this.searchQuery.toLowerCase().split(' ').every(v => item.title.toLowerCase().includes(v))
+      })
+      }else{
+        return this.$store.state.brands;
+      }
+    }
   },
   created() {
     this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));

@@ -8,6 +8,7 @@
   a {
     font-weight: 600;
     color: #00244b80;
+    font-size: 12px;
 
     &:hover {
       color: #00244b;

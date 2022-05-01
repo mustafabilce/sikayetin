@@ -3,16 +3,21 @@
   position: relative;
 
   .inner {
-    padding: 50px 0;
+    padding: 50px;
     margin-top: 20px;
     position: relative;
+
+    @media (max-width: 768px) {
+      padding: 40px 20px;
+    }
 
     .slides {
       padding: 0 80px;
 
       @media (max-width: 900px) {
         padding: 0;
-        margin-right: 50px;
+        margin-top: 50px;
+        margin-bottom: 0;
       }
 
       .slide {
@@ -25,17 +30,21 @@
 
         .heading {
           text-align: center;
-          font-weight: bold;
+          font-weight: 500;
+          font-size: 1.2rem;
         }
 
         .footer {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-end;
           flex-wrap: wrap;
           width: 100%;
           max-width: 300px;
           margin: 30px auto 0 auto;
+          @media (max-width: 768px) {
+            justify-content: flex-start;
+          }
         }
       }
     }
@@ -44,17 +53,19 @@
   .background {
     position: absolute;
     left: 0;
-    right: 20px;
+    right: 0;
     top: 75px;
     bottom: 0;
     background: #5379ff;
-    border-radius: 0 1000px 1000px 0;
+    border-radius: 0;
+    max-width: 100%;
 
     @media (max-width: 900px) {
-      top: 80px;
-      bottom: 20px;
-      right: 10px;
-      border-radius: 0 100px 100px 0;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0;
+      border-radius: 0;
     }
 
     @media (max-width: 525px) {
@@ -64,14 +75,14 @@
 
   .slick-button {
     background: transparent;
-    border: 2px solid #c2eef7;
-    border-radius: 8px;
-    width: 55px;
-    height: 55px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     display: inline-grid;
     place-items: center;
-    color: white;
-    font-size: 1.5em;
+    color: #fff;
+    font-size: 1.3em;
 
     position: absolute;
     top: 50%;
@@ -82,10 +93,10 @@
     }
 
     &.prev-button {
-      left: 0;
+      left: 30px;
     }
     &.next-button {
-      right: 0;
+      right: 30px;
     }
   }
 }
@@ -104,6 +115,7 @@
   }
 
   @media (max-width: 900px) {
+    margin-top: 50px !important;
     .heading {
       justify-content: center !important;
       align-items: center !important;
@@ -123,17 +135,19 @@
   .complaint {
     padding: 30px;
     background: white;
-    margin-top: 50px;
+    margin-bottom: 50px;
 
     .title {
       font-weight: 700;
       font-size: 18px;
+      color: #00244c;
     }
 
     .text {
       font-weight: 400;
       font-size: 14px;
       margin: 20px 0;
+      color: #555;
     }
 
     .customer-and-brand {
@@ -152,7 +166,7 @@
     .footer {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       gap: 15px;
       flex-wrap: wrap;
 
@@ -211,7 +225,20 @@
         }
 
         .like-button {
-          border-radius: .25rem !important;
+          border-radius: 30px;
+          border: none !important;
+          background-color: #00244c !important;
+          color: #fff;
+          .input-group-append {
+            background: #00244c !important;
+            span {
+              background: #00244c !important;
+            }
+          }
+          .btn-sm {
+            background-color: #00244c !important;
+            color: #fff !important;
+          }
         }
 
         .like-button.active {
@@ -249,15 +276,15 @@
     />
 
     <div class="heading-circles">
-      <div class="circle circle-1 reveal-on-visible delay-1"></div>
-      <div class="circle circle-2 reveal-on-visible delay-3"></div>
-      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
     </div>
 
     <section id="trending" class="mt-0">
       <div class="background"></div>
 
-      <h2 class="reveal-on-visible big-title">Şikayetler</h2>
+      <h2 class="big-title text-dark-blue">Şikayetler</h2>
 
       <div class="inner">
         <button class="slick-button prev-button">
@@ -266,12 +293,12 @@
 
         <div class="slides">
           <div class="slide" v-for="i in 10" :key="i">
-            <h4 class="heading reveal-on-visible delay-1">Şikayet Başlığı dolor sit amet, consectetur</h4>
-            <div class="footer reveal-on-visible delay-2">
+            <h4 class="heading">Şikayet Başlığı dolor sit amet, consectetur</h4>
+            <div class="footer">
               <div class="customer">
                 <img src="../../static/customer.png" />
                 <div>
-                  <b>Samet</b>
+                  <span>Samet</span>
                   <br />
                   <span style="white-space: nowrap">
                     12.123&nbsp;
@@ -283,7 +310,7 @@
               <div class="brand">
                 <img src="../../static/trendyol.png" />
                 <div>
-                  <b>Trendyol</b>
+                  <span>Trendyol</span>
                   <div class="stars">
                     <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                   </div>
@@ -301,18 +328,23 @@
 
     <section id="all" style="margin-top: 150px">
       <div class="row">
-        <div class="col-8">
+        <div class="col-12 mb-5">
+          <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
+            <h2 class="text-dark-blue">Tüm Şikayetler</h2>
+            <span class="text-gray-2">12.850 şikayet</span>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
           <div
             class="heading d-flex align-items-center flex-wrap align-items-center justify-content-between"
             style="gap: 20px"
-          >
-            <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
-              <h2 class="reveal-on-visible">Tüm Şikayetler</h2>
-              <span style="opacity: 0.5">12.850 şikayet</span>
-            </div>
-          </div>
+          ></div>
 
-          <div class="complaint border rounded reveal-on-visible" v-for="complaint in complaints" :key="complaint.id">
+          <div
+            class="complaint shadow rounded-30 reveal-on-visible"
+            v-for="complaint in complaints"
+            :key="complaint.id"
+          >
             <div class="customer-and-brand mb-4">
               <div class="customer">
                 <img src="../../static/customer.png" />
@@ -339,10 +371,9 @@
               </div>
             </div>
             <h4 class="title">{{ complaint.title }}</h4>
-            <p class="text">{{ complaint.text }} <NuxtLink to="/sikayetler/samsung">Devamını Gör</NuxtLink> </p>
+            <p class="text">{{ complaint.text }} <NuxtLink to="/sikayetler/samsung">Devamını Gör</NuxtLink></p>
 
             <div class="footer">
-
               <div class="actions">
                 <div
                   class="input-group rounded like-button"
@@ -351,7 +382,7 @@
                 >
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <img src="../../static/like.svg" />
+                      <fa color="#fff" :icon="['fas', 'thumbs-up']" />
                     </span>
                   </div>
                   <button class="btn-sm">Beğen</button>
@@ -360,7 +391,7 @@
                 <div class="input-group rounded like-button">
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <img src="../../static/comment.svg" />
+                      <fa color="#fff" :icon="['fas', 'comment']" />
                     </span>
                   </div>
                   <button class="btn-sm">Yorum</button>
@@ -369,7 +400,7 @@
                 <div class="input-group rounded like-button">
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <img src="../../static/follow.svg" />
+                      <fa color="#fff" :icon="['fas', 'bookmark']" />
                     </span>
                   </div>
                   <button class="btn-sm">Takip</button>
@@ -378,7 +409,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
           <FilterBox />
           <AdsDemo />
         </div>
@@ -390,6 +421,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import FilterBox from '~/components/FilterBox.vue';
@@ -399,7 +432,18 @@ export default {
   components: { Header, Footer, FilterBox, AdsDemo },
   data: () => ({
     complaints: [],
+    categories: [],
   }),
+  methods: {
+    getCategories() {
+      axios
+        .get(`${config.apiURL}/complaints/complaints/`)
+        .then((response) => console.log(response.data))
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+  },
   created() {
     for (let i = 1; i < 10; i++) {
       this.complaints.push({
@@ -409,6 +453,7 @@ export default {
         liked: false,
       });
     }
+    this.getCategories();
   },
   mounted() {
     $('#trending .inner .slides').slick({
@@ -434,7 +479,7 @@ export default {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            dots: true,
+            dots: false,
           },
         },
       ],

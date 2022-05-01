@@ -1,8 +1,14 @@
 <template>
   <b-modal class="register-modal" id="register-modal" centered hide-footer hide-header size="lg">
-        <button type="button" class="modal-close" data-dismiss="register-modal" aria-label="Close" @click="$bvModal.hide('register-modal')">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <button
+      type="button"
+      class="modal-close"
+      data-dismiss="register-modal"
+      aria-label="Close"
+      @click="$bvModal.hide('register-modal')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
     <div class="row register-box">
       <div class="col-4 modal-left-banner">
         <img class="img-fluid banner-logo" src="../../static/logo-white.png" id="logo" />
@@ -40,33 +46,47 @@
                   <input
                     type="text"
                     class="form-control rounded-pill px-4 border-0 shadow-sm"
-                    id="ad-soyad"
+                    id="username"
                     placeholder="Ad Soyad"
+                    v-model="username"
                   />
                 </div>
                 <div class="form-group">
                   <input
                     type="email"
                     class="form-control rounded-pill px-4 border-0 shadow-sm"
-                    id="e-posta"
+                    id="email"
                     placeholder="E-posta"
+                    v-model="email"
                   />
                 </div>
                 <div class="form-group password-input">
                   <input
-                    type="password" 
+                    type="password"
                     class="form-control rounded-pill px-4 border-0 shadow-sm"
-                    id="sifre"
+                    id="password"
                     placeholder="Şifre"
+                    v-model="password"
+                  />
+                </div>
+                <div class="form-group password-input">
+                  <input
+                    type="password"
+                    class="form-control rounded-pill px-4 border-0 shadow-sm"
+                    id="confirmation"
+                    placeholder="Şifre Tekrar"
+                    v-model="confirmation"
                   />
                 </div>
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                  <label class="form-check-label" for="exampleCheck1"><a href="#">Kullanıcı Sözleşmesi</a> ’ni okudum, kabul ediyorum</label>
+                  <label class="form-check-label" for="exampleCheck1"
+                    ><a href="#">Kullanıcı Sözleşmesi</a> ’ni okudum, kabul ediyorum</label
+                  >
                 </div>
-                <button type="submit" class="btn btn-primary btn-block rounded-pill">Üye Ol</button>
+                <button @click="register" type="button" class="btn btn-primary btn-block rounded-pill">Üye Ol</button>
                 <div class="text-center">
-                  <p class="register-text">Hesabınız var mı?  <a href="#">Giriş Yap</a></p>
+                  <p class="register-text">Hesabınız var mı? <a href="#">Giriş Yap</a></p>
                 </div>
               </form>
             </div>
@@ -78,8 +98,31 @@
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../../config';
 export default {
-
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      confirmation: '',
+    };
+  },
+  methods: {
+    async register() {
+      await axios
+        .post(`${config.apiURL}/users/register/`, {
+          confirmation: this.confirmation,
+          password: this.password,
+          email: this.email,
+          username: this.username,
+        })
+        .then((response) => {
+          console.log(response);
+        });
+    },
+  },
 };
 </script>
 
@@ -87,14 +130,14 @@ export default {
 #register-modal {
   border-radius: 30px;
   .modal-close {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      z-index: 999;
-      color: #8B929A;
-      background-color: transparent;
-      border: 1px solid #8B929A;
-      border-radius: 6px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 999;
+    color: #8b929a;
+    background-color: transparent;
+    border: 1px solid #8b929a;
+    border-radius: 6px;
   }
   .register-box {
     border-radius: 30px;

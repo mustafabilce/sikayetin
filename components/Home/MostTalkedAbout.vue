@@ -120,7 +120,8 @@ section.heading {
   }
   @media (max-width: 900px) {
     .abstract-left {
-      width: 90vw;
+      width: 100vw;
+      border-radius: 0;
     }
 
     .abstract-circle {

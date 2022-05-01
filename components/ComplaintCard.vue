@@ -2,9 +2,11 @@
   <div class="complaint border rounded mt-4">
     <div class="customer-and-brand mb-4">
       <div class="customer">
-        <img src="../static/customer.png" />
+        <img class="mr-2" v-if="user.photo" :src="user.photo" />
+        <b-avatar class="mr-2" v-else></b-avatar>
         <div>
-          <b>Samet</b>
+          <b v-if="user.username">{{user.username}}</b>
+          <b b-else>Unkown</b>
           <br />
           <span style="white-space: nowrap">
             12.123&nbsp;
@@ -12,28 +14,14 @@
           </span>
         </div>
       </div>
-
-      <img src="../static/arrow.svg" class="arrow" />
-
-      <div class="brand">
-        <img src="../static/trendyol.png" />
-        <div>
-          <b>Trendyol</b>
-          <div class="stars">
-            <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
-          </div>
-        </div>
+    </div>
+    <h4 class="title">{{ title }}</h4>
+    <p class="text">{{ text }}</p>
+    <div class="row mb-3" v-if="image">
+      <div class="col-6">
+        <img class="img-fluid" :src="image" alt="" />
       </div>
     </div>
-    <h4 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
-    <p class="text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus, integer lectus turpis dui. Consectetur dignissim
-      ultrices enim eget aliquam, volutpat, diam. Vulputate morbi felis, ornare arcu augue ut purus ut. Nibh enim ut sed
-      sit sollicitudin diam elementum. Quis laoreet justo eget sit ut diam orci quisque mattis. Gravida scelerisque
-      posuere purus nulla lobortis feugiat cursus nibh. Faucibus dignissim adipiscing amet, est semper mauris tincidunt
-      sit lacus. Odio nulla eu et mauris, pharetra elit non commodo. Purus pellentesque eu, non etiam tellus nec eu
-      nisl. Hendrerit tellus ut quam mattis tellus tincidunt consectetur. Felis morbi auctor augue aliquam.
-    </p>
 
     <div class="footer">
       <div class="actions">
@@ -69,7 +57,36 @@
 </template>
 
 <script>
-export default {};
+import axios from 'axios';
+import config from '../config'
+export default {
+  props: {
+    title: String,
+    text: String,
+    image: String,
+    value: Boolean,
+    user: String,
+    brand: String,
+  },
+  data() {
+    return {
+      
+    };
+  },
+  created() {
+    this.getUser();
+  },
+  methods: {
+    getUser() {
+      axios
+        .get(`${config.apiURL}/users/users/${this.user}/`)
+        .then((response) => ((this.user = response.data)))
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

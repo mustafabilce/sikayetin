@@ -4,6 +4,10 @@
   margin-top: 100px;
   overflow: hidden !important;
 
+  @media (max-width: 600px) {
+      margin-top: 0;
+  }
+
   .inner {
     background-color: #5379ff;
     color: white;
@@ -134,11 +138,12 @@
       }
 
       p {
-        font-size: 1.2em;
+        font-size: 1em;
       }
 
       #inputs {
         flex-direction: column;
+        margin-top: 10px;
       }
     }
   }

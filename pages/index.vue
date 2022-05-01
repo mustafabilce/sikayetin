@@ -26,6 +26,9 @@ section {
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../config';
+import { mapActions } from 'vuex';
 import Counter from '~/components/Home/Counter.vue';
 import Trending from '~/components/Home/Trending.vue';
 import MostTalkedAbout from '../components/Home/MostTalkedAbout.vue';
@@ -47,9 +50,23 @@ export default {
     WorkTogether,
     Footer,
   },
+  created() {
+    this.getBrands();
+  },
   data: () => ({
     isIndividual: true,
+    brands: [],
   }),
+  methods: {
+    ...mapActions([
+      'updateBrands',
+    ]),
+    getBrands() {
+      axios
+        .get(`${config.apiURL}/brands/all-brands/?limit=10&offset=0`)
+        .then((response) => (this.updateBrands(response.data.results)))
+    },
+  },
   mounted() {
     console.log('mounted');
     $('#loader').animate({ opacity: 0 }, 500);

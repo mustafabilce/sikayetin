@@ -21,8 +21,8 @@
         <div class="col-4">
           <div class="card shadow left-card">
             <div class="card-body border rounded">
-              <NuxtLink to="/" v-for="index in 40" :key="index">
-                <p class="text-muted">Category X</p>
+              <NuxtLink to="/" v-for="category in this.$store.state.categories" :key="category.id">
+                <p class="text-muted">{{category.name}}</p>
               </NuxtLink>
             </div>
           </div>

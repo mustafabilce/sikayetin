@@ -19,10 +19,10 @@
 
     <section class="marka-karsilastirma">
       <div class="row mt-5">
-        <div class="col-2">
-          <h5>Markalar</h5>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col-12">
+          <h5 class="xs-mb-4">Markalar</h5>
         </div>
-        <div class="col-10">
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col-12">
           <div class="d-flex">
             <SmallBrandCard class="mr-2" />
             <SmallBrandCard class="ml-2" />
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="row mt-5">
-        <div class="col-8">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
           <div class="card mt-3">
             <div class="card-body border rounded">
               <h5>Genel Bakış</h5>
@@ -38,13 +38,13 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item pl-1" v-for="index in 5" :key="index">
                     <div class="row">
-                      <div class="col-4">
+                      <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 col-8">
                         <p>Şikayet Sayısı</p>
                       </div>
-                      <div class="col-4 text-center">
+                      <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2 col-2 text-center">
                         <p>1</p>
                       </div>
-                      <div class="col-4 text-center">
+                      <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2 col-2 text-center">
                         <p>5</p>
                       </div>
                     </div>
@@ -171,7 +171,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
           <CompareBox />
           <AdsDemo />
           <AdsDemo />
@@ -277,6 +277,9 @@ export default {
         background-color: #f6fafd !important;
         color: #00244c;
         border-color: #00244c;
+      }
+      @media (max-width: 600px) {
+        padding: 5px 10px;
       }
     }
     .light-button.active {

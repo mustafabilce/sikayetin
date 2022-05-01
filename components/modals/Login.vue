@@ -1,8 +1,14 @@
 <template>
-  <b-modal class="login-modal" id="login-modal" centered hide-footer hide-header size="lg">
-        <button type="button" class="modal-close" data-dismiss="login-modal" aria-label="Close" @click="$bvModal.hide('login-modal')">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <b-modal v-model="modalShow" class="login-modal" id="login-modal" centered hide-footer hide-header size="lg">
+    <button
+      type="button"
+      class="modal-close"
+      data-dismiss="login-modal"
+      aria-label="Close"
+      @click="$bvModal.hide('login-modal')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
     <div class="row login-box">
       <div class="col-4 modal-left-banner">
         <img class="img-fluid banner-logo" src="../../static/logo-white.png" id="logo" />
@@ -41,16 +47,17 @@
                     type="email"
                     class="form-control rounded-pill px-4 border-0 shadow-sm"
                     id="exampleInputEmail1"
-                    placeholder="E-posta veya Gsm no"
+                    placeholder="E-posta"
+                    v-model="email"
                   />
                 </div>
                 <div class="form-group password-input">
                   <input
-                    :type="passwordFieldType" 
-                    v-model="password"
+                    :type="passwordFieldType"
                     class="form-control rounded-pill px-4 border-0 shadow-sm"
                     id="exampleInputPassword1"
                     placeholder="Şifre"
+                    v-model="password"
                   />
                   <fa class="show-password" :icon="['fas', 'eye']" @click="switchVisibility" />
                 </div>
@@ -59,11 +66,14 @@
                   <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
                   <a href="#" class="forgot-password">Şifremi Unuttum</a>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block rounded-pill">Giriş Yap</button>
+                <button type="button" class="btn btn-primary btn-block rounded-pill" @click="login">Giriş Yap</button>
                 <div class="text-center">
                   <p class="register-text">Hesabınız yok mu? <a href="#">Üye Ol</a></p>
                 </div>
               </form>
+              <div v-if="this.$store.state.isAuthenticated == false" class="alert alert-danger mt-3 small" role="alert">
+                Kullanıcı adı veya şifrenizi kontrol edin!
+              </div>
             </div>
           </div>
         </div>
@@ -73,18 +83,42 @@
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../../config';
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
-      password: "",
-      passwordFieldType: "password"
+      email: '',
+      password: '',
+      passwordFieldType: 'password',
+      modalShow: null,
+      userID: '42e0f0f0-bfb1-45d2-aad1-dc096bbced26'
     };
   },
   methods: {
+    ...mapActions([
+      'updateUserID',
+    ]),
+    async login() {
+      await axios
+        .post(`${config.apiURL}/users/login/`, { email: this.email, password: this.password })
+        .then((response) => {
+          if (response.data === 'You are successfuly logged in') {
+            this.$store.commit('auth');
+            this.modalShow = false;
+            this.updateUserID(this.userID);
+            // this.$store.commit('setUserID')
+          } else {
+            this.$store.commit('notAuth');
+            console.log('HATALI');
+          }
+        });
+    },
     switchVisibility() {
-      this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
-    }
-  }
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+    },
+  },
 };
 </script>
 
@@ -92,14 +126,14 @@ export default {
 #login-modal {
   border-radius: 30px;
   .modal-close {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      z-index: 999;
-      color: #8B929A;
-      background-color: transparent;
-      border: 1px solid #8B929A;
-      border-radius: 6px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 999;
+    color: #8b929a;
+    background-color: transparent;
+    border: 1px solid #8b929a;
+    border-radius: 6px;
   }
   .login-box {
     border-radius: 30px;

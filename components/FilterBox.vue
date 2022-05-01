@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <div class="card-body border rounded">
+    <div class="card-body shadow p-5 rounded-30 bg-pink">
       <div class="first-line">
-        <b-input-group>
+        <b-input-group class="rounded-30 pl-2">
           <template #append>
             <b-input-group-text><fa :icon="['fas', 'magnifying-glass']" /></b-input-group-text>
           </template>
@@ -21,7 +21,7 @@
             name="checkbox-1"
             value="resolved"
             unchecked-value="not_resolved"
-            class="text-muted small"
+            class="text-light small"
           >
             Çözülen Şikayetler
           </b-form-checkbox>
@@ -31,7 +31,7 @@
             name="checkbox-2"
             value="withVideo"
             unchecked-value="has_video"
-            class="text-muted small"
+            class="text-light small"
           >
             Videolu Şikayetler
           </b-form-checkbox>
@@ -41,7 +41,7 @@
             name="checkbox-3"
             value="withPhoto"
             unchecked-value="has_photo"
-            class="text-muted small"
+            class="text-light small"
           >
             Fotoğraflı Şikayetler
           </b-form-checkbox>
@@ -51,7 +51,7 @@
             <span><fa :icon="['fas', 'arrow-down-short-wide']" /></span>
             <h4>Sırala</h4>
           </div>
-          <div class="input-group">
+          <div class="input-group rounded-30 pl-2">
             <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
           </div>
         </div>

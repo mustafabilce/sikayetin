@@ -1,3 +1,3 @@
 export default {
-    apiURL: 'http://127.0.0.1:8000'
+    apiURL: 'https://sikayet-in-jyzac.ondigitalocean.app'
 }

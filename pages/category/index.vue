@@ -22,7 +22,7 @@
       </p>
       <div class="categories mt-5">
           <div class="row justify-content-center">
-              <div class="col-4 text-center" v-for="category of categories" :key="category.id">
+              <div class="col-4 text-center" v-for="category of this.$store.state.categories" :key="category.id">
                   <NuxtLink :to="`/category/${category.id}`">
                     <p class="text-dark border rounded p-3 mb-4">{{ category.name }}</p>
                   </NuxtLink>
@@ -38,6 +38,7 @@
 <script>
 import axios from 'axios';
 import config from '../../config'
+import { mapActions } from 'vuex';
 import Header from '~/components/Home/Header.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import Footer from '~/components/Footer.vue';
@@ -52,10 +53,13 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+      'updateCategories',
+    ]),
     getCategories() {
       axios
         .get(`${config.apiURL}/brands/categories/`)
-        .then((response) => (this.categories = response.data))
+        .then((response) => (this.updateCategories(response.data)))
         .catch((error) => {
           this.errors.push(error);
         });
