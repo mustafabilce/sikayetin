@@ -2,7 +2,7 @@
   <div class="complaint border rounded mt-4">
     <div class="customer-and-brand mb-4">
       <div class="customer">
-        <img class="mr-2" v-if="user.photo" :src="user.photo" />
+        <img class="mr-2" v-if="user.image = null" :src="user.image" />
         <b-avatar class="mr-2" v-else></b-avatar>
         <div>
           <b v-if="user.username">{{user.username}}</b>

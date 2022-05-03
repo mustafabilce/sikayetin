@@ -52,19 +52,27 @@ export default {
   },
   created() {
     this.getBrands();
+    this.getAllComplaints();
   },
   data: () => ({
     isIndividual: true,
     brands: [],
+    allComplaints: [],
   }),
   methods: {
     ...mapActions([
       'updateBrands',
+      'updateAllComplaints',
     ]),
     getBrands() {
       axios
         .get(`${config.apiURL}/brands/all-brands/?limit=10&offset=0`)
         .then((response) => (this.updateBrands(response.data.results)))
+    },
+    getAllComplaints() {
+      axios
+        .get(`${config.apiURL}/brands/all-complaints/`)
+        .then((response) => (this.updateAllComplaints(response.data.results)))
     },
   },
   mounted() {

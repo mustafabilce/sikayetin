@@ -292,7 +292,7 @@
         </button>
 
         <div class="slides">
-          <div class="slide" v-for="i in 10" :key="i">
+          <div class="slide" v-for="complaint in this.$store.state.allComplaints" :key="complaint.id">
             <h4 class="heading">Şikayet Başlığı dolor sit amet, consectetur</h4>
             <div class="footer">
               <div class="customer">
@@ -306,6 +306,8 @@
                   </span>
                 </div>
               </div>
+
+                  <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
               <div class="brand">
                 <img src="../../static/trendyol.png" />
@@ -342,7 +344,7 @@
 
           <div
             class="complaint shadow rounded-30 reveal-on-visible"
-            v-for="complaint in complaints"
+            v-for="complaint in this.$store.state.allComplaints"
             :key="complaint.id"
           >
             <div class="customer-and-brand mb-4">
@@ -358,7 +360,7 @@
                 </div>
               </div>
 
-              <img src="../../static/arrow.svg" class="arrow" />
+                  <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
               <div class="brand">
                 <img src="../../static/trendyol.png" />
@@ -421,8 +423,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import config from '../../config';
+import axios from "axios"
+import config from "../../config"
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import FilterBox from '~/components/FilterBox.vue';
@@ -432,29 +434,9 @@ export default {
   components: { Header, Footer, FilterBox, AdsDemo },
   data: () => ({
     complaints: [],
-    categories: [],
+    user: [],
+    brand: [],
   }),
-  methods: {
-    getCategories() {
-      axios
-        .get(`${config.apiURL}/complaints/complaints/`)
-        .then((response) => console.log(response.data))
-        .catch((error) => {
-          this.errors.push(error);
-        });
-    },
-  },
-  created() {
-    for (let i = 1; i < 10; i++) {
-      this.complaints.push({
-        id: i,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus, integer lectus turpis dui. Consectetur dignissim ultrices enim eget aliquam, volutpat, diam. Vulputate morbi felis, ornare arcu augue ut purus ut. Nibh enim ut sed sit sollicitudin diam elementum. Quis laoreet justo eget sit ut diam orci quisque mattis. Gravida scelerisque posuere purus nulla lobortis feugiat cursus nibh. Faucibus dignissim adipiscing amet, est semper mauris tincidunt sit lacus. Odio nulla eu et mauris, pharetra elit non commodo. Purus pellentesque eu, non etiam tellus nec eu nisl. Hendrerit tellus ut quam mattis tellus tincidunt consectetur. Felis morbi auctor augue aliquam.',
-        liked: false,
-      });
-    }
-    this.getCategories();
-  },
   mounted() {
     $('#trending .inner .slides').slick({
       dots: false,

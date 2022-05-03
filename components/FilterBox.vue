@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <div class="card-body shadow p-5 rounded-30 bg-pink">
+  <div class="card bg-pink rounded-30 shadow">
+    <div class="card-body p-5">
       <div class="first-line">
         <b-input-group class="rounded-30 pl-2">
           <template #append>

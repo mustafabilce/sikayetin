@@ -534,7 +534,7 @@ header {
         </div>
 
         <div id="secondary_nav">
-          <div v-if="this.$store.state.isAuthenticated" class="d-flex align-items-center">
+          <div v-if="this.$store.state.userInfo.active == true" class="d-flex align-items-center">
             <b-navbar-nav class="notification-dd">
               <b-nav-item-dropdown text="Lang" right class="mx-3" menu-class="shadow border-0 rounded-30">
                 <template #button-content><fa class="text-light" :icon="['fas', 'bell']" /> </template>
@@ -596,20 +596,19 @@ header {
                   class="bg-light"
                   style="max-height: 48px; max-width: 48px"
                   variant="info"
-                  src="https://placekitten.com/300/300"
+                  :src="$store.state.userInfo.photo"
                 ></b-avatar>
-                <span class="ml-2 mr-2 font-weight-bolder text-light">Mustafa</span>
+                <span class="ml-2 mr-2 font-weight-bolder text-light">{{$store.state.userInfo.username}}</span>
                 <fa class="text-light" :icon="['fas', 'angle-down']" />
               </template>
               <div class="dropdown-item small">
                 <div class="dropdown-profile">
                   <div>
-                    <img src="../../static/customer-2.png" alt="" />
+                    <img :src="this.$store.state.userInfo.photo" alt="" />
                   </div>
                   <div class="text">
-                    <h6 class="mb-1">Mustafa Bilce <img height="18" width="18" src="../../static/verified.svg" /></h6>
-
-                    <p class="mb-0 text-muted">mustafabilce12@gmail.com</p>
+                    <h6 class="mb-1">{{this.$store.state.userInfo.name}} <img height="18" width="18" src="../../static/verified.svg" /></h6>
+                    <p class="mb-0 text-muted">{{this.$store.state.userInfo.email}}</p>
                   </div>
                 </div>
               </div>
@@ -740,13 +739,6 @@ export default {
   }),
   components: { BurgerMenu, Login, Register, Verification },
   methods: {
-    async getUserInfo() {
-      await axios
-        .get(`${config.apiURL}/users/users/${this.$store.state.userID}`)
-        .then((response) => {
-          console.log(response)
-        });
-    },
     OnScroll(checkForScrollEnd = true) {
       const breakpoint = this.full ? 600 : 100;
 

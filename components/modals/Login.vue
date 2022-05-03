@@ -93,22 +93,20 @@ export default {
       password: '',
       passwordFieldType: 'password',
       modalShow: null,
-      userID: '42e0f0f0-bfb1-45d2-aad1-dc096bbced26'
     };
   },
   methods: {
     ...mapActions([
-      'updateUserID',
+      'updateUserInfo',
     ]),
     async login() {
       await axios
         .post(`${config.apiURL}/users/login/`, { email: this.email, password: this.password })
         .then((response) => {
-          if (response.data === 'You are successfuly logged in') {
+          if (response.status ===  200) {
             this.$store.commit('auth');
             this.modalShow = false;
-            this.updateUserID(this.userID);
-            // this.$store.commit('setUserID')
+            this.updateUserInfo(response.data);
           } else {
             this.$store.commit('notAuth');
             console.log('HATALI');

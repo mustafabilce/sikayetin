@@ -138,13 +138,12 @@ section.heading {
     </section>
     <section id="most_talked_about">
       <div class="inner">
-        <div class="card" v-for="i in 10" :key="i">
+        <div class="card" v-for="complaint in this.$store.state.allComplaints" :key="complaint.id">
           <h4 class="heading reveal-on-visible">
-            Şikayet Başlığı dolor sit amet, consectetur adipiscing elit. Duis dui.
+            {{complaint.title}}
           </h4>
           <p class="reveal-on-visible delay-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectus
-            lobortis
+            {{complaint.text}}
           </p>
           <a href="#" class="comment reveal-on-visible delay-3">
             <img src="../../static/yorum.png" /> &nbsp; 12 Yorum

@@ -124,6 +124,7 @@
           }
 
           .arrow {
+            color: #5379ff;
             @media (max-width: 1000px) {
               margin: 0;
               margin-right: 5px;
@@ -143,11 +144,11 @@
 
     <div class="inner">
       <div class="trending-row row-1">
-        <div v-for="i in 10" :key="i" class="card">
-          <h5 class="reveal-on-visible text-dark-blue">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
+        <div v-for="complaint in this.$store.state.allComplaints" :key="complaint.id" class="card">
+          <h5 class="reveal-on-visible text-dark-blue">{{complaint.title}}</h5>
           <p class="reveal-on-visible delay-2 position-relative text-gray-2">
             <fa :icon="['fas', 'quote-left']" style="position: absolute; left: 10px; top: 20px; font-size: 16px; color: #85DCED;" />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
+            {{complaint.text}}
           </p>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
@@ -162,7 +163,7 @@
               </div>
             </div>
 
-            <img src="../../static/arrow.svg" class="arrow" />
+            <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
             <div class="brand">
               <img src="../../static/trendyol.png" />
@@ -177,7 +178,7 @@
         </div>
       </div>
       <div class="trending-row row-2">
-        <div v-for="i in 10" :key="i" class="card">
+        <div v-for="complaint in this.$store.state.allComplaints" :key="complaint.id" class="card">
           <h5 class="reveal-on-visible text-dark-blue">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
           <p class="reveal-on-visible delay-2 text-gray-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
@@ -195,7 +196,7 @@
               </div>
             </div>
 
-            <img src="../../static/arrow.svg" class="arrow" />
+                  <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
             <div class="brand">
               <img src="../../static/trendyol.png" />

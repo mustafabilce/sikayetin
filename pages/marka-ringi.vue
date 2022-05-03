@@ -172,11 +172,26 @@
 </template>
 
 <script>
+import axios from "axios"
+import config from "../config"
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 
 export default {
   components: { Header, Footer },
+  // created() {
+  //   this.getUserInfo();
+  // },
+  // methods: {
+  //   getUserInfo() {
+  //     axios
+  //       .get(`${config.apiURL}/users/users/${this.$store.state.userID}`)
+  //       .then((response) => console.log(response.data))
+  //       .catch((error) => {
+  //         this.errors.push(error);
+  //       });
+  //   },
+  // },
   async mounted() {
     $('#trending .inner .slides').slick({
       dots: false,
