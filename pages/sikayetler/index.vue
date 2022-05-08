@@ -283,57 +283,14 @@
 
     <section id="trending" class="mt-0">
       <div class="background"></div>
-
-      <h2 class="big-title text-dark-blue">Şikayetler</h2>
-
-      <div class="inner">
-        <button class="slick-button prev-button">
-          <fa :icon="['fas', 'angle-left']" />
-        </button>
-
-        <div class="slides">
-          <div class="slide" v-for="complaint in this.$store.state.allComplaints" :key="complaint.id">
-            <h4 class="heading">Şikayet Başlığı dolor sit amet, consectetur</h4>
-            <div class="footer">
-              <div class="customer">
-                <img src="../../static/customer.png" />
-                <div>
-                  <span>Samet</span>
-                  <br />
-                  <span style="white-space: nowrap">
-                    12.123&nbsp;
-                    <fa :icon="['fas', 'eye']" style="display: inline" />
-                  </span>
-                </div>
-              </div>
-
-                  <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
-
-              <div class="brand">
-                <img src="../../static/trendyol.png" />
-                <div>
-                  <span>Trendyol</span>
-                  <div class="stars">
-                    <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button class="slick-button next-button">
-          <fa :icon="['fas', 'angle-right']" />
-        </button>
-      </div>
     </section>
 
-    <section id="all" style="margin-top: 150px">
+    <section id="all">
       <div class="row">
         <div class="col-12 mb-5">
           <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
-            <h2 class="text-dark-blue">Tüm Şikayetler</h2>
-            <span class="text-gray-2">12.850 şikayet</span>
+            <h2 class="text-dark-blue">Şikayetler</h2>
+            <span class="text-gray-2">{{this.$store.state.allComplaints.length}} şikayet</span>
           </div>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
@@ -349,9 +306,14 @@
           >
             <div class="customer-and-brand mb-4">
               <div class="customer">
-                <img src="../../static/customer.png" />
+              <div v-if="complaint.user.photo">
+                <img :src="complaint.user.photo" />
+              </div>
+              <div v-else-if="complaint.user.photo === null">
+                <b-avatar class="mr-2" src="https://placekitten.com/300/300"></b-avatar>
+              </div>
                 <div>
-                  <b>Samet</b>
+                  <b>{{complaint.user.name}}</b>
                   <br />
                   <span style="white-space: nowrap">
                     12.123&nbsp;
@@ -363,9 +325,9 @@
                   <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
               <div class="brand">
-                <img src="../../static/trendyol.png" />
+                <img :src="complaint.brand.logo" />
                 <div>
-                  <b>Trendyol</b>
+                  <b>{{complaint.brand.name}}</b>
                   <div class="stars">
                     <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                   </div>
@@ -373,7 +335,7 @@
               </div>
             </div>
             <h4 class="title">{{ complaint.title }}</h4>
-            <p class="text">{{ complaint.text }} <NuxtLink to="/sikayetler/samsung">Devamını Gör</NuxtLink></p>
+            <p class="text">{{ complaint.text }} <NuxtLink :to="`/sikayetler/${complaint.id}`">Devamını Gör</NuxtLink></p>
 
             <div class="footer">
               <div class="actions">
@@ -423,8 +385,6 @@
 </template>
 
 <script>
-import axios from "axios"
-import config from "../../config"
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import FilterBox from '~/components/FilterBox.vue';

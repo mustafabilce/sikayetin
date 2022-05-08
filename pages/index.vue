@@ -53,30 +53,62 @@ export default {
   created() {
     this.getBrands();
     this.getAllComplaints();
+    this.getPopularComplaints();
+    this.getPopularCategories();
+    this.getPopularBrands();
+    this.getPopularComments();
   },
   data: () => ({
     isIndividual: true,
     brands: [],
     allComplaints: [],
+    popularComplaints: [],
+    popularCategories: [],
+    popularBrands: [],
+    popularComments: [],
   }),
   methods: {
     ...mapActions([
       'updateBrands',
       'updateAllComplaints',
+      'updatePopularComplaints',
+      'updatePopularCategories',
+      'updatePopularBrands',
+      'updatePopularComments',
     ]),
     getBrands() {
       axios
         .get(`${config.apiURL}/brands/all-brands/?limit=10&offset=0`)
-        .then((response) => (this.updateBrands(response.data.results)))
+        .then((response) => this.updateBrands(response.data.results));
     },
     getAllComplaints() {
       axios
         .get(`${config.apiURL}/brands/all-complaints/`)
-        .then((response) => (this.updateAllComplaints(response.data.results)))
+        .then((response) => this.updateAllComplaints(response.data.results));
+    },
+    getPopularComplaints() {
+      axios
+        .get(`${config.apiURL}/brands/all-complaints/?limit=5&offset=0`)
+        .then((response) => this.updatePopularComplaints(response.data.results));
+    },
+    getPopularCategories() {
+      axios.get(`${config.apiURL}/brands/categories/`).then((response) => this.updatePopularCategories(response.data));
+    },
+    getPopularBrands() {
+      axios
+        .get(`${config.apiURL}/brands/all-brands/?limit=6&offset=0`)
+        .then((response) => this.updatePopularBrands(response.data.results));
+    },
+    getPopularComments() { 
+      axios
+        .get(`${config.apiURL}/brands/popular-comments/`)
+        .then((response) => this.updatePopularComments(response.data));
     },
   },
   mounted() {
-    console.log('mounted');
+    var person =  this.$store.state.userInfo ;
+    localStorage.setItem('person', JSON.stringify(person)); //stringify object and store
+    var retrievedPerson = JSON.parse(localStorage.getItem('person')); //retrieve the object
     $('#loader').animate({ opacity: 0 }, 500);
   },
 };

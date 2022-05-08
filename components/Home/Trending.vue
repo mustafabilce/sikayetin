@@ -6,7 +6,12 @@
     display: flex;
     flex-direction: column;
     padding: 25px 0;
-
+    @media (max-width: 600px) {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 0;
+      margin-top: 0;
+    }
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -145,16 +150,19 @@
     <div class="inner">
       <div class="trending-row row-1">
         <div v-for="complaint in this.$store.state.allComplaints" :key="complaint.id" class="card">
-          <h5 class="reveal-on-visible text-dark-blue">{{complaint.title}}</h5>
-          <p class="reveal-on-visible delay-2 position-relative text-gray-2">
-            <fa :icon="['fas', 'quote-left']" style="position: absolute; left: 10px; top: 20px; font-size: 16px; color: #85DCED;" />
-            {{complaint.text}}
-          </p>
+          <h5 class="reveal-on-visible text-dark-blue">
+            <NuxtLink class="text-dark-blue" :to="`/sikayetler/${complaint.id}`">{{complaint.title}}</NuxtLink>
+          </h5>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
-              <img src="../../static/customer.png" />
+              <div v-if="complaint.user.photo">
+                <img :src="complaint.user.photo" />
+              </div>
+              <div v-else-if="complaint.user.photo === null">
+                <b-avatar class="border mr-2" src="https://placekitten.com/300/300"></b-avatar>
+              </div>
               <div class="small">
-                <b class="text-dark-blue">Samet</b>
+                <b class="text-dark-blue">{{complaint.user.name}}</b>
                 <br />
                 <span style="white-space: nowrap">
                   12.123&nbsp;
@@ -166,9 +174,11 @@
             <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
             <div class="brand">
-              <img src="../../static/trendyol.png" />
+              <div>
+                <b-avatar class="border mr-2" variant="link" :src="complaint.brand.logo" />
+              </div>
               <div class="small">
-                <b class="text-dark-blue">Trendyol</b>
+                <b class="text-dark-blue">{{complaint.brand.name}}</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </div>
@@ -179,15 +189,19 @@
       </div>
       <div class="trending-row row-2">
         <div v-for="complaint in this.$store.state.allComplaints" :key="complaint.id" class="card">
-          <h5 class="reveal-on-visible text-dark-blue">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h5>
-          <p class="reveal-on-visible delay-2 text-gray-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus lectu
-          </p>
+          <h5 class="reveal-on-visible text-dark-blue">
+            <NuxtLink class="text-dark-blue" :to="`/sikayetler/${complaint.id}`">{{complaint.title}}</NuxtLink>
+          </h5>
           <div class="footer reveal-on-visible delay-3">
             <div class="customer">
-              <img src="../../static/customer.png" />
+              <div v-if="complaint.user.photo">
+                <img :src="complaint.user.photo" />
+              </div>
+              <div v-else-if="complaint.user.photo === null">
+                <b-avatar class="mr-2" src="https://placekitten.com/300/300"></b-avatar>
+              </div>
               <div class="small">
-                <b class="text-dark-blue">Samet</b>
+                <b class="text-dark-blue">{{complaint.user.name}}</b>
                 <br />
                 <span style="white-space: nowrap">
                   12.123&nbsp;
@@ -196,12 +210,14 @@
               </div>
             </div>
 
-                  <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
+            <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
             <div class="brand">
-              <img src="../../static/trendyol.png" />
+              <div>
+                <b-avatar variant="link" class="border mr-2" :src="complaint.brand.logo" />
+              </div>
               <div class="small">
-                <b class="text-dark-blue">Trendyol</b>
+                <b class="text-dark-blue">{{complaint.brand.name}}</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </div>

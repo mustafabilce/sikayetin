@@ -5,13 +5,12 @@
   overflow: hidden !important;
 
   @media (max-width: 600px) {
-      margin-top: 0;
+    margin-top: 0;
   }
 
   .inner {
     background-color: #5379ff;
     color: white;
-    float: right;
     border-radius: 500px 0 0 500px;
     text-align: center;
     padding: 80px 250px 80px 250px;
@@ -24,6 +23,10 @@
     #inputs {
       z-index: 2 !important;
       position: relative;
+      @media (max-width: 600px) {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+      }
     }
 
     p {
@@ -199,17 +202,23 @@
 <template>
   <section id="compare">
     <div class="inner">
-      <h1 class="reveal-on-visible">Marka Karşılaştırması</h1>
+      <h1>Marka Karşılaştırması</h1>
 
-      <p class="mt-3 mb-4 reveal-on-visible delay-1" style="font-weight: 300">
+      <p class="mt-3 mb-4" style="font-weight: 300">
         Bir ürün yada hizmet satın alacağınız zaman markalar arasında seçim yapmakta zorlanıyor musunuz? Simdi iki marka
         seçin ve yarışsınlar. Bakalım rakamlar ne gosterecek, hep birlikte görelim.
       </p>
 
       <div id="inputs">
-        <input type="text" placeholder="1. Marka" />
-        <button>Yarıştır</button>
-        <input type="text" placeholder="2. Marka" />
+        <v-select
+          :options="this.$store.state.brands.map((brand) => brand.name)"
+        >
+        </v-select>
+        <button class="py-2">Yarıştır</button>
+        <v-select
+          :options="this.$store.state.brands.map((brand) => brand.name)"
+        >
+        </v-select>
       </div>
 
       <div class="abstract">
@@ -226,3 +235,18 @@
     <div class="circle-small"></div>
   </section>
 </template>
+
+<script>
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
+
+export default {
+  data() {
+    return {
+      firstSelectedItem: null,
+      secondSelectedItem: null,
+    };
+  },
+  components: { vSelect },
+};
+</script>

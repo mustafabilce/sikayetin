@@ -10,14 +10,14 @@
       <span aria-hidden="true">&times;</span>
     </button>
     <div class="row login-box">
-      <div class="col-4 modal-left-banner">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12 modal-left-banner">
         <img class="img-fluid banner-logo" src="../../static/logo-white.png" id="logo" />
         <div class="pink-left"></div>
         <div class="yellow-left"></div>
         <img class="img-fluid banner-img" src="../../static/banner1.png" id="logo" />
         <div class="blue-left"></div>
       </div>
-      <div class="col-8 modal-right">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-12 modal-right">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -25,12 +25,12 @@
             </div>
             <div class="col-12 login-with">
               <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                   <button class="btn-block">
                     <p><img src="../../static/google.png" id="logo" />Google ile giriş yap</p>
                   </button>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 xs-mt-3">
                   <button class="btn-block">
                     <p><img src="../../static/google.png" id="logo" />Google ile giriş yap</p>
                   </button>
@@ -41,7 +41,7 @@
               <p class="sep-text">- yada -</p>
             </div>
             <div class="col-12 modal-form">
-              <form class="mx-5">
+              <form class="mx-5 xs-mx-0">
                 <div class="form-group">
                   <input
                     type="email"
@@ -103,7 +103,7 @@ export default {
       await axios
         .post(`${config.apiURL}/users/login/`, { email: this.email, password: this.password })
         .then((response) => {
-          if (response.status ===  200) {
+          if (response.data.active === true) {
             this.$store.commit('auth');
             this.modalShow = false;
             this.updateUserInfo(response.data);
@@ -122,7 +122,6 @@ export default {
 
 <style lang="scss">
 #login-modal {
-  border-radius: 30px;
   .modal-close {
     position: absolute;
     right: 20px;
@@ -137,6 +136,9 @@ export default {
     border-radius: 30px;
     border: 6px solid #fff;
     margin: 0;
+    @media (max-width: 600px) {
+      border: 3px solid transparent !important;
+    }
   }
   .modal-content {
     border-radius: 30px;
@@ -146,6 +148,9 @@ export default {
     padding: 0;
     border-radius: 30px;
     background-color: #35cced;
+    @media (max-width: 600px) {
+      background-color: transparent !important;
+    }
   }
 }
 .modal-left-banner {
@@ -191,6 +196,9 @@ export default {
     background-color: #5379ff;
     height: 60px;
     width: 100px;
+  }
+  @media (max-width: 600px) {
+    display: none !important;
   }
 }
 .modal-right {

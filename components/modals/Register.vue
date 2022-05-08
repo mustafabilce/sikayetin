@@ -1,5 +1,5 @@
 <template>
-  <b-modal class="register-modal" id="register-modal" centered hide-footer hide-header size="lg">
+  <b-modal v-model="modalShow" class="register-modal" id="register-modal" centered hide-footer hide-header size="lg">
     <button
       type="button"
       class="modal-close"
@@ -42,15 +42,6 @@
             </div>
             <div class="col-12 modal-form">
               <form class="mx-5">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control rounded-pill px-4 border-0 shadow-sm"
-                    id="username"
-                    placeholder="Ad Soyad"
-                    v-model="username"
-                  />
-                </div>
                 <div class="form-group">
                   <input
                     type="email"
@@ -100,26 +91,36 @@
 <script>
 import axios from 'axios';
 import config from '../../config';
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
-      username: '',
       email: '',
       password: '',
       confirmation: '',
+      modalShow: null,
     };
   },
   methods: {
+    ...mapActions([
+      'updateUserInfo',
+    ]),
     async register() {
       await axios
         .post(`${config.apiURL}/users/register/`, {
           confirmation: this.confirmation,
           password: this.password,
           email: this.email,
-          username: this.username,
         })
         .then((response) => {
-          console.log(response);
+          if (response.status ===  200) {
+            this.$store.commit('auth');
+            this.modalShow = false;
+            this.updateUserInfo(response.data);
+          } else {
+            this.$store.commit('notAuth');
+            console.log('HATALI');
+          }
         });
     },
   },

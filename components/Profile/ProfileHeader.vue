@@ -81,19 +81,19 @@
                 class="bg-light"
                 style="max-height: 32px; max-width: 32px"
                 variant="info"
-                src="../../static/customer-2.png"
+                :src="$store.state.userInfo.photo"
               ></b-avatar>
-              <span class="ml-2 mr-3 small">Mustafa</span>
+              <span class="ml-2 mr-3 small">{{$store.state.userInfo.name}}</span>
               <fa :icon="['fas', 'angle-down']" />
             </template>
             <div class="dropdown-item small">
               <div class="dropdown-profile">
                 <div>
-                  <img src="../../static/customer-2.png" alt="" />
+                  <img :src="this.$store.state.userInfo.photo" alt="" />
                 </div>
                 <div class="text">
-                  <h6 class="mb-1">Mustafa Bilce</h6>
-                  <p class="mb-0 text-muted">mustafabilce12@gmail.com</p>
+                  <h6 class="mb-1">{{ this.$store.state.userInfo.name }} {{ this.$store.state.userInfo.surname }}</h6>
+                  <p class="mb-0 text-muted">{{this.$store.state.userInfo.email}}</p>
                 </div>
               </div>
             </div>

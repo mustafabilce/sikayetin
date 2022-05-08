@@ -25,7 +25,11 @@ section.heading {
       transform: scale(0.9);
       padding: 30px;
       border-radius: 30px;
-      margin-top: 30px;
+      margin-top: 50px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       .heading {
         font-weight: 700;
@@ -37,7 +41,6 @@ section.heading {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-top: 50px;
       }
 
       p {
@@ -47,6 +50,11 @@ section.heading {
         margin: 0 auto;
         position: relative;
         text-indent: 20px;
+        
+        white-space: nowrap; 
+        width: 100%; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
 
         @media (max-width: 800px) {
           padding: 25px 0;
@@ -150,9 +158,9 @@ section.heading {
           </a>
           <div class="footer reveal-on-visible delay-4">
             <div class="customer">
-              <img src="../../static/customer.png" />
+              <img :src="complaint.user.photo" />
               <div>
-                <b>Samet</b>
+                <b>{{ complaint.user.name }}</b>
                 <br />
                 <span style="white-space: nowrap">
                   12.123&nbsp;
@@ -164,9 +172,9 @@ section.heading {
             <img src="../../static/arrow.svg" class="arrow" />
 
             <div class="brand">
-              <img src="../../static/trendyol.png" />
+              <img :src="complaint.brand.logo" />
               <div>
-                <b>Trendyol</b>
+                <b>{{ complaint.brand.name }}</b>
                 <div class="stars">
                   <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                 </div>

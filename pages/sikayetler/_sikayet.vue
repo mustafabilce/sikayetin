@@ -14,42 +14,31 @@
     <section class="heading">
       <div class="row mt-5">
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-          <h4 class="title">Samsung Telefon Galaxy A71 Android 12 Güncellemesi!</h4>
+          <h4 class="title">{{ complaint.title }}</h4>
           <p class="text-muted">18 Görüntülenme</p>
 
           <b-card class="media-card">
             <b-media>
               <template #aside>
-                <b-avatar text="CA" variant="primary"></b-avatar>
+                <b-avatar v-if="complaintUser.photo" :src="complaintUser.photo" variant="link"></b-avatar>
+                <b-avatar v-else text="K" variant="primary"></b-avatar>
               </template>
 
-              <h5 class="mt-0 d-inline-block">Coşkun</h5>
-              <span class="small gray-text font-weight-lighter ml-2">12 Dakika önce</span>
-              <p class="small">
-                Samsung Galaxy A71 kullanıcısıyım. Samsung ® güncelleme konusunda çok ağır Türkiye gibi büyük pazarda
-                büyük olumsuzluk bu vadettikleri tarih geçmesine rağmen Android 12 güncellemesi gelmiyor hala. Bir daha
-                Samsung kullanmayacağımı belirtmek istiyorum.
-              </p>
-              <p class="small">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia laborum voluptas natus beatae quos
-                labore impedit cum illo alias nihil.
-              </p>
+              <h5 class="mt-0 d-inline-block" v-if="complaintUser.name">{{ complaintUser.name }}</h5>
+              <h5 class="mt-0 d-inline-block" v-else>{{ complaintUser.email }}</h5>
+              <span class="small gray-text font-weight-lighter ml-2">{{ complaint.created }}</span>
+              <p class="small">{{ complaint.text }}</p>
 
-              <b-media class="mt-4">
+              <b-media class="mt-4" v-for="comment in comments" :key="comment.id">
                 <template #aside>
-                  <b-avatar text="S" variant="info"></b-avatar>
+                  <b-avatar :src="complaintBrand.logo" variant="light"></b-avatar>
                 </template>
 
-                <h5 class="mt-0 d-inline-block">Samsung</h5>
+                <h5 class="mt-0 d-inline-block">{{ complaintBrand.name }}</h5>
                 <span class="small gray-text font-weight-lighter ml-2">15 Dakika önce</span>
                 <div class="card-body mt-3 p-3 border rounded" style="background-color: #f6fafd">
                   <p class="mb-0 small">
-                    Değerli Müşterimiz, <br /><br />
-                    Öncelikle firmamızı tercih etmiş olduğunuz için teşekkür ederiz. Başvurunuz ile ilgili, şikayet
-                    çözüm merkezimiz sizinle irtibata geçecektir. <br /><br />
-                    Ürün ve hizmetlerimiz ile ilgili her türlü bilgi, öneri, görüş ve çözüm taleplerinizi
-                    www.samsung.com adresinin bize ulaşın bölümünden iletebilirsiniz. <br /><br />
-                    Saygılarımızla Samsung Electronics Türkiye www.samsung.com
+                    {{comment.text}}
                   </p>
                 </div>
               </b-media>
@@ -57,7 +46,7 @@
             <div class="comment-box position-relative mt-5">
               <b-avatar class="comment-avatar" text="MB" variant="success"></b-avatar>
               <b-form-textarea id="textarea" placeholder="Yorum Yaz" rows="5" max-rows="8"></b-form-textarea>
-              <div class="row no-gutters py-2" style="background-color: #f6fafd;">
+              <div class="row no-gutters py-2" style="background-color: #f6fafd">
                 <div class="col-6">
                   <div class="input-group comment-file">
                     <div class="input-group-prepend">
@@ -79,7 +68,7 @@
                   </div>
                 </div>
                 <div class="col-6 text-right">
-                  <button class="light-success-button border-0" style="background-color: transparent;">
+                  <button class="light-success-button border-0" style="background-color: transparent">
                     <fa class="mr-2" :icon="['fas', 'comment']" />Yorum Yap
                   </button>
                 </div>
@@ -87,17 +76,13 @@
             </div>
           </b-card>
 
-            <div class="card mt-3">
-                <div class="card-body border rounded">
-                    <h4>Benzer Şikayetler</h4>
-                    <ComplaintCard class="border-0" />
-                    <div class="border-bottom"></div>
-                    <ComplaintCard class="border-0" />
-                    <div class="border-bottom"></div>
-                    <ComplaintCard class="border-0" />
-                </div>
+          <div class="card mt-3">
+            <div class="card-body border rounded">
+              <h4>Benzer Şikayetler</h4>
+                <!-- <ComplaintCard class="border-0" />
+                <div class="border-bottom"></div> -->
             </div>
-
+          </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
           <ComplaintStatus />
@@ -112,6 +97,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
@@ -124,17 +111,53 @@ export default {
   data() {
     return {
       file1: null,
+      complaint: [],
+      complaintUser: [],
+      complaintBrand: [],
+      comments: [],
     };
+  },
+  created() {
+    this.getComplaint();
+    this.getComments();
+  },
+  methods: {
+    getComplaint() {
+      axios
+        .get(`${config.apiURL}/brands/complaints/${this.$route.params.sikayet}/`)
+        .then((response) => {
+          this.complaint = response.data;
+          this.complaintUser = response.data.user;
+          this.complaintBrand = response.data.brand;
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+    getComments() { 
+      axios
+        .get(`${config.apiURL}/brands/complaints/${this.$route.params.sikayet}/comments/`)
+        .then((response) => {
+          if (response.data === "Şikayet ile ilgili yorum bulunamadı!") {
+            console.log("Şikayet ile ilgili yorum bulunamadı!")
+          } else {
+            this.comments = response.data
+          }
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .media-card {
-    .card-body {
-        border: 1px solid #dee2e6;
-        border-radius: .25rem;
-    }
+  .card-body {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+  }
   h5 {
     color: #3a3a3a;
   }

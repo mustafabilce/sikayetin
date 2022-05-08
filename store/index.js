@@ -4,6 +4,10 @@ export const state = () => ({
     categories: [],
     allComplaints: [],
     userInfo: {},
+    popularComplaints: [],
+    popularCategories: [],
+    popularBrands: [],
+    popularComments: [],
 })
 
 export const mutations = {
@@ -24,7 +28,19 @@ export const mutations = {
     },
     setAllComplaints(state, allComplaints){
         state.allComplaints = allComplaints
-    }
+    },
+    setPopularComplaints(state, popularComplaints){
+        state.popularComplaints = popularComplaints
+    },
+    setPopularCategories(state, popularCategories){
+        state.popularCategories = popularCategories
+    },
+    setPopularBrands(state, popularBrands){
+        state.popularBrands = popularBrands
+    },
+    setPopularComments(state, popularComments){
+        state.popularComments = popularComments
+    },
 }
 
 export const actions = {
@@ -39,5 +55,17 @@ export const actions = {
     },
     updateAllComplaints({commit}, allComplaints){
         commit('setAllComplaints', allComplaints);
+    },
+    updatePopularComplaints({commit}, popularComplaints){
+        commit('setPopularComplaints', popularComplaints);
+    },
+    updatePopularCategories({commit}, popularCategories){
+        commit('setPopularCategories', popularCategories);
+    },
+    updatePopularBrands({commit}, popularBrands){
+        commit('setPopularBrands', popularBrands);
+    },
+    updatePopularComments({commit}, popularComments){
+        commit('setPopularComments', popularComments);
     },
 }

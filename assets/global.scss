@@ -505,9 +505,15 @@ $live-button-pulse-to: #d13d58;
 	overflow-y: scroll;
 }
 
+.mx-7 {
+	margin-left: 6rem;
+	margin-right: 6rem;
+}
+
 /* MARGIN - PADDING */
 
 @media (max-width: 600px) {
+	
 	.xs-mt-1 {
 		margin-top: 0.25rem;
 	}
@@ -570,5 +576,172 @@ $live-button-pulse-to: #d13d58;
 	}
 	.xs-ml-5 {
 		margin-left: 3rem;
+	}
+
+	.xs-mx-0 {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	.xs-mx-1 {
+		margin-left: 0.25rem !important;
+		margin-right: 0.25rem !important;
+	}
+	.xs-mx-2 {
+		margin-left: 0.5rem !important;
+		margin-right: 0.5rem !important;
+	}
+	.xs-mx-3 {
+		margin-left: 1rem !important;
+		margin-right: 1rem !important;
+	}
+	.xs-mx-4 {
+		margin-left: 1.5rem !important;
+		margin-right: 1.5rem !important;
+	}
+	.xs-mx-5 {
+		margin-left: 3rem !important;
+		margin-right: 3rem !important;
+	}
+}
+
+#search {
+	.v-select, .v-select * {
+		background-color: #fff !important;
+		border-radius: 30px !important;
+	}
+	
+	.vs--open .vs__dropdown-toggle {
+		background-color: #fff !important;
+	}
+	
+	.vs__dropdown-toggle {
+		border-radius: 30px !important;
+		padding: 10px !important;
+	}
+	
+	.vs__actions {
+		background-color: #FF5777 !important;
+		padding: 15px 20px !important;
+		border-radius: 20px !important;
+		button {
+			display: none !important;
+		}
+	}
+	
+	.vs__open-indicator {
+		background-color: #FF5777 !important;
+		fill: #fff !important;
+	}
+	
+	.vs__selected-options {
+		border-radius: 30px !important;
+	}
+	
+	.vs--single .vs__selected {
+		color: #afb0b6 !important;
+		font-size: 13px !important;
+	}
+	
+	.vs__search, .vs__search:focus {
+		background-color: #fff !important;
+		color: #00244c !important;
+		border-radius: 30px !important;
+	}
+	
+	.vs__dropdown-toggle {
+		border: none !important;
+	}
+	
+	.vs__dropdown-menu {
+		max-height: 200px !important;
+		overflow-y: scroll !important;
+		padding: 20px !important;
+		border-radius: 30px !important;
+		margin-top: 10px !important;
+	}
+	
+	.vs__dropdown-option {
+		color: #afb0b6 !important;
+		border-radius: 30px !important;
+		padding: 7px 20px !important;
+		margin-bottom: 5px !important;
+		transition: .5s !important;
+	}
+	
+	.vs__dropdown-option--highlight {
+		background-color: #00244c !important;
+		color: #fff !important;
+	}
+}
+
+#inputs {
+	.v-select, .v-select * {
+		background-color: #fff !important;
+		border-radius: 30px !important;
+		z-index: 9999 !important;
+	}
+	
+	.vs--open .vs__dropdown-toggle {
+		background-color: #fff !important;
+	}
+	
+	.vs__dropdown-toggle {
+		border-radius: 30px !important;
+		padding: 5px !important;
+	}
+	
+	.vs__actions {
+		background-color: #FF5777 !important;
+		padding: 0px 10px !important;
+		border-radius: 20px !important;
+		button {
+			display: none !important;
+		}
+	}
+	
+	.vs__open-indicator {
+		background-color: #FF5777 !important;
+		fill: #fff !important;
+	}
+	
+	.vs__selected-options {
+		border-radius: 30px !important;
+		min-width: 200px !important;
+	}
+	
+	.vs--single .vs__selected {
+		color: #afb0b6 !important;
+		font-size: 13px !important;
+	}
+	
+	.vs__search, .vs__search:focus {
+		background-color: #fff !important;
+		color: #00244c !important;
+		border-radius: 30px !important;
+	}
+	
+	.vs__dropdown-toggle {
+		border: none !important;
+	}
+	
+	.vs__dropdown-menu {
+		max-height: 200px !important;
+		overflow-y: scroll !important;
+		padding: 20px !important;
+		border-radius: 30px !important;
+		margin-top: 10px !important;
+	}
+	
+	.vs__dropdown-option {
+		color: #afb0b6 !important;
+		border-radius: 30px !important;
+		padding: 7px 20px !important;
+		margin-bottom: 5px !important;
+		transition: .5s !important;
+	}
+	
+	.vs__dropdown-option--highlight {
+		background-color: #00244c !important;
+		color: #fff !important;
 	}
 }

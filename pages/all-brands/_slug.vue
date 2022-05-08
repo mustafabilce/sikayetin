@@ -71,7 +71,7 @@
                     <button class="complaint-button border rounded">
                     <div>
                       <b-avatar class="avatar"></b-avatar>
-                    <p class="text-muted">Apple ile ilgili bir şikayetin mi var?</p>
+                    <p class="text-muted">{{brand.name}} ile ilgili bir şikayetin mi var?</p>
                     </div>
                     <span class="text rounded small">Şikayet Yaz</span>
                   </button>
@@ -81,7 +81,7 @@
                   </div>
                   <div>
                       <div v-for="complaint in complaints" :key="complaint.id">
-                          <ComplaintCard :title="complaint.title" :text="complaint.text" :image="complaint.image" :user="complaint.user"  />
+                          <ComplaintCard :title="complaint.title" :text="complaint.text" :image="complaint.logo"  />
                       </div>
                   </div>
                 </div>

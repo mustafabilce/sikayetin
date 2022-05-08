@@ -1,9 +1,15 @@
 <style lang="scss" scoped>
 #compare {
+  background-color: #5379ff;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-radius: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
   .inputs {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 50px 0;
 
     @media (max-width: 800px) {
@@ -123,7 +129,7 @@
     </div>
 
     <section id="compare">
-      <h1 class=" big-title">Marka Karşılaştırma</h1>
+      <h1 class="big-title text-white">Marka Karşılaştırma</h1>
 
       <div class="inputs ">
         <input type="text" placeholder="1. Marka" />

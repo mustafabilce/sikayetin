@@ -238,11 +238,11 @@
         </div>
 
         <div class="top-menu">
-          <a href="#" class="button">Şikayet Yaz</a>
+          <NuxtLink to="/sikayet-yaz" class="button">Şikayet Yaz</NuxtLink>
           <p>
-            <a href="#">Giriş Yap</a>
+            <a href="#" v-b-modal.login-modal>Giriş Yap</a>
             <span>|</span>
-            <a href="#">Üye Ol</a>
+            <a href="#" v-b-modal.register-modal>Üye Ol</a>
           </p>
         </div>
       </div>
@@ -255,11 +255,16 @@
       </div>
     </div>
 
+    <Login />
+    <Register />
+
     <div class="darken-background" :class="expanded ? '' : 'hide'" @click="expanded = false"></div>
   </div>
 </template>
 
 <script>
+  import Login from "./modals/Login.vue"
+  import Register from "./modals/Register.vue"
 
 export default {
   data: () => ({

@@ -2,11 +2,11 @@
   <div class="complaint border rounded mt-4">
     <div class="customer-and-brand mb-4">
       <div class="customer">
-        <img class="mr-2" v-if="user.image = null" :src="user.image" />
+        <img class="mr-2" v-if="user" :src="user" />
         <b-avatar class="mr-2" v-else></b-avatar>
         <div>
-          <b v-if="user.username">{{user.username}}</b>
-          <b b-else>Unkown</b>
+          <b v-if="user">{{user}}</b>
+          <b v-else>Unkown</b>
           <br />
           <span style="white-space: nowrap">
             12.123&nbsp;
@@ -73,19 +73,19 @@ export default {
       
     };
   },
-  created() {
-    this.getUser();
-  },
-  methods: {
-    getUser() {
-      axios
-        .get(`${config.apiURL}/users/users/${this.user}/`)
-        .then((response) => ((this.user = response.data)))
-        .catch((error) => {
-          this.errors.push(error);
-        });
-    },
-  },
+  // created() {
+  //   this.getUser();
+  // },
+  // methods: {
+  //   getUser() {
+  //     axios
+  //       .get(`${config.apiURL}/users/users/${this.user}/`)
+  //       .then((response) => ((this.user = response.data)))
+  //       .catch((error) => {
+  //         console.log(error)
+  //       });
+  //   },
+  // },
 };
 </script>
 

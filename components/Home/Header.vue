@@ -61,8 +61,8 @@ header {
 
     @media (min-width: 768px) {
       #burger_menu_holder {
-      display: none;
-    }
+        display: none;
+      }
     }
 
     #logo {
@@ -152,7 +152,7 @@ header {
       &.active {
         cursor: default;
         position: relative;
-        color: #85DCED;
+        color: #85dced;
       }
     }
 
@@ -204,60 +204,6 @@ header {
       max-width: 100%;
       z-index: 1;
       position: relative;
-      
-      .dropdown {
-        width: 100%;
-      }
-
-      @media (max-width: 700px) {
-        max-width: min(375px, 100%);
-      }
-
-      @media (max-width: 500px) {
-        max-width: min(260px, 100%);
-      }
-
-      input {
-        width: 100%;
-        border-radius: 100px;
-        padding: 20px 30px;
-        box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.2);
-        font-size: 15px;
-
-        @media (max-width: 600px) {
-          padding: 10px 15px;
-          font-size: 12px;
-        }
-
-        &:hover {
-          box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.4);
-        }
-
-        &:focus {
-          box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.8);
-        }
-      }
-
-      button {
-        background: rgb(255, 87, 119);
-        background: linear-gradient(0, rgba(255, 87, 119, 1) 0%, rgba(255, 194, 71, 1) 100%);
-        border-radius: 100px;
-        position: absolute;
-        top: 15px;
-        right: 24px;
-        width: 125px;
-        height: 48px;
-        font-size: 1em;
-
-        @media (max-width: 600px) {
-          padding: 10px 15px;
-          width: unset;
-          height: unset;
-          font-size: 12px;
-          top: 8px;
-          right: 16px;
-        }
-      }
     }
 
     #banner {
@@ -598,7 +544,7 @@ header {
                   variant="info"
                   :src="$store.state.userInfo.photo"
                 ></b-avatar>
-                <span class="ml-2 mr-2 font-weight-bolder text-light">{{$store.state.userInfo.username}}</span>
+                <span class="ml-2 mr-2 font-weight-bolder text-light">{{ $store.state.userInfo.username }}</span>
                 <fa class="text-light" :icon="['fas', 'angle-down']" />
               </template>
               <div class="dropdown-item small">
@@ -607,8 +553,11 @@ header {
                     <img :src="this.$store.state.userInfo.photo" alt="" />
                   </div>
                   <div class="text">
-                    <h6 class="mb-1">{{this.$store.state.userInfo.name}} <img height="18" width="18" src="../../static/verified.svg" /></h6>
-                    <p class="mb-0 text-muted">{{this.$store.state.userInfo.email}}</p>
+                    <h6 class="mb-1">
+                      {{ this.$store.state.userInfo.name }}
+                      <img height="18" width="18" src="../../static/verified.svg" />
+                    </h6>
+                    <p class="mb-0 text-muted">{{ this.$store.state.userInfo.email }}</p>
                   </div>
                 </div>
               </div>
@@ -618,14 +567,14 @@ header {
                   <fa class="mr-2" :icon="['fas', 'user']" /><span>Profilimi Düzenle</span>
                 </div>
               </NuxtLink>
-              <NuxtLink class="dropdown-item small" to="/profilim">
+              <NuxtLink class="dropdown-item small" to="/profilim/sikayetlerim">
                 <div class="dropdown-item small">
                   <fa class="mr-2" :icon="['fas', 'pen']" /><span>Şikayetlerim</span>
                 </div>
               </NuxtLink>
-              <NuxtLink class="dropdown-item small" to="/profilim">
+              <NuxtLink class="dropdown-item small" to="/profilim/takip-ettiklerim">
                 <div class="dropdown-item small">
-                  <fa class="mr-2" :icon="['fas', 'bookmark']" /><span>Kaydedilenler</span>
+                  <fa class="mr-2" :icon="['fas', 'bookmark']" /><span>Takip Ettiklerim</span>
                 </div>
               </NuxtLink>
               <b-dropdown-divider></b-dropdown-divider>
@@ -647,7 +596,7 @@ header {
           </div>
           <div v-else>
             <fa :icon="['fas', 'arrow-right-to-bracket']" />
-            <a  href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
+            <a href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
             <fa :icon="['fas', 'user']" />
             <a class="" href="#" v-b-modal.register-modal><b>Üye Ol</b></a>
           </div>
@@ -666,24 +615,17 @@ header {
     <div v-if="full" id="landing">
       <div id="call_to_action">
         <h1>
-          <span  style="font-weight: 400"> Şikayet.in varsa </span>
+          <span style="font-weight: 400"> Şikayet.in varsa </span>
           <br />
           <span class="" style="font-weight: 600"> Çözüm de var! </span>
         </h1>
 
         <div id="search">
-          <b-dropdown size="lg" variant="link" toggle-class="text-decoration-none" no-caret menu-class="w-100 p-2 search-dropdown">
-            <template #button-content>
-              <input class="" type="text" placeholder="Marka, model, ürün ara"  />
-              <button class="btn">
-                Ara
-              </button>
-            </template>
-            <b-dropdown-item class="small py-1" href="#" v-for="brand in this.$store.state.brands" :key="brand.id">
-              <b-avatar size="2rem" rounded class="p-1 mr-2 border" variant="link" :src="brand.logo"></b-avatar>
-              {{brand.name}}
-            </b-dropdown-item>
-          </b-dropdown>
+          <v-select 
+            value="Marka, Model veya Ürün Arayın..." 
+            :options="this.$store.state.brands.map(brand => brand.name)"
+          >
+          </v-select>
         </div>
 
         <div id="banner" class="">
@@ -714,12 +656,13 @@ header {
 </template>
 
 <script>
-import axios from 'axios';
-import config from '../../config';
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 import BurgerMenu from '../BurgerMenu.vue';
 import Login from '~/components/modals/Login.vue';
 import Register from '~/components/modals/Register.vue';
 import Verification from '~/components/modals/Verification.vue';
+import SearchBrandForm from '~/components/Home/SearchBrandForm.vue';
 export default {
   props: {
     full: { type: Boolean, default: false },
@@ -737,7 +680,7 @@ export default {
     isScrolled: false,
     scrollEndTimeout: null,
   }),
-  components: { BurgerMenu, Login, Register, Verification },
+  components: { BurgerMenu, Login, Register, Verification, SearchBrandForm, vSelect },
   methods: {
     OnScroll(checkForScrollEnd = true) {
       const breakpoint = this.full ? 600 : 100;
@@ -756,15 +699,18 @@ export default {
     },
   },
   computed: {
-        resultQuery(){
-      if(this.searchQuery){
-      return this.$store.state.brands.filter((item)=>{
-        return this.searchQuery.toLowerCase().split(' ').every(v => item.title.toLowerCase().includes(v))
-      })
-      }else{
+    resultQuery() {
+      if (this.searchQuery) {
+        return this.$store.state.brands.filter((item) => {
+          return this.searchQuery
+            .toLowerCase()
+            .split(' ')
+            .every((v) => item.title.toLowerCase().includes(v));
+        });
+      } else {
         return this.$store.state.brands;
       }
-    }
+    },
   },
   created() {
     this.bannerIndex = Math.round(Math.random() * (this.bannerCount - 1));

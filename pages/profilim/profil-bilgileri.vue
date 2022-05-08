@@ -5,18 +5,18 @@
         <Sidebar />
       </div>
       <div class="col-9">
-          <MyRating />
+          <ProfileInfo />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Sidebar from '~/components/myBrand/Sidebar.vue';
-import MyRating from '~/components/myBrand/MyRating.vue';
+import Sidebar from '~/components/Profile/Sidebar.vue';
+import ProfileInfo from '~/components/Profile/ProfileInfo.vue';
 
 export default {
-  components: { Sidebar, MyRating },
+  components: { Sidebar, ProfileInfo },
 };
 </script>
 

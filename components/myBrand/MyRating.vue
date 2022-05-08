@@ -99,7 +99,7 @@ export default {
   height: 100%;
   padding: 30px 50px;
   background-color: #f4f5f9;
-  border-radius: 37px 0 0 37px;
+  border-radius: 0;
   .card {
     .card-body {
       p {

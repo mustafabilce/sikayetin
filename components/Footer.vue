@@ -7,7 +7,24 @@ footer {
   $mobile-breakpoint-2: 960px;
 
   .logo {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(209, 210, 215, 0.2);
+
+    .social {
+      cursor: default;
+
+      @media (max-width: $mobile-breakpoint) {
+        text-align: center;
+      }
+
+      img {
+        height: 24px;
+        margin-right: 10px;
+      }
+    }
 
     img {
       max-width: 200px;
@@ -19,15 +36,12 @@ footer {
   }
 
   .sections {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 60px;
+    margin-top: 30px;
     color: white;
-    margin: 30px 0;
 
     @media (max-width: $mobile-breakpoint-xl) {
       grid-template-columns: 320px 1fr;
-      gap: 40px
+      gap: 40px;
     }
 
     @media (max-width: $mobile-breakpoint) {
@@ -48,26 +62,9 @@ footer {
           text-align: center;
         }
       }
-
-      .social {
-        margin-top: 30px;
-        cursor: default;
-
-        @media (max-width: $mobile-breakpoint) {
-          text-align: center;
-        }
-
-        img {
-          height: 24px;
-          margin-right: 10px;
-        }
-      }
     }
 
     .categories {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
 
       @media (max-width: $mobile-breakpoint-2) {
         flex-direction: column;
@@ -75,12 +72,6 @@ footer {
       }
 
       .category {
-        display: flex;
-        flex-direction: column;
-
-        @media (max-width: $mobile-breakpoint) {
-          align-items: center;
-        }
 
         .heading {
           font-size: 15px;
@@ -92,6 +83,7 @@ footer {
           color: #a8adb7;
           font-size: 13px;
           padding: 5px 0;
+          display: block;
 
           &:hover {
             color: white;
@@ -140,58 +132,51 @@ footer {
   <footer :style="'margin-top:' + marginTop + 'px'">
     <div class="logo">
       <img src="../static/logo-white.png" />
+
+      <div class="social">
+        <a href="#"><img src="../static/social/twitter.png" /></a>
+        <a href="#"><img src="../static/social/facebook.png" /></a>
+        <a href="#"><img src="../static/social/instagram.png" /></a>
+        <a href="#"><img src="../static/social/linkedin.png" /></a>
+        <a href="#"><img src="../static/social/youtube.png" /></a>
+      </div>
     </div>
 
     <div class="sections">
-      <div class="about">
+      <!-- <div class="about">
         <p>
           Şikayet.in bir ürün ya da hizmet için problem ile karşılaşan tüketicilerin, şikayetlerini dile
           getirebilmelerini ve şikayet.in marka tarafından çözülmesini sağlayan bir platformdur.
         </p>
+      </div> -->
 
-        <div class="social">
-          <a href="#"><img src="../static/social/twitter.png" /></a>
-          <a href="#"><img src="../static/social/facebook.png" /></a>
-          <a href="#"><img src="../static/social/instagram.png" /></a>
-          <a href="#"><img src="../static/social/linkedin.png" /></a>
-          <a href="#"><img src="../static/social/youtube.png" /></a>
-        </div>
-      </div>
-
-      <div class="categories">
-        <div class="category">
+      <div class="categories row">
+        <div class="category col-2">
           <h4 class="heading">Popüler Kategoriler</h4>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <NuxtLink to="yardim">Lorem ipsum</NuxtLink>
-          <NuxtLink to="iletisim">Lorem ipsum</NuxtLink>
+          <NuxtLink :to="`/category/${popularCategory.id}`" v-for="popularCategory in $store.state.popularCategories" :key="popularCategory.id">{{
+            popularCategory.name
+          }}</NuxtLink>
         </div>
 
-        <div class="category">
+        <div class="category col-2">
           <h4 class="heading">Popüler Markalar</h4>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
+          <NuxtLink :to="`/all-brands/${popularBrand.id}`" v-for="popularBrand in $store.state.popularBrands" :key="popularBrand.id">{{
+            popularBrand.name
+          }}</NuxtLink>
         </div>
 
-        <div class="category">
+        <div class="category col-4">
           <h4 class="heading">Popüler Şikayetler</h4>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
+          <NuxtLink to="yardim" v-for="popularComplaint in $store.state.popularComplaints" :key="popularComplaint.id">{{
+            popularComplaint.title
+          }}</NuxtLink>
         </div>
 
-        <div class="category">
+        <div class="category col-4">
           <h4 class="heading">Popüler Yorumlar</h4>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
+          <NuxtLink to="yardim" v-for="popularComment in $store.state.popularComments" :key="popularComment.id">{{
+            popularComment.text
+          }}</NuxtLink>
         </div>
       </div>
     </div>
