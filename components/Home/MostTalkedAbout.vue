@@ -192,7 +192,7 @@ section.heading {
 
 <script>
 export default {
-  async mounted() {
+  updated() {
     $('#most_talked_about .inner').slick({
       dots: false,
       infinite: true,
