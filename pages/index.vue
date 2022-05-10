@@ -78,7 +78,7 @@ export default {
     ]),
     getBrands() {
       axios
-        .get(`${config.apiURL}/brands/all-brands/?limit=10&offset=0`)
+        .get(`${config.apiURL}/brands/all-brands/?limit=6&offset=0`)
         .then((response) => this.updateBrands(response.data.results));
     },
     getAllComplaints() {
@@ -101,7 +101,7 @@ export default {
     },
     getPopularComments() { 
       axios
-        .get(`${config.apiURL}/brands/popular-comments/`)
+        .get(`${config.apiURL}/brands/popular-comments/?limit=6&offset=0`)
         .then((response) => this.updatePopularComments(response.data));
     },
   },

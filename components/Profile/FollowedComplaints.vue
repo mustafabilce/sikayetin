@@ -5,7 +5,7 @@
       <div class="col-12">
         <h5 class="pb-3 border-bottom">Takip Ettiklerim <span class="gray-text">3</span></h5>
         <div class="items">
-          <div class="item mt-3" v-for="i in 3" :key="i">
+          <div class="item mt-3" v-for="complaint in myLikedComplaints" :key="complaint.id">
             <div class="card">
               <div class="card-body border rounded">
                 <div class="row">
@@ -44,7 +44,31 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios"
+import config from "../../config"
+
+export default {
+  data() {
+    return {
+      myLikedComplaints: [],
+    };
+  },
+  created () {
+    this.getMyLikedComplaints()
+  },
+  methods: {
+    getMyLikedComplaints() {
+      axios
+        .get(`${config.apiURL}/brands/likes/user/${this.$store.state.userInfo.id}/`)
+        .then((response) => {
+          this.myLikedComplaints = response.data
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+  }
+};
 </script>
 
 <style lang="scss" scoped>

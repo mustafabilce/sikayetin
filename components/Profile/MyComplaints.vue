@@ -3,7 +3,7 @@
     <ProfileHeader />
     <div class="row mt-5 mb-0">
       <div class="col-12">
-        <h5 class="pb-3 border-bottom">Şikayetlerim <span class="gray-text">4</span></h5>
+        <h5 class="pb-3 border-bottom">Şikayetlerim <span class="gray-text">{{myComplaints.length}}</span></h5>
         <div class="item py-4 border-bottom" v-for="complaint in myComplaints" :key="complaint.id">
           <div class="item-header d-flex justify-content-between">
             <div class="d-flex align-items-center">

@@ -6,43 +6,43 @@
         <div class="mt-0 item">
           <label>Cinsiyet</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="cinsiyet" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
           <label>Öğrenim Durumunuz</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="ogrenimDurumu" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
           <label>Medeni Durum</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="medeniDurum" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
           <label>Aylık Hane Geliri</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="aylikGelir" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
           <label>Yaşadığınız Şehir</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="sehir" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
           <label>Çalışma Durumu</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="calismaDurumu" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
           <label>Doğum Yılınız</label>
           <div class="input-group">
-            <b-form-select v-model="selected" :options="options" size="sm"></b-form-select>
+            <b-form-select v-model="dogumYili" :options="options" size="sm"></b-form-select>
           </div>
         </div>
         <div class="mt-4 item">
@@ -65,7 +65,13 @@ export default {
   components: { ProfileHeader, AdsDemo },
   data() {
     return {
-      selected: null,
+      cinsiyet: null,
+      ogrenimDurumu: null,
+      medeniDurum: null,
+      aylikGelir: null,
+      sehir: null,
+      calismaDurumu: null,
+      dogumYili: null,
       options: [
         { value: null, text: 'Seçiniz' },
         { value: 'a', text: 'Seçenek 1' },

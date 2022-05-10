@@ -337,7 +337,7 @@
             <h4 class="title">{{ complaint.title }}</h4>
             <p class="text">{{ complaint.text }} <NuxtLink :to="`/sikayetler/${complaint.id}`">Devamını Gör</NuxtLink></p>
 
-            <div class="footer">
+            <div class="footer justify-content-between align-items-center">
               <div class="actions">
                 <div
                   class="input-group rounded like-button"
@@ -385,6 +385,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+import config from '../../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import FilterBox from '~/components/FilterBox.vue';

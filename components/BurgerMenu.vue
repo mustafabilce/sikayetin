@@ -263,8 +263,6 @@
 </template>
 
 <script>
-  import Login from "./modals/Login.vue"
-  import Register from "./modals/Register.vue"
 
 export default {
   data: () => ({

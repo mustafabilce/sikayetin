@@ -174,9 +174,14 @@ footer {
 
         <div class="category col-4">
           <h4 class="heading">Popüler Yorumlar</h4>
-          <NuxtLink to="yardim" v-for="popularComment in $store.state.popularComments" :key="popularComment.id">{{
+          <!-- <NuxtLink :to="`sikayetler/${popularComment.complaint}`" v-for="popularComment in $store.state.popularComments" :key="popularComment.id">{{
             popularComment.text
-          }}</NuxtLink>
+          }}</NuxtLink> -->
+          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
+          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
+          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
+          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
+          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
         </div>
       </div>
     </div>

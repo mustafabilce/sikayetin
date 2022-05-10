@@ -605,7 +605,6 @@ header {
           >
         </div>
 
-        <BurgerMenu />
         <Login />
         <Register />
         <Verification />
@@ -621,11 +620,7 @@ header {
         </h1>
 
         <div id="search">
-          <v-select 
-            value="Marka, Model veya Ürün Arayın..." 
-            :options="this.$store.state.brands.map(brand => brand.name)"
-          >
-          </v-select>
+          <SearchBrandForm />
         </div>
 
         <div id="banner" class="">
@@ -658,7 +653,6 @@ header {
 <script>
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
-import BurgerMenu from '../BurgerMenu.vue';
 import Login from '~/components/modals/Login.vue';
 import Register from '~/components/modals/Register.vue';
 import Verification from '~/components/modals/Verification.vue';
@@ -680,7 +674,7 @@ export default {
     isScrolled: false,
     scrollEndTimeout: null,
   }),
-  components: { BurgerMenu, Login, Register, Verification, SearchBrandForm, vSelect },
+  components: { Login, Register, Verification, SearchBrandForm, vSelect },
   methods: {
     OnScroll(checkForScrollEnd = true) {
       const breakpoint = this.full ? 600 : 100;

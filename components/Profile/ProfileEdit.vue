@@ -15,21 +15,17 @@
           </div>
           <div class="mt-5">
             <div class="row">
-              <div class="col-3 text-center">
+              <div class="col-4 text-center">
                 <p class="small gray-text mb-2">Şikayetlerin</p>
                 <h5 class="gray-text">{{userStatistics.complaint_num}}</h5>
               </div>
-              <div class="col-3 text-center border-left">
+              <div class="col-4 text-center border-left">
                 <p class="small gray-text mb-2">Beğenilerin</p>
                 <h5 class="gray-text">{{userStatistics.like_num}}</h5>
               </div>
-              <div class="col-3 text-center border-right border-left">
+              <div class="col-4 text-center border-left">
                 <p class="small gray-text mb-2">Yorumların</p>
                 <h5 class="gray-text">{{userStatistics.comment_num}}</h5>
-              </div>
-              <div class="col-3 text-center">
-                <p class="small gray-text mb-2">Takip Ettiklerin</p>
-                <h5 class="gray-text">0</h5>
               </div>
             </div>
           </div>
@@ -54,6 +50,7 @@ export default {
   },
   created () {
     this.getUserStatistics()
+    this.test()
   },
   methods: {
     getUserStatistics() {
@@ -61,6 +58,16 @@ export default {
         .get(`${config.apiURL}/users/statistics/user/${this.$store.state.userInfo.id}/`)
         .then((response) => {
           this.userStatistics = response.data
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+    test() {
+      axios
+        .get(`${config.apiURL}/users/notification/${this.$store.state.userInfo.id}/`)
+        .then((response) => {
+          console.log(response)
         })
         .catch((error) => {
           this.errors.push(error);

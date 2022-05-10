@@ -2,7 +2,7 @@
 #compare {
   position: relative;
   margin-top: 100px;
-  overflow: hidden !important;
+  // overflow: hidden !important;
 
   @media (max-width: 600px) {
     margin-top: 0;
@@ -15,6 +15,7 @@
     text-align: center;
     padding: 80px 250px 80px 250px;
     min-width: 60vw;
+    height: 100%;
     margin-right: var(--section-padding-inline-negative);
     position: relative;
 
@@ -37,11 +38,8 @@
       padding: 0 30px;
     }
 
-    #inputs {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 50px 0 0 0;
+    .search {
+      margin-top: 50px;
 
       input {
         padding: 12px 30px;
@@ -51,11 +49,11 @@
       }
 
       button {
-        padding: 12px 30px;
-        margin: 0 20px;
+        padding: 12px 10px;
         border-radius: 100px;
         background-color: #ff5777;
         color: white;
+        width: 100%;
       }
     }
 
@@ -209,7 +207,21 @@
         seçin ve yarışsınlar. Bakalım rakamlar ne gosterecek, hep birlikte görelim.
       </p>
 
-      <div id="inputs">
+      <div class="search">
+        <div class="row">
+          <div class="col-5">
+            <BrandComparisonInput />
+          </div>
+          <div class="col-2">
+            <button>Yarıştır</button>
+          </div>
+          <div class="col-5">
+            <BrandComparisonInput />
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="inputs">
         <v-select
           :options="this.$store.state.brands.map((brand) => brand.name)"
         >
@@ -219,34 +231,27 @@
           :options="this.$store.state.brands.map((brand) => brand.name)"
         >
         </v-select>
-      </div>
+      </div> -->
 
-      <div class="abstract">
+      <!-- <div class="abstract">
         <img class="square" src="../../static/abstract/square.png" />
         <img class="triangle" src="../../static/abstract/triangle.png" />
         <img class="ellipse" src="../../static/abstract/yellow-ellipse.png" />
         <img class="rectangle" src="../../static/abstract/rectangle-plus.png" />
-      </div>
+      </div> -->
     </div>
 
-    <div class="circle-big">
+    <!-- <div class="circle-big">
       <img src="../../static/abstract/1.png" />
     </div>
-    <div class="circle-small"></div>
+    <div class="circle-small"></div> -->
   </section>
 </template>
 
 <script>
-import vSelect from 'vue-select';
-import 'vue-select/dist/vue-select.css';
+import BrandComparisonInput from "../BrandComparisonInput.vue"
 
 export default {
-  data() {
-    return {
-      firstSelectedItem: null,
-      secondSelectedItem: null,
-    };
-  },
-  components: { vSelect },
+  components: { BrandComparisonInput },
 };
 </script>

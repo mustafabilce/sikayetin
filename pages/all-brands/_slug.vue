@@ -15,14 +15,12 @@
       <div class="row mt-5">
         <div class="col-12">
           <div class="card">
-            <div
-              class="card-body brand-card border rounded d-flex align-items-center"
-            >
+            <div class="card-body brand-card border rounded d-flex align-items-center">
               <div class="p-4 rounded" style="background-color: #fff">
                 <img class="logo" :src="`${brand.logo}`" alt="" />
               </div>
               <div class="ml-4">
-                <h5>{{brand.name}} <fa color="#FF5777" :icon="['fas', 'circle-check']" /></h5>
+                <h5>{{ brand.name }} <fa color="#FF5777" :icon="['fas', 'circle-check']" /></h5>
                 <div class="icons">
                   <fa :icon="['fas', 'star']" class="star-icon" />
                   <fa :icon="['fas', 'star']" class="star-icon" />
@@ -48,11 +46,11 @@
                 <div class="card-body border rounded d-flex align-items-center">
                   <div class="box rounded mr-3">
                     <p>Şikayet Sayısı</p>
-                    <h3>20.861</h3>
+                    <h3>{{complaints.length}}</h3>
                   </div>
                   <div class="box-2 ml-3 mr-5">
                     <p>Çözüm Sayısı</p>
-                    <h3>966</h3>
+                    <h3>0</h3>
                   </div>
                   <div>
                     <button class="btn btn-light light-button px-4">Marka Karnesini Gör</button>
@@ -69,20 +67,25 @@
                 <div class="card-body border rounded">
                   <div>
                     <button class="complaint-button border rounded">
-                    <div>
-                      <b-avatar class="avatar"></b-avatar>
-                    <p class="text-muted">{{brand.name}} ile ilgili bir şikayetin mi var?</p>
-                    </div>
-                    <span class="text rounded small">Şikayet Yaz</span>
-                  </button>
+                      <div>
+                        <b-avatar class="avatar"></b-avatar>
+                        <p class="text-muted">{{ brand.name }} ile ilgili bir şikayetin mi var?</p>
+                      </div>
+                      <span class="text rounded small">Şikayet Yaz</span>
+                    </button>
                   </div>
                   <div class="mt-4">
-                    <h5 class="text-muted border-bottom pb-3" style="font-weight: 400;">Şikayet Sayısı 36.166</h5>
+                    <h5 class="text-muted border-bottom pb-3" style="font-weight: 400">Şikayet Sayısı {{complaints.length}}</h5>
                   </div>
                   <div>
+                    <div v-if="complaints.length > 0">
                       <div v-for="complaint in complaints" :key="complaint.id">
-                          <ComplaintCard :title="complaint.title" :text="complaint.text" :image="complaint.logo"  />
+                        <ComplaintCard :title="complaint.title" :text="complaint.text" :image="complaint.logo" :user="{ name: `${complaint.user.name}`, photo: `${complaint.user.photo}`}" />
                       </div>
+                    </div>
+                    <div v-else>
+                      <h1>Şikayet yok</h1>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,10 +113,10 @@ import BrandProfileBox from '~/components/BrandProfileBox.vue';
 import ComplaintCard from '~/components/ComplaintCard.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import axios from 'axios';
-import config from '../../config'
+import config from '../../config';
 
 export default {
-  components: { Header, Footer, Breadcrumb, FilterBox, CompareBox, BrandProfileBox,  ComplaintCard },
+  components: { Header, Footer, Breadcrumb, FilterBox, CompareBox, BrandProfileBox, ComplaintCard },
   data() {
     return {
       brand: [],
@@ -136,7 +139,13 @@ export default {
     getComplaints() {
       axios
         .get(`${config.apiURL}/brands/complaints/brand/${this.$route.params.slug}/`)
-        .then((response) => (this.complaints = response.data))
+        .then((response) => {
+          if ((response === 'Bu markaya ait herhangi bir şikayet bulunmamaktadır.')) {
+            console.log('Bu markaya ait herhangi bir şikayet bulunmamaktadır.');
+          } else {
+            this.complaints = response.data;
+          }
+        })
         .catch((error) => {
           this.errors.push(error);
         });
@@ -156,9 +165,9 @@ export default {
       color: #dbdce0;
     }
     .rate {
-       color: #AFB0B5;
-       font-size: 22px; 
-       font-weight: 600;
+      color: #afb0b5;
+      font-size: 22px;
+      font-weight: 600;
     }
   }
   .card {
@@ -206,7 +215,7 @@ export default {
   }
   .text {
     padding: 10px 16px;
-    background-color: #FF5777;
+    background-color: #ff5777;
     color: #fff;
   }
 }

@@ -145,15 +145,15 @@
 
 <template>
   <section id="trending">
-    <h1 class="reveal-on-visible delay-4 text-dark-blue">Hangi Şikayetler İlgi Çekti?</h1>
+    <h1 class="text-dark-blue">Hangi Şikayetler İlgi Çekti?</h1>
 
     <div class="inner">
       <div class="trending-row row-1">
         <div v-for="complaint in this.$store.state.allComplaints" :key="complaint.id" class="card">
-          <h5 class="reveal-on-visible text-dark-blue">
+          <h5 class="text-dark-blue">
             <NuxtLink class="text-dark-blue" :to="`/sikayetler/${complaint.id}`">{{complaint.title}}</NuxtLink>
           </h5>
-          <div class="footer reveal-on-visible delay-3">
+          <div class="footer ">
             <div class="customer">
               <div v-if="complaint.user.photo">
                 <img :src="complaint.user.photo" />
@@ -189,10 +189,10 @@
       </div>
       <div class="trending-row row-2">
         <div v-for="complaint in this.$store.state.allComplaints" :key="complaint.id" class="card">
-          <h5 class="reveal-on-visible text-dark-blue">
+          <h5 class="text-dark-blue">
             <NuxtLink class="text-dark-blue" :to="`/sikayetler/${complaint.id}`">{{complaint.title}}</NuxtLink>
           </h5>
-          <div class="footer reveal-on-visible delay-3">
+          <div class="footer ">
             <div class="customer">
               <div v-if="complaint.user.photo">
                 <img :src="complaint.user.photo" />
@@ -243,10 +243,11 @@ export default {
         $(element).scrollLeft(0);
       }
 
-      let scrollDirection = 2;
+      let scrollDirection = 1;
       let velocity = speed;
       const pageScroll = () => {
-        element.scrollBy(scrollDirection * velocity, 0);
+        element.scrollBy(scrollDirection, 0);
+        // element.scrollBy(scrollDirection * velocity, 0);
         setTimeout(() => pageScroll(), 20);
 
         if (element.scrollLeft <= 10) {

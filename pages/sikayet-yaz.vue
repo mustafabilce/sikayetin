@@ -12,36 +12,37 @@
     <section>
       <stepper :options="stepperOptions" class="sikayet-stepper">
         <div slot="step-1">
-          <h3>Şikayet Detayları</h3>
+          <h3>Marka Arayın</h3>
           <div>
-            <b-form-textarea
-              id="textarea-rows"
-              placeholder="Ürün veya hizmetle ilgili nasıl bir sorun  yaşadınız?"
-              rows="8"
-            ></b-form-textarea>
-            <p class="float-right mt-4 mb-0 small">(minimum 200 karakter olmalıdır)</p>
+            <b-form-select v-model="brand" :options="this.$store.state.brands.map(brand => brand.name)"></b-form-select>
+            <div class="mt-4">
+              <p class="small mb-0">
+                Seçilen Marka:
+                <span class="bg-light border rounded px-2 py-1 mx-2" v-if="brand">{{ brand }}</span>
+                <span class="bg-light border rounded px-4 py-1 mx-2" v-else></span> için Şikayet Oluşturuyorsunuz.
+              </p>
+            </div>
           </div>
         </div>
 
         <div slot="step-2">
           <h3>Şikayet Konusu Nedir?</h3>
           <div>
-            <b-form-input v-model="text" placeholder="Şikayet Konusu Nedir?"></b-form-input>
+            <b-form-input v-model="title" placeholder="Şikayet Konusu Nedir?"></b-form-input>
             <p class="float-right mt-4 mb-0 small">(minimum 20 karakter olmalıdır)</p>
           </div>
         </div>
 
         <div slot="step-3">
-          <h3>Marka Arayın</h3>
+          <h3>Şikayet Detayları</h3>
           <div>
-            <b-form-select v-model="selected" :options="options"></b-form-select>
-            <div class="mt-4">
-              <p class="small mb-0">
-                Seçilen Marka:
-                <span class="bg-light border rounded px-2 py-1 mx-2" v-if="selected">{{ selected }}</span>
-                <span class="bg-light border rounded px-4 py-1 mx-2" v-else></span> için Şikayet Oluşturuyorsunuz.
-              </p>
-            </div>
+            <b-form-textarea
+              id="textarea-rows"
+              placeholder="Ürün veya hizmetle ilgili nasıl bir sorun  yaşadınız?"
+              rows="8"
+              v-model="text"
+            ></b-form-textarea>
+            <p class="float-right mt-4 mb-0 small">(minimum 200 karakter olmalıdır)</p>
           </div>
         </div>
 
@@ -49,8 +50,8 @@
           <h3>Belge Ekle</h3>
           <div>
             <b-form-file
-              v-model="file1"
-              :state="Boolean(file1)"
+              v-model="image"
+              :state="Boolean(image)"
               placeholder="Fotoğraf veya Video Ekleyin (mp4, mov, wav, jpg, jpeg, gif, png, pdf, doc, xls, txt"
               drop-placeholder="Dosyayı buraya sürükleyin."
             ></b-form-file>
@@ -58,12 +59,12 @@
               <b-card style="max-width: 100%" class="mt-4">
                 <b-card-text>
                   <span class="font-weight-bold mr-1 small">Seçilen Dosya:</span>
-                  <span class="small">{{ file1 ? file1.name : 'Henüz Seçilmedi' }}</span>
+                  <span class="small">{{ image ? image.name : 'Henüz Seçilmedi' }}</span>
                 </b-card-text>
               </b-card>
             </div>
           </div>
-          <b-button block variant="primary" class="finish-button mt-4 py-3" v-b-modal.modal-success1
+          <b-button @click="sendComplaint()" block variant="primary" class="finish-button mt-4 py-3" v-b-modal.modal-success1
             ><fa class="mr-2" color="#ced4da" :icon="['fas', 'thumbs-up']" />Tamamla</b-button
           >
           <b-modal id="modal-success1" centered title="BootstrapVue" hide-header hide-footer>
@@ -80,25 +81,23 @@
 </template>
 
 <script>
+import axios from "axios";
+import config from "../config";
 import Stepper from 'vuejs-stepper';
 import Header from '~/components/Home/Header.vue';
 export default {
   components: { Stepper, Header },
   data() {
     return {
-      file1: null,
-      selected: null,
-      options: [
-        { value: null, text: 'Marka Arayın' },
-        { value: 'Trendyol', text: 'Trendyol' },
-        { value: 'Hepsiburada', text: 'Hepsiburada' },
-        { value: 'N11', text: 'N11' },
-      ],
+      brand: "",
+      title: "",
+      text: "",
+      image: null,
       stepperOptions: {
         headers: [
-          { title: 'Şikayet Detayları' },
-          { title: 'Başlık' },
           { title: 'Marka' },
+          { title: 'Başlık' },
+          { title: 'Şikayet Detayları' },
           { title: 'Belge', stepName: 'custom-step-name' },
         ],
         prevText: 'Geri Dön',
@@ -106,6 +105,15 @@ export default {
       },
     };
   },
+  methods: {
+    sendComplaint() {
+      axios
+        .post(`${config.apiURL}/brands/complaints/brand/11b290ed-dddd-4f63-a574-1f745911627b/`, this.$store.state.userInfo.id, this.brand, this.title, this.text, this.image)
+        .then((response) => {
+          console.log(response)
+        });
+    },
+  }
 };
 </script>
 

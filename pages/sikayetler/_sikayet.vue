@@ -15,8 +15,8 @@
       <div class="row mt-5">
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
           <h4 class="title">{{ complaint.title }}</h4>
-          <p class="text-muted">18 Görüntülenme</p>
-
+          <p class="text-muted d-inline-block mb-1"><fa class="mr-2" :icon="['fas', 'eye']" />18 Görüntülenme</p>
+          <p class="text-muted d-inline-block ml-4"><fa class="mr-2" :icon="['fas', 'heart']" />{{likes.length}} Beğeni</p>
           <b-card class="media-card">
             <b-media>
               <template #aside>
@@ -115,6 +115,7 @@ export default {
       complaintUser: [],
       complaintBrand: [],
       comments: [],
+      likes: [],
     };
   },
   created() {
@@ -142,6 +143,20 @@ export default {
             console.log("Şikayet ile ilgili yorum bulunamadı!")
           } else {
             this.comments = response.data
+          }
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+    getLikes() { 
+      axios
+        .get(`${config.apiURL}/brands/likes/complaint/${this.$route.params.sikayet}/`)
+        .then((response) => {
+          if (response.data.length > 0) {
+            this.likes = response.data;
+          } else {
+            console.log("Beğeni bulunamadı.")
           }
         })
         .catch((error) => {

@@ -1,16 +1,16 @@
 <template>
   <div id="searchBrandForm">
     <div class="search-wrapper">
-      <input class="rounded-30" type="text" v-model="search" placeholder="Marka, Model veya Ürün ara..." />
+      <input class="rounded-30" type="text" v-model="search" placeholder="Marka ara..." />
       <span class="search-icon">
         <fa class="text-light" :icon="['fas', 'magnifying-glass']" />
       </span>
     </div>
     <div class="wrapper d-none" :class="{ 'd-block': search.length > 0 }">
-      <NuxtLink :to="`/all-brands/${brand.id}`" class="card" v-for="brand in filteredList" :key="brand.id">
+      <p class="card" v-for="brand in filteredList" :key="brand.id">
         <b-avatar size="2rem" rounded class="p-1 mr-2 border" variant="link" :src="brand.logo"></b-avatar>
         <span>{{ brand.name }}</span>
-      </NuxtLink>
+      </p>
     </div>
   </div>
 </template>
@@ -34,9 +34,9 @@ export default {
 div#searchBrandForm {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
   position: relative;
 
   .search-wrapper {

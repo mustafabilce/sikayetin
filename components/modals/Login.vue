@@ -122,6 +122,9 @@ export default {
 
 <style lang="scss">
 #login-modal {
+  .form-control {
+    font-size: 14px;
+  }
   .modal-close {
     position: absolute;
     right: 20px;

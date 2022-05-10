@@ -2,10 +2,10 @@
   <div class="complaint border rounded mt-4">
     <div class="customer-and-brand mb-4">
       <div class="customer">
-        <img class="mr-2" v-if="user" :src="user" />
+        <img class="mr-2" v-if="user.photo" :src="user.photo" />
         <b-avatar class="mr-2" v-else></b-avatar>
         <div>
-          <b v-if="user">{{user}}</b>
+          <b v-if="user.name">{{user.name}}</b>
           <b v-else>Unkown</b>
           <br />
           <span style="white-space: nowrap">
@@ -57,8 +57,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-import config from '../config'
 export default {
   props: {
     title: String,
