@@ -99,11 +99,11 @@
         font-weight: 400;
         display: block;
         width: 100%;
-          &:hover {
-            background-color: #070853;
-            color: #fff;
-            border-color: #070853;
-          }
+        &:hover {
+          background-color: #070853;
+          color: #fff;
+          border-color: #070853;
+        }
       }
     }
   }
@@ -114,7 +114,7 @@
   <div>
     <Header active="marka-ringi" />
     <Breadcrumb
-    class="breadcrumb-style"
+      class="breadcrumb-style"
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/marka-ringi', text: 'Marka Ringi' },
@@ -123,15 +123,15 @@
     />
 
     <div class="heading-circles">
-      <div class="circle circle-1 "></div>
-      <div class="circle circle-2 "></div>
-      <div class="circle circle-3 "></div>
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
     </div>
 
     <section id="compare">
       <h1 class="big-title text-white">Marka Karşılaştırma</h1>
 
-      <div class="inputs ">
+      <div class="inputs">
         <input type="text" placeholder="1. Marka" />
         <button>Karşılaştır</button>
         <input type="text" placeholder="2. Marka" />
@@ -140,7 +140,7 @@
 
     <section id="popular_comparisons" class="mt-5">
       <div class="background"></div>
-      <h4 class="heading ">Popüler Karşılaştırmalar</h4>
+      <h4 class="heading">Popüler Karşılaştırmalar</h4>
 
       <div class="inner">
         <div class="comparison border rounded reveal-on-visible" v-for="i in 9" :key="i">
@@ -178,8 +178,8 @@
 </template>
 
 <script>
-import axios from "axios"
-import config from "../config"
+import axios from 'axios';
+import config from '../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 

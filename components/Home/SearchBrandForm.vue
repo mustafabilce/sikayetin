@@ -39,6 +39,10 @@ div#searchBrandForm {
   width: 400px;
   position: relative;
 
+    @media (max-width: 600px) {
+      width: 250px;
+    }
+
   .search-wrapper {
     position: relative;
     width: 100%;

@@ -159,6 +159,10 @@ export default {
   .logo {
     max-width: 75px;
     max-height: 75px;
+    @media(max-width: 600px) {
+      max-width: 40px;
+      max-height: 40px;
+    }
   }
   .icons {
     .star-icon {

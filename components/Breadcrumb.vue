@@ -5,6 +5,10 @@
   position: relative;
   z-index: 9;
 
+  @media (max-width: 600px) {
+    margin-bottom: 20px;
+  }
+
   a {
     font-weight: 600;
     color: #00244b80;

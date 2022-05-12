@@ -132,6 +132,10 @@
     }
   }
 
+  @media (max-width: 600px) {
+    margin-top: 20px !important;
+  }
+
   .complaint {
     padding: 30px;
     background: white;
@@ -201,7 +205,7 @@
           padding: 8px 14px;
 
           @media (max-width: 768px) {
-            padding: 6px 10px;
+            padding: 8px 15px;
             font-size: 0.8em;
 
             .input-group-append img {
@@ -300,7 +304,7 @@
           ></div>
 
           <div
-            class="complaint shadow rounded-30 reveal-on-visible"
+            class="complaint shadow rounded-30"
             v-for="complaint in this.$store.state.allComplaints"
             :key="complaint.id"
           >

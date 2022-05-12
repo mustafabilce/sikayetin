@@ -6,6 +6,7 @@
 
   @media (max-width: 600px) {
     margin-top: 0;
+    padding: 0;
   }
 
   .inner {
@@ -209,13 +210,13 @@
 
       <div class="search">
         <div class="row">
-          <div class="col-5">
+          <div class="col-lg-5 col-md-5 col-sm-12 col-12">
             <BrandComparisonInput />
           </div>
-          <div class="col-2">
+          <div class="col-lg-2 col-md-12 col-sm-12 col-12 xs-mt-3 xs-mb-3">
             <button>Yarıştır</button>
           </div>
-          <div class="col-5">
+          <div class="col-lg-5 col-md-5 col-sm-12 col-12">
             <BrandComparisonInput />
           </div>
         </div>

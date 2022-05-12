@@ -20,11 +20,11 @@
       <p class="mt-4">Bir markalar arayın veya aşağıdaki popüler kategorilerden birini seçin.</p>
       <div class="brands mt-5">
         <div class="row">
-          <div class="col-8">
+          <div class="col-lg-8 col-md-8 col-sm-12 col-12">
             <div class="card mt-3" v-for="brand of brands" :key="brand.id">
               <div class="card-body border">
                 <div class="row justify-content-between align-items-center">
-                  <div class="col-6 d-flex align-items-center">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex align-items-center">
                     <div class="card-img-bg">
                       <NuxtLink :to="`/brands/all-brands/${brand.id}`"><img :src="`${brand.logo}`" /></NuxtLink>
                     </div>
@@ -41,7 +41,7 @@
                       <span class="text-muted font-weight-bold ml-2">1.5</span>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-12 xs-mt-3">
                     <div class="comp-count-box">
                       <div class="icon-box bg-purple-light d-inline-block">
                         <fa :icon="['fas', 'comment-dots']" />
@@ -56,7 +56,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <AdsDemo />
             <AdsDemo />
             <AdsDemo />
@@ -106,6 +106,9 @@ export default {
 <style lang="scss" scoped>
 .brands a {
   color: #343a40;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
   &:hover {
     color: #ff5777;
   }
@@ -123,6 +126,11 @@ export default {
         max-width: 75px;
         max-height: 50px;
         height: auto;
+
+        @media (max-width: 600px) {
+          max-width: 50px;
+          max-height: 30px;
+        }
       }
     }
     .info {

@@ -5,6 +5,11 @@ footer {
   $mobile-breakpoint-xl: 1400px;
   $mobile-breakpoint: 1200px;
   $mobile-breakpoint-2: 960px;
+  $mobile-breakpoint-xs: 600px;
+
+  @media (max-width: $mobile-breakpoint-xs) {
+    padding: 30px;
+  }
 
   .logo {
     display: flex;
@@ -12,6 +17,10 @@ footer {
     justify-content: space-between;
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(209, 210, 215, 0.2);
+
+    @media (max-width: $mobile-breakpoint-xs) {
+      flex-direction: column;
+    }
 
     .social {
       cursor: default;
@@ -65,13 +74,15 @@ footer {
     }
 
     .categories {
-
       @media (max-width: $mobile-breakpoint-2) {
         flex-direction: column;
         gap: 60px;
       }
 
       .category {
+        @media (max-width: $mobile-breakpoint-xs) {
+          text-align: center;
+        }
 
         .heading {
           font-size: 15px;
@@ -114,6 +125,10 @@ footer {
         text-align: center;
       }
 
+      @media (max-width: $mobile-breakpoint-xs) {
+        gap: 10px;
+      }
+
       a {
         color: white;
         font-size: 13px;
@@ -131,7 +146,7 @@ footer {
 <template>
   <footer :style="'margin-top:' + marginTop + 'px'">
     <div class="logo">
-      <img src="../static/logo-white.png" />
+      <img class="xs-mb-3" src="../static/logo-white.png" />
 
       <div class="social">
         <a href="#"><img src="../static/social/twitter.png" /></a>
@@ -151,28 +166,37 @@ footer {
       </div> -->
 
       <div class="categories row">
-        <div class="category col-2">
+        <div class="category col-lg-2 col-md-2 col-sm-12 col-12">
           <h4 class="heading">Popüler Kategoriler</h4>
-          <NuxtLink :to="`/category/${popularCategory.id}`" v-for="popularCategory in $store.state.popularCategories" :key="popularCategory.id">{{
-            popularCategory.name
-          }}</NuxtLink>
+          <NuxtLink
+            :to="`/category/${popularCategory.id}`"
+            v-for="popularCategory in $store.state.popularCategories"
+            :key="popularCategory.id"
+            >{{ popularCategory.name }}</NuxtLink
+          >
         </div>
 
-        <div class="category col-2">
+        <div class="category col-lg-2 col-md-2 col-sm-12 col-12">
           <h4 class="heading">Popüler Markalar</h4>
-          <NuxtLink :to="`/all-brands/${popularBrand.id}`" v-for="popularBrand in $store.state.popularBrands" :key="popularBrand.id">{{
-            popularBrand.name
-          }}</NuxtLink>
+          <NuxtLink
+            :to="`/all-brands/${popularBrand.id}`"
+            v-for="popularBrand in $store.state.popularBrands"
+            :key="popularBrand.id"
+            >{{ popularBrand.name }}</NuxtLink
+          >
         </div>
 
-        <div class="category col-4">
+        <div class="category col-lg-4 col-md-4 col-sm-12 col-12">
           <h4 class="heading">Popüler Şikayetler</h4>
-          <NuxtLink to="yardim" v-for="popularComplaint in $store.state.popularComplaints" :key="popularComplaint.id">{{
-            popularComplaint.title
-          }}</NuxtLink>
+          <NuxtLink
+            :to="`sikayetler/${popularComplaint.id}`"
+            v-for="popularComplaint in $store.state.popularComplaints"
+            :key="popularComplaint.id"
+            >{{ popularComplaint.title }}</NuxtLink
+          >
         </div>
 
-        <div class="category col-4">
+        <div class="category col-lg-4 col-md-4 col-sm-12 col-12">
           <h4 class="heading">Popüler Yorumlar</h4>
           <!-- <NuxtLink :to="`sikayetler/${popularComment.complaint}`" v-for="popularComment in $store.state.popularComments" :key="popularComment.id">{{
             popularComment.text
@@ -187,7 +211,7 @@ footer {
     </div>
 
     <div class="bottom d-flex align-items-center justify-content-between">
-      <div class="links">
+      <div class="links xs-mt-4">
         <NuxtLink to="/sikayetler">Şikayetler</NuxtLink>
         <NuxtLink to="/category">Kategoriler</NuxtLink>
         <NuxtLink to="/brands">Markalar</NuxtLink>

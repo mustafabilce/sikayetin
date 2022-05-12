@@ -204,6 +204,10 @@ header {
       max-width: 100%;
       z-index: 1;
       position: relative;
+        @media (max-width: 600px) {
+          width: 250px;
+          margin: 30px 0 30px;
+        }
     }
 
     #banner {
@@ -222,19 +226,19 @@ header {
         border-radius: 100%;
       }
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 48px;
-        height: 48px;
-        background: linear-gradient(90deg, transparent, white);
-        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
-        border-radius: 100%;
-        opacity: 0.5;
-      }
+      // &::after {
+      //   content: '';
+      //   position: absolute;
+      //   top: 0;
+      //   left: 50%;
+      //   transform: translate(-50%, -50%);
+      //   width: 48px;
+      //   height: 48px;
+      //   background: linear-gradient(90deg, transparent, white);
+      //   box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+      //   border-radius: 100%;
+      //   opacity: 0.5;
+      // }
 
       .abstract {
         position: absolute;
