@@ -44,6 +44,24 @@
               <form class="mx-5">
                 <div class="form-group">
                   <input
+                    type="text"
+                    class="form-control rounded-pill px-4 border-0 shadow-sm"
+                    id="name"
+                    placeholder="Ad"
+                    v-model="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control rounded-pill px-4 border-0 shadow-sm"
+                    id="surname"
+                    placeholder="Soyad"
+                    v-model="surname"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
                     type="email"
                     class="form-control rounded-pill px-4 border-0 shadow-sm"
                     id="email"
@@ -95,6 +113,8 @@ import { mapActions } from 'vuex';
 export default {
   data() {
     return {
+      name: '',
+      surname: '',
       email: '',
       password: '',
       confirmation: '',
@@ -111,6 +131,8 @@ export default {
           confirmation: this.confirmation,
           password: this.password,
           email: this.email,
+          surname: this.surname,
+          name: this.name,
         })
         .then((response) => {
           if (response.status ===  200) {

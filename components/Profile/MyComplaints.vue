@@ -1,13 +1,14 @@
 <template>
   <div class="my-complaints">
     <ProfileHeader />
-    <div class="row mt-5 mb-0">
+    <div v-if="myComplaints.length > 0" class="row mt-5 mb-0">
       <div class="col-12">
         <h5 class="pb-3 border-bottom">Şikayetlerim <span class="gray-text">{{myComplaints.length}}</span></h5>
         <div class="item py-4 border-bottom" v-for="complaint in myComplaints" :key="complaint.id">
           <div class="item-header d-flex justify-content-between">
             <div class="d-flex align-items-center">
-              <img class="mr-3" :src="complaint.brand.logo" alt="" />
+              <img v-if="complaint.brand.logo" class="mr-3" :src="complaint.brand.logo" alt="" />
+              <b-avatar v-else variant="success" :text="complaint.brand.name.charAt(0)"></b-avatar>
               <div>
                 <h6 class="mb-1">
                   {{complaint.brand.name}}
@@ -36,6 +37,11 @@
             <div class="d-flex">
               <b-dropdown size="lg" variant="link" toggle-class="text-decoration-none light-button py-2 px-3" no-caret>
                 <template #button-content> <fa :icon="['fas', 'gear']" /> </template>
+                <b-dropdown-item @click="setSituation()" v-if="complaint.situation === 'Çözüm Bekliyor'" href="#" class="text-gray small"
+                  ><fa class="mr-2 gray-text" :icon="['fas', 'check']" /><span class="gray-text"
+                    >Çözüldü Olarak Güncelle</span
+                  ></b-dropdown-item
+                >
                 <b-dropdown-item href="#" class="text-gray small"
                   ><fa class="mr-2 gray-text" :icon="['fas', 'pen']" /><span class="gray-text"
                     >Değerlendirmeyi Güncelle</span
@@ -51,7 +57,7 @@
                 <span class="px-2 py-1 rounded small mr-4" style="background-color: #3ad08f">
                   <fa color="#fff" :icon="['fas', 'check']" />
                 </span>
-                <span class="gray-text small">Şikayet Yayına Girdi</span>
+                <span class="gray-text small">{{complaint.situation}}</span>
                 <fa class="float-right ml-4" :icon="['fas', 'arrow-right']" />
               </button>
             </div>
@@ -71,7 +77,7 @@
                 <div class="card">
                   <div class="card-body border rounded">
                     <b-list-group>
-                      <b-list-group-item variant="success">
+                      <b-list-group-item variant="success" v-if="complaint.situation === 'Çözüm Bekliyor'">
                           <div class="row">
                               <div class="col-3">
                                   <p class="mb-0 small">Şikayet Cevaplandı</p>
@@ -80,7 +86,7 @@
                                   <p class="mb-0 small">-</p>
                               </div>
                               <div class="col-4 text-right">
-                                  <p class="mb-0 small">20 Şubat 2019 16:34</p>
+                                  <p class="mb-0 small">{{complaint.updated}}</p>
                               </div>
                           </div>
                       </b-list-group-item>
@@ -93,46 +99,7 @@
                                   <p class="mb-0 small gray-text">-</p>
                               </div>
                               <div class="col-4 text-right">
-                                  <p class="mb-0 small gray-text">16 Şubat 2019 16:34</p>
-                              </div>
-                          </div>
-                      </b-list-group-item>
-                      <b-list-group-item>
-                          <div class="row">
-                              <div class="col-3">
-                                  <p class="mb-0 small gray-text">Şikayet Yayımlandı</p>
-                              </div>
-                              <div class="col-5">
-                                  <p class="mb-0 small gray-text">-</p>
-                              </div>
-                              <div class="col-4 text-right">
-                                  <p class="mb-0 small gray-text">16 Şubat 2019 16:34</p>
-                              </div>
-                          </div>
-                      </b-list-group-item>
-                      <b-list-group-item>
-                          <div class="row">
-                              <div class="col-3">
-                                  <p class="mb-0 small gray-text">Markaya İletildi</p>
-                              </div>
-                              <div class="col-5">
-                                  <p class="mb-0 small gray-text">Şikayet Superonline markasına iletildi. </p>
-                              </div>
-                              <div class="col-4 text-right">
-                                  <p class="mb-0 small gray-text">16 Şubat 2019 16:34</p>
-                              </div>
-                          </div>
-                      </b-list-group-item>
-                      <b-list-group-item>
-                          <div class="row">
-                              <div class="col-3">
-                                  <p class="mb-0 small gray-text">Şikayet Alındı</p>
-                              </div>
-                              <div class="col-5">
-                                  <p class="mb-0 small gray-text"> Şikayet - ortamında oluşturuldu </p>
-                              </div>
-                              <div class="col-4 text-right">
-                                  <p class="mb-0 small gray-text">16 Şubat 2019 16:34</p>
+                                  <p class="mb-0 small gray-text">{{complaint.created}}</p>
                               </div>
                           </div>
                       </b-list-group-item>
@@ -144,6 +111,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div v-else>
+      
     </div>
   </div>
 </template>
@@ -165,11 +135,19 @@ export default {
       axios
         .get(`${config.apiURL}/brands/complaints/user/${this.$store.state.userInfo.id}/`)
         .then((response) => {
-          this.myComplaints = response.data
+          if(response === "User don't have any complaint") {
+            console.log("YOK!")
+          } else {
+            this.myComplaints = response.data
+          }
         })
         .catch((error) => {
           this.errors.push(error);
         });
+    },
+    setSituation() {
+      axios
+        .put(`${config.apiURL}/brands/complaints/user/a61b2f96-c4d4-42e0-a260-59d02ce5f370/`)
     },
   }
 };

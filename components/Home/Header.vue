@@ -486,9 +486,10 @@ header {
         <div id="secondary_nav">
           <div v-if="this.$store.state.userInfo.active == true" class="d-flex align-items-center">
             <b-navbar-nav class="notification-dd">
-              <b-nav-item-dropdown text="Lang" right class="mx-3" menu-class="shadow border-0 rounded-30">
+              <b-nav-item-dropdown text="Lang" right class="mx-3" menu-class="shadow border-0 p-3 rounded-30">
                 <template #button-content><fa class="text-light" :icon="['fas', 'bell']" /> </template>
-                <div class="dropdown-item small p-4">
+                <div v-for="i in 3" :key="i">
+                  <div class="dropdown-item small p-4">
                   <div class="dropdown-profile">
                     <div>
                       <img class="mr-3" src="../../static/google.png" alt="" />
@@ -503,34 +504,6 @@ header {
                   </div>
                 </div>
                 <b-dropdown-divider></b-dropdown-divider>
-                <div class="dropdown-item small p-4">
-                  <div class="dropdown-profile">
-                    <div>
-                      <img class="mr-3" src="../../static/google.png" alt="" />
-                    </div>
-                    <div class="text">
-                      <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
-                      <p class="mb-0 text-muted">
-                        Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
-                      </p>
-                      <span>17 Şubat 2020 15:23 </span>
-                    </div>
-                  </div>
-                </div>
-                <b-dropdown-divider></b-dropdown-divider>
-                <div class="dropdown-item small p-4">
-                  <div class="dropdown-profile">
-                    <div>
-                      <img class="mr-3" src="../../static/google.png" alt="" />
-                    </div>
-                    <div class="text">
-                      <h6 class="mb-1">Şikayet Değerlendirmesi</h6>
-                      <p class="mb-0 text-muted">
-                        Hepsiburada ile ilgili şikayet süreci hakkında değerlendirmenizi merak ediyoruz.
-                      </p>
-                      <span>17 Şubat 2020 15:23 </span>
-                    </div>
-                  </div>
                 </div>
               </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -546,15 +519,30 @@ header {
                   class="bg-light"
                   style="max-height: 48px; max-width: 48px"
                   variant="info"
+                  v-if="$store.state.userInfo.photo"
                   :src="$store.state.userInfo.photo"
                 ></b-avatar>
-                <span class="ml-2 mr-2 font-weight-bolder text-light">{{ $store.state.userInfo.username }}</span>
+                <b-avatar
+                  style="max-height: 48px; max-width: 48px"
+                  variant="danger"
+                  v-else
+                  :text="$store.state.userInfo.name.charAt(0)"
+                ></b-avatar>
+                <span class="ml-2 mr-2 font-weight-bolder text-light">{{ $store.state.userInfo.name }}</span>
                 <fa class="text-light" :icon="['fas', 'angle-down']" />
               </template>
               <div class="dropdown-item small">
                 <div class="dropdown-profile">
-                  <div>
+                  <div v-if="this.$store.state.userInfo.photo" class="mr-2">
                     <img :src="this.$store.state.userInfo.photo" alt="" />
+                  </div>
+                  <div v-else class="mr-2">
+                    <b-avatar
+                    class="text-white"
+                      style="max-height: 48px; max-width: 48px"
+                      variant="success"
+                      :text="this.$store.state.userInfo.name.charAt(0)"
+                    ></b-avatar>
                   </div>
                   <div class="text">
                     <h6 class="mb-1">
@@ -585,11 +573,11 @@ header {
               <div class="dropdown-item small">
                 <div class="dropdown-item small">
                   <div class="d-flex justify-content-between">
-                    <div>
+                    <div class="mr-2">
                       <fa class="mr-2" :icon="['fas', 'arrow-right-from-bracket']" />
                       <span>Çıkış Yap</span>
                     </div>
-                    <div>
+                    <div class="ml-2">
                       <fa class="mr-2" :icon="['fas', 'globe']" />
                       <span>Yardım</span>
                     </div>

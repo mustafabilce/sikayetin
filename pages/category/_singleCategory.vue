@@ -18,7 +18,7 @@
         deneyimlerinden yararlanın.
       </p>
       <div class="row mt-5">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12 xs-mb-3">
           <div class="card shadow left-card">
             <div class="card-body border rounded">
               <NuxtLink to="/" v-for="category in this.$store.state.categories" :key="category.id">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        <div class="col-8">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
           <div class="card shadow right-card mb-3" v-for="index in 10" :key="index">
             <div class="card-body border rounded d-flex align-items-center">
               <img src="../../static/apple.png" alt="" />

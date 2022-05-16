@@ -6,7 +6,7 @@
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/sikayetler', text: 'Şikayetler' },
-        { to: '/sikayetler/', text: 'Sikayet No: 1' },
+        { to: '/sikayetler/', text: `${complaint.title}` },
       ]"
       style="z-index: 1"
     />
@@ -14,9 +14,9 @@
     <section class="heading">
       <div class="row mt-5">
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-          <h4 class="title">{{ complaint.title }}</h4>
-          <p class="text-muted d-inline-block mb-1"><fa class="mr-2" :icon="['fas', 'eye']" />18 Görüntülenme</p>
-          <p class="text-muted d-inline-block ml-4"><fa class="mr-2" :icon="['fas', 'heart']" />{{likes.length}} Beğeni</p>
+          <h4 class="title xs-fs-18px">{{ complaint.title }}</h4>
+          <p class="text-muted d-inline-block mb-1 xs-fs-15px"><fa class="mr-2" :icon="['fas', 'eye']" />18 Görüntülenme</p>
+          <p class="text-muted d-inline-block ml-4 xs-fs-15px"><fa class="mr-2" :icon="['fas', 'heart']" />{{likes.length}} Beğeni</p>
           <b-card class="media-card">
             <b-media>
               <template #aside>
@@ -24,9 +24,9 @@
                 <b-avatar v-else text="K" variant="primary"></b-avatar>
               </template>
 
-              <h5 class="mt-0 d-inline-block" v-if="complaintUser.name">{{ complaintUser.name }}</h5>
-              <h5 class="mt-0 d-inline-block" v-else>{{ complaintUser.email }}</h5>
-              <span class="small gray-text font-weight-lighter ml-2">{{ complaint.created }}</span>
+              <h5 class="mt-0 d-inline-block xs-fs-15px" v-if="complaintUser.name">{{ complaintUser.name }}</h5>
+              <h5 class="mt-0 d-inline-block xs-fs-15px" v-else>{{ complaintUser.email }}</h5>
+              <span class="small gray-text font-weight-lighter ml-2 xs-fs-12px">{{ complaint.created }}</span>
               <p class="small">{{ complaint.text }}</p>
 
               <b-media class="mt-4" v-for="comment in comments" :key="comment.id">
@@ -34,8 +34,8 @@
                   <b-avatar :src="complaintBrand.logo" variant="light"></b-avatar>
                 </template>
 
-                <h5 class="mt-0 d-inline-block">{{ complaintBrand.name }}</h5>
-                <span class="small gray-text font-weight-lighter ml-2">15 Dakika önce</span>
+                <h5 class="mt-0 d-inline-block xs-fs-15px">{{ complaintBrand.name }}</h5>
+                <span class="small gray-text font-weight-lighter ml-2 xs-fs-12px">15 Dakika önce</span>
                 <div class="card-body mt-3 p-3 border rounded" style="background-color: #f6fafd">
                   <p class="mb-0 small">
                     {{comment.text}}
@@ -47,7 +47,7 @@
               <b-avatar class="comment-avatar" text="MB" variant="success"></b-avatar>
               <b-form-textarea id="textarea" placeholder="Yorum Yaz" rows="5" max-rows="8"></b-form-textarea>
               <div class="row no-gutters py-2" style="background-color: #f6fafd">
-                <div class="col-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="input-group comment-file">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroupFileAddon01"
@@ -61,14 +61,14 @@
                         id="inputGroupFile01"
                         aria-describedby="inputGroupFileAddon01"
                       />
-                      <label class="custom-file-label text-muted small" for="inputGroupFile01"
+                      <label class="custom-file-label text-muted small xs-fs-12px" for="inputGroupFile01"
                         >Fatura/Fotoğraf/Video/Belge Ekle</label
                       >
                     </div>
                   </div>
                 </div>
-                <div class="col-6 text-right">
-                  <button class="light-success-button border-0" style="background-color: transparent">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-right xs-text-left">
+                  <button class="light-success-button border-0 xs-fs-12px" style="background-color: transparent">
                     <fa class="mr-2" :icon="['fas', 'comment']" />Yorum Yap
                   </button>
                 </div>

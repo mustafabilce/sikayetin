@@ -9,7 +9,7 @@
     <div class="wrapper d-none" :class="{ 'd-block': search.length > 0 }">
       <NuxtLink :to="`/all-brands/${brand.id}`" class="card" v-for="brand in filteredList" :key="brand.id">
         <b-avatar size="2rem" rounded class="p-1 mr-2 border" variant="link" :src="brand.logo"></b-avatar>
-        <span>{{ brand.name }}</span>
+        <span class="xs-fs-15px">{{ brand.name }}</span>
       </NuxtLink>
     </div>
   </div>

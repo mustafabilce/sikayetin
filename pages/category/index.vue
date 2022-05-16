@@ -22,7 +22,7 @@
       </p>
       <div class="categories mt-5">
           <div class="row justify-content-center">
-              <div class="col-4 text-center" v-for="category of this.$store.state.categories" :key="category.id">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-6 text-center" v-for="category of this.$store.state.categories" :key="category.id">
                   <NuxtLink :to="`/category/${category.id}`">
                     <p class="text-dark border rounded p-3 mb-4">{{ category.name }}</p>
                   </NuxtLink>

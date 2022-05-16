@@ -6,7 +6,7 @@
       :links="[
         { to: '/', text: 'Anasayfa' },
         { to: '/brands', text: 'Markalar' },
-        { to: '/brands/', text: 'Apple' },
+        { to: '/brands/', text: `${brand.name}` },
       ]"
       style="z-index: 1"
     />
@@ -15,7 +15,7 @@
       <div class="row mt-5">
         <div class="col-12">
           <div class="card">
-            <div class="card-body brand-card border rounded d-flex align-items-center">
+            <div class="card-body brand-card border rounded">
               <div class="p-4 rounded" style="background-color: #fff">
                 <img class="logo" :src="`${brand.logo}`" alt="" />
               </div>
@@ -53,14 +53,14 @@
                     <h3>0</h3>
                   </div>
                   <div>
-                    <button class="btn btn-light light-button px-4">Marka Karnesini Gör</button>
+                    <button class="btn btn-light light-button px-4 xs-fs-12px">Marka Karnesini Gör</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-8 mt-5">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12 mt-5">
           <div class="row">
             <div class="col-12">
               <div class="card">
@@ -77,7 +77,7 @@
                   <div class="mt-4">
                     <h5 class="text-muted border-bottom pb-3" style="font-weight: 400">Şikayet Sayısı {{complaints.length}}</h5>
                   </div>
-                  <div>
+                  <div class="xs-mt-4">
                     <div v-if="complaints.length > 0">
                       <div v-for="complaint in complaints" :key="complaint.id">
                         <ComplaintCard :title="complaint.title" :text="complaint.text" :image="complaint.logo" :user="{ name: `${complaint.user.name}`, photo: `${complaint.user.photo}`}" />
@@ -92,7 +92,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4 mt-5">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-5">
           <FilterBox />
           <CompareBox />
           <BrandProfileBox />
@@ -156,6 +156,11 @@ export default {
 
 <style lang="scss" scoped>
 .brand-card {
+    display: flex;
+    align-items: center;
+    @media(max-width: 600px) {
+      flex-direction: column;
+    }
   .logo {
     max-width: 75px;
     max-height: 75px;
@@ -183,9 +188,16 @@ export default {
         p {
           font-size: 15px;
           margin-bottom: 5px;
+          @media(max-width: 600px) {
+            font-size: 12px;
+          }
         }
         h3 {
           font-size: 25px;
+        }
+        @media(max-width: 600px) {
+          padding: 10px 20px;
+          text-align: center;
         }
       }
       .box-2 {
@@ -194,9 +206,17 @@ export default {
         p {
           font-size: 14px;
           margin-bottom: 5px;
+          @media(max-width: 600px) {
+            font-size: 12px;
+          }
         }
         h3 {
           font-size: 23px;
+        }
+        @media(max-width: 600px) {
+          padding: 10px 0px;
+          margin-right: 1rem !important;
+          text-align: center;
         }
       }
     }
@@ -210,12 +230,18 @@ export default {
   align-items: center;
   padding: 20px;
   background-color: transparent;
+    @media(max-width: 600px) {
+      flex-direction: column;
+    }
   .avatar {
     margin-right: 10px;
   }
   p {
     display: inline-block;
     margin-bottom: 0;
+    @media(max-width: 600px) {
+      margin: 10px 0;
+    }
   }
   .text {
     padding: 10px 16px;

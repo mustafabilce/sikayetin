@@ -41,6 +41,9 @@
 
     .search {
       margin-top: 50px;
+      @media (max-width: 600px) {
+        margin-top: 20px;
+      }
 
       input {
         padding: 12px 30px;
@@ -137,6 +140,7 @@
     @media (max-width: 800px) {
       h1 {
         font-size: 1.6em;
+        margin-bottom: 20px;
       }
 
       p {

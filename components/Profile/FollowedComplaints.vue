@@ -1,7 +1,7 @@
 <template>
   <div class="followed-complaints">
     <ProfileHeader />
-    <div class="row mt-5 mb-0">
+    <div v-if="myComplaints.length > 0" class="row mt-5 mb-0">
       <div class="col-12">
         <h5 class="pb-3 border-bottom">Takip Ettiklerim <span class="gray-text">3</span></h5>
         <div class="items">
@@ -10,21 +10,18 @@
               <div class="card-body border rounded">
                 <div class="row">
                   <div class="col-12">
-                    <div class="d-flex justify-content-start align-items-center">
-                      <b-avatar variant="danger" text="M" size="2em"></b-avatar>
-                      <p class="d-inline-block mb-0 mx-2">Mustafa</p>
+                    <div class="d-flex justify-content-start align-items-center"> 
+                      <b-avatar v-if="complaint.user.name" variant="link" :src="complaint.user.photo" size="2em"></b-avatar>
+                      <b-avatar v-else variant="info" :text="complaint.user.name.charAt(0)" size="2em"></b-avatar>
+                      <p class="d-inline-block mb-0 mx-2">{{complaint.user.name}}</p>
                       <fa class="mr-2 text-muted" :icon="['fas', 'arrow-trend-down']" />
-                      <a href="#">Hepsiburada.com(TR)</a>
+                      <a href="#">{{complaint.complaint.brand.name}}</a>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="mt-3 border-bottom">
-                      <h5>Hepsiburada Verdiğim Sipariş Hala Kargoya Bile Verilmedi</h5>
-                      <p class="gray-text small">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum rem voluptate vero error magni
-                        pariatur ea, possimus repellat cupiditate atque, inventore ad minima quia quisquam tempora earum
-                        labore. Ratione, repellendus.
-                      </p>
+                      <h5>{{complaint.complaint.title}}</h5>
+                      <p class="gray-text small">{{complaint.complaint.text}}</p>
                     </div>
                   </div>
                   <div class="col-12">
@@ -55,13 +52,28 @@ export default {
   },
   created () {
     this.getMyLikedComplaints()
+    this.test()
   },
   methods: {
     getMyLikedComplaints() {
       axios
         .get(`${config.apiURL}/brands/likes/user/${this.$store.state.userInfo.id}/`)
         .then((response) => {
-          this.myLikedComplaints = response.data
+          if(response === "Kullanıcının beğendiği bir gönderi bulunmamaktadır") {
+            console.log("YOK!")
+          } else {
+            this.myLikedComplaints = response.data
+          }
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+    test() {
+      axios
+        .get(`${config.apiURL}/brands/give-star/e7976f3f-3dec-4be3-ac71-3f6cf65cc017`)
+        .then((response) => {
+          console.log(response)
         })
         .catch((error) => {
           this.errors.push(error);

@@ -2,7 +2,7 @@
   <div class="sidebar">
     <div class="logo">
       <NuxtLink to="/">
-        <img src="../../static/logo-blue.png" id="logo" />
+        <img src="../../static/logo-white.png" id="logo" />
       </NuxtLink>
     </div>
     <div class="items">
