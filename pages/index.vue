@@ -92,7 +92,7 @@ export default {
         .then((response) => this.updatePopularComplaints(response.data.results));
     },
     getPopularCategories() {
-      axios.get(`${config.apiURL}/brands/categories/`).then((response) => this.updatePopularCategories(response.data));
+      axios.get(`${config.apiURL}/brands/categories/?limit=5&offset=0`).then((response) => this.updatePopularCategories(response.data));
     },
     getPopularBrands() {
       axios

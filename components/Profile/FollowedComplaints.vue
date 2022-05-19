@@ -1,9 +1,9 @@
 <template>
   <div class="followed-complaints">
     <ProfileHeader />
-    <div v-if="myComplaints.length > 0" class="row mt-5 mb-0">
+    <div class="row mt-5 mb-0">
       <div class="col-12">
-        <h5 class="pb-3 border-bottom">Takip Ettiklerim <span class="gray-text">3</span></h5>
+        <h5 class="pb-3 border-bottom">Takip Ettiklerim <span class="gray-text">{{myLikedComplaints.length}}</span></h5>
         <div class="items">
           <div class="item mt-3" v-for="complaint in myLikedComplaints" :key="complaint.id">
             <div class="card">
@@ -52,7 +52,6 @@ export default {
   },
   created () {
     this.getMyLikedComplaints()
-    this.test()
   },
   methods: {
     getMyLikedComplaints() {
@@ -64,16 +63,6 @@ export default {
           } else {
             this.myLikedComplaints = response.data
           }
-        })
-        .catch((error) => {
-          this.errors.push(error);
-        });
-    },
-    test() {
-      axios
-        .get(`${config.apiURL}/brands/give-star/e7976f3f-3dec-4be3-ac71-3f6cf65cc017`)
-        .then((response) => {
-          console.log(response)
         })
         .catch((error) => {
           this.errors.push(error);

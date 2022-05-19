@@ -81,7 +81,31 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios"
+import config from "../../config"
+
+export default {
+  data() {
+    return {
+      myNotifications: [],
+    };
+  },
+  created () {
+    this.getMyNotifications()
+  },
+  methods: {
+    getMyNotifications() {
+      axios
+        .get(`${config.apiURL}/brands/likes/user/${this.$store.state.userInfo.id}/`)
+        .then((response) => {
+            this.myNotifications = response.data
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
+  }
+};
 </script>
 
 <style lang="scss" scoped>
