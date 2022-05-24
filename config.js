@@ -1,3 +1,3 @@
 export default {
-    apiURL: 'https://ritalabs.xyz'
+    apiURL: 'https://sikayet.codes'
 }
