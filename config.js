@@ -1,3 +1,3 @@
 export default {
-    apiURL: 'https://sikayet.codes'
+    apiURL: 'http://188.119.41.56:9001/'
 }
