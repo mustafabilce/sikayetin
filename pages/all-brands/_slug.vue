@@ -19,7 +19,7 @@
               <div class="p-4 rounded" style="background-color: #fff">
                 <img class="logo" :src="`${brand.logo}`" alt="" />
               </div>
-              <div class="ml-4">
+              <div class="ml-4 xs-text-center">
                 <h5>{{ brand.name }} <fa color="#FF5777" :icon="['fas', 'circle-check']" /></h5>
                 <div class="icons">
                   <fa :icon="['fas', 'star']" class="star-icon" />
@@ -42,7 +42,7 @@
                   </p>
                 </div>
               </div>
-              <div class="card ml-auto">
+              <div class="card ml-auto xs-card">
                 <div class="card-body border rounded d-flex align-items-center">
                   <div class="box rounded mr-3">
                     <p>Şikayet Sayısı</p>
@@ -247,6 +247,18 @@ export default {
     padding: 10px 16px;
     background-color: #ff5777;
     color: #fff;
+  }
+}
+.xs-card {
+  @media(max-width: 768px) {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .card-body {
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
   }
 }
 </style>

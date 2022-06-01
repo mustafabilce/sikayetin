@@ -142,42 +142,34 @@ section.heading {
 <template>
   <div>
     <section class="heading">
-      <h1 class="reveal-on-visible">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
+      <h1 class="">En Çok Hangi Şikayetlere Yorum Yapıldı?</h1>
     </section>
     <section id="most_talked_about">
       <div class="inner">
         <div class="card" v-for="complaint in this.$store.state.allComplaints" :key="complaint.id">
-          <h4 class="heading reveal-on-visible">
+          <h4 class="heading ">
             {{complaint.title}}
           </h4>
-          <p class="reveal-on-visible delay-2">
+          <p class=" ">
             {{complaint.text}}
           </p>
-          <a href="#" class="comment reveal-on-visible delay-3">
+          <a href="#" class="comment  ">
             <img src="../../static/yorum.png" /> &nbsp; 12 Yorum
           </a>
-          <div class="footer reveal-on-visible delay-4">
+          <div class="footer">
             <div class="customer">
-              <img :src="complaint.user.photo" />
+              <img class="mr-2" :src="complaint.user.photo" />
               <div>
                 <b>{{ complaint.user.name }}</b>
-                <br />
-                <span style="white-space: nowrap">
-                  12.123&nbsp;
-                  <fa :icon="['fas', 'eye']" style="display: inline" />
-                </span>
               </div>
             </div>
 
             <img src="../../static/arrow.svg" class="arrow" />
 
             <div class="brand">
-              <img :src="complaint.brand.logo" />
+              <img class="mr-2" :src="complaint.brand.logo" />
               <div>
                 <b>{{ complaint.brand.name }}</b>
-                <div class="stars">
-                  <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </div>
               </div>
             </div>
           </div>

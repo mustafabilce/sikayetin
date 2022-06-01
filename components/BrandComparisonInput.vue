@@ -2,9 +2,6 @@
   <div id="searchBrandForm">
     <div class="search-wrapper">
       <input class="rounded-30" type="text" v-model="search" placeholder="Marka ara..." />
-      <span class="search-icon">
-        <fa class="text-light" :icon="['fas', 'magnifying-glass']" />
-      </span>
     </div>
     <div class="wrapper d-none" :class="{ 'd-block': search.length > 0 }">
       <p class="card" v-for="brand in filteredList" :key="brand.id">

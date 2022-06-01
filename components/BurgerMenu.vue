@@ -1,5 +1,9 @@
 <style lang="scss" scoped>
 #burger_menu_holder {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
   @media (max-width: 500px) {
     margin-right: 15px !important;
   }

@@ -298,6 +298,15 @@ header {
       box-shadow: 15px 20px 75px rgba($color: #000000, $alpha: 0.7);
       text-align: center;
       color: black;
+      
+      .stars {
+        svg {
+          height: 16px;
+          width: 16px;
+          fill: #ffc147;
+          color: #ffc147;
+        }
+      }
 
       @media (max-width: 1400px) {
         top: 420px;
@@ -596,7 +605,7 @@ header {
             ><fa class="mr-2" :icon="['fas', 'pen-to-square']" /> Şikayet Yaz</NuxtLink
           >
         </div>
-
+        <BurgerMenu />
         <Login />
         <Register />
         <Verification />
@@ -624,12 +633,20 @@ header {
         </div>
 
         <div id="star_of_week">
-          <img src="../../static/trendyol.png" />
+          <NuxtLink to="all-brands/5d0e3b85-bf1f-4ce3-8028-8a11f8f4946e" >
+            <img src="../../static/trendyol.png" />
+          </NuxtLink>
 
           <small>Haftanın Yıldızı</small>
           <h4>TRENDYOL</h4>
-          <p><b>1200</b> <span>Çözülmüş Şikayet</span></p>
-          <a class="btn" href="#">İncele</a>
+          <div class="d-flex justify-content-around mt-2 stars">
+            <fa :icon="['fas', 'star']" />
+            <fa :icon="['fas', 'star']" />
+            <fa :icon="['fas', 'star']" />
+            <fa :icon="['fas', 'star']" />
+            <fa :icon="['fas', 'star']" />
+          </div>
+          <NuxtLink to="all-brands/5d0e3b85-bf1f-4ce3-8028-8a11f8f4946e" class="btn">İncele</NuxtLink>
         </div>
       </div>
 
@@ -645,6 +662,7 @@ header {
 <script>
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
+import BurgerMenu from '../BurgerMenu.vue'
 import Login from '~/components/modals/Login.vue';
 import Register from '~/components/modals/Register.vue';
 import Verification from '~/components/modals/Verification.vue';
@@ -666,7 +684,7 @@ export default {
     isScrolled: false,
     scrollEndTimeout: null,
   }),
-  components: { Login, Register, Verification, SearchBrandForm, vSelect },
+  components: { BurgerMenu, Login, Register, Verification, SearchBrandForm, vSelect },
   methods: {
     OnScroll(checkForScrollEnd = true) {
       const breakpoint = this.full ? 600 : 100;

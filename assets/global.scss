@@ -243,6 +243,8 @@ textarea {
 		font-size: 0.9em;
 		line-height: 1.1em;
 		white-space: nowrap;
+		display: flex;
+		align-items: center;
 
 		&::after {
 			content: "";
@@ -270,7 +272,7 @@ textarea {
 	img {
 		width: 42px;
 		border-radius: 100%;
-		margin-right: 8px;
+		// margin-right: 8px;
 
 		@media (max-width: 900px) {
 			width: 30px;
@@ -617,4 +619,7 @@ $live-button-pulse-to: #d13d58;
 		font-size: 12px;
 	}
 
+	.xs-text-center {
+		text-align: center;
+	}
 }

@@ -140,6 +140,32 @@
     padding: 30px;
     background: white;
     margin-bottom: 50px;
+    position: relative;
+
+    .statistics {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: flex;
+      background-color: #e7e7e7;
+      border-radius: 0 30px 0 30px;
+      padding: 10px 15px;
+      div:not(:first-child :last-child) {
+        border-right: 1px solid #6d757d;
+      }
+      div {
+        padding: 0 10px;
+      }
+      svg {
+        height: 13px;
+        width: 13px;
+        color: #6d757d;
+      }
+      span {
+        font-size: 12px;
+        color: #6d757d;
+      }
+    }
 
     .title {
       font-weight: 700;
@@ -289,15 +315,15 @@
       <div class="background"></div>
     </section>
 
-    <section id="all">
+    <section id="all" >
       <div class="row">
         <div class="col-12 mb-5">
           <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
             <h2 class="text-dark-blue">Şikayetler</h2>
-            <span class="text-gray-2">{{this.$store.state.allComplaints.length}} şikayet</span>
+            <span class="text-gray-2">{{ this.$store.state.allComplaints.length }} şikayet</span>
           </div>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12" >
           <div
             class="heading d-flex align-items-center flex-wrap align-items-center justify-content-between"
             style="gap: 20px"
@@ -308,16 +334,30 @@
             v-for="complaint in this.$store.state.allComplaints"
             :key="complaint.id"
           >
+            <div class="statistics">
+              <div>
+                <fa :icon="['fas', 'eye']" />
+                <span>18 Görüntülenme</span>
+              </div>
+              <div>
+                <fa :icon="['fas', 'heart']" />
+                <span>7 Beğeni</span>
+              </div>
+              <div>
+                <fa :icon="['fas', 'thumbs-up']" />
+                <span>3 Takip</span>
+              </div>
+            </div>
             <div class="customer-and-brand mb-4">
               <div class="customer">
-              <div v-if="complaint.user.photo">
-                <img :src="complaint.user.photo" />
-              </div>
-              <div v-else-if="complaint.user.photo === null">
-                <b-avatar class="mr-2" src="https://placekitten.com/300/300"></b-avatar>
-              </div>
+                <div class="mr-2" v-if="complaint.user.photo">
+                  <img :src="complaint.user.photo" />
+                </div>
+                <div v-else-if="complaint.user.photo === null">
+                  <b-avatar class="mr-2" src="https://placekitten.com/300/300"></b-avatar>
+                </div>
                 <div>
-                  <b>{{complaint.user.name}}</b>
+                  <b>{{ complaint.user.name }}</b>
                   <br />
                   <span style="white-space: nowrap">
                     12.123&nbsp;
@@ -326,12 +366,12 @@
                 </div>
               </div>
 
-                  <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
+              <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
               <div class="brand">
-                <img :src="complaint.brand.logo" />
+                <img class="mr-2" :src="complaint.brand.logo" />
                 <div>
-                  <b>{{complaint.brand.name}}</b>
+                  <b>{{ complaint.brand.name }}</b>
                   <div class="stars">
                     <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
                   </div>
@@ -339,7 +379,9 @@
               </div>
             </div>
             <h4 class="title">{{ complaint.title }}</h4>
-            <p class="text">{{ complaint.text }} <NuxtLink :to="`/sikayetler/${complaint.id}`">Devamını Gör</NuxtLink></p>
+            <p class="text">
+              {{ complaint.text }} <NuxtLink :to="`/sikayetler/${complaint.id}`">Devamını Gör</NuxtLink>
+            </p>
 
             <div class="footer justify-content-between align-items-center">
               <div class="actions">
@@ -389,8 +431,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-import config from '../../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import FilterBox from '~/components/FilterBox.vue';

@@ -43,10 +43,7 @@
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 col-12 xs-mt-3">
                     <div class="comp-count-box">
-                      <div class="icon-box bg-purple-light d-inline-block">
-                        <fa :icon="['fas', 'comment-dots']" />
-                      </div>
-                      <div>
+                      <div class="text-center">
                         <p class="small mb-0">Şikayet Sayısı</p>
                         <h6 class="mb-0">67.282</h6>
                       </div>
@@ -154,6 +151,7 @@ export default {
   .comp-count-box {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #fff;
     padding: 1rem;
     border-radius: 10px;

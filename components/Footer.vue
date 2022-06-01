@@ -158,42 +158,38 @@ footer {
     </div>
 
     <div class="sections">
-      <!-- <div class="about">
-        <p>
-          Şikayet.in bir ürün ya da hizmet için problem ile karşılaşan tüketicilerin, şikayetlerini dile
-          getirebilmelerini ve şikayet.in marka tarafından çözülmesini sağlayan bir platformdur.
-        </p>
-      </div> -->
-
       <div class="categories row">
         <div class="category col-lg-2 col-md-2 col-sm-12 col-12">
           <h4 class="heading">Popüler Kategoriler</h4>
-          <NuxtLink
+          <!-- <NuxtLink
             :to="`/category/${popularCategory.id}`"
             v-for="popularCategory in $store.state.popularCategories"
             :key="popularCategory.id"
             >{{ popularCategory.name }}</NuxtLink
-          >
+          > -->
+          <NuxtLink to="/" v-for="i in 10" :key="i">E-ticaret</NuxtLink>
         </div>
 
         <div class="category col-lg-2 col-md-2 col-sm-12 col-12">
           <h4 class="heading">Popüler Markalar</h4>
-          <NuxtLink
+          <!-- <NuxtLink
             :to="`/all-brands/${popularBrand.id}`"
             v-for="popularBrand in $store.state.popularBrands"
             :key="popularBrand.id"
             >{{ popularBrand.name }}</NuxtLink
-          >
+          > -->
+          <NuxtLink to="/" v-for="i in 10" :key="i">Trendyol</NuxtLink>
         </div>
 
         <div class="category col-lg-4 col-md-4 col-sm-12 col-12">
           <h4 class="heading">Popüler Şikayetler</h4>
-          <NuxtLink
+          <!-- <NuxtLink
             :to="`sikayetler/${popularComplaint.id}`"
             v-for="popularComplaint in $store.state.popularComplaints"
             :key="popularComplaint.id"
             >{{ popularComplaint.title }}</NuxtLink
-          >
+          > -->
+          <NuxtLink to="/" v-for="i in 10" :key="i">Akbank ATM'si Paramı Yuttu</NuxtLink>
         </div>
 
         <div class="category col-lg-4 col-md-4 col-sm-12 col-12">
@@ -201,11 +197,7 @@ footer {
           <!-- <NuxtLink :to="`sikayetler/${popularComment.complaint}`" v-for="popularComment in $store.state.popularComments" :key="popularComment.id">{{
             popularComment.text
           }}</NuxtLink> -->
-          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
-          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
-          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
-          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
-          <NuxtLink to="`sikayetler">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
+          <NuxtLink to="sikayetler" v-for="i in 10" :key="i">Lorem ipsum dolor sit consectetur adipisicing elit.</NuxtLink>
         </div>
       </div>
     </div>

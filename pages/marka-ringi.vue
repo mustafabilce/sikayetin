@@ -130,7 +130,6 @@
 
     <section id="compare">
       <h1 class="big-title text-white">Marka Karşılaştırma</h1>
-
       <div class="inputs">
         <input type="text" placeholder="1. Marka" />
         <button>Karşılaştır</button>
@@ -178,8 +177,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import config from '../config';
+// import axios from 'axios';
+// import config from '../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 

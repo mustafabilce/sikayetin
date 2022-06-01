@@ -155,7 +155,7 @@
           </h5>
           <div class="footer ">
             <div class="customer">
-              <div v-if="complaint.user.photo">
+              <div class="mr-2" v-if="complaint.user.photo">
                 <img :src="complaint.user.photo" />
               </div>
               <div v-else-if="complaint.user.photo === null">
@@ -163,11 +163,6 @@
               </div>
               <div class="small">
                 <b class="text-dark-blue">{{complaint.user.name}}</b>
-                <br />
-                <span style="white-space: nowrap">
-                  12.123&nbsp;
-                  <fa :icon="['fas', 'eye']" style="display: inline" />
-                </span>
               </div>
             </div>
 
@@ -178,10 +173,7 @@
                 <b-avatar class="border mr-2" variant="link" :src="complaint.brand.logo" />
               </div>
               <div class="small">
-                <b class="text-dark-blue">{{complaint.brand.name}}</b>
-                <div class="stars">
-                  <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </div>
+                <NuxtLink :to="`all-brands/${complaint.brand.id}`"><b class="text-dark-blue">{{complaint.brand.name}}</b></NuxtLink>
               </div>
             </div>
           </div>
@@ -194,7 +186,7 @@
           </h5>
           <div class="footer ">
             <div class="customer">
-              <div v-if="complaint.user.photo">
+              <div class="mr-2" v-if="complaint.user.photo">
                 <img :src="complaint.user.photo" />
               </div>
               <div v-else-if="complaint.user.photo === null">
@@ -202,11 +194,6 @@
               </div>
               <div class="small">
                 <b class="text-dark-blue">{{complaint.user.name}}</b>
-                <br />
-                <span style="white-space: nowrap">
-                  12.123&nbsp;
-                  <fa :icon="['fas', 'eye']" style="display: inline" />
-                </span>
               </div>
             </div>
 
@@ -217,10 +204,7 @@
                 <b-avatar variant="link" class="border mr-2" :src="complaint.brand.logo" />
               </div>
               <div class="small">
-                <b class="text-dark-blue">{{complaint.brand.name}}</b>
-                <div class="stars">
-                  <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </div>
+                <NuxtLink :to="`all-brands/${complaint.brand.id}`"><b class="text-dark-blue">{{complaint.brand.name}}</b></NuxtLink>
               </div>
             </div>
           </div>
