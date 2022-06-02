@@ -131,9 +131,10 @@
     <section id="compare">
       <h1 class="big-title text-white">Marka Karşılaştırma</h1>
       <div class="inputs">
-        <input type="text" placeholder="1. Marka" />
+        <BrandsComparisonForm />
+        <span class="mx-4 small text-light">ile</span>
+        <BrandsComparisonForm />
         <button>Karşılaştır</button>
-        <input type="text" placeholder="2. Marka" />
       </div>
     </section>
 
@@ -141,8 +142,8 @@
       <div class="background"></div>
       <h4 class="heading">Popüler Karşılaştırmalar</h4>
 
-      <div class="inner">
-        <div class="comparison border rounded reveal-on-visible" v-for="i in 9" :key="i">
+      <div class="inner mt-5">
+        <div class="comparison rounded-30 shadow" v-for="i in 9" :key="i">
           <div class="brands">
             <div class="brand">
               <img src="../static/trendyol.png" />
@@ -181,9 +182,10 @@
 // import config from '../config';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
+import BrandsComparisonForm from '~/components/BrandsComparisonForm.vue';
 
 export default {
-  components: { Header, Footer },
+  components: { Header, Footer, BrandsComparisonForm },
   // created() {
   //   this.getUserInfo();
   // },

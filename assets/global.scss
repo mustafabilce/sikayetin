@@ -623,3 +623,15 @@ $live-button-pulse-to: #d13d58;
 		text-align: center;
 	}
 }
+
+
+.radio-none {
+	padding-left: .5rem;
+	cursor: pointer;
+	.custom-control-label::before {
+		display: none !important;
+	}
+	.custom-control-label::after {
+		display: none !important;
+	}
+}

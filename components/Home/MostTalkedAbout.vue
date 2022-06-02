@@ -25,8 +25,8 @@ section.heading {
       transform: scale(0.9);
       padding: 30px;
       border-radius: 30px;
-      margin-top: 50px;
-      height: 300px;
+      margin-top: 75px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -41,6 +41,9 @@ section.heading {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        a {
+          color: #000;
+        }
       }
 
       p {
@@ -82,7 +85,7 @@ section.heading {
         margin: 8px 0;
         opacity: 0.8;
         transition: 0.2s;
-        font-size: .8rem;
+        font-size: 1.2rem;
 
         &:hover {
           opacity: 1;
@@ -147,32 +150,33 @@ section.heading {
     <section id="most_talked_about">
       <div class="inner">
         <div class="card" v-for="complaint in this.$store.state.allComplaints" :key="complaint.id">
-          <h4 class="heading ">
-            {{complaint.title}}
-          </h4>
-          <p class=" ">
-            {{complaint.text}}
-          </p>
-          <a href="#" class="comment  ">
+
+          <NuxtLink to="/" class="comment">
             <img src="../../static/yorum.png" /> &nbsp; 12 Yorum
-          </a>
-          <div class="footer">
+          </NuxtLink>
+          <div class="footer mb-3">
             <div class="customer">
               <img class="mr-2" :src="complaint.user.photo" />
               <div>
-                <b>{{ complaint.user.name }}</b>
+                <NuxtLink to="/"><b>{{ complaint.user.name }}</b></NuxtLink>
               </div>
             </div>
 
-            <img src="../../static/arrow.svg" class="arrow" />
+            <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
 
             <div class="brand">
               <img class="mr-2" :src="complaint.brand.logo" />
               <div>
-                <b>{{ complaint.brand.name }}</b>
+                <NuxtLink :to="`/all-brands/${complaint.brand.id}`"><b>{{ complaint.brand.name }}</b></NuxtLink>
               </div>
             </div>
           </div>
+          <h4 class="heading">
+            <NuxtLink class="text-dark" :to="`/sikayetler/${complaint.id}`">{{complaint.title}}</NuxtLink>
+          </h4>
+          <!-- <p>
+            {{complaint.text}}
+          </p> -->
         </div>
       </div>
 

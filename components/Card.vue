@@ -1,19 +1,14 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-3">
     <div class="row">
       <div class="col-4" v-for="i in 3" :key="i">
-        <div class="card shadow">
-          <h6 class="reveal-on-visible">Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h6>
-          <div class="footer reveal-on-visible delay-3">
+        <div class="card">
+          <h6>Şikayet Başlığı dolor sit amet, consectetur adipiscing elit.</h6>
+          <div class="footer">
             <div class="customer">
               <img src="../static/customer.png" />
               <div>
                 <b>Samet</b>
-                <br />
-                <span style="white-space: nowrap">
-                  12.123&nbsp;
-                  <fa :icon="['fas', 'eye']" style="display: inline" />
-                </span>
               </div>
             </div>
 
@@ -23,9 +18,6 @@
               <img src="../static/trendyol.png" />
               <div>
                 <b>Trendyol</b>
-                <div class="stars">
-                  <img src="../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                </div>
               </div>
             </div>
           </div>
@@ -73,5 +65,6 @@ export default {};
 .card {
   text-align: center;
   padding: 30px 20px;
+  border: 1px solid #dee2e6 !important;
 }
 </style>
