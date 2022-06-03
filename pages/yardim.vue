@@ -233,13 +233,13 @@ section.content {
     />
 
     <div class="heading-circles">
-      <div class="circle circle-1 reveal-on-visible delay-1"></div>
-      <div class="circle circle-2 reveal-on-visible delay-3"></div>
-      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+      <div class="circle circle-1  "></div>
+      <div class="circle circle-2  "></div>
+      <div class="circle circle-3  "></div>
     </div>
 
     <section class="head">
-      <h1 class="reveal-on-visible big-title text-left">Size Nasıl Yardımcı Olabiliriz ?</h1>
+      <h1 class=" big-title text-left">Size Nasıl Yardımcı Olabiliriz ?</h1>
 
       <div id="search">
         <img src="../static/search.svg" />
@@ -267,7 +267,7 @@ section.content {
 
       <div class="questions">
         <div
-          class="question reveal-on-visible"
+          class="question "
           :class="{ shown: shownQuestion == question.id }"
           v-for="question in questions.filter((x) => x.category == shownCategory)"
           :key="question.id"

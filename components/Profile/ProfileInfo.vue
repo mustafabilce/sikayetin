@@ -19,7 +19,7 @@
               <div class="col-12 mb-4">
                 <div class="d-flex justify-content-between">
                   <label class="gray-text">Ad Soyad</label>
-                  <a class="edit-info" href="#">Düzenle</a>
+                  <a class="edit-info" href="#" v-b-modal.set-infos-modal>Düzenle</a>
                 </div>
                 <b-input-group>
                   <b-form-input disabled type="text" :placeholder="this.$store.state.userInfo.name"></b-form-input>
@@ -28,7 +28,7 @@
               <div class="col-12 mb-4">
                 <div class="d-flex justify-content-between">
                   <label class="gray-text">E-Posta</label>
-                  <a class="edit-info" href="#">Düzenle</a>
+                  <a class="edit-info" href="#" v-b-modal.set-email-modal>Düzenle</a>
                 </div>
                 <b-input-group>
                   <b-form-input disabled type="email" :placeholder="this.$store.state.userInfo.email"></b-form-input>
@@ -37,7 +37,7 @@
               <div class="col-12 mb-4">
                 <div class="d-flex justify-content-between">
                   <label class="gray-text">Telefon</label>
-                  <a class="edit-info" href="#">Düzenle</a>
+                  <a class="edit-info" href="#" v-b-modal.set-phone-modal>Düzenle</a>
                 </div>
                 <b-input-group>
                   <b-form-input disabled type="number" :placeholder="this.$store.state.userInfo.phone_number"></b-form-input>
@@ -46,7 +46,7 @@
               <div class="col-12 mb-4">
                 <div class="d-flex justify-content-between">
                   <label class="gray-text">Şifre</label>
-                  <a class="edit-info" href="#">Düzenle</a>
+                  <a class="edit-info" href="#" v-b-modal.set-password-modal>Düzenle</a>
                 </div>
                 <b-input-group>
                   <b-form-input disabled type="password" :placeholder="this.$store.state.userInfo.password"></b-form-input>
@@ -57,13 +57,22 @@
         </div>
       </div>
     </div>
+    <SetNameSurname title="Ad Soyad Değişikliği" text="Lütfen adınızı ve soyadınızı giriniz." />
+    <SetEmail title="Email Değişikliği" text="Mevcut e-postanız:" email="root@root.com" />
+    <SetPhone title="Telefon Doğrulama" text="Yazdığınız telefon numarasına doğrulama kodu gönderilecektir." text2="Mevcut telefon numaranız:" phone="+905555555555"  />
+    <SetPassword title="Şifre Değişikliği" />
   </div>
 </template>
 
 <script>
 import ProfileHeader from '~/components/Profile/ProfileHeader.vue';
+import SetNameSurname from '~/components/modals/Profile/SetNameSurname.vue';
+import SetEmail from '~/components/modals/Profile/SetEmail.vue';
+import SetPhone from '~/components/modals/Profile/SetPhone.vue';
+import SetPassword from '~/components/modals/Profile/SetPassword.vue';
+
 export default {
-  components: { ProfileHeader },
+  components: { ProfileHeader, SetNameSurname, SetEmail, SetPhone, SetPassword },
 };
 </script>
 

@@ -14,14 +14,7 @@
         <div slot="step-1">
           <h3>Marka Arayın</h3>
           <div>
-            <b-form-select v-model="brand" :options="this.$store.state.brands.map(brand => brand.name)"></b-form-select>
-            <div class="mt-4">
-              <p class="small mb-0">
-                Seçilen Marka:
-                <span class="bg-light border rounded px-2 py-1 mx-2" v-if="brand">{{ brand }}</span>
-                <span class="bg-light border rounded px-4 py-1 mx-2" v-else></span> için Şikayet Oluşturuyorsunuz.
-              </p>
-            </div>
+            <BrandSearch class="w-100" />
           </div>
         </div>
 
@@ -85,8 +78,10 @@ import axios from "axios";
 import config from "../config";
 import Stepper from 'vuejs-stepper';
 import Header from '~/components/Home/Header.vue';
+import BrandSearch from '~/components/WriteComplaint/BrandSearch.vue';
+
 export default {
-  components: { Stepper, Header },
+  components: { Stepper, Header, BrandSearch },
   data() {
     return {
       brand: "",

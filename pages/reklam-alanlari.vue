@@ -11,9 +11,9 @@
     />
 
     <div class="heading-circles">
-      <div class="circle circle-1 reveal-on-visible delay-1"></div>
-      <div class="circle circle-2 reveal-on-visible delay-3"></div>
-      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+      <div class="circle circle-1  "></div>
+      <div class="circle circle-2  "></div>
+      <div class="circle circle-3  "></div>
     </div>
 
     <section>

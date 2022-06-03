@@ -61,8 +61,8 @@
 <template>
   <section id="counters">
     <div class="left">
-      <h2 class="heading reveal-on-visible">Sayılarla <a href="/">sikayet.in</a></h2>
-      <p class="text reveal-on-visible delay-4">Platformda neler oluyor? Sayılar bize neler söylüyor?</p>
+      <h2 class="heading ">Sayılarla <a href="/">sikayet.in</a></h2>
+      <p class="text  ">Platformda neler oluyor? Sayılar bize neler söylüyor?</p>
     </div>
     <div class="counts">
       <div class="count" v-for="counter in counters" :key="counter.id">

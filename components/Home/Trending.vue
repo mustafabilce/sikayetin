@@ -155,15 +155,17 @@
           </h5>
           <div class="footer ">
             <div class="customer">
-              <div class="mr-2" v-if="complaint.user.photo">
-                <img :src="complaint.user.photo" />
-              </div>
-              <div v-else-if="complaint.user.photo === null">
-                <b-avatar class="border mr-2" src="https://placekitten.com/300/300"></b-avatar>
-              </div>
-              <div class="small">
-                <b class="text-dark-blue">{{complaint.user.name}}</b>
-              </div>
+              <NuxtLink :to="`/user/${complaint.user.id}`" class="d-flex align-items-center">
+                <div class="mr-2" v-if="complaint.user.photo">
+                  <img :src="complaint.user.photo" />
+                </div>
+                <div v-else-if="complaint.user.photo === null">
+                  <b-avatar class="border mr-2" src="https://placekitten.com/300/300"></b-avatar>
+                </div>
+                <div class="small">
+                  <b class="text-dark-blue">{{complaint.user.name}}</b>
+                </div>
+              </NuxtLink>
             </div>
 
             <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />
@@ -186,6 +188,7 @@
           </h5>
           <div class="footer ">
             <div class="customer">
+              <NuxtLink :to="`/user/${complaint.user.id}`" class="d-flex align-items-center">
               <div class="mr-2" v-if="complaint.user.photo">
                 <img :src="complaint.user.photo" />
               </div>
@@ -195,6 +198,7 @@
               <div class="small">
                 <b class="text-dark-blue">{{complaint.user.name}}</b>
               </div>
+              </NuxtLink>
             </div>
 
             <fa :icon="['fas', 'arrow-right-arrow-left']" class="arrow" />

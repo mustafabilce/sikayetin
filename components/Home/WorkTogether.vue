@@ -44,14 +44,14 @@
 
 <template>
   <section id="work_together">
-    <h2 class="heading reveal-on-visible">Şikayetlere Cevap Verin, Markanızı Güçlendirin</h2>
+    <h2 class="heading ">Şikayetlere Cevap Verin, Markanızı Güçlendirin</h2>
 
-    <p class="reveal-on-visible delay-3">
+    <p class=" ">
       Kurumsal üyelik ile müşterilerinizden geri dönüşler alın. Şikayetleri anlık takip edip, çözümler üretin. Markanızı
       bir adım daha ileriye taşıyın.
     </p>
 
-    <button class="btn reveal-on-visible delay-4">
+    <button class="btn  ">
       <NuxtLink to="/marka-uyelik" class="text-dark">Birlikte Çalışalım</NuxtLink>
     </button>
   </section>

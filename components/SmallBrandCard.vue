@@ -2,8 +2,8 @@
   <div class="comparison border">
     <div class="brands">
       <div class="brand">
-        <img src="../static/apple.png" />
-        <b class="brand-name">Apple</b>
+        <img :src="logo" />
+        <b class="brand-name">{{brandName}}</b>
         <div class="stars">
           <img src="../static/star.svg" />
           <img src="../static/star.svg" />
@@ -18,7 +18,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props: {
+    brandName: String,
+    logo: String
+  }
+};
 </script>
 
 <style lang="scss" scoped>

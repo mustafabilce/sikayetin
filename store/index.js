@@ -8,6 +8,8 @@ export const state = () => ({
     popularCategories: [],
     popularBrands: [],
     popularComments: [],
+    toCompareFirstBrand: [],
+    toCompareSecondBrand: []
 })
 
 export const mutations = {
@@ -38,8 +40,11 @@ export const mutations = {
     setPopularBrands(state, popularBrands){
         state.popularBrands = popularBrands
     },
-    setPopularComments(state, popularComments){
-        state.popularComments = popularComments
+    setCompareFirstBrand(state, toCompareFirstBrand){
+        state.toCompareFirstBrand = toCompareFirstBrand
+    },
+    setCompareSecondBrand(state, toCompareSecondBrand){
+        state.toCompareSecondBrand = toCompareSecondBrand
     },
 }
 
@@ -67,5 +72,11 @@ export const actions = {
     },
     updatePopularComments({commit}, popularComments){
         commit('setPopularComments', popularComments);
+    },
+    updateCompareFirstBrand({commit}, toCompareFirstBrand){
+        commit('setCompareFirstBrand', toCompareFirstBrand);
+    },
+    updateCompareSecondBrand({commit}, toCompareSecondBrand){
+        commit('setCompareSecondBrand', toCompareSecondBrand);
     },
 }

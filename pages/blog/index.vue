@@ -284,7 +284,7 @@ section.content {
       </nav>
 
       <main v-if="!activeCategory">
-        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible" style="flex-direction: column">
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article " style="flex-direction: column">
           <img src="../../static/blog-placeholder.png" />
           <div class="d-flex flex-column justify-content-center" style="gap: 10px">
             <b style="font-size: 1.1em">Lorem Ipsum</b>
@@ -298,7 +298,7 @@ section.content {
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible">
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article ">
           <img src="../../static/blog-placeholder.png" />
           <div class="d-flex flex-column justify-content-center" style="gap: 10px">
             <b style="font-size: 1.1em">Lorem Ipsum</b>
@@ -312,7 +312,7 @@ section.content {
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible">
+        <NuxtLink to="/blog/Makale%20Başlığı" class="article ">
           <img src="../../static/blog-placeholder.png" />
           <div class="d-flex flex-column justify-content-center" style="gap: 10px">
             <b style="font-size: 1.1em">Lorem Ipsum</b>
@@ -337,7 +337,7 @@ section.content {
           </div>
 
           <div class="articles">
-            <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible" v-for="_ in 4" :key="_">
+            <NuxtLink to="/blog/Makale%20Başlığı" class="article " v-for="_ in 4" :key="_">
               <img src="../../static/blog-placeholder.png" />
               <b>Lorem Ipsum</b>
               <p>Facilisis bibendum risus, sit ac velit purus lectu</p>
@@ -355,7 +355,7 @@ section.content {
 
       <div class="article-group" v-else>
         <div class="articles">
-          <NuxtLink to="/blog/Makale%20Başlığı" class="article reveal-on-visible" v-for="_ in 4" :key="_">
+          <NuxtLink to="/blog/Makale%20Başlığı" class="article " v-for="_ in 4" :key="_">
             <img src="../../static/blog-placeholder.png" />
             <b>Lorem Ipsum {{ _ }}</b>
             <p>Facilisis bibendum risus, sit ac velit purus lectu</p>

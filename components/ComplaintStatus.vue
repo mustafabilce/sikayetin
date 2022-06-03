@@ -25,25 +25,31 @@
       </div>
       <div class="bottom-box pt-3">
         <div class="item">
-          <div class="btn btn-link btn-sm"><fa class="mr-1" :icon="['fas', 'thumbs-up']" /> Destekle</div>
+          <div class="btn btn-link btn-sm"><fa class="mr-1" :icon="['fas', 'thumbs-up']" /> Beğen</div>
         </div>
         <div class="item">
           <div class="btn btn-link btn-sm"><fa class="mr-1" :icon="['fas', 'comment']" /> Yorum Yap</div>
         </div>
         <div class="item">
-          <div class="btn btn-link btn-sm"><fa class="mr-1" :icon="['fas', 'share-nodes']" /></div>
+          <div class="btn btn-link btn-sm"><fa class="mr-1" :icon="['fas', 'bookmark']" />Takip Et</div>
         </div>
         <div class="item">
-          <div class="btn btn-link btn-sm"><fa class="mr-1" :icon="['fas', 'bookmark']" /></div>
+          <div class="btn btn-link btn-sm">
+            <a href="#" v-b-modal.complaint-share-modal><fa class="mr-1" :icon="['fas', 'share-nodes']" /></a>
+          </div>
         </div>
       </div>
       <button class="light-button mt-3 rounded d-block w-100">Benzer Şikayet Yaz</button>
     </div>
+    <Share />
   </div>
 </template>
 
 <script>
+import Share from './modals/Share.vue'
+
 export default {
+  components: { Share },
   data() {
     return {
       values: [33.3, 33.3, 33.3],
@@ -89,6 +95,9 @@ export default {
           color: #afb0b6;
           display: flex;
           align-items: center;
+          a{
+          color: #afb0b6;
+          }
           &:hover {
               text-decoration: none;
               border: none;

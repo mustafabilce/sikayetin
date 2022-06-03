@@ -519,10 +519,10 @@ header {
         </NuxtLink>
 
         <div id="primary_nav">
-          <NuxtLink class="reveal-on-visible" to="/kurumsal-uyelik" :class="{ active: active == 'kurumsal-uyelik' }"
+          <NuxtLink class="" to="/kurumsal-uyelik" :class="{ active: active == 'kurumsal-uyelik' }"
             >Marka Üyelik</NuxtLink
           >
-          <NuxtLink class="reveal-on-visible delay-1" to="/reklam-alanlari" :class="{ active: active == 'reklam-alanlari' }"
+          <NuxtLink class=" " to="/reklam-alanlari" :class="{ active: active == 'reklam-alanlari' }"
             >Reklam Alanları</NuxtLink
           >
         </div>
@@ -581,9 +581,9 @@ header {
             </b-dropdown>
           </div>
           <div v-else>
-            <a class="reveal-on-visible" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
+            <a class="" href="#" v-b-modal.login-modal><b>Giriş Yap</b></a>
           </div>
-          <a href="#" v-b-modal.register-modal class="reveal-on-visible delay-2 btn rounded-pill"><fa class="mr-2" :icon="['fas', 'user-check']" /> Kurumsal Üye</a>
+          <a href="#" v-b-modal.register-modal class="  btn rounded-pill"><fa class="mr-2" :icon="['fas', 'user-check']" /> Kurumsal Üye</a>
         </div>
 
         <BurgerMenu style="display: none;" />
@@ -596,19 +596,19 @@ header {
     <div v-if="full" id="landing">
       <div id="call_to_action">
         <h1>
-          <span class="reveal-on-visible" style="font-weight: 400"> Şikayet.in varsa </span>
+          <span class="" style="font-weight: 400"> Şikayet.in varsa </span>
           <br />
-          <span class="reveal-on-visible delay-1" style="font-weight: 600"> Çözüm de var! </span>
+          <span class=" " style="font-weight: 600"> Çözüm de var! </span>
         </h1>
 
         <div id="search">
-          <input class="reveal-on-visible delay-2" type="text" placeholder="Marka, model, ürün ara" />
-          <button class="btn reveal-on-visible delay-3">
+          <input class=" " type="text" placeholder="Marka, model, ürün ara" />
+          <button class="btn  ">
             <fa :icon="['fas', 'magnifying-glass']" />
           </button>
         </div>
 
-        <div id="banner" class="reveal-on-visible delay-1">
+        <div id="banner" class=" ">
           <img class="banner-img" src="../../static/banner1.png" v-show="bannerIndex == 0" />
           <img class="banner-img" src="../../static/banner2.png" v-show="bannerIndex == 1" />
           <img class="banner-img" src="../../static/banner3.png" v-show="bannerIndex == 2" />

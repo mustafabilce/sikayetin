@@ -108,35 +108,35 @@ section {
     />
 
     <div class="heading-circles">
-      <div class="circle circle-1 reveal-on-visible delay-1"></div>
-      <div class="circle circle-2 reveal-on-visible delay-3"></div>
-      <div class="circle circle-3 reveal-on-visible delay-5"></div>
+      <div class="circle circle-1  "></div>
+      <div class="circle circle-2  "></div>
+      <div class="circle circle-3  "></div>
     </div>
 
     <section class="row">
       <div class="col-lg-6 left d-flex flex-column align-items-center align-items-lg-start">
-        <h1 class="reveal-on-visible big-title">Contact us</h1>
+        <h1 class=" big-title">Contact us</h1>
 
-        <p class="reveal-on-visible delay-1 text-justify text-lg-left">
+        <p class="  text-justify text-lg-left">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis bibendum risus, sit ac velit purus
           lectuLorem ipsum dolor sit amet, consectetur
         </p>
 
-        <div class="contact-card mt-lg-3 reveal-on-visible delay-2">
+        <div class="contact-card mt-lg-3  ">
           <img src="../static/contact-mail.svg" />
           <div class="d-flex flex-column justify-content-between">
             <h4 class="heading m-0">E-Posta</h4>
             <a href="mailto:destek@sikayetvar.com">destek@sikayetvar.com</a>
           </div>
         </div>
-        <div class="contact-card reveal-on-visible delay-2">
+        <div class="contact-card  ">
           <img src="../static/contact-phone.svg" />
           <div class="d-flex flex-column justify-content-between">
             <h4 class="heading m-0">Telefon</h4>
             <a href="tel:03122194004">0 (312) 219 40 04</a>
           </div>
         </div>
-        <div class="contact-card reveal-on-visible delay-2">
+        <div class="contact-card  ">
           <img src="../static/contact-time.svg" />
           <div class="d-flex flex-column justify-content-between">
             <h4 class="heading m-0">Çalışma Saatleri</h4>
@@ -146,11 +146,11 @@ section {
       </div>
       <div class="col-lg-6 right p-0 pl-lg-5">
         <form class="m-lg-0 mt-5">
-          <input type="text" class="reveal-on-visible delay-1 form-control" placeholder="İsim" />
-          <input type="text" class="reveal-on-visible delay-2 form-control" placeholder="Soyisim" />
-          <input type="text" class="reveal-on-visible delay-3 form-control" placeholder="Konu Başlığı" />
-          <textarea class="reveal-on-visible delay-4 form-control" placeholder="Mesaj..."></textarea>
-          <button class="reveal-on-visible delay-4 btn btn-block">Gönder</button>
+          <input type="text" class="  form-control" placeholder="İsim" />
+          <input type="text" class="  form-control" placeholder="Soyisim" />
+          <input type="text" class="  form-control" placeholder="Konu Başlığı" />
+          <textarea class="  form-control" placeholder="Mesaj..."></textarea>
+          <button class="  btn btn-block">Gönder</button>
         </form>
       </div>
     </section>

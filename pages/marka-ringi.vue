@@ -134,7 +134,9 @@
         <BrandsComparisonForm />
         <span class="mx-4 small text-light">ile</span>
         <BrandsComparisonForm />
-        <button>Karşılaştır</button>
+        <NuxtLink :to="`/compare/${this.$store.state.toCompareFirstBrand.name}-vs-${this.$store.state.toCompareSecondBrand.name}`">
+          <button>Karşılaştır</button>
+        </NuxtLink>
       </div>
     </section>
 
@@ -166,7 +168,7 @@
             </div>
           </div>
 
-          <NuxtLink to="/marka-karsilastirma">
+          <NuxtLink to="/compare/Trendyol-vs-Amazon">
             <button class="btn compare-button rounded">Karşılaştır</button>
           </NuxtLink>
         </div>
@@ -178,27 +180,35 @@
 </template>
 
 <script>
-// import axios from 'axios';
-// import config from '../config';
+import axios from 'axios';
+import config from '../config';
+import { mapActions } from 'vuex';
 import Header from '~/components/Home/Header.vue';
 import Footer from '~/components/Footer.vue';
 import BrandsComparisonForm from '~/components/BrandsComparisonForm.vue';
 
 export default {
   components: { Header, Footer, BrandsComparisonForm },
-  // created() {
-  //   this.getUserInfo();
-  // },
-  // methods: {
-  //   getUserInfo() {
-  //     axios
-  //       .get(`${config.apiURL}/users/users/${this.$store.state.userID}`)
-  //       .then((response) => console.log(response.data))
-  //       .catch((error) => {
-  //         this.errors.push(error);
-  //       });
-  //   },
-  // },
+   created() {
+     this.getFirstBrand();
+     this.getSecondBrand();
+   },
+   methods: {
+    ...mapActions([
+      'updateCompareFirstBrand',
+      'updateCompareSecondBrand',
+    ]),
+    getFirstBrand() {
+      axios
+        .get(`${config.apiURL}/brands/all-brands/5d0e3b85-bf1f-4ce3-8028-8a11f8f4946e/`)
+        .then((response) => this.updateCompareFirstBrand(response.data));
+    },
+    getSecondBrand() {
+      axios
+        .get(`${config.apiURL}/brands/all-brands/1bcd2520-829d-4bfc-8ca1-38d3005c8d91/`)
+        .then((response) => this.updateCompareSecondBrand(response.data));
+    },
+   },
   async mounted() {
     $('#trending .inner .slides').slick({
       dots: false,

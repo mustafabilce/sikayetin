@@ -19,7 +19,7 @@
             <div class="icon-circle">
               <fa color="#6d95f0" :icon="['fas', 'plus']" />
             </div>
-            <b-link href="#" class="small">E-Postanı Doğrula</b-link>
+            <b-link href="#" class="small" v-b-modal.email-verification-modal>E-Postanı Doğrula</b-link>
           </div>
           <div class="item mx-auto justify-content-center">
             <div class="icon-circle">
@@ -42,11 +42,15 @@
         </div>
       </div>
     </div>
+    <Email />
   </div>
 </template>
 
 <script>
+import Email from '../modals/Profile/Email.vue'
+
 export default {
+  components: { Email, },
   data() {
     return {
       values: [25, 25, 25, 25],

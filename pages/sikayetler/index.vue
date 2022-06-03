@@ -315,7 +315,7 @@
       <div class="background"></div>
     </section>
 
-    <section id="all" >
+    <section id="all">
       <div class="row">
         <div class="col-12 mb-5">
           <div class="left d-flex flex-wrap align-items-center" style="gap: 20px">
@@ -323,7 +323,7 @@
             <span class="text-gray-2">{{ this.$store.state.allComplaints.length }} şikayet</span>
           </div>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-12" >
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
           <div
             class="heading d-flex align-items-center flex-wrap align-items-center justify-content-between"
             style="gap: 20px"
@@ -358,11 +358,6 @@
                 </div>
                 <div>
                   <b>{{ complaint.user.name }}</b>
-                  <br />
-                  <span style="white-space: nowrap">
-                    12.123&nbsp;
-                    <fa :icon="['fas', 'eye']" style="display: inline" />
-                  </span>
                 </div>
               </div>
 
@@ -372,9 +367,6 @@
                 <img class="mr-2" :src="complaint.brand.logo" />
                 <div>
                   <b>{{ complaint.brand.name }}</b>
-                  <div class="stars">
-                    <img src="../../static/star.svg" class="star" v-for="i in 5" :key="i" />
-                  </div>
                 </div>
               </div>
             </div>
